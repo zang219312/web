@@ -1,0 +1,6 @@
+<!--pages/public/ganggaoxq/ganggaoxq.wxml-->
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="智慧微秘" bg-style="background-color: #fa6d21"></navigation-bar>
+<import src="../../../lib/wxParse/wxParse.wxml"/>
+<view class="wxParse" style='padding-top:160rpx'>
+    <template is="wxParse" data="{{wxParseData:businessTalkInfo.nodes}}"/>
+</view>

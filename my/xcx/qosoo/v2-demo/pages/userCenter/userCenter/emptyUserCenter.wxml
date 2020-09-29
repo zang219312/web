@@ -1,0 +1,49 @@
+<!--<navigation-bar bindnavback="onnavback" enable="{{true}}" title="我的小秘书" bg-style="background-color: #fa6d21"></navigation-bar>
+<!--pages/userCenter/userInfo.wxml-->
+<view class="user_style" style='padding-top:0rpx;'>
+    <view class="user_style_box" bindtap="createCard">
+        <view class="user_avatar">
+            <image class='userImage' src="{{userAvatarUrl}}"></image>
+            <view class="user_nickname_text"><image class='userTypeImg' src='{{userAuthStatusImgPath}}'></image></view>
+            <p class="p1"> </p>
+            <p class="p1"> </p>
+        </view>
+        <view class="user_text">
+            <view class="user_nickname">
+                <view class="user_nickname_box"><view style='{{userCompanyAuthStatusBGColor}}'>注册</view><view class='userCompanyAuthStatus' style='{{userCompanyAuthStatusBGColor}}'>{{userCompanyAuthStatus}}</view></view>
+                <view class="user_nickname_phone">
+                    <view class="user_nickname_phone_box">
+                        <view><image src="/images/userCenter/phone@3x.png"/> </view>
+                        <view><image src="/images/userCenter/email@3x.png"/> </view>
+                    </view>
+
+                    <view class='QRCodeImageView'>
+                      <image class='QRCodeImage' src='/images/userCenter/code@3x.png'></image>
+                    </view>
+                </view>
+                <view class="user_nickname_phone_box">
+                    <view><image src="/images/userCenter/address@3x.png"/></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="user_text_other">
+        <view hidden="{{display_mobile}}">座机：</view>
+        <view hidden='{{display_wechat}}'>微信：</view>
+        <view hidden="{{display_website}}">网址：</view>
+        <view hidden="{{display_tax}}">发票：</view>
+    </view>
+</view>
+
+<!--
+<view class='spaceLineView'></view>
+  
+  <navigator url="/pages/userCenter/registration/registration" class='cellBGView'>
+		<view class='cellTitle'>企业智囊</view>
+		<view class='cellSubTitle'></view>
+	  <view>
+			<image class='cellNext' src="/images/public/icon_cellNext@3x.png"></image>
+		</view>
+	</navigator>
+  
+-->

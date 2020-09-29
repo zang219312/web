@@ -1,0 +1,98 @@
+<!--pages/pav/pav.wxml-->
+<view class="swiper-tab flex-h-c">
+  <view class="swiper-tab-list flex1 top_l">
+    <view class="list-tle {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav"> 照片</view>
+  </view>
+  <view class="swiper-tab-list flex1 top_r">
+    <view class="list-tle {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav"> 视频</view>
+  </view>
+</view>
+
+<!-- end .swiper-tab -->
+<view class="swiper-container">
+  <view hidden="{{currentTab!=0}}">
+    <view class="top"> {{title}}
+        <text wx:if="{{quantity_p==0 && quantity_v==0}}" class='top_left'>{{ge}} 个视频已上传</text>
+        <text wx:elif="{{quantity_p>0 && quantity_v>0}}" class='top_left'>{{ge}} /{{quantity_v}}</text>
+      <view wx:if="{{btn_v}}" class="choose" bindtap='choose_v'>选择</view>
+      <view wx:else class="choose" bindtap='choose_v'>返回</view>
+    </view>
+
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__input-box">
+                <view class="weui-uploader__input" bindtap="choosevideo"></view>
+              </view>
+              <view class="weui-uploader__files">
+                <block wx:for="{{list_v}}" wx:key="videoList" wx:for-item="video">
+                  <view class="weui-uploader__file" style='position:relative;'>
+                    <video id="myVideo" class="weui-uploader__img" src="{{video.v}}" bindtap='play' data-ids='{{index}}'></video>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+
+  <view hidden="{{currentTab!=1}}">
+    <view class="top"> {{title}}
+      <text wx:if="{{quantity_p==0 && quantity_v==0}}" class='top_left'>{{m}} 张已上传</text>
+      <text wx:elif="{{quantity_p>0 && quantity_v>0}}" class='top_left'>{{m}} /{{quantity_p}}</text>
+      <view wx:if="{{btn}}" class="choose" bindtap='choose'>选择</view>
+      <view wx:else class="choose" bindtap='choose'>返回</view>
+    </view>
+
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__input-box">
+
+                <view wx:if="{{quantity_p>0}}">
+                  <view wx:if="{{m<quantity_p}}" class="weui-uploader__input" bindtap="chooseImage"></view>
+                  <view wx:elif="{{m==quantity_p}}" class="weui-uploader__input"></view>
+                </view>
+                <view wx:elif="{{quantity_p==0}}" bindtap="chooseImage" class="weui-uploader__input"></view>
+              </view>
+              <view class="weui-uploader__files">
+                <block wx:for="{{list}}" wx:key="imageList" wx:for-item="image">
+                  <view class="weui-uploader__file" style='position:relative;'>
+                    <image class="weui-uploader__img" src="{{image.img}}" data-ids='{{index}}' bindtap="previewImage"></image>
+                    <view wx:if="{{icon_show}}">
+                      <icon wx:if="{{image.checked}}" type='success' color="#1aad19" class='qr_yes' size="20" data-index='{{index}}' bindtap="selectList"></icon>
+                      <icon wx:else type="circle" size="20" class='qr_yes' data-index='{{index}}' bindtap="selectList"></icon>
+                    </view>
+
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+<view wx:if="{{btn}}">
+  <view class="order-action tar clearfix">
+    <view bindtap="chooseImage" class="btn_l"> 继续上传</view>
+    <view bindtap="jiesuan" class="btn_r" style='font-weight:normal; border-left: 1px solid #dbdbdb;'>结\n\n算</view>
+  </view>
+</view>
+<view wx:else>
+  <view class="order-action tar clearfix">
+    <view bindtap="fanhui" class="btn_l"> 返 回</view>
+    <view wx:if="{{selectedLength>0}}" bindtap="delspan" class="btn_r">删 除</view>
+    <view wx:else class="btn_r">删 除</view>
+  </view>
+</view>

@@ -1,0 +1,44 @@
+<!--pages/category/category.wxml-->
+<view class="page page--has-footer">
+  <view class="pt pl fs-lg fw-600">{{name}}</view>
+
+  <view class="goods-list">
+    <block wx:for="{{goodsList}}" wx:key="category">
+      <view class="goods-item">
+        <!-- wx:if 是否选择显示不同图标  {{item.id > 1 ? 'disabled' : ''}} -->
+        <icon wx:if="{{item.checked}}" type="success" size="20" color="#1aad19" bindtap="selectList" data-index="{{index}}" />
+        <icon wx:else type="circle" size="20" bindtap="selectList" data-index="{{index}}" />
+        <view wx:if="{{item.put==1}}">
+          <navigator url="../goodsDetail/goodsDetail?id={{item.id}}&name={{name}}">
+            <image class="item-img" src="{{item.tit_pic}}"></image>
+            <view class="item-bd">
+              <view class="bd-tle text-truncate">{{item.name}}</view>
+              <view class="bd-price">{{item.price}}</view>
+            </view>
+            <view class="item-status">
+              <text>已售罄</text>
+            </view>
+          </navigator>
+        </view>
+
+      </view>
+    </block>
+  </view>
+</view>
+
+
+<view class="fixed-bottom">
+  <view class="actions-bottom flex-s-b flex-v-c">
+    <view bindtap="selectAll">
+      <!-- wx:if 是否全选显示不同图标 -->
+      <icon wx:if="{{selectAllStatus}}" type="success" size="20" color="#1aad19" />
+      <icon wx:else type="circle" size="20" />
+      <text class="ml-sm vam">全选</text>
+    </view>
+    <view>
+      <text>合计：￥{{m}}</text>
+      <view class="btn btn-primary ml {{selectedLength == 0 ? 'disabled' : ''}}" bindtap="viewPay" data-url="pay">加入购物车</view>
+    </view>
+  </view>
+</view>
+<!-- end .fixed-bottom -->

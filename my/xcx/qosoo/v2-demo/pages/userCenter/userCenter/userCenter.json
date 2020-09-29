@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#ff6f05",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "我的微秘",
+  "usingComponents": {
+    "navigation-bar": "miniprogram-navigation-bar"
+  },
+  "enablePullDownRefresh":true,
+      "navigationStyle": "default"
+}

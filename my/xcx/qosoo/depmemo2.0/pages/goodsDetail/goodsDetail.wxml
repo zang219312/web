@@ -1,0 +1,104 @@
+<!--pages/goodsDetail/goodsDetail.wxml-->
+<view class="page">
+  <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+    <block wx:for="{{imgurls}}" wx:key="banner">
+      <swiper-item>
+        <view>
+          <image src="{{item}}" class="slide-image banner-item" />
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- end .banner -->
+
+  <view class="goods-detail">
+    <view class="goods-info clearfix">
+      <view class="info-left fl">
+        <view class="info-tle">{{name}}</view>
+        <view class="info-price">￥{{price}}</view>
+      </view>
+      <view class="info-right fl">
+        <view>材质 {{material}}</view>
+        <view>规格 {{specifications}}</view>
+      </view>
+    </view>
+    <!-- end .goods-info -->
+
+
+    <view class="goods-mod flex-s-b">
+      <view class="mod-label">购买件数</view>
+      <view class="mod-con">
+        <view class="stepper">
+          <view class="stepper-action" bindtap="minusCount">-</view>
+          <view class='stepper-num'>{{num}}</view>
+          <view class="stepper-action" bindtap="addCount">+</view>
+        </view>
+      </view>
+    </view>
+    <!-- end .goods-mod -->
+
+
+    <view class="goods-mod flex-s-b">
+      <view class="mod-label">纸张</view>
+      <view class="mod-con">
+        <view class="sku-list">
+          <block wx:for="{{skuColorList}}" wx:key="id" wx:for-index="id">
+            <view class="sku-item {{currentColorItem==item.id?'active' : ''}}" data-id="{{item.id}}" bindtap="tabChooseColor">{{item.txt}}</view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <!-- end .goods-mod -->
+
+
+    <view class="goods-mod flex-s-b">
+      <view class='mod-label'>素材</view>
+      <view class="mod-con">
+        <view class="sku-list">
+
+
+
+          <view wx:if="{{the_category=='pic'}}" class="sku-item active">图片
+            <text wx:if="{{quantity_p>0}}">：{{quantity_p}}张</text>
+          </view>
+          <view wx:if="{{the_category=='video'}}" class="sku-item active">视频
+            <text wx:if="{{quantity_p>0}}">：{{quantity_p}}个</text>
+          </view>
+          <view wx:if="{{the_category=='pav'}}" class="sku-item active">图片视频
+            <text wx:if="{{quantity_p>0}}">：{{quantity_p}}个</text>
+          </view>
+          <view wx:if="{{the_category=='jiesuan'}}" class="sku-item active">结算
+          </view>
+
+
+
+
+        </view>
+      </view>
+    </view>
+
+
+    <view class="goods-action tar clearfix">
+      <view wx:if="{{the_category=='pic'}}">
+        <view bindtap="add_img" class="btn btn-primary">选择照片</view>
+      </view>
+      <view wx:elif="{{the_category=='video'}}">
+        <view bindtap="add_video" class="btn btn-primary">选择视频</view>
+      </view>
+      <view wx:elif="{{the_category=='pav'}}">
+        <view bindtap="add_pav" class="btn btn-primary">照片视频</view>
+      </view>
+      <view wx:else>
+        <view bindtap="add_jiesuan" class="btn btn-primary">结算</view>
+      </view>
+
+    </view>
+
+  </view>
+
+
+</view>
+
+<view wx:if="{{show}}" style=' position: fixed; width: 100%;  height: 100%;  top: 0px;  background: rgba(0, 0, 0, 0);  overflow: hidden;  z-index: 9999;'>
+    <view class="mask" catchtouchmove="preventTouchMove"></view>
+</view>

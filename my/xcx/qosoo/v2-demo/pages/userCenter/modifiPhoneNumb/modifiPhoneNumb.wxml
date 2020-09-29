@@ -1,0 +1,24 @@
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="修改手机号" bg-style="background-color: #fa6d21"></navigation-bar>
+<view style='padding-top:160rpx'>
+    <view class="form_item">
+        <view class="form_leber">原手机号</view>
+        <view class="form_label_content">{{oldPhoneNumb}}</view>
+
+    </view>
+
+   
+    <view class="form_item">
+        <view class="form_leber">验证码</view>
+        <input class="form_input" bindinput ="authCodeInput" type="text" placeholder="请输入验证码"/>
+        <view class="form_code">
+            <button class="form_code_btn" type="default" disabled="{{disabled}}" bindtap='getCode'>{{time}}</button>
+        </view>
+    </view>
+    
+    <view class="form_item">
+        <view class="form_leber">新手机号</view>
+        <input class="form_input" bindinput ="newPhoneNumbInput" type="text" placeholder="请输入新手机号"/>
+    </view>
+    <button class="fomr_post_btn" bindtap='modifyAction' type="buttom">确认修改</button>
+
+</view>

@@ -1,0 +1,511 @@
+/** flex布局 **/
+.flex {
+  display: flex;
+}
+
+.flex-h-c {
+  display: flex;
+  justify-content:center;
+}
+
+.flex-v-c {
+  display: flex;
+  align-items: center;
+}
+
+.flex-s-b {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flex2 {
+  flex: 2;
+}
+
+/** 栅格系统 **/
+.row {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.row.padded {
+  margin-left: -10rpx;
+  margin-right: -10rpx;
+}
+.row.padded [class*=col-xs-] {
+  padding: 10rpx;
+}
+
+.col-xs-12,
+.col-xs-11,
+.col-xs-10,
+.col-xs-9,
+.col-xs-8,
+.col-xs-7,
+.col-xs-6,
+.col-xs-5,
+.col-xs-4,
+.col-xs-3,
+.col-xs-2,
+.col-xs-1,
+.col-1-5 {
+  position: relative;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-xs-12 {
+  width: 100%;
+}
+
+.col-xs-11 {
+  width: 91.66667%;
+}
+
+.col-xs-10 {
+  width: 83.33333%;
+}
+
+.col-xs-9 {
+  width: 75%;
+}
+
+.col-xs-8 {
+  width: 66.66667%;
+}
+
+.col-xs-7 {
+  width: 58.33333%;
+}
+
+.col-xs-6 {
+  width: 50%;
+}
+
+.col-xs-5 {
+  width: 41.66667%;
+}
+
+.col-xs-4 {
+  width: 33.33333%;
+}
+
+.col-xs-3 {
+  width: 25%;
+}
+
+.col-xs-2 {
+  width: 16.66667%;
+}
+
+.col-xs-1 {
+  width: 8.33333%;
+}
+
+.col-1-5 {
+  width: 20%;
+}
+
+/** 内外边距 **/
+.mar {
+  margin: 15px !important;
+}
+
+.mar-xs {
+  margin: 5px !important;
+}
+
+.mar-sm {
+  margin: 10px !important;
+}
+
+.mar-lg {
+  margin: 20px !important;
+}
+
+.mar-xl {
+  margin: 30px !important;
+}
+
+.mt {
+  margin-top: 15px !important;
+}
+
+.mt-xs {
+  margin-top: 5px !important;
+}
+
+.mt-sm {
+  margin-top: 10px !important;
+}
+
+.mt-lg {
+  margin-top: 20px !important;
+}
+
+.mt-xl {
+  margin-top: 30px !important;
+}
+
+.mr {
+  margin-right: 15px !important;
+}
+
+.mr-xs {
+  margin-right: 5px !important;
+}
+
+.mr-sm {
+  margin-right: 10px !important;
+}
+
+.mr-lg {
+  margin-right: 20px !important;
+}
+
+.mr-xl {
+  margin-right: 30px !important;
+}
+
+.mb {
+  margin-bottom: 15px !important;
+}
+
+.mb-xs {
+  margin-bottom: 5px !important;
+}
+
+.mb-sm {
+  margin-bottom: 10px !important;
+}
+
+.mb-lg {
+  margin-bottom: 20px !important;
+}
+
+.mb-xl {
+  margin-bottom: 30px !important;
+}
+
+.ml {
+  margin-left: 15px !important;
+}
+
+.ml-xs {
+  margin-left: 5px !important;
+}
+
+.ml-sm {
+  margin-left: 10px !important;
+}
+
+.ml-lg {
+  margin-left: 20px !important;
+}
+
+.ml-xl {
+  margin-left: 30px !important;
+}
+
+.mlr {
+  margin-left: 15px !important;
+  margin-right: 15px !important;
+}
+
+.mlr-sm {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.mlr-lg {
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+.mtb-lg {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.pd0 {
+  padding: 0 !important;
+}
+
+.pd {
+  padding: 15px !important;
+}
+
+.pd-xs {
+  padding: 5px !important;
+}
+
+.pd-sm {
+  padding: 10px !important;
+}
+
+.pd-lg {
+  padding: 20px !important;
+}
+
+.pd-xl {
+  padding: 30px !important;
+}
+
+.pt {
+  padding-top: 15px !important;
+}
+
+.pt-xs {
+  padding-top: 5px !important;
+}
+
+.pt-sm {
+  padding-top: 10px !important;
+}
+
+.pt-lg {
+  padding-top: 20px !important;
+}
+
+.pt-xl {
+  padding-top: 30px !important;
+}
+
+.pr {
+  padding-right: 15px !important;
+}
+
+.pr-xs {
+  padding-right: 5px !important;
+}
+
+.pr-sm {
+  padding-right: 10px !important;
+}
+
+.pr-lg {
+  padding-right: 20px !important;
+}
+
+.pr-xl {
+  padding-right: 30px !important;
+}
+
+.pb {
+  padding-bottom: 15px !important;
+}
+
+.pb-xs {
+  padding-bottom: 5px !important;
+}
+
+.pb-sm {
+  padding-bottom: 10px !important;
+}
+
+.pb-lg {
+  padding-bottom: 20px !important;
+}
+
+.pb-xl {
+  padding-bottom: 30px !important;
+}
+
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.pl {
+  padding-left: 15px !important;
+}
+
+.pl-xs {
+  padding-left: 5px !important;
+}
+
+.pl-sm {
+  padding-left: 10px !important;
+}
+
+.pl-lg {
+  padding-left: 20px !important;
+}
+
+.pl-xl {
+  padding-left: 30px !important;
+}
+
+.plr {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.plr-xs {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+.plr-sm {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.plr-lg {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.plr-xl {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
+.ptb {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+
+.ptb-xs {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+.ptb-sm {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.ptb-lg {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.ptb-xl {
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
+
+/** 文本显示 **/
+.text-truncate {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/** 文本粗细 **/
+.fw-700 {
+  font-weight: 700 !important;
+}
+
+.fw-400 {
+  font-weight: 400 !important;
+}
+
+.fw-600 {
+  font-weight: 600 !important;
+}
+
+/** 文本颜色 **/
+.text-gray {
+  color: #666 !important;
+}
+
+.text-gray-light {
+  color: #999 !important;
+}
+
+/** 文本对齐 **/
+.tac {
+  text-align: center !important;
+}
+
+.tal {
+  text-align: left !important;
+}
+
+.tar {
+  text-align: right !important;
+}
+
+/** 文本大小 **/
+.fs-xs {
+  font-size: 12px !important;
+}
+
+.fs-md {
+  font-size: 16px !important;
+}
+
+.fs-lg {
+  font-size: 18px !important;
+}
+
+.fs-xl {
+  font-size: 24px !important;
+}
+
+.fs-xxl {
+  font-size: 32px !important;
+}
+
+.fs-xxxl {
+  font-size: 42px !important;
+}
+
+/** 浮动 **/
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix::before, .clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/** 固定定位 **/
+.fixed-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  bottom: 0;
+}
+
+/** 垂直对齐 **/
+.va {
+  font-size: 0;
+}
+
+.va::before {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  content: "";
+}
+
+.vam {
+  vertical-align: middle;
+}
+
+/** 遮罩层 **/
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4000;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+}

@@ -1,0 +1,419 @@
+/* ************** 公用样式部分 ********************* */
+page {
+  display: block;
+  min-height: 100%;
+  background-color: #f5f5f5;
+}
+/* cell样式 */
+.cellBGView{
+  display: flex;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #d2d2d2;
+  background-color: #fff;
+}
+.cellNext{
+  width: 14rpx;
+  height: 22rpx;
+  margin: 37rpx 31rpx;
+}
+.cellTitle{
+  width: 180rpx;
+  padding-left: 31rpx;
+  font-size: 31rpx;
+  color: #333;
+}
+.cellSubTitle{
+  flex: 1;
+  font-size:26rpx ;
+  text-align: right;
+  color: #666666;
+}
+/* 分割条 */
+.spaceLineView{
+  width: 100%;
+  height: 20rpx;
+  background-color: 20rpx;
+}
+
+
+/* ************** 公用样式部分 ********************* */
+.headerView{
+  display: flex;
+  background-color: white;
+  width: 100%;
+  height: 189rpx;
+}
+
+.userImageBGView{
+  width: 150rpx;
+  height: 100%;
+}
+
+.userImage{
+  
+  margin-top: 35rpx;
+  margin-left: 30rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border: 0 solid #ff0000;
+  border-radius: 60rpx;
+}
+
+.userNameBGView{
+  width: 500rpx;
+  height: 100%;
+}
+.userNameInfo{
+  margin-left: 35rpx;
+  height: 100%;
+}
+.userNameLabel{
+  margin-top: 20rpx;
+  height: 40rpx;
+  color: #666;
+  font-size: 32rpx;
+}
+.userTypeImg{
+  margin-left: 15rpx;
+  width: 29rpx;
+  height: 29rpx;
+}
+
+.userProfessionLabel{
+  margin-top: 15rpx;
+  height: 34rpx;
+  line-height: 32rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.userCompanyView{
+  margin-top: 15rpx;
+    width: 100%;
+}
+
+.userCompanyLabel{
+  display: inline-block;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  /* margin-top: 15rpx; */
+  color: #999;
+  width: 350rpx;
+  line-height: 38rpx;
+  font-size: 30rpx;
+}
+.userCompanyAuthStatus{
+  display: inline-block;
+  margin-left: 20rpx;
+  text-align: center;
+
+  border-radius: 6rpx;
+  color: white;
+  font-size: 24rpx;
+  width: 86rpx;
+}
+
+
+.QRCodeImageView{
+  display: inline-block;
+  width: 100rpx;
+  text-align: right;
+}
+
+.QRCodeImage{
+  margin-top: 24rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.weui-cells_after-title{
+  margin-top: 20rpx;
+}
+
+.weui-cell__bd{
+  font-size: 30rpx;
+  margin-left: 30rpx;
+}
+
+.logoutBGView{
+  background-color: #F4B340;
+  position:fixed;
+  bottom:0; 
+ }
+.logoutBtn{
+  border-radius: 0rpx;
+  width: 100%;
+  background-color: #F4B340;
+  position:fixed; 
+  bottom:0; 
+  color: #fff;
+  font-size: 30rpx;
+}
+/* 弹出框 */
+.coverView{
+  position:absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+  
+}
+.remindBGView{
+  background-color: #fff;
+  width: 446rpx;
+  height: 500rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  left:50%;
+  top:50%;
+  margin-left: -223rpx;
+  margin-top: -224rpx;
+  /* text-align: center; */
+}
+.remindTitle{
+  width: 60rpx;
+	line-height: 30rpx;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0rpx;
+	color: #ff6f05;
+  margin-left: 193rpx;
+  margin-top: 20rpx; 
+}
+.remindContent{
+  width: 383rpx;
+	height: 105rpx;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 30rpx;
+	letter-spacing: 0px;
+	color: #999999;
+  margin: 20rpx 30rpx;
+  text-align: center;
+}
+.lineView{
+  width: 100%;
+  height: 2rpx;
+  background-color: #f5f5f5;
+}
+.lineView_1{
+  margin-top: 30rpx;
+}
+.remindBtnTitle{
+  text-align: center;
+  margin-left: 133rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  width: 180rpx;
+	height: 36rpx;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 36rpx;
+	letter-spacing: 0px;
+	color: #ff6f05;
+}
+.remindBtnTitle_3{
+  color: #999;
+}
+
+.user_style {
+    margin: 10px 10px 16px 10px;
+    background-color: #FFF;
+    padding: 15px 10px;
+    border-radius: 5px;
+    border: 1px solid #ededed;
+    /*border: 1px dashed #ededed;*/
+    
+}
+
+.user_style_box {
+  margin-top: 5px;
+    width: 100%;
+    display: flex;
+    background-color: #FFF;
+    /*padding: 10px 2px;  */
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ededed;
+}
+
+.user_avatar {
+    width: 44%;
+}
+
+.user_avatar > .p1 {
+    font-size: 12px;
+    color: #999999;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_nickname_text {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+
+.user_nickname_text > image {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+
+.user_avatar > image {
+    width: 54px;
+    height: 54px;
+    display: block;
+    margin: 0 auto;
+}
+
+.user_text {
+    width: 100%;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.user_nickname {
+}
+
+.user_nickname_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.user_nickname_box > p {
+    font-size: 11px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid #ff6f05;
+    color: #ff6f05;
+    margin-left: 10px;
+
+
+}
+
+
+.user_code {
+    width: 20px;
+    height: 20px;
+}
+
+.user_position {
+    font-size: 12px;
+    color: #999999;
+    margin-top: 10px;
+}
+
+.user_company {
+    font-size: 12px;
+    color: #999999;
+    display: flex;
+    align-items: center;
+}
+
+.user_company > p {
+    padding: 3px 5px;
+    background-color: #ff6f05;
+    border-radius: 3px;
+    color: #FFF;
+    margin-left: 10px;
+}
+
+.user_nickname_phone {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.user_nickname_phone > image {
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+}
+
+.user_nickname_phone_box {
+
+}
+
+.user_nickname_phone_box > view {
+    display: flex;
+    font-size: 12px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.user_nickname_phone_box > view > image {
+    display: block;
+    width: 11px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+.user_text_other {
+    width: 100%;
+    font-size: 12px;
+    color: #999999;
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user_text_other > view {
+    height: 25px;
+    align-items: center;
+    width: 100%;
+}
+
+.user_text_other > div > p {
+    width: 100%;
+}
+
+.user_text_other > p {
+    height: 25px;
+    line-height: 25px;
+}
+.user_banner{
+    margin: 10px;
+    background-color: #FFF;
+}
+.user_banner>img{
+    width: 100%;
+}
+.user_banner_text{
+    display: flex;
+    height:46px;
+    padding: 0 10px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+}
+.user_banner_btn{
+    display: flex;
+    align-items: center;
+}
+.user_banner_btn>img{
+    width: 20px;
+    display: block;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.headerBGImg{
+  padding: 30rpx;
+  width: 90%;
+  height: 100%;
+}

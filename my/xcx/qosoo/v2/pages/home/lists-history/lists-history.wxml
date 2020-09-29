@@ -1,0 +1,134 @@
+
+<navBar title='{{title}}' back="{{true}}" home="{{false}}"  bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<!-- <view class='home_nav'>
+  <image class='scanicon' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/home/head.png"></image>
+  <view bindtap='handleGoBack'>{{title}}</view>
+</view> -->
+
+<view class='lists' style='padding-top:0;'>
+  <block wx:if='{{listType ==1}}}'>
+  <view class='lists-item' wx:for='{{exhibitionlist}}' wx:key='{{index}}' bindtap="toDetail" data-id="{{item.id}}">
+    <view class='item-date'>{{item.create}}</view>
+    <view class='lists-item-info'>
+        <view class='item-image'>
+          <image src="{{item.titleImg}}"></image>
+        </view>
+        <view class='item-bottom'>
+          <view class='item-bottom-follow'>
+              <!-- <view wx:if='{{item.focus==0}}'  class="focused">关注</view>
+              <view wx:else>关注</view> -->
+              
+                  <view>{{item.title}}</view>
+                  <!-- <view wx:if='{{listType ==1}}'>{{item.start}}-{{item.end}}</view> -->
+                  <!-- 会议-->
+                  <!-- <block wx:if='{{listType ==2}}'> -->
+                    <view class='meeting'>时间：{{item.start}}-{{item.end}}</view>
+                    <view class='meeting'>地点：{{item.address}}</view>
+                  <!-- </block>  -->
+                  <view catchtap="goMap" class="map" data-id="{{item.id}}">
+                <image src='https://file.qosoo.cn/files/20191021/home/1.png'></image>
+                地图
+              </view>
+              
+          </view>
+          <view class='item-bottom-info'>
+          <view wx:if='{{item.focus==0}}'  catchtap="focusItem" data-id="{{item.id}}" data-bindex='{{bindex}}'>关注</view>
+              <view wx:else  catchtap="focusItem" data-id="{{item.id}}" class="focused" data-bindex='{{bindex}}'>关注</view>
+              <!-- <view catchtap="goMap" data-id="{{item.id}}">
+                <image src='/images/home/1.png'></image>
+                展馆地图
+              </view> -->
+              <view wx:if='{{item.join ==0}}'>
+                <!-- <image src='/images/home/2.png'></image> -->
+                报名
+              </view>
+               <view wx:if='{{item.join ==1}}' class="focused">
+                <!-- <image src='/images/home/4.png'></image> -->
+                已报名
+              </view>
+              <view wx:if='{{item.join ==2}}'>
+                <!-- <image src='/images/home/2.png'></image> -->
+                待审核
+              </view>
+              <view wx:if='{{item.join ==3}}'>
+                <!-- <image src='/images/home/2.png'></image> -->
+                拒绝
+              </view>
+              <view wx:if='{{item.join ==4}}'>
+                <!-- <image src='/images/home/2.png'></image> -->
+                黑名单
+              </view>
+              <view wx:if='{{item.sign ==0}}'>
+                <!-- <image src='/images/home/3.png'></image> -->
+                签到
+              </view>
+              <view wx:if='{{item.sign ==1}}' class="focused">
+                <!-- <image src='/images/home/5.png'></image> -->
+                已签到
+              </view>
+          </view>
+        </view>
+    </view>
+  </view>
+  </block>
+  <block wx:if='{{listType ==2}}}'>
+  <view class='lists-item' wx:for='{{meetlist}}' wx:key='{{index}}' bindtap="toDetail" data-id="{{item.id}}">
+    <view class='item-date'>{{item.create}}</view>
+    <view class='lists-item-info'>
+        <view class='item-image'>
+          <image src="{{item.titleImg}}"></image>
+        </view>
+        <view class='item-bottom'>
+          <view class='item-bottom-follow'>
+              <!-- <view wx:if='{{item.focus==0}}'  class="focused">关注</view>
+              <view wx:else >关注</view> -->
+              
+                  <view>{{item.title}}</view>
+                  <!-- <view wx:if='{{listType ==1}}'>{{item.start}}-{{item.end}}</view> -->
+                  <!-- 会议-->
+                  <!-- <block wx:if='{{listType ==2}}'> -->
+                    <view class='meeting'>时间：{{item.start}}-{{item.end}}</view>
+                    <view class='meeting'>地点：{{item.address}}</view>
+                  <!-- </block>  -->
+                  
+             
+          </view>
+          <view class='item-bottom-info'>
+              <view wx:if='{{item.focus==0}}'  catchtap="focusItem" data-id="{{item.id}}" data-bindex='{{bindex}}'>关注</view>
+              <view wx:else  catchtap="focusItem" data-id="{{item.id}}" class="focused" data-bindex='{{bindex}}'>关注</view>
+              <view wx:if='{{item.join ==0}}'>
+                <!-- <image src='/images/home/2.png'></image> -->
+                报名
+              </view>
+               <view wx:if='{{item.join ==1}}' class="focused">
+                <!-- <image src='/images/home/4.png'></image> -->
+                已报名
+              </view>
+              <view wx:if='{{item.join ==2}}'>
+                <!-- <image src='/images/home/2.png'></image> -->
+                待审核
+              </view>
+              <view wx:if='{{item.join ==3}}'>
+                <!-- <image src='/images/home/2.png'></image> -->
+                拒绝
+              </view>
+              <view wx:if='{{item.join ==4}}'>
+                <!-- <image src='/images/home/2.png'></image> -->
+                黑名单
+              </view>
+              <view wx:if='{{item.sign ==0}}'>
+                <!-- <image src='/images/home/3.png'></image> -->
+                签到
+              </view>
+              <view wx:if='{{item.sign ==1}}' class="focused">
+                <!-- <image src='/images/home/5.png' class="focused"></image> -->
+                已签到
+              </view>
+          </view>
+        </view>
+    </view>
+  </view>
+  </block>
+</view>
+

@@ -1,0 +1,22 @@
+@import '../focusMore/focusMore.wxss';
+.articleCell_publicTime{
+  text-align: left;
+  width: 150rpx;
+  margin-left: 0;
+}
+.articleCell_BG_left_top {
+  /* overflow: hidden;
+  height: auto;
+  display: block;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2; */
+
+}
+.articleCell_BG_right {
+  align-self: auto 
+}
+.recommendSign{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 2em;
+}

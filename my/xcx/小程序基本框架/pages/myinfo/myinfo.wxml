@@ -1,0 +1,113 @@
+<!--pages/myinfo/myinfo.wxml-->
+<view class='box'>
+  <view class='topbox'>
+    <view class="cu-avatar xl round" style='background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg);width:100rpx;height:100rpx;'>
+    </view>
+    <view class="pd1">走过的路脚知道</view>
+  </view>
+  <view class="settingbox">
+    <text class="cuIcon-settingsfill text-white"></text>
+  </view>
+</view>
+<view class='cu-list menu card-menu' style='margin:0 20rpx 20rpx 20rpx;'>
+  <view class='cu-list grid messageList solidbottom topbar'>
+    <view>我的订单</view>
+    <view class='swp'>
+      <text>全部订单</text>
+      <text class='cuIcon-right text-gray'></text>
+    </view>
+  </view>
+  <view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}" style='margin-top:0;'>
+    <view class="cu-item" wx:for="{{myinfoiconList}}" wx:key wx:if="{{index<gridCol*2}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+        <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+          <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+        </view>
+        <view class="cu-tag gif" wx:if="{{item.gif}}">
+          <image src='{{item.gif}}'></image>
+        </view>
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</view>
+<view class='cu-list menu card-menu' style='margin:0 20rpx 20rpx 20rpx;'>
+  <view class="cu-list grid  messageNav" style='margin-top:0;'>
+    <view class="messageList" bindtap="myMessage">
+      <view class="cu-bar1" style='width:65%;'>
+        <image src='../../image/gongfu.gif'></image>
+        <view style='display:inline-flex;'>
+          <view style='padding:0 10rpx 0 20rpx;font-size:26rpx;'>219 金币</view>
+          <view class="cu-tag line-red pd">约 2.19元</view>
+        </view>
+      </view>
+      <view class='messageLine'></view>
+      <view class="cu-bar1" style='width:35%;padding-left:20rpx;font-size:26rpx;'>0元
+        <text class='cu-tag1 round text-green'>提现</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-list menu sm-border card-menu margin-top" style='margin-top:15rpx;'>
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="cuIcon-rechargefill text-red"></text>
+      <text class="text-grey">金币管理</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="cuIcon-btn text-olive"></text>
+      <text class="text-grey">优惠卷</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="cuIcon-noticefill text-orange"></text>
+      <text class="text-grey">消息</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="cuIcon-locationfill text-pink"></text>
+      <text class="text-grey">收货地址</text>
+    </view>
+    <!-- <view class="action">
+        <view class="cu-avatar-group">
+          <view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10004.jpg);"></view>
+          <view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10003.jpg);"></view>
+          <view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10002.jpg);"></view>
+          <view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+        </view>
+        <text class="text-grey text-sm">4 人</text>
+      </view> -->
+  </view>
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="cuIcon-roundaddfill text-orange"></text>
+      <text class="text-grey">我发布的</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="cuIcon-attentionfill text-blue"></text>
+      <text class="text-grey">我看过的</text>
+    </view>
+    <!-- <view class="action">
+        <button class="cu-btn round bg-green shadow">
+          <text class="cuIcon-upload"></text> 上传</button>
+      </view> -->
+  </view>
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="cuIcon-edit text-red"></text>
+      <text class="text-grey">意见反馈</text>
+    </view>
+    <!-- <view class="action">
+        <view class="cu-tag round bg-orange light">音乐</view>
+        <view class="cu-tag round bg-olive light">电影</view>
+        <view class="cu-tag round bg-blue light">旅行</view>
+      </view> -->
+  </view>
+</view>
+<view class='margin_bottom'></view>

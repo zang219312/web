@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#ff6f05",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "公司认证",
+  "usingComponents": {
+    "navigation-bar": "miniprogram-navigation-bar"
+  }
+}

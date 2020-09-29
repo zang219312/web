@@ -1,0 +1,41 @@
+/* 导航栏 */
+
+.home_nav {
+  height: 133.7rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.home_nav  .scanicon {
+  width: 22rpx;
+  height: 38rpx;
+  margin-top: 81rpx;
+  margin-left: 42rpx;
+  z-index: 9;
+}
+
+.home_nav  image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.home_nav view{
+  width: 130rpx;
+  font-size: 32rpx;
+  color:#fff;
+  margin-top: 76rpx;
+  margin-left: 310rpx;
+  position: absolute;
+  
+}
+
+.home_nav  .head_bg_img {
+  width: 100%;
+  height: 137.7rpx; /* 64px*/
+}
+
+/* 导航栏 */

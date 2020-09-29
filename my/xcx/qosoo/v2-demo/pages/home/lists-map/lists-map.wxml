@@ -1,0 +1,17 @@
+<!--pages/home/lists-map/lists-map.wxml-->
+<view class='home_nav'>
+  <view  class='home_nav_title' bindtap="back"><image src="https://file.qosoo.cn/files/20191021/public/left.png"></image>{{title}}</view>
+</view>
+<view style='padding-top:150rpx;' class='map-top'>
+{{info.title}}
+</view>
+<view class='map-list' wx:if='{{info.img1}}' bindtap="seeImg" data-img="{{info.img1}}">
+    <view class=''>
+        <image src='{{info.img1}}'  mode="aspectFit"></image>
+    </view>
+</view>
+<view class='map-list' wx:if='{{info.img2}}' bindtap="seeImg" data-img="{{info.img2}}">
+    <view class=''>
+        <image src='{{info.img2}}'  mode="aspectFit"></image>
+    </view>
+</view>

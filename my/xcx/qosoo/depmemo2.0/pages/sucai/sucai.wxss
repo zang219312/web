@@ -1,0 +1,19 @@
+/* pages/sucai/sucai.wxss */
+
+.mod-img {
+  width: 100%;
+  height: 300rpx;
+}
+
+.mod-image {
+  width: 100%;
+  height: 300rpx;
+}
+
+.mod-item {
+  width: 45%;
+  float: left;
+  margin-left: 25rpx;
+  margin-top: 40rpx;
+  position: relative;
+}

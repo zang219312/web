@@ -1,0 +1,224 @@
+/* ************** 公用样式部分 ********************* */
+page {
+  display: block;
+  min-height: 100%;
+  background-color: #f5f5f5;
+}
+/* cell样式 */
+.cellBGView{
+  display: flex;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #d2d2d2;
+  background-color: #fff;
+}
+.cellNext{
+  width: 14rpx;
+  height: 22rpx;
+  margin: 37rpx 31rpx;
+}
+.cellTitle{
+  width: 160rpx;
+  padding-left: 31rpx;
+  font-size: 31rpx;
+  color: #333;
+}
+.cellSubTitle{
+  flex: 1;
+  font-size:26rpx ;
+  text-align: right;
+  color: #666666;
+}
+/* 分割条 */
+.spaceLineView{
+  width: 100%;
+  height: 20rpx;
+  background-color: 20rpx;
+}
+
+
+/* ************** 公用样式部分 ********************* */
+.headerView{
+  display: flex;
+  background-color: white;
+  width: 100%;
+  height: 189rpx;
+}
+
+.userImageBGView{
+  width: 150rpx;
+  height: 100%;
+}
+
+.userImage{
+  
+  margin-top: 35rpx;
+  margin-left: 30rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border: 0 solid #ff0000;
+  border-radius: 60rpx;
+}
+
+.userNameBGView{
+  width: 500rpx;
+  height: 100%;
+}
+.userNameInfo{
+  margin-left: 35rpx;
+  height: 100%;
+}
+.userNameLabel{
+  margin-top: 20rpx;
+  height: 40rpx;
+  color: #666;
+  font-size: 32rpx;
+}
+.userTypeImg{
+  margin-left: 15rpx;
+  width: 29rpx;
+  height: 29rpx;
+}
+
+.userProfessionLabel{
+  margin-top: 15rpx;
+  height: 34rpx;
+  line-height: 32rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.userCompanyView{
+  margin-top: 15rpx;
+    width: 100%;
+}
+
+.userCompanyLabel{
+  display: inline-block;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  /* margin-top: 15rpx; */
+  color: #999;
+  width: 350rpx;
+  line-height: 38rpx;
+  font-size: 30rpx;
+}
+.userCompanyAuthStatus{
+  display: inline-block;
+  margin-left: 20rpx;
+  text-align: center;
+
+  border-radius: 6rpx;
+  color: white;
+  font-size: 24rpx;
+  width: 86rpx;
+}
+
+
+.QRCodeImageView{
+  display: inline-block;
+  width: 100rpx;
+  text-align: right;
+}
+
+.QRCodeImage{
+  margin-top: 34rpx;
+  margin-right: 30rpx;
+  width: 43rpx;
+  height: 43rpx;
+}
+
+.weui-cells_after-title{
+  margin-top: 20rpx;
+}
+
+.weui-cell__bd{
+  font-size: 30rpx;
+  margin-left: 30rpx;
+}
+
+.logoutBGView{
+  background-color: #F4B340;
+  position:fixed;
+  bottom:0; 
+ }
+.logoutBtn{
+  border-radius: 0rpx;
+  width: 100%;
+  background-color: #F4B340;
+  position:fixed; 
+  bottom:0; 
+  color: #fff;
+  font-size: 30rpx;
+}
+/* 弹出框 */
+.coverView{
+  position:absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+  
+}
+.remindBGView{
+  background-color: #fff;
+  width: 446rpx;
+  height: 500rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  left:50%;
+  top:50%;
+  margin-left: -223rpx;
+  margin-top: -224rpx;
+  /* text-align: center; */
+}
+.remindTitle{
+  width: 60rpx;
+	line-height: 30rpx;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0rpx;
+	color: #ff6f05;
+  margin-left: 193rpx;
+  margin-top: 20rpx; 
+}
+.remindContent{
+  width: 383rpx;
+	height: 105rpx;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 30rpx;
+	letter-spacing: 0px;
+	color: #999999;
+  margin: 20rpx 30rpx;
+  text-align: center;
+}
+.lineView{
+  width: 100%;
+  height: 2rpx;
+  background-color: #f5f5f5;
+}
+.lineView_1{
+  margin-top: 30rpx;
+}
+.remindBtnTitle{
+  text-align: center;
+  margin-left: 133rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  width: 180rpx;
+	height: 36rpx;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 36rpx;
+	letter-spacing: 0px;
+	color: #ff6f05;
+}
+.remindBtnTitle_3{
+  color: #999;
+}

@@ -1,0 +1,20 @@
+<!--pages/proframe/proframe.wxml-->
+<view style='width: 100%; text-align: center; height: 112rpx; line-height: 112rpx; font-size: 32rpx; background-color: #FFFFFF;'>请选择截屏</view>
+<view style="width: 100%; height: 100%;">
+  <view wx:for="{{list}}" class='divimg' wx:key="gream">
+    <icon wx:if="{{item.checked}}" type='success' color="#1aad19" class='qr_yes' size="20" data-index='{{index}}' bindtap="selectList"></icon>
+    <icon wx:else type="circle" size="20" class='qr_yes' data-index='{{index}}' bindtap="selectList"></icon>
+
+    <image src="{{item.img}}" style='width:{{item.img_w}}px;height:{{item.img_h}}px;left:{{item.L}}px;top:{{item.T}}px;' data-index='{{index}}'></image>
+
+  </view>
+</view>
+
+
+
+<view class="order-action tar clearfix">
+  <view bindtap="choosevideo" class="btn_l"> 重选视频</view>
+  <view class='text_r' bindtap='huan'>更换截屏</view>
+
+  <view bindtap="queren" class="btn_r" style='font-weight:normal; border-left: 1px solid #dbdbdb;'>确 认</view>
+</view>

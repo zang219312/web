@@ -1,0 +1,29 @@
+<!--pages/call/vip.wxml-->
+<!-- <view class='home_nav' >
+  <image class='scanicon'  bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/home/head.png"></image>
+  <view bindtap='handleGoBack'>会员权益</view>
+</view> -->
+<navBar title='会员权益' back="{{true}}" home="{{false}}"  bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<image src="{{bannerImg}}" class="vip-top"></image>
+<view class="vip-level">
+ 会员权益 超值专享
+</view>
+<view class="card-list">
+  <view class="vip-card" wx:for='{{lists}}'  wx:key='{{index}}'>
+    <image src='{{item.pic}}'></image>
+    <view class="card-info">
+      <view class="card-price">
+          <view class="price-befor">￥{{item.price}}</view>
+          <view class="price-now">￥{{item.sellPrice}}</view>
+      </view>
+      <view class="buy" bindtap="buyVip" data-id="{{item.id}}">购买会员权益</view>
+    </view>
+  </view>
+</view>
+<view class="bottom">
+    <view>说明：</view>
+    <view class="bottom-left">当日可享45次免费电话权益</view>
+    <view class="bottom-left">成为会员视同接受《智慧微秘智能电话协议》</view>
+    <view class="bottom-left">企搜（杭州）信息网络技术有限公司拥有最终解释权</view>
+</view>

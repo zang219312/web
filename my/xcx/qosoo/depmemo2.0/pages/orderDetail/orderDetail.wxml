@@ -1,0 +1,234 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="cart" wx:if="{{com==1}}">
+    <view class='order_process'>
+        <!-- 物流进度-->
+        <view class='process_wrap' wx:for="{{processData}}" wx:key="process">
+            <view class='process'>
+                <view class='process_line' style="background:{{item.start}}"></view>
+                <image class='process_icon' src="{{item.icon}}"></image>
+                <view class='process_line' style="background:{{item.end}}"></view>
+            </view>
+            <text class='process_name'>{{item.name}}</text>
+        </view>
+    </view>
+
+    <view class="order-address cartlist" style='position: relative;padding-bottom:30rpx;'>
+        <view class="fw-700">物流信息</view>
+        <view class="text-gray-light">{{wuliu}}</view>
+        <view class="icon-jt">
+            <image src="../../images/icon-jt.png" class="iconjtimg"></image>
+        </view>
+    </view>
+
+    <view class="order-address cartlist" style='position: relative;padding:10rpx;padding-bottom:40rpx;'>
+        <view class="fw-700">收货地址</view>
+        <view class="text-gray-light">{{add}}</view>
+        <view class="icon-jt">
+            <image src="../../images/icon-jt.png" class="iconjtimg"></image>
+        </view>
+    </view>
+
+    <block wx:for="{{order}}" wx:key="order">
+        <view class='cartlist' wx:if="{{count>1}}" style='position: relative;padding:10rpx;padding-bottom:40rpx;'>
+            <view class="cart-item flex-v-c" wx:for="{{item.tit}}" wx:for-item='ss' wx:key="duo">
+                <view class="flex flex1" bindtap='tz' data-com="{{item.com}}" data-orderid='{{item.orderid}}'
+                      data-the_category='{{item.the_category[index]}}' data-tit='{{ss}}'
+                      data-imgurl='{{item.imgurl[index]}}' data-spid='{{item.spid[index]}}'
+                      data-quantity_p='{{item.quantity_p[index]}}' data-quantity_v='{{item.quantity_v[index]}}'
+                      data-scid='{{item.scid[index]}}' data-price='{{item.price[index]}}' data-num="{{item.num}}"
+                      hover-class="none"
+                      hidden="{{isEdit}}">
+                    <view wx:if="{{item.the_category[index]=='pic'}}" class="item-bd flex1">
+                        <view class="text-truncate"> {{ss}}</view>
+                        <view wx:if="{{item.quantity_p[index]==0}}">{{item.zhang[index]}}张照片已上传</view>
+                        <view wx:elif="{{item.quantity_p[index]>0}}">
+                            {{item.zhang[index]}}/{{item.quantity_p[index]}}张图片
+                        </view>
+                    </view>
+                    <view wx:elif="{{item.the_category[index]=='video'}}" class="item-bd flex1">
+                        <view class="text-truncate"> {{ss}}</view>
+                        <view wx:if="{{item.quantity_v[index]==0}}">{{item.ge[index]}}个视频已上传</view>
+                        <view wx:else>{{item.ge[index]}}/{{item.quantity_v[index]}}个视频</view>
+                    </view>
+                    <view wx:elif="{{item.the_category[index]=='pav'}} " class="item-bd flex1">
+                        <view class="text-truncate"> {{ss}}</view>
+                        <view wx:if="{{item.quantity_v[index]==0 && item.quantity_p[index]==0}}">
+                            <view>照片已上传{{item.zhang[index]}}张</view>
+                            <view>视频已上传{{ge}}个</view>
+                        </view>
+                        <view wx:elif="{{item.quantity_v[index]>0 && item.quantity_p[index]>0}}">
+                            <view>{{item.zhang[index]}}/{{item.quantity_p[index]}}张照片</view>
+                            <view>{{ge}}/{{item.quantity_v[index]}}个视频</view>
+                        </view>
+                    </view>
+
+                    <view class='add_border'>
+                        <image wx:if="{{item.quantity_p[index]==0 && item.quantity_v[index]==0}}" class="item-img" src='{{item.img[index]}}'></image>
+                        <image wx:else class="item-img" src='../../images/add.png'></image>
+                    </view>
+                </view>
+            </view>
+            <!-- 完成状态 -->
+            <view class="mt">
+                <text class="fw-700">实付金额：</text>
+                <view class="fr text-primary">￥{{item.total}}元</view>
+
+            </view>
+        </view>
+        <view class='cartlist' wx:else style='position: relative;padding:10rpx;padding-bottom:40rpx;'>
+            <view class="cart-item flex-v-c">
+                <view class="flex flex1" bindtap='tz' data-com="{{item.com}}" data-the_category='{{item.the_category}}'
+                      data-tit='{{item.tit}}' data-orderid='{{item.orderid}}'
+                      data-imgurl='{{item.imgurl}}' data-spid='{{item.spid}}' data-quantity_p='{{item.quantity_p}}'
+                      data-quantity_v='{{item.quantity_v}}' data-scid='{{item.scid}}'
+                      data-price='{{item.price}}' data-num="{{item.num}}" hover-class="none" hidden="{{isEdit}}">
+                    <view class="item-bd flex1" wx:if="{{item.the_category=='pic'}}">
+                        <view class="text-truncate"> {{item.tit}}</view>
+                        <view wx:if="{{item.quantity_p==0}}">{{item.zhang}}张照片已上传</view>
+                        <view wx:elif="{{item.quantity_p>0}}">{{item.zhang}}/{{item.quantity_p}}张图片</view>
+                    </view>
+                    <view wx:elif="{{item.the_category=='video'}}" class="item-bd flex1">
+                        <view class="text-truncate"> {{item.tit}}</view>
+                        <view wx:if="{{item.quantity_v==0}}">{{item.ge}}个视频已上传</view>
+                        <view wx:else>{{item.ge}}/{{item.quantity_v}}个视频</view>
+                    </view>
+                    <view wx:elif="{{item.the_category=='pav'}}" class="item-bd flex1">
+                        <view class="text-truncate"> {{item.tit}}</view>
+                        <view wx:if="{{item.quantity_v==0 && item.quantity_p==0 }}">
+                            <view>照片已上传{{item.zhang}}张</view>
+                            <view>视频已上传{{ge}}个</view>
+                        </view>
+                        <view wx:elif="{{item.quantity_v>0 && item.quantity_p>0}}">
+                            <view>{{item.zhang}}/{{item.quantity_p}}张照片</view>
+                            <view>{{ge}}/{{item.quantity_v}}个视频</view>
+                        </view>
+                    </view>
+                    <view class='add_border'>
+                        <image wx:if="{{item.quantity_p==0 && item.quantity_v==0}}" class="item-img" src='{{item.img}}'></image>
+                        <image wx:else class="item-img" src='../../images/add.png'></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+
+    <view class="mt">
+        <text class="fw-700">订单编号</text>
+        <view class="fr text-primary">{{id}}</view>
+    </view>
+
+    <view class="mt">
+        <text class="fw-700">付款时间</text>
+        <view class="fr text-primary">{{time}}</view>
+    </view>
+
+</view>
+
+<view class="cart" wx:else>
+    <!--未完成订单-->
+    <block wx:for="{{order}}" wx:key="order">
+        <view class='cartlist' wx:if="{{count>1}}" style='position: relative;padding:10rpx;padding-bottom:40rpx;'>
+            <view class="cart-item flex-v-c" wx:for="{{item.tit}}" wx:for-item='ss' wx:key="duo">
+                <view class="flex flex1" bindtap='tz' data-com="{{item.com}}" data-the_category='{{item.the_category[index]}}' data-tit='{{ss}}'
+                      data-imgurl='{{item.imgurl[index]}}' data-spid='{{item.spid[index]}}'
+                      data-quantity_p='{{item.quantity_p[index]}}' data-quantity_v='{{item.quantity_v[index]}}'
+                      data-scid='{{item.scid[index]}}' data-price='{{item.price[index]}}' data-num="{{item.num}}"
+                      hover-class="none"
+                      hidden="{{isEdit}}">
+                    <view class="item-bd flex1" wx:if="{{item.the_category[index]=='pic'}}">
+                        <view class="text-truncate"> {{ss}}</view>
+                        <view wx:if="{{item.quantity_p[index]==0}}">{{item.zhang[index]}}张照片已上传</view>
+                        <view wx:elif="{{item.quantity_p[index]>0}}">
+                            {{item.zhang[index]}}/{{item.quantity_p[index]}}张图片
+                        </view>
+                    </view>
+                    <view wx:elif="{{item.the_category[index]=='video'}}" class="item-bd flex1">
+                        <view class="text-truncate"> {{ss}}</view>
+                        <view wx:if="{{item.quantity_v[index]==0}}">{{item.ge[index]}}个视频已上传</view>
+                        <view wx:else>{{item.ge[index]}}/{{item.quantity_v[index]}}个视频</view>
+                    </view>
+                    <view wx:elif="{{item.the_category[index]=='pav'}} " class="item-bd flex1">
+                        <view class="text-truncate"> {{ss}}</view>
+                        <view wx:if="{{item.quantity_v[index]==0 && item.quantity_p[index]==0}}">
+                            <view>照片已上传{{item.zhang[index]}}张</view>
+                            <view>视频已上传{{ge}}个</view>
+                        </view>
+                        <view wx:elif="{{item.quantity_v[index]>0 && item.quantity_p[index]>0}}">
+                            <view>{{item.zhang[index]}}/{{item.quantity_p[index]}}张照片</view>
+                            <view>{{ge}}/{{item.quantity_v[index]}}个视频</view>
+                        </view>
+                    </view>
+                    <view class='add_border'>
+                        <image wx:if="{{item.quantity_p[index]==0 && item.quantity_v[index]==0}}" class="item-img" src='{{item.img[index]}}'></image>
+                        <image wx:else class="item-img" src='../../images/add.png'></image>
+                    </view>
+                </view>
+            </view>
+            <!-- 完成状态 -->
+            <view class="mt">
+                <text class="fw-700">实付金额：</text>
+                <view class="fr text-primary">￥{{item.total}}元</view>
+
+            </view>
+        </view>
+        <view class='cartlist' wx:else style='position: relative;padding:10rpx;padding-bottom:40rpx;' wx:else>
+            <view class="cart-item flex-v-c">
+                <view class="flex flex1" bindtap='tz' data-com="{{item.com}}" data-orderid='{{item.orderid}}' data-the_category='{{item.the_category}}' data-tit='{{item.tit}}'
+                      data-imgurl='{{item.imgurl}}' data-spid='{{item.spid}}' data-quantity_p='{{item.quantity_p}}'
+                      data-quantity_v='{{item.quantity_v}}' data-scid='{{item.scid}}'
+                      data-price='{{item.price}}' data-num="{{item.num}}" hover-class="none" hidden="{{isEdit}}">
+                    <view class="item-bd flex1" wx:if="{{item.the_category=='pic'}}">
+                        <view class="text-truncate"> {{item.tit}}</view>
+                        <view wx:if="{{item.quantity_p==0}}">{{item.zhang}}张照片已上传</view>
+                        <view wx:elif="{{item.quantity_p>0}}">{{item.zhang}}/{{item.quantity_p}}张图片</view>
+                    </view>
+                    <view wx:elif="{{item.the_category=='video'}}" class="item-bd flex1">
+                        <view class="text-truncate"> {{item.tit}}</view>
+                        <view wx:if="{{item.quantity_v==0}}">{{item.ge}}个视频已上传</view>
+                        <view wx:else>{{item.ge}}/{{item.quantity_v}}个视频</view>
+                    </view>
+                    <view wx:elif="{{item.the_category=='pav'}}" class="item-bd flex1">
+                        <view class="text-truncate"> {{item.tit}}</view>
+                        <view wx:if="{{item.quantity_v==0 && item.quantity_p==0 }}">
+                            <view>照片已上传{{item.zhang}}张</view>
+                            <view>视频已上传{{ge}}个</view>
+                        </view>
+                        <view wx:elif="{{item.quantity_v>0 && item.quantity_p>0}}">
+                            <view>{{item.zhang}}/{{item.quantity_p}}张照片</view>
+                            <view>{{ge}}/{{item.quantity_v}}个视频</view>
+                        </view>
+                    </view>
+
+                    <view class='add_border'>
+                        <image wx:if="{{item.quantity_p==0 && item.quantity_v==0}}" class="item-img" src='{{item.img}}'></image>
+                        <image wx:else class="item-img" src='../../images/add.png'></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+
+    </block>
+
+    <view class="order-address cartlist" style='position: relative;padding:10rpx;padding-bottom:40rpx;'>
+        <view class="fw-700">收货地址</view>
+        <view class="text-gray-light">{{add}}</view>
+        <view class="icon-jt">
+            <image src="../../images/icon-jt.png" class="iconjtimg"></image>
+        </view>
+    </view>
+
+    <view class="mt">
+        <text class="fw-700">订单编号</text>
+        <view class="fr text-primary">{{id}}</view>
+    </view>
+    <view class="mt">
+        <text class="fw-700">付款时间</text>
+        <view class="fr text-primary">{{time}}</view>
+    </view>
+
+    <view class=" tar clearfix"
+          style="width:100%;border-top:1px solid #dbdbdb;position:fixed;bottom:0;left:0;right: 0;">
+        <view bindtap="comp_order" class="btn_comp">完成订单</view>
+    </view>
+</view>

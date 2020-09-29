@@ -1,0 +1,7 @@
+<!--pages/userCenter/companyAuther.wxml-->
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="公司认证" bg-style="background-color: #fa6d21"></navigation-bar>
+<view class='credentialImgView' style='padding-top:140rpx;'>
+  <image class='credentialImg' src='{{imageUrl}}'></image>
+</view>
+<button class=' commitBtn btn' bindtap='uploadAction'>上传认证材料</button>
+<button class='uploadingBtn btn' bindtap='commitActon'>提交</button>

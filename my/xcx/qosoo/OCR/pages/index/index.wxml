@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto" bindtap="tz">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+  <view bindtap="upload" style='width:100px;height:30px;line-height:30px;border:1px thin red;text-align:center;'>
+    名片
+  </view>
+
+
+  <view>
+    <button class='pop_btn' style="font-size：12px;" plain="true" open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">使用本机号码自助完成注册</button>
+  </view>
+
+
+
+  <view bindtap="yinsi">
+    <text style="color:gray;">注册视为同意接受 <text style="color:black;">《隐私政策》《用户协议》</text></text>
+  </view>
+</view>

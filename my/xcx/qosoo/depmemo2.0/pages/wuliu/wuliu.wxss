@@ -1,0 +1,43 @@
+/* pages/wuliu/wuliu.wxss */
+.wuliu-list {
+  position: relative;
+  margin-top: 20px;
+  padding: 0 0 0 40px;
+}
+
+.wuliu-list::after {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 1px;
+  height: 100%;
+  background: #dbdbdb;
+  content: "";
+}
+
+.wuliu-item .item-txt {
+  position: relative;
+}
+
+.wuliu-item .item-txt::after {
+  position: absolute;
+  top: 50%;
+  left: -24px;
+  width: 8px;
+  height: 8px;
+  background: #dbdbdb;
+  border-radius: 50%;
+  content: "";
+  transform: translate(0, -50%);
+}
+
+.wuliu-item:not(:first-of-type) {
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #dbdbdb;
+}
+
+.wuliu-item text {
+  font-size: 24rpx;
+  color: #999;
+}

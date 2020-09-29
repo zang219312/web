@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "globalData Behavior",
+  "usingComponents": {
+    "weui-msg": "/miniprogram_npm/weui-miniprogram/msg/msg"
+  }
+}

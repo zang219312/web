@@ -1,0 +1,401 @@
+pages {
+  height: 100%;
+}
+
+/* 导航栏 */
+
+.home_nav {
+  height: 133.7rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.home_nav  .scanicon {
+  width: 22rpx;
+  height: 38rpx;
+  margin-top: 81rpx;
+  margin-left: 42rpx;
+  z-index: 9;
+}
+
+.home_nav  image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.home_nav view {
+  width: 180rpx;
+  font-size: 32rpx;
+  color: #fff;
+  margin: 76rpx;
+  position: absolute;
+}
+
+.home_nav  .head_bg_img {
+  width: 100%;
+  height: 137.7rpx; /* 64px*/
+}
+
+/* 导航栏 */
+
+page {
+  background: #f7f7f7;
+}
+
+.baseInfo {
+  width: 100%;
+  height: 79rpx;
+  line-height: 79rpx;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.base_form {
+  background: #fff;
+}
+
+.baseInfo text {
+  font-size: 30rpx;
+  color: #888888;
+  font-family: PingFang SC;
+  font-weight: 500;
+  margin-left: 32rpx;
+}
+
+.form_item {
+  display: flex;
+  height: 100rpx;
+  border-bottom: 1rpx solid rgba(239, 239, 239, 1);
+  line-height: 100rpx;
+  font-size: 30rpx;
+  width: 690rpx;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.form_leber {
+  width: 160rpx;
+  text-align: left;
+}
+
+.form_input {
+  flex: 1;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: rgba(178, 178, 178, 1);
+  font-family: PingFang SC;
+  font-weight: 500;
+}
+
+.icon {
+  border: solid #fa6d21;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  margin: 0 14rpx;
+}
+
+.upDate {
+  justify-content: center;
+  color: #fa6d21;
+  border-bottom: 0;
+  border-top: 1rpx solid rgba(216, 216, 216, 0.3);
+  text-align: center;
+  font-size: 28rpx;
+  width: 100%;
+  background: #f7f7f7;
+}
+
+.icon-up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.icon-down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.icon-right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.more-item {
+  justify-content: center;
+  border-bottom: 0;
+}
+
+.more {
+  text-align: center;
+}
+
+.company {
+  position: relative;
+}
+
+.companybox {
+  position: absolute;
+  width: 100%;
+  background: rgba(246, 246, 246, 1);
+  left: 0;
+  top: 100rpx;
+  z-index: 99;
+  text-align: center;
+  padding: 12rpx 0;
+}
+
+.companybox-item {
+  height: 78rpx;
+  width: 624rpx;
+  line-height: 78rpx;
+  margin: 0 auto;
+  border-bottom: 2rpx solid rgba(216, 216, 216, 0.3);
+}
+
+.companybox-item:last-child {
+  border-bottom: 0;
+}
+
+.down {
+  width: 12rpx;
+  height: 20rpx;
+  transform: rotate(90deg);
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -moz-transform: rotate(90deg); /* Firefox */
+  -webkit-transform: rotate(90deg); /* Safari 和 Chrome */
+  -o-transform: rotate(90deg);
+}
+
+.no-border {
+  border-bottom: 0;
+}
+
+.form_height {
+  height: 20rpx;
+  background-color: rgba(216, 216, 216, 0.3);
+  width: 100%;
+}
+
+.form_code {
+  width: 222rpx;
+  height: 67rpx;
+  /* padding-top: 23rpx; */
+  margin-right: 10rpx;
+}
+
+.form_code_btn {
+  /* padding-left: 0;
+  padding-right: 0; */
+  background-color: #fff;
+  color: #ff6f05;
+  font-size: 28rpx;
+  border-radius: 12rpx;
+  width: 222rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  text-align: center;
+}
+
+.left-line {
+  width: 4rpx;
+  height: 30rpx;
+  float: left;
+  background: #f98d32;
+  margin: 20rpx auto;
+}
+
+.form_code_btn::after {
+  border: 2rpx solid #fa6d21;
+}
+
+.fomr_post_btn {
+  width: 100%;
+  height: 100rpx;
+  background-color: #fa6d21;
+  color: white;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  border-radius: 0;
+  /* margin-top: -100rpx; */
+}
+
+.radio {
+  /* color:#ff6f05 */
+}
+
+.industry_tck {
+  position: fixed;
+  top: 35%;
+  left: 10%;
+  z-index: 999;
+  background-color: #fff;
+  width: 80%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.industry_tck .form_item {
+  border-bottom: none;
+}
+
+.industry_tck .form_item .form_leber {
+  width: 200rpx;
+}
+
+.form_leber text {
+  color: #fa6d21;
+  font-size: 34rpx;
+  margin-left: -10rpx;
+}
+
+.industry_zgc {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.radio-group {
+  font-size: 28rpx;
+}
+
+.radio {
+  margin-right: 84rpx;
+}
+
+.add {
+  width: 36rpx;
+  height: 36rpx;
+  line-height: 30rpx;
+  color: #fff;
+  text-align: center;
+  background: #fa6d21;
+  border-radius: 50%;
+  margin-top: 40rpx;
+}
+
+.cut {
+  background: #ffa255;
+  font-size: 50rpx;
+}
+
+button.fix {
+  position: absolute;
+  bottom: 100rpx;
+}
+
+.fixed-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99999;
+}
+
+.infoText {
+  flex: 1;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #b2b2b2;
+}
+
+/* --------------分割线------------- */
+
+picker-view {
+  background-color: white;
+  padding: 0;
+  width: 100%;
+  height: 380rpx;
+  bottom: 0;
+  position: fixed;
+}
+
+picker-view-column view {
+  vertical-align: middle;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animation-element-wrapper {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+
+.animation-element {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 470rpx;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 9999;
+}
+
+.animation-button {
+  margin-top: 20rpx;
+  top: 20rpx;
+  width: 400rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  align-items: center;
+}
+
+.animation-element text {
+  color: #999;
+  display: inline-flex;
+  position: fixed;
+  margin-top: 20rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 34rpx;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.left-bt {
+  left: 30rpx;
+}
+
+.right-bt {
+  right: 30rpx;
+}
+
+.line {
+  display: block;
+  position: fixed;
+  height: 1rpx;
+  width: 100%;
+  margin-top: 89rpx;
+  background-color: #eee;
+}
+
+.bott {
+  color: #b2b2b2;
+  font-size: 22rpx;
+  margin: 0 140rpx;
+  background: #f7f7f7;
+  height: 78rpx;
+  line-height: 78rpx;
+}

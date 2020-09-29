@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/cart/cart",
+    "pages/my/my",
+    "pages/category/category",
+    "pages/goodsList/goodsList",
+    "pages/goodsDetail/goodsDetail",
+    "pages/pay/pay",
+    "pages/order/order",
+    "pages/orderDetail/orderDetail",
+    "pages/sucai/sucai",
+    "pages/upImg/upImg",
+    "pages/previewImage/previewImage",
+    "pages/proframe/proframe",
+    "pages/video/video",
+    "pages/pav/pav",
+    "pages/PAD/PAD",
+    "pages/wuliu/wuliu",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#ff6f05",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "产品资料",
+  "usingComponents": {
+    "navigation-bar": "miniprogram-navigation-bar"
+  },
+    "navigationStyle": "default"
+}

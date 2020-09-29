@@ -1,0 +1,147 @@
+<view class='home_nav' wx:if="{{!showX}}">
+  <image class='scanicon' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/20191122/home/148.png"></image>
+  <view bindtap='handleGoBack'>行业商讯</view>
+</view>
+<view class='home_nav_X' wx:else>
+  <image class='scanicon_X' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img_X' src="https://file.qosoo.cn/files/20191122/home/184.png"></image>
+  <view bindtap='handleGoBack'>行业商讯</view>
+</view>
+<view style='padding-top:{{paddingTop}}rpx;'>
+  <!-- 热点头条 -->
+  <!-- <view class="banner">
+    <swiper class="swiper" autoplay="true" interval="5000" circular="true">
+      <block wx:for="{{bannerUrlArray9}}" wx:key='{{index}}'>
+        <swiper-item bindtap='tolist' data-id='{{item.id}}' data-type='{{item.type}}' data-linkurl='{{item.linkUrl}}'>
+          <image src="{{item.url}}" style="width:100%;"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view> -->
+
+  <view  style="position:relative;height:226rpx;">
+    <image src="https://file.qosoo.cn/files/20191122/home/search_b_x.png" class="search_x" ></image>
+    <view class="navbar">
+      <view wx:for="{{navbar}}" data-idx="{{item.type}}" data-tab="{{index}}" class="item {{tabType==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTaps">
+        <view class="item-title">{{item.company}}</view>
+        <view class="item-bottom"></view>
+      </view>
+    </view>
+
+    <view class="search-sea">
+      <view class="search-new">
+        <view class='pull-left schb-int'>
+          <image src="https://file.qosoo.cn/files/home/search.png" class='search-info'> </image>
+          <input class='pull-left' placeholder='搜 公 司' placeholder-style='color:#888888' bindinput="bindKeyInput" value="{{searchValue}}"></input>
+        </view>
+      </view>
+      <text class='search-more' bindtap='searchActions'>精准搜</text>
+    </view>
+  </view>
+
+
+
+
+
+  <!-- 搜索 -->
+
+  <!-- <view class='bg bar-bg'></view> -->
+
+  <view class='articleCell_list'>
+    <!-- <view class='articleCell_BG'  wx:for='{{myFocusGroupArray_1}}' wx:key="" > -->
+    <block wx:for='{{myFocusGroupNewLists}}' wx:key="" wx:if='{{index<3}}'>
+      <view class='articleCell_BG' wx:for='{{item.list}}' wx:key="id" bindtap='PushToCaseDetail' data-id='{{item.id}}' data-type='{{item.type}}' data-companyid='{{item.companyId}}'>
+        <view class='articleCell_BG_left'>
+          <view class='articleCell_BG_left_top' >{{item.title}}</view>
+          <view class='articleCell_BG_left_bottom'>
+            <view class='recommendSign' wx:if='{{item.recommend}}'>{{item.recommend}}</view>
+            <view class='articleCell_companyName' catchtap='pushToCompanyDetail' data-id='{{item.companyId}}'>{{item.companyName}}</view>
+            <view class='articleCell_publicTime'>{{item.createTimes}}</view>
+          </view>
+        </view>
+        <view class='articleCell_BG_right'>
+          <image class='articleCell_image' src='{{item.coverImg}}'></image>
+        </view>
+      </view>
+      <!-- <navigator url="/pages/home/focusMore/focusMore"  class='more-focus' hover-class="none">
+            点击进入更多 >
+          </navigator > -->
+      <view class="position-bg" wx:if='{{item.image}}'>
+        <swiper autoplay="true" interval="5000" circular="true">
+          <swiper-item bindtap='tolist' data-id='{{item.image.id}}' data-type='{{item.image.type}}' data-linkurl='{{item.image.linkUrl}}'>
+            <image src="{{item.image.url}}" style="width:100%;"></image>
+          </swiper-item>
+        </swiper>
+      </view>
+    </block>
+  </view>
+
+  <!-- 推荐公司 -->
+  <view class='recommendCompanyBG'>
+    <scroll-view class='recommendCompanyScrollBG' scroll-x="true" bindscroll="scroll">
+      <view class="scroll-view-item_1 scrollItem_1" wx:for='{{recomendCompanyArray}}' wx:key="" bindtap='PushToProductDetail' data-id='{{item.id}}'>
+        <view>
+          <image class='recommendCompanyScrollItem_img' src='{{item.logo}}'></image>
+          <view class='recommendCompanyScrollItem_title'>{{item.name}}</view>
+        </view>
+        <view class='recommendCompanyScrollItem_btn' style='color:#ff6f05;border: 1rpx solid #ff6f05;' data-id='{{item.id}}' data-index='{{index}}' id='{{item.id}}'>立即关注</view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 推荐公司 -->
+
+  <view class='articleCell_list'>
+    <block wx:for='{{myFocusGroupNewLists}}' wx:if='{{index>=3}}' wx:key="">
+      <view class='articleCell_BG' wx:for='{{item.list}}' wx:key="">
+        <view class='articleCell_BG_left'>
+          <view class='articleCell_BG_left_top' bindtap='PushToCaseDetail' data-id='{{item.id}}' data-type='{{item.type}}' data-companyid='{{item.companyId}}'>{{item.title}}</view>
+          <view class='articleCell_BG_left_bottom'>
+            <view class='recommendSign' wx:if='{{item.recommend}}'>{{item.recommend}}</view>
+            <view class='articleCell_companyName' catchtap='pushToCompanyDetail' data-id='{{item.companyId}}'>{{item.companyName}}</view>
+            <view class='articleCell_publicTime'>{{item.createTimes}}</view>
+          </view>
+        </view>
+        <view class='articleCell_BG_right'>
+          <image class='articleCell_image' src='{{item.coverImg}}'></image>
+        </view>
+      </view>
+
+      <view class="position-bg" wx:if='{{item.image}}'>
+        <swiper autoplay="true" interval="5000" circular="true">
+          <swiper-item bindtap='tolist' data-id='{{item.image.id}}' data-type='{{item.image.type}}' data-linkurl='{{item.image.linkUrl}}'>
+            <image src="{{item.image.url}}" style="width:100%;"></image>
+          </swiper-item>
+        </swiper>
+      </view>
+    </block>
+  </view>
+
+
+  <!--广告 -->
+
+  <view class='articleCell_BG bottom-banner' wx:for="{{publicizewidely}}" data-id='{{item.id}}' data-linktype='{{item.linkType}}' style='height:auto' bindtap='tolist' data-xq='{{item.content}}' data-linkurl='{{item.linkUrl}}' wx:key="id">
+    <image class='articleCell_image' src='{{item.url}}' style='width:100%;box-sizing:border-box;' mode="widthFix"></image>
+  </view>
+
+
+  <!-- <view class="tab-bar" hidden="{{tabBarShow}}">
+    <view class="tab-item" data-id='{{companyId}}' bindtap="pushToCompanyDetail">
+      <view class="tab-icon icon-home "></view>
+      <view class="tab-text">{{title}}</view>
+    </view>
+
+    <view class="tab-item" bindtap='pushToFocusCompany'>
+      <view class=" my-customer">
+        <view class="tab-icon icon-my-customer-group"></view>
+      </view>
+      <view class="tab-text my_text">我的客户群</view>
+    </view>
+
+    <view class="tab-item" bindtap='toSecretary'>
+      <view class="tab-icon icon-bcard"></view>
+      <view class="tab-text">商务名片</view>
+    </view>
+  </view> -->
+
+</view>

@@ -1,0 +1,68 @@
+<import src="../../../lib/wxParse/wxParse.wxml"/>
+<!--
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="详情" bg-style="background-color: #fa6d21"></navigation-bar>
+-->
+<view class='articleBGView' style='padding-top:0rpx;'>
+  <!-- 标题 -->
+  <view class='articleTitleBG'>
+    <view class='articleTitle'>{{caseDetailData.title}}</view>
+      <!-- 分享关注 -->
+      <view class='signBGView'>
+        <view class='signItemBG signItem_1' bindtap='shareBtnAction'>
+          <image class='signImg' src='https://file.qosoo.cn/files/20191021/home/icon_share_0@3x.png'></image>
+          <view class='signTitle'>分享</view>
+        </view>
+        <view class='signItemBG signItem_2' bindtap='focusAction'>
+          <view class='has-focus'>5<image class='signImg' src='{{followImg}}'></image></view>
+          <view class='signTitle {{followActive==true ? "active" : ""}}'>{{followTxt}}</view>
+        </view>
+      </view>
+  </view>
+  <!-- 副标题 -->
+  <view class='publishTime'><view bindtap='pushToCompanyDetail' data-id='{{companyId}}'>{{companyName}}</view><view>{{publishTime}}</view></view>
+
+<view class="wxParse">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+  <!-- <image class='articleImage' src='{{articleImageUrl}}'></image>
+  
+  <view class='articleContent'>{{caseDetailData.content}}</view> -->
+</view>
+
+
+
+<!-- 分享的遮罩层 -->
+<view class='coverView'  hidden="{{shareCoverViewStatus}}" bindtap='coverViewCloseAction'>
+
+  <view class='remindShare'>
+    <view class='remshare-left'>
+      <image src='https://lg-6pshrvnq-1255620684.cos.ap-shanghai.myqcloud.com/icon_share_katong.png'></image>
+    </view>
+    <view class='remshare-right'>
+      点击 <image src='https://file.qosoo.cn/files/20191021/home/icon_share_shareIcon.png'></image>选择“转发”即可发送给好友或群
+    </view>
+    <image class='share-topimg' src='https://file.qosoo.cn/files/20191021/home/icon_share_zhixiang.png'></image>
+  </view>
+
+</view>
+
+
+
+<!-- 关注 -->
+<view class='star-view' hidden="{{starShow}}" bindtap='starHidden'>
+    <view class='star-number' hidden="{{follow}}">
+      <!-- <view class='before-star'></view> -->
+      <view class='star-box'>
+        <view class='star-title star-txt'>客户合作价值</view> 
+        <view class='star-bottom star-txt'>          
+          <view class='star-banner'>
+            <image id="{{item.id}}" wx:for="{{imgArray}}" wx:key="{{index}}" src="{{item.imgUrl}}" bindtap='focusStar'></image>
+            <view class='starb-left'>一般</view>
+             <view class='starb-right'>极高</view>
+          </view>    
+        </view>
+        <view class='star-title star-txt cen' bindtap='unfollow'>取消关注</view> 
+        
+      </view>
+    </view>
+</view>

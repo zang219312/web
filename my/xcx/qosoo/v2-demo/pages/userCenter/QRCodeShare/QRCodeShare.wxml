@@ -1,0 +1,28 @@
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="二维码" bg-style="background-color: #fa6d21"></navigation-bar>
+<!--pages/userCenter/qrCodeView.wxml-->
+<view class='userInfoBGView'>
+  
+  <view class='headerView'>
+    <view class='userImageBGView'>
+      <image class='userImage' src='{{userInfoData.headImg}}'></image>
+    </view>
+    <view class='userInfoView'>
+      <view class='userNameLabel'>
+      {{userInfoData.realName}}</view>
+      <view class='userProfessionLabel'>{{userInfoData.job}}</view>
+      <view class='userCompanyAuthStatus'>
+            <view class='userCompanyLabel'>{{userInfoData.companyName}}</view>
+            <view class='userAuthStatusLabel' style='{{userCompanyAuthStatusBGColor}}'>{{userAuthStatusLabel}}</view>
+
+      </view>
+
+    </view>
+  </view>
+
+  <view class='qrCodeView'>
+    <image class='qrCodeImg' mode="scaleToFill" src='{{imagePath2}}'></image> <!--bindtap="previewImg" -->
+  </view>
+
+  <view class='qrCodeRemindLabel'>请用微信扫一扫</view>
+  <canvas  hidden="{{canvasHidden}}" style="width: 488rpx;height: 488rpx;background:#f1f1f1;position: fixed;bottom:-488rpx" canvas-id="mycanvas"/>
+</view>

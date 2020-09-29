@@ -1,0 +1,105 @@
+<!-- <view class='home_nav'>
+  <image class='scanicon' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/home/head.png"></image>
+  <view bindtap='handleGoBack'>智能电话</view>
+</view> -->
+<navBar title='智能电话' back="{{true}}" home="{{false}}" bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<view class="call_top">
+  <view class=" ">
+    本系统已和公安联网，请勿拨打营销骚扰
+  </view>
+  <view>
+    诈骗等违法电话，仅供亲朋好友联系使用！
+  </view>
+</view>
+<view class="all">
+  <view class="realname">{{realname}}</view>
+  <view class="phone">
+    <view bindtap="zhantie">粘贴</view>
+    <view class="phone-num">{{mobile}}</view>
+    <image src="https://file.qosoo.cn/files/20191021/home/del.png" bindtap="del"></image>
+  </view>
+  <view class="phone-keybord">
+    <view class="keybord-lists">
+      <view class="keybord" bindtap="phoneNUm" data-num="1">
+        <view>1</view>
+        <view class="en"> </view>
+      </view>
+      <view class="keybord" bindtap="phoneNUm" data-num="2">
+        <view>2</view>
+        <view class="en">ABC</view>
+      </view>
+      <view class="keybord" bindtap="phoneNUm" data-num="3">
+        <view>3</view>
+        <view class="en">DEF</view>
+      </view>
+    </view>
+    <view class="keybord-lists">
+      <view class="keybord" bindtap="phoneNUm" data-num="4">
+        <view>4</view>
+        <view class="en">GHI</view>
+      </view>
+      <view class="keybord" bindtap="phoneNUm" data-num="5">
+        <view>5</view>
+        <view class="en">JKL</view>
+      </view>
+      <view class="keybord" bindtap="phoneNUm" data-num="6">
+        <view>6</view>
+        <view class="en">MNO</view>
+      </view>
+    </view>
+    <view class="keybord-lists">
+      <view class="keybord" bindtap="phoneNUm" data-num="7">
+        <view>7</view>
+        <view class="en">PQRS</view>
+      </view>
+      <view class="keybord" bindtap="phoneNUm" data-num="8">
+        <view>8</view>
+        <view class="en">TUV</view>
+      </view>
+      <view class="keybord" bindtap="phoneNUm" data-num="9">
+        <view>9</view>
+        <view class="en">WXYZ</view>
+      </view>
+    </view>
+    <view class="keybord-lists">
+
+      <view class="keybord" bindtap="phoneNUm" data-num="0">
+        <view>0</view>
+        <view class="en">+</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="phone-foot">
+  <view bindtap="goVip" class="money">{{money}}</view>
+  <view>
+    <image src="https://file.qosoo.cn/files/20191021/home/call.png" bindtap="call"></image>
+  </view>
+  <view bindtap="goHistory">通话记录</view>
+</view>
+
+<view class='shade' hidden='{{popup}}' bindtap='hidePopup'></view>
+<!-- <view class='shade_box popup' hidden='{{popup}}'>
+    <image src="https://file.qosoo.cn/files/20191122/home/%E6%88%90%E5%8A%9F.svg"></image>
+    <view>已报名，请注意查看报名结果</view>
+    <view class="showPopBtn" bindtap='hidePopup'>好的</view>
+  </view> -->
+<view class='shade_box popup' hidden='{{popup}}'>
+  <view class="form_item">
+    <view class="form-title-text">
+      确定：智慧微秘电话拨打
+      取消：手机自带电话拨打
+    </view>
+    <view class="btn">
+      <view class="left" bindtap="toTel" data-click="cancle">
+        取消
+      </view>
+      <view class="right" bindtap="toTel" data-click="comfirm">
+        确定
+      </view>
+    </view>
+  </view>
+</view>
+<!-- <view class='shade' hidden='{{popup}}' bindtap='hidePopup'></view>
+<view class='shade_box popup' hidden='{{popup}}'></view> -->

@@ -1,0 +1,66 @@
+<!--pages/call/phone/phone.wxml-->
+<view class="all">
+<view class="phone">
+  <view bindtap="zhantie">粘贴</view>
+  <view class="phone-num">{{mobile}}</view>
+  <image src="https://file.qosoo.cn/files/20191021/home/del.png" bindtap="del"></image>
+</view>
+<view class="phone-keybord">
+  <view class="keybord-lists">
+      <view class="keybord" bindtap="phoneNUm" data-num="1">
+        <view>1</view>
+        <view class="en" > </view>
+      </view>
+      <view class="keybord"  bindtap="phoneNUm" data-num="2">
+        <view>2</view>
+        <view class="en">ABC</view>
+      </view>
+      <view class="keybord"  bindtap="phoneNUm" data-num="3">
+        <view>3</view>
+        <view class="en">DEF</view>
+      </view>
+  </view>
+  <view class="keybord-lists">
+      <view class="keybord"  bindtap="phoneNUm" data-num="4">
+        <view>4</view>
+        <view class="en">GHI</view>
+      </view>
+      <view class="keybord"  bindtap="phoneNUm" data-num="5">
+        <view>5</view>
+        <view class="en">JKL</view>
+      </view>
+      <view class="keybord"  bindtap="phoneNUm" data-num="6">
+        <view>6</view>
+        <view class="en">MNO</view>
+      </view>
+  </view>
+  <view class="keybord-lists">
+      <view class="keybord"  bindtap="phoneNUm" data-num="7">
+        <view>7</view>
+        <view class="en">PQRS</view>
+      </view>
+      <view class="keybord"  bindtap="phoneNUm" data-num="8">
+        <view>8</view>
+        <view class="en">TUV</view>
+      </view>
+      <view class="keybord"  bindtap="phoneNUm" data-num="9">
+        <view>9</view>
+        <view class="en">WXYZ</view>
+      </view>
+  </view>
+  <view class="keybord-lists">
+      
+      <view class="keybord"  bindtap="phoneNUm" data-num="0">
+        <view>0</view>
+        <view class="en">+</view>
+      </view>
+  </view>
+</view>
+</view>
+<view class="phone-foot">
+    <view bindtap="goVip" class="money">{{money}}</view>
+    <view>
+    <image src="https://file.qosoo.cn/files/20191021/home/call.png" bindtap="call"></image>
+    </view>
+    <view bindtap="goHistory">通话记录</view>
+</view>

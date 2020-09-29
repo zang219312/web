@@ -1,0 +1,9 @@
+<!-- <import src="../../../lib/wxParse/wxParse.wxml" /> -->
+<navBar title='隐私政策' back="{{true}}" home="{{false}}" bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+
+<!-- <view class="wxParse" style="margin:0  30rpx;">
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view> -->
+
+  <web-view  src="{{src}}"></web-view>
+

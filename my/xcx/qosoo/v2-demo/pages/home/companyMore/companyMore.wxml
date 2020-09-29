@@ -1,0 +1,19 @@
+<!--<navigation-bar bindnavback="onnavback" enable="{{true}}" title="更多" bg-style="background-color: #fa6d21"></navigation-bar>
+-->
+<view class='BGView' style='padding-top:0rpx;'>  
+  <view class='articleCell_BG' bindtap='PushToCaseDetail' data-id='{{item.id}}' data-index='{{itemType}}' wx:for='{{myFocusGroupArray_1}}' wx:key='id' data-type='{{item.type}}' data-companyid='{{item.companyId}}'>
+  <view class='articleCell_BG_right'>
+        <image  class='articleCell_image' src='{{item.coverImg}}'></image>
+      </view>
+      <view class='articleCell_BG_left'>
+        <view class='articleCell_BG_left_top'>
+        <view class='recommendSign' wx:if = '{{item.status == 1}}'>推荐</view>{{item.title}}
+        </view>
+        <view class='articleCell_BG_left_bottom'>
+        <view class='articleCell_companyName'>{{item.companyName}}</view>
+          <view class='articleCell_publicTime'>{{item.createTime}}</view>
+        </view>
+      </view>
+      
+  </view>
+</view>

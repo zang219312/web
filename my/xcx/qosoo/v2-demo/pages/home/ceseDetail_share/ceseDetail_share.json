@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#ff6f05",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "案例详情",
+  "usingComponents": {
+    "navigation-bar": "miniprogram-navigation-bar"
+  }
+}

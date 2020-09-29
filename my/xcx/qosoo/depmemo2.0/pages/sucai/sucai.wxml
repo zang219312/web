@@ -1,0 +1,19 @@
+<!--pages/sucai/sucai.wxml-->
+<view style='padding:30rpx;'>
+
+  <view class="mt">
+    <text class="fw-700">订单号：{{id}}</text>
+    <view class="fr text-primary">{{name}}</view>
+  </view>
+
+
+  <view style="margin-bottom:120rpx;">
+    <block wx:for="{{dat_a}}" wx:key="data.list">
+      <view class="mod-item" >
+        <view class="mod-img">
+          <image src="{{item}}" class="mod-image"></image>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

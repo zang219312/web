@@ -1,0 +1,73 @@
+/* pages/indextype/indextype.wxss */
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+.VerticalNav.nav {
+  width: 300rpx;
+  white-space: initial;
+}
+
+.VerticalNav.nav .cu-item {
+  width: 100%;
+  text-align: center;
+  /* background-color: #fff; */
+  margin: 0;
+  border: none;
+  height: 50px;
+  position: relative;
+}
+.VerticalNav.nav .cu-item.cur::after {
+  content: "";
+  width: 8rpx;
+  /* height: 30rpx; */
+  border-radius: 0rpx 10rpx 10rpx 0rpx;
+  position: absolute;
+  background-color: #e54d42;
+  top: 0;
+  left: 0rpx;
+  bottom: 0;
+  margin: auto;
+}
+.VerticalBox{
+  display: flex;
+  padding-top:100rpx;
+  position:fixed;
+  width: 100%;
+  /* bottom: 100rpx; */
+}
+/* .footVerticalBox{
+  display: flex;
+
+  position:fixed;
+  width: 100%;
+  margin-bottom: 100rpx;
+} */
+.VerticalMain{
+  background-color: #f1f1f1;
+}
+.bg-yellow{
+  transition:all 0.5s;
+  background-color:#fef2ce !important;
+}
+.cu-item image{
+  width: 130rpx;
+  height: 130rpx;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  
+}
+.cu-item{
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+ 
+}
+.cu-item text{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.typename{
+  width: 100%;
+}

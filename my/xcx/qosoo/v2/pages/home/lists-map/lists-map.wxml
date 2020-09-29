@@ -1,0 +1,20 @@
+<!--pages/home/lists-map/lists-map.wxml-->
+<!-- <view class='home_nav' data-id='{{companyId}}'>
+  <image class='scanicon' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/home/head.png"></image>
+  <view bindtap='handleGoBack'>{{title}}</view>
+</view> -->
+<navBar title='{{title}}' back="{{true}}" home="{{false}}"  bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<view style='padding-top:0;' class='map-top'>
+{{info.title}}
+</view>
+<view class='map-list' wx:if='{{info.img1}}' bindtap="seeImg" data-img="{{info.img1}}">
+    <view class=''>
+        <image src='{{info.img1}}'  mode="aspectFit"></image>
+    </view>
+</view>
+<view class='map-list' wx:if='{{info.img2}}' bindtap="seeImg" data-img="{{info.img2}}">
+    <view class=''>
+        <image src='{{info.img2}}'  mode="aspectFit"></image>
+    </view>
+</view>

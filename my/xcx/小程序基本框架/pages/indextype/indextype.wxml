@@ -1,0 +1,54 @@
+<view class="cu-bar bg-white search fixed solid-bottom">
+  <view class="search-form round bg-gray" style='height:65rpx;'>
+    <text class="cuIcon-search "></text>
+    <input type="text" placeholder="搜索关键字" confirm-type="search" bindinput="searchIcon" disabled></input>
+  </view>
+</view>
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc({{cHeight}}px - 200rpx)">
+    <view class="cu-item {{index==TabCur?'text-black bg-white cur':'text-gray'}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+    {{item.name}}
+    </view>
+  </scroll-view>
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc({{cHeight}}px - 200rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <view class="" wx:for="{{list}}" wx:key id="main-{{index}}">
+      <view class='cu-bar solid-bottom bg-white'>
+        <view class='action'>
+          <text class='cuIcon-title text-red'></text> {{item.name}} </view>
+      </view>
+      <view class="cu-list grid col-3 no-border">
+        <view class="cu-item" wx:for="{{item.chilist}}" wx:key>
+          <image src="{{item.url}}"></image>
+          <view class="typename">
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+        <!-- <view class="cu-item">
+          <image src="https://f.zqsaas.com/2680c126-ef28-47ff-9ac6-ea83c47f1b91.jpg"></image>
+          <view class="typename">
+            <text>手表</text>
+          </view>
+        </view>
+        <view class="cu-item">
+          <image src="https://f.zqsaas.com/17bb440c-0b95-43e0-a6d3-48db4a26fea4.jpg"></image>
+          <view class="typename">
+            <text>不绣钢水壶</text>
+          </view>
+        </view>
+        <view class="cu-item">
+          <image src="https://f.zqsaas.com/d1ac80c4-be31-498d-97b8-e535e26fc833.jpg"></image>
+          <view class="typename">
+            <text>内衣内裤</text>
+          </view>
+        </view>
+        <view class="cu-item">
+          <image src="https://f.zqsaas.com/a770cca3-1ecc-4b85-b73b-029a84438fce.jpg"></image>
+          <view class="typename">
+            <text>婴儿洗发水护肤品</text>
+          </view>
+        </view> -->
+      </view>
+    </view>
+  </scroll-view>
+</view>
+

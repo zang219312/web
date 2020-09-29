@@ -1,0 +1,12 @@
+<!--pages/wuliu/wuliu.wxml-->
+<view class="page">
+  <view class="wuliu-list">
+  <block wx:for="{{list}}">
+    <view class="wuliu-item">
+      <view class="item-txt">{{item.status}}</view>
+      <text>{{item.time}}</text>
+    </view>
+    <!-- end .wuliu-item -->
+    </block>   
+  </view>
+</view>

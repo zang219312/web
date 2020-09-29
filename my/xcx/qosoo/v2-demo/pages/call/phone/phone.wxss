@@ -1,0 +1,83 @@
+/* pages/call/phone/phone.wxss */
+page{
+  height: 100vh;
+  /* background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(4,231,83,1) 100%); */
+  font-family:PingFangSC-Regular,PingFangSC;
+  
+}
+.all{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom:208rpx;
+}
+.phone{
+  width: 590rpx;
+  height: 150rpx;
+  line-height: 150rpx;
+  margin: 0 auto 58rpx;
+  border-bottom: 2rpx solid rgba(136,136,136,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  color: #3D3D3D;
+
+}
+.phone-num{
+  font-size: 52rpx;
+  color: #000000;
+}
+.phone image{
+  width: 44rpx;
+  height: 34rpx;
+}
+.phone-keybord{
+  width: 90%;
+  margin: 0 auto;
+}
+.keybord-lists{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 52rpx;
+}
+
+.keybord{
+  flex: 1;
+  font-size: 60rpx;
+  line-height: 50rpx;
+  font-weight: 400;
+}
+.en{
+  font-size: 28rpx;
+  height: 44rpx;
+  color: #888888;
+  font-weight: normal;
+}
+
+.phone-foot{
+  position: fixed;
+  left: 80rpx;
+  bottom: 66rpx;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  width: 590rpx;
+  /* margin: 0 auto; */
+  font-size: 36rpx;
+  color: #3D3D3D;
+  text-align: right;
+}
+.phone-foot view{
+  flex:1;
+}
+.phone-foot image{
+  display: block;
+  width: 138rpx;
+  height: 142rpx;
+  margin: 0 auto;
+}
+.money{
+  text-align: left;
+}

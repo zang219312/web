@@ -1,0 +1,31 @@
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="案例详情" bg-style="background-color: #fa6d21"></navigation-bar>
+<view class='articleBGView' style='padding-top:160rpx;'>
+  <!-- 标题 -->
+  <view class='articleTitleBG'>
+    <view class='articleTitle'>{{articleTitle}}</view>
+      <!-- 分享关注 -->
+      <view class='signBGView'>
+        <view class='signItemBG signItem_1' bindtap='shareAction'>
+          <image class='signImg' src='/images/home/icon_share_0@3x.png'></image>
+          <view class='signTitle'>分享</view>
+        </view>
+        <view class='signItemBG signItem_2' bindtap='focusAction'>
+          <image class='signImg' src='/images/home/icon_focus_0@3x.png'></image>
+          <view class='signTitle'>关注</view>
+        </view>
+      </view>
+  </view>
+  <!-- 副标题 -->
+  <view class='publishTimeBG'>
+    <view class='recommendSign'>推荐</view>
+    <view class='subTitle'>杭州冠牛信息科技有限公司</view>
+
+    <view class='publishTime'>{{publishTime}}</view>
+  </view>
+
+  <image class='articleImage' src='{{articleImageUrl}}'></image>
+  
+  <view class='articleContent'>{{articleContent}}</view>
+
+
+</view>

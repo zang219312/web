@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>my-todo</title>
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="css/dist/base.css" />
+  </head>
+  <body>
+    <!-- 容器 s -->
+    <div class="container">
+      <h1>Todo</h1>
+      <form class="add-task">
+        <input
+          type="text"
+          name="content"
+          autofocus
+          autocomplete="off"
+          placeholder="e.g.晚上记笔记"
+        />
+        <button type="submit">submit</button>
+      </form>
+      <!-- 清单列表 s -->
+      <div class="task-list">
+        <!-- 任务 s -->
+        <!-- <div class="task-item">
+          <span><input type="checkbox" /></span>
+          <span class="task-content">item content 1</span>
+          <span>delete</span>
+          <span>detail</span>
+        </div> -->
+        <!-- 任务 e -->
+      </div>
+      <!-- 清单列表 e  -->
+      <!-- 遮罩 s -->
+      <div class="task-detail-mask"></div>
+      <!-- 遮罩 e -->
+      <!-- 任务详情 s -->
+      <div class="task-detail">
+        <!-- 标题 s -->
+        <div class="content">晚上做笔记</div>
+        <!-- 标题 e -->
+        <!-- 描述 s -->
+        <div class="desc">
+          <div class="description">
+            <textarea id="desc-area"></textarea>
+          </div>
+        </div>
+        <!-- 描述 e -->
+        <!-- 定时提醒 s -->
+        <div class="remind">
+          <input type="date" />
+          <!-- <button type="submit">sub</button> -->
+        </div>
+        <!-- 定时提醒 e -->
+      </div>
+      <!-- 任务详情 e -->
+    </div>
+    <!-- 容器 e -->
+  </body>
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="node_modules/storejs/dist/store.js"></script>
+  <script src="js/base.js"></script>
+</html>

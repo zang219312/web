@@ -1,0 +1,10 @@
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="提醒" bg-style="background-color: #fa6d21"></navigation-bar>
+<view class="remindViewBG">
+  <image  class='remindSucceImg' src="/images/img_remindSucce@3x.png"></image>
+  <view class='remindTitle'>{{remindTite}}</view>
+  <view class='remindContent'>{{remindContent}}</view>
+  <button class='backBtn' bindtap='popToLastPage'>返回</button>
+
+
+
+</view>

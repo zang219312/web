@@ -1,0 +1,74 @@
+<view class="body">
+<view class="input_style" style="margin-top: 0" >
+    <view class="input_style_box">
+        <p><span class="important"></span>LOGO</p>
+        <view><p id="file_text">请选项</p><button onclick="qinkong()" id="file_btn" style="display: none">
+        <image src="../img/delete.png"/></button></view>
+
+        <input type="file" id="file_input" style="width: 80%" onclick="xiugaiTetxt()"/>
+    </view>
+    <view class="input_style_box">
+        <p><span class="important">*</span>账号/手机</p>
+        <input type="text" placeholder="请输入账号/手机"/>
+    </view>
+</view>
+
+<view class="input_style">
+    <view class="input_style_box">
+        <p><span class="important">*</span>姓名</p>
+        <input type="text" placeholder="请输入姓名"/>
+    </view>
+    <view class="input_style_box">
+        <p><span class="important">*</span>公司名称</p>
+        <input type="text" placeholder="请输入公司名称"/>
+    </view>
+    <view class="input_style_box">
+        <p><span class="important">*</span>部门</p>
+        <input type="text" placeholder="请输入部门"/>
+    </view>
+    <view class="input_style_box">
+        <p><span class="important">*</span>职务</p>
+        <input type="text" placeholder="请输入职务"/>
+    </view>
+</view>
+
+<view class="input_style">
+    <view class="input_style_box">
+        <p><span class="important"></span>座机</p>
+        <input type="text" placeholder="请输入座机"/>
+    </view>
+    <view class="input_style_box">
+        <p><span class="important"></span>传真</p>
+        <input type="text" placeholder="请输入传真"/>
+    </view>
+    <view class="input_style_box">
+        <p><span class="important">*</span>地址</p>
+        <input type="text" placeholder="请输入地址"/>
+    </view>
+    <view class="input_style_box">
+        <p><span class="important"></span>税号</p>
+        <input type="text" placeholder="请输入发票号"/>
+    </view>
+</view>
+
+<view class="input_style">
+    <view class="input_style_box">
+        <p><span class="important"></span>E-mail</p>
+        <input type="text" placeholder="请输入邮箱"/>
+    </view>
+    <view class="input_style_box">
+        <p><span class="important"></span>Web</p>
+        <input type="text" placeholder="请输入网站地址"/>
+    </view>
+    <view class="input_style_box">
+        <p><span class="important">*</span>Wechat</p>
+        <input type="text" placeholder="请输入微信号"/>
+    </view>
+    <view class="input_style_box">
+        <p><span class="important"></span>Facebook</p>
+        <input type="text" placeholder="请输入Facebook账号"/>
+    </view>
+</view>
+
+<view class="outlogin">退出当前账号</view>
+</view>

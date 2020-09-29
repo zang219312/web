@@ -1,0 +1,101 @@
+/* pages/order/order.wxss */
+
+.cart {
+  padding: 30rpx;
+}
+
+.cartlist {
+  border-bottom: 1rpx solid #333;
+  margin-bottom: 20rpx;
+  padding: 10rpx;
+}
+
+.cart-item {
+  position: relative;
+  margin-top: 25rpx;
+  padding: 40rpx 30rpx;
+  background: #fff;
+  overflow: hidden;
+}
+
+.cart-item .item-img {
+  float: right;
+  width: 115rpx;
+  height: 115rpx;
+  margin-left: 50rpx;
+}
+
+.cart-item .item-bd {
+  padding-left: 20rpx;
+  line-height: 1.3;
+  overflow: hidden;
+}
+
+.cart-item icon {
+  position: relative;
+  z-index: 1;
+}
+
+.cart-no-data {
+  padding-top: 120rpx;
+  text-align: center;
+  color: #999;
+}
+
+.add_border {
+  border-left: 4rpx solid red;
+  position: relative;
+}
+
+.chakan {
+  position: relative;
+  margin-left: 50rpx;
+  font-size: 10px;
+  top: 20rpx;
+  left: 30rpx;
+  
+}
+
+/*
+* tab选项卡
+*/
+
+.shuru {
+  position: fixed;
+  height: 100rpx;
+  width: 100%;
+  text-align: left;
+  background-color: #efefef;
+  border-top: 1px solid #ccc;
+  bottom: 0;
+  _position: absolute;
+  z-index: 1;
+}
+
+.menu_box {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  background: #eeebeb;
+}
+
+.menu {
+  flex: 1;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.borders {
+  border-top: 4rpx solid #1aad19;
+  color: #1aad19;
+}
+
+.order-null {
+  padding-top: 120rpx;
+}
+
+.order-null image {
+  width: 176rpx;
+  height: 190rpx;
+}

@@ -1,0 +1,19 @@
+.status-bar, .navigation-bar, .navigation, .menu {
+  position: fixed;
+}
+
+.status-bar {
+  background-color: #5170EB;
+}
+
+.navigation-bar {
+  background-color: #52A90C;
+}
+
+.navigation {
+  background-color: #EAAB16;
+}
+
+.menu {
+  background-color: #F03552;
+}

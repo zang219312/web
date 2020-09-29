@@ -1,0 +1,18 @@
+<!--pages/call/phone-history/phone-history.wxml-->
+<view class="history-lists">
+  <view class="list-item"  wx:for='{{lists}}'  wx:key='{{index}}' data-id="{{item.id}}">
+  
+      <view class="item-name">
+          <image src="https://file.qosoo.cn/files/20191021/home/up.png"></image>
+          <view class="names">
+              <view class="name">{{item.calleeName}}</view>
+              <view class="phone">{{item.callee}}</view>
+          </view>
+      </view>
+      <view class="item-time">
+        <view class="time">{{item.create}}</view>
+        <image src="https://file.qosoo.cn/files/20191021/home/close.png" bindtap="del" data-id="{{item.id}}"></image>
+      </view>
+  </view>
+  
+</view>

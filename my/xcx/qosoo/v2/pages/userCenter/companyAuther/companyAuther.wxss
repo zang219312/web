@@ -1,0 +1,24 @@
+page{
+  background-color: fff;
+}
+.credentialImg{
+  margin: 50rpx 69rpx 10rpx;
+  width: 612rpx;
+  height: 893rpx;
+}
+.btn{
+  width: 690rpx;
+  height: 80rpx;
+  border-radius: 6rpx;
+  border: 1rpx solid #ff6f05;
+  margin: 30rpx;
+  font-size: 32rpx;
+}
+.uploadingBtn{
+  background-color: #ff6f05;
+  color: white;
+}
+.commitBtn{
+  background-color: #fff;
+  color: #ff6f05;
+}

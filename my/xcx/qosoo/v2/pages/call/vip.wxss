@@ -1,0 +1,107 @@
+/* pages/call/vip.wxss */
+/* 导航栏 */
+
+.home_nav {
+  height: 136rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.home_nav  .scanicon {
+  width: 22rpx;
+  height: 38rpx;
+  margin-top: 81rpx;
+  margin-left: 42rpx;
+  z-index: 9;
+}
+
+.home_nav  image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.home_nav view {
+  width: 180rpx;
+  font-size: 32rpx;
+  color: #fff;
+  margin: 76rpx;
+  position: absolute;
+}
+
+.home_nav  .head_bg_img {
+  width: 100%;
+  height: 136rpx; /* 64px*/
+}
+
+/* 导航栏 */
+.vip-top{
+  padding-top: 0;
+  width: 100%;
+  height: 148rpx;
+}
+.vip-level{
+  width: 520rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background:rgba(79,79,79,1);
+  border-radius:64rpx;
+  margin: 54rpx auto;
+  text-align: center;
+  color: #FDBE3C;
+  font-size: 32rpx;
+}
+.vip-card{
+  width: 672rpx;
+  margin: 0 auto 70rpx;
+}
+.vip-card image{
+  width: 672rpx;
+  height: 426rpx;
+}
+.card-info{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 26rpx;
+}
+.card-price{
+  margin-left: 40rpx;
+}
+.price-befor{
+  font-size: 34rpx;
+  color: #222222;
+  text-decoration: line-through;
+}
+.price-now{
+  font-size: 24rpx;
+  color: #FA6D21;
+}
+.buy{
+  margin-top: 12rpx;
+  width: 264rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  background:rgba(250,109,33,1);
+  border-radius:64rpx;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+}
+.bottom{
+  margin-top: 168rpx;
+  margin-left: 30rpx;
+  /* text-align: center; */
+  font-size: 20rpx;
+  color: #888888;
+  padding-bottom: 54rpx;
+  
+}
+.bottom-left{
+  margin-left: 40rpx;
+}
+.bottom view {
+    /* margin-bottom:20rpx; */
+  }

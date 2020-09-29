@@ -1,0 +1,65 @@
+<!--pages/video/video.wxml-->
+<view class="top">
+  {{title}}
+  <view class='top_left'>
+    <text wx:if="{{quantity_v==0}}">{{m}} 个已上传</text>
+    <text wx:else>{{m}} / {{quantity_v}}</text>
+  </view>
+  <view wx:if="{{btn}}">
+    <text class="choose" bindtap='choose'>选择</text>
+  </view>
+  <view wx:else>
+    <text class="choose" bindtap='choose'>返回</text>
+  </view>
+</view>
+
+<view class="weui-cells mar-bom">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader">
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__input-box">
+            <view wx:if="{{quantity_v>0}}">
+              <view wx:if="{{m<quantity_v}}" class="weui-uploader__input" bindtap="choosevideo"></view>
+              <view wx:if="{{m==quantity_v}}" class="weui-uploader__input"></view>
+            </view>
+            <view wx:else class="weui-uploader__input" bindtap="choosevideo"></view>
+          </view>
+          <block wx:for="{{list}}" wx:key="videoList" wx:for-item="video">
+            <view class="weui-uploader__file" style='position:relative;'>
+              <!-- <video class="weui-uploader__img" src="{{video.v}}" bindtap='play' data-ids='{{index}}'></video> -->
+              <image class="weui-uploader__img" src="{{video.img}}" data-ids='{{index}}' bindtap="previewImage"></image>
+
+              <view wx:if="{{icon_show}}">
+                <icon wx:if="{{video.checked}}" type='success' color="#1aad19" class='qr_yes' size="20" data-index='{{index}}' bindtap="selectList"></icon>
+                <icon wx:else type="circle" size="20" class='qr_yes' data-index='{{index}}' bindtap="selectList"></icon>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!--蒙版-->
+<view wx:if="{{showModal}}">
+  <view class="mask" catchtouchmove="preventTouchMove" bindtap='hid'></view>
+  <view class="modalDlg">
+    <video src='{{play}}'></video>
+  </view>
+</view>
+
+<view wx:if="{{show}}" style=' position: fixed; width: 100%;  height: 100%;  top: 0px;  background: rgba(0, 0, 0, 0);  overflow: hidden;  z-index: 9999;'>
+  <view class="" catchtouchmove="preventTouchMove"></view>
+</view>
+
+
+<view class="order-action tar clearfix">
+  <view bindtap="choose" class="btn_l"> 继续上传</view>
+  <text class='text_l' style='font-size: 18rpx;'>不含运费</text>
+  <text class='text_r'>合计：￥{{price*m}} 元</text>
+
+  <view bindtap="comp_order" class="btn_r" style='font-weight:normal; border-left: 1px solid #dbdbdb;'>下一步</view>
+</view>

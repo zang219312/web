@@ -1,0 +1,143 @@
+<!--pages/my/my.wxml-->
+<view class="personal-info">
+  <image class="s-image" src="{{userInfo.avatarUrl}}"></image>
+  <open-data class="s-image" type="userAvatarUrl"></open-data>
+  <view class="py-name">
+    <open-data type="userNickName"></open-data>
+  </view>
+  <view class="setUp">
+    <text class='setting-text'></text>
+  </view>
+</view>
+
+
+<view class="swiper-tab flex-h-c">
+
+  <view class="swiper-tab-list flex1">
+    <view class="list-tle" data-current="1" bindtap="order">
+      <view>待发货订单</view>
+    </view>
+  </view>
+  <view class="swiper-tab-list flex1">
+    <view class="list-tle" data-current="2" bindtap="order">
+      <view>待收货订单</view>
+    </view>
+  </view>
+  <view class="swiper-tab-list flex1">
+    <view class="list-tle" data-current="0" bindtap="order">
+      <view>全部订单</view>
+    </view>
+  </view>
+</view>
+
+
+<!-- end .swiper-tab -->
+
+<view class="swiper-container">
+  <view class="cart">
+    <block wx:for="{{dat_b}}" wx:key="carts">
+      <view class='cartlist' wx:if="{{item.Isdan=='duo'}}">
+        <view class="cart-item flex-v-c" wx:for="{{item.tit}}" wx:for-item='ss' wx:key="duo">
+          <view class="flex flex1" bindtap='tz' data-com='{{item.com}}' data-orderid='{{item.orderid}}' data-the_category='{{item.the_category[index]}}' data-tit='{{ss}}' data-imgurl='{{item.imgurl[index]}}' data-spid='{{item.spid[index]}}' data-quantity_p='{{item.quantity_p[index]}}'
+            data-quantity_v='{{item.quantity_v[index]}}' data-scid='{{item.scid[index]}}' data-price='{{item.price[index]}}' data-num="{{item.num[index]}}">
+
+            <view wx:if="{{item.the_category[index]=='pav'}}" class="item-bd flex1">
+              <view class="text-truncate"> {{ss}}</view>
+              <view wx:if="{{item.quantity_v[index]==0 && item.quantity_p[index]==0}}">
+                <view>照片已上传{{item.zhang[index]}}张</view>
+                <view>视频已上传{{item.ge[index]}}个</view>
+              </view>
+              <view wx:elif="{{item.quantity_v[index]>0 && item.quantity_p[index]>0}}">
+                <view>{{item.zhang[index]}}/{{item.quantity_p[index]}}张照片</view>
+                <view>{{item.ge[index]}}/{{item.quantity_v[index]}}个视频</view>
+              </view>
+            </view>
+            <view class='add_border'>
+              <image wx:if="{{item.quantity_p[index]==0 && item.quantity_v[index]==0}}" class="item-img" src='{{item.img[index]}}'></image>
+              <image wx:else class="item-img" src='../../images/add.png'></image>
+              <view data-scid='{{item.scid[index]}}' data-oid='{{item.orderid}}' data-tit='{{ss}}' catchtap='chakan'>
+                <text class="chakan">查看 -></text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 完成状态 -->
+        <view class="mt">
+          <text class="fw-700">实付金额：￥{{item.total}}元</text>
+          <navigator class="fr text-primary" hover-class="none" url="../orderDetail/orderDetail?orderid={{item.orderid}}">订单详情 ›
+          </navigator>
+        </view>
+      </view>
+
+      <view class='cartlist' wx:elif="{{item.Isdan=='dan' && item.the_category=='pav'}}">
+
+        <view class="cart-item flex-v-c">
+          <view class="flex flex1" bindtap='tz' data-com='{{item.com}}' data-orderid='{{item.orderid}}' data-the_category='{{item.the_category}}' data-tit='{{item.tit}}' data-imgurl='{{item.imgurl}}' data-spid='{{item.spid}}' data-quantity_p='{{item.quantity_p}}'
+            data-quantity_v='{{item.quantity_v}}' data-scid='{{item.scid}}' data-price='{{item.price}}' data-num="{{item.num}}">
+
+            <view wx:if="{{item.the_category=='pav'}}" class="item-bd flex1">
+              <view class="text-truncate"> {{item.tit}}</view>
+              <view wx:if="{{item.quantity_v==0 && item.quantity_p==0 }}">
+                <view>照片已上传{{item.zhang}}张</view>
+                <view>视频已上传{{item.ge}}个</view>
+              </view>
+              <view wx:elif="{{item.quantity_v>0 && item.quantity_p>0}}">
+                <view>{{item.zhang}}/{{item.quantity_p}}张照片</view>
+                <view>{{item.ge}}/{{item.quantity_v}}个视频</view>
+              </view>
+            </view>
+            <view class='add_border'>
+
+              <image wx:if="{{item.quantity_p==0 && item.quantity_v==0}}" class="item-img" src='{{item.img}}'></image>
+              <image wx:else class="item-img" src='../../images/add.png'></image>
+
+              <view data-scid='{{item.scid}}' data-oid='{{item.orderid}}' data-tit='{{item.tit}}' catchtap='chakan'>
+                <text class="chakan">查看 -></text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 完成状态 -->
+        <view class="mt">
+          <text class="fw-700">实付金额：￥{{item.total}}元</text>
+          <navigator class="fr text-primary" hover-class="none" url="../orderDetail/orderDetail?orderid={{item.orderid}}">订单详情 ›
+          </navigator>
+
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="order-list">
+    <view class="tac text-gray-light" style='margin-top:10px;font-size:15px;font-weight:bold;'>-- 我的回忆 --</view>
+    <block wx:for="{{dat_a}}" wx:key="data.list">
+      <!--<navigator class="mod-item" url="../orderDetail/orderDetail?id={{item.id}}">-->
+      <!--<view class="mod-img">-->
+      <!--<image src="{{item.tit_pic}}" class="mod-image"></image>-->
+      <!--</view>-->
+      <!--</navigator>-->
+    </block>
+
+  </view>
+
+
+</view>
+
+
+<view class="tab-bar">
+  <navigator class="tab-item" url="../index/index" hover-class="none" open-type="redirect">
+    <view class="tab-icon icon-home"></view>
+    <view class="tab-text">首页</view>
+  </navigator>
+
+  <navigator class="tab-item" url="../cart/cart" hover-class="none" open-type="redirect">
+    <view class="tab-icon icon-cart"></view>
+    <view class="tab-text">购物车</view>
+  </navigator>
+
+  <navigator class="tab-item" url="../my/my" hover-class="none" open-type="redirect">
+    <view class="tab-icon icon-user active"></view>
+    <view class="tab-text">我的</view>
+  </navigator>
+</view>

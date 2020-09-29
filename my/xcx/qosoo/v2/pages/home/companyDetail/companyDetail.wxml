@@ -1,0 +1,640 @@
+<navBar title='智慧云官网' back="{{true}}" home="{{false}}" bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<view class='pageBGView' style='padding-top:0;'>
+  <view class='headerInfoBG'>
+
+    <!-- 头部 contact -->
+    <!-- <view class="headerContactWay" wx:if="{{cardShows||company_id==0}}">
+      <view class="contact-item" bindtap="callMeAction" data-mobile="{{cardInfo.mobile || cardInfo.account}}" data-realname="{{cardInfo.realName}}">
+        <image src="https://file.qosoo.cn/files/home/call.png"></image>
+        <view>
+          打电话
+        </view>
+      </view>
+      <view class="contact-item" bindtap="clipboard" data-wechat="{{cardInfo.wechat || cardInfo.account}}">
+        <image src="https://file.qosoo.cn/files/home/wechat.png" style="width:48rpx;"></image>
+        <view>
+          加微信
+        </view>
+      </view>
+      <view class="contact-item" bindtap="sendSms" data-sms="{{cardInfo.mobile || cardInfo.account}}">
+        <image src="https://file.qosoo.cn/files/home/sms.png"></image>
+        <view>
+          发短信
+        </view>
+      </view>
+      <view class="contact-item" bindtap='focusAction' style="margin-right:-22rpx;">
+        <image src="https://file.qosoo.cn/files/home/focus.png"></image>
+        <view>
+          关注度
+        </view>
+      </view>
+    </view> -->
+
+    <!--  -->
+    <view class='headerTitleBG' wx:if='{{company_id>0}}'>
+      <view class='companyTitle' bindtap='PushToCompanyLVAction'>
+        <view style="font-weight: 600;margin-bottom: -10rpx;font-size: 28rpx;">{{companyData.levelName}}</view>
+        <view class='signTitle'>商誉</view>
+      </view>
+      <view class="signItemBG signItem_2" bindtap="influence">
+        <image class="signImg" src="https://file.qosoo.cn/files/20191122/cardInfo/vip2.png"></image>
+        <view class="signTitle" style="width:100rpx;" >
+          影响力
+        </view>
+      </view>
+      <!-- 分享关注  open-type="share"-->
+      <view class='signBGView'>
+        <button class='signItemBG signItem_1' open-type="share">
+          <image class='signImg signImgShare' src='https://file.qosoo.cn/files/20191021/home/icon_share_0.png'></image>
+          <view class='signTitle'>转发</view>
+        </button>
+
+        <!-- 关注 -->
+        <view class='signItemBG signItem_2' bindtap='focusAction'>
+          <image class='signImg {{followActive==true ? "" : "star-img"}}' src='{{followImg}}'></image>
+          <view class='signTitle {{followActive==true ? "active" : ""}}'>{{followTxt}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 名片 -->
+    <view class='business-card' wx:if='{{cardShows||company_id==0}}'>
+      <view class='card-top'>
+        <image src='{{cardInfo.headImg}}' class='card-portrait'></image>
+
+        <view class='card-top-middle'>
+          <view class='card-name'>
+            {{cardInfo.realName}}
+            <image src='https://file.qosoo.cn/files/20191021/secretary/renzheng2.png' wx:if='{{cardInfo.personCertified == 1}}'></image>
+            <image src='https://file.qosoo.cn/files/20191021/secretary/renzheng.png' wx:else></image>
+          </view>
+          <view class='card-position'>
+            {{cardInfo.dept}} {{cardInfo.job}}
+          </view>
+          <view class='card-phone'>
+            {{cardInfo.account}}
+          </view>
+        </view>
+      </view>
+
+      <view class='card-info-list'>
+        <view class='card-info-item'>
+          <view class="img-box">
+            <image src='https://file.qosoo.cn/files/20191021/secretary/home.png'></image>
+          </view>
+          <view>
+            <text>{{companyData.name}}</text>
+            <text class='renzheng {{companyData.certifiedStatus ==1?"renzheng-1":""}}'>{{certifiedStatus}}</text>
+          </view>
+
+        </view>
+        <view class='card-info-item' wx:if='{{cardInfo.email}}'>
+          <view class="img-box">
+            <image src='https://file.qosoo.cn/files/20191021/secretary/dizhi.png'></image>
+          </view>
+          <text>{{cardInfo.email}}</text>
+        </view>
+        <view class='card-info-item' wx:if="{{cardInfo.province}}">
+          <view class="img-box">
+            <image src='https://file.qosoo.cn/files/20191021/secretary/dingwei.png'></image>
+          </view>
+          <text>{{cardInfo.province}}{{cardInfo.city}}{{cardInfo.district}}{{cardInfo.address}}</text>
+        </view>
+
+      </view>
+
+    </view>
+
+    <!-- <view class="headerTitleBG_two" wx:if="{{company_id>0 && cardShows}}">
+      <view class='companyTitle_two' bindtap='PushToCompanyLVAction'>
+        <view>{{companyData.levelName}}</view>
+        <view class='signTitle_two'>商誉</view>
+      </view>
+    </view> -->
+
+
+    <!-- 公司简介部分 -->
+    <view class='headerInfoBottomBG' wx:if='{{company_id>0 && !cardShows}}'>
+      <image class='companyLogoImg' src='{{companyData.logo}}' mode="widthFix"></image>
+      <view class='companyNameTitle {{cardShows||company_id==0?"blacktitle":""}}'>{{companyData.name}}</view>
+      <view class='companyIntroduce' id='mjltest'>
+        <text wx:if='{{companyData.content}}' class='{{content_height ? "" : "hidden"}}'>{{companyData.content}}</text>
+        <text wx:else style="text-align:center">暂无公司详情，请登陆 www.qosoo.cn 完善资料。 </text>
+        <!-- <view id='mjltest'></view> -->
+        <view class='contentMore' style='display:{{content_dis}}' bindtap='content_showmore'>{{content_text}}</view>
+      </view>
+    </view>
+
+    <!-- 从分享卡片进入 -->
+    <view class='headerInfoBottomBG_two' wx:if='{{company_id>0 && cardShows && from=="share"}}'>
+      <image class='companyLogoImg' src='{{companyData.logo}}' mode="widthFix"></image>
+      <view class='companyNameTitle {{cardShows||company_id==0?"blacktitle":""}}'>{{companyData.name}}</view>
+      <view class='companyIntroduce' id='mjltest'>
+        <text wx:if='{{companyData.content}}' class='{{content_height ? "" : "hidden"}}'>{{companyData.content}}</text>
+        <text wx:else style="text-align:center">暂无公司详情，请登陆 www.qosoo.cn 完善资料。 </text>
+        <!-- <view id='mjltest'></view> -->
+        <view class='contentMore' style='display:{{content_dis}}' bindtap='content_showmore'>{{content_text}}</view>
+      </view>
+    </view>
+
+    <!-- 从搜索页进入 -->
+    <view class='headerInfoBottomBG_two' wx:if='{{company_id>0 && cardShows && from=="search"}}'>
+      <image class='companyLogoImg' src='{{companyData.logo}}' mode="widthFix"></image>
+      <view class='companyNameTitle {{cardShows||company_id==0?"blacktitle":""}}'>{{companyData.name}}</view>
+      <view class='companyIntroduce' id='mjltest'>
+        <text wx:if='{{companyData.content}}' class='{{content_height ? "" : "hidden"}}'>{{companyData.content}}</text>
+        <text wx:else style="text-align:center">暂无公司详情，请登陆 www.qosoo.cn 完善资料。 </text>
+        <!-- <view id='mjltest'></view> -->
+        <view class='contentMore' style='display:{{content_dis}}' bindtap='content_showmore'>{{content_text}}</view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="Information" wx:if='{{InformationArray.length>0}}'>
+    <image src="https://file.qosoo.cn/files/img/2019/10/24/A337F7A273974C478F2E40E62FB31C78.png" class="img1"></image>
+    <view class="info_swp">
+      <swiper vertical="true" autoplay="true" circular="true" interval="4000" style="height: 68rpx;">
+        <block wx:for='{{InformationArray}}' wx:key="id">
+          <swiper-item data-id='{{item.id}}' data-type='3' bindtap='PushToCaseDetail' data-companyid="{{item.companyId}}">
+
+            {{item.title}}
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <image src="https://file.qosoo.cn/files/img/2019/10/24/C26F42015C574B02BB8A1B495E96C7B0.png" class="img-more" bindtap="pushTonewsmore"></image>
+  </view>
+
+  <!-- <view class='lineView'></view> -->
+  <!-- 产品资料 -->
+  <view wx:if='{{productInfoArray.length>0}}' class="pushToproductmore" bindtap='pushToproductmore'>
+    <view class='section_title'>
+      <text></text>产品服务</view>
+    <view class='section_title_more'>更多</view>
+    <view style='display:flex'>
+      <image class='cellNext' mode="widthFix" src="https://file.qosoo.cn/files/20191021/public/icon_cellNext@3x.png"></image>
+    </view>
+  </view>
+
+  <!-- 产品资料_1 -->
+
+  <view wx:if='{{productInfoArray.length>0}}' class='productInfoCell_1'>
+    <swiper class="swiper" previous-margin="74rpx" next-margin="74rpx" interval="5000" autoplay="true" bindchange="getchange" circular="true">
+      <swiper-item wx:for="{{productInfoArray}}" wx:key='{{index}}' bindtap='PushToProductDetail' data-id='{{item.id}}' data-companyid="{{item.companyId}}" data-type='2' wx:key="id">
+        <view class="image">
+          <image src="{{item.coverImg}}" style="width:100%;"></image>
+        </view>
+        <view class="newTitle" wx:if='{{currentIndex == index}}'>{{item.title}}</view>
+      </swiper-item>
+    </swiper>
+
+
+    <!-- <view class='clearfix'>
+            <view class='pull-left product-left'>
+              <image src='{{item.coverImg}}'></image>
+            </view>
+            <view class='pull-right schitem-right product-schitem-right'>
+              <view class='schitem-title'><view class='recommendSign' wx:if = '{{item.status == 1}}'>推荐</view>{{item.title}}</view>
+              <view class='schitem-info'>
+                <view>{{item.createTime}}</view>
+              </view>
+            </view>
+    </view> -->
+
+
+  </view>
+
+  <!-- <view class='lineView' wx:if='{{productInfoArray.length>0}}' ></view> -->
+  <!-- 合作案例  -->
+
+
+  <view wx:if='{{companyCaseArray.length>0}}' style="display: flex;margin-bottom:30rpx;align-items: center;" bindtap='pushTocasesmore'>
+    <view class='section_title'>
+      <text></text>公司案例</view>
+    <view class='section_title_more'>更多</view>
+    <view style='display:flex'>
+      <image class='cellNext' src="https://file.qosoo.cn/files/20191021/public/icon_cellNext@3x.png"></image>
+    </view>
+  </view>
+  <!-- 案例cell 1 -->
+
+  <view wx:if='{{companyCaseArray.length>0}}' class='productInfoCell_1'>
+
+    <swiper class="swiper" previous-margin="60rpx" next-margin="60rpx" autoplay="true" interval="5000" bindchange="getchanges" circular="true">
+      <swiper-item wx:for="{{companyCaseArray}}" wx:key='{{index}}' bindtap='PushToProductDetail' data-id='{{item.id}}' data-companyid="{{item.companyId}}" data-type='2' wx:key="id">
+        <view class="image">
+          <image src="{{item.coverImg}}" style="width:100%;"></image>
+        </view>
+        <view class="newTitle" wx:if='{{currentIndexs == index}}'>{{item.title}}</view>
+      </swiper-item>
+    </swiper>
+
+
+
+
+
+  </view>
+  <!-- <view class='lineView'  wx:if='{{companyCaseArray.length>0}}' ></view> -->
+  <!-- 公司资讯 -->
+  <!-- <view wx:if='{{InformationArray.length>0}}' style="display: flex;height: 108rpx;line-height: 108rpx;border-bottom: 2rpx solid rgba(216,216,216,0.5);" bindtap='pushTonewsmore'>
+		<view class='section_title'>公司资讯</view>
+		<view class='section_title_more'>更多</view>
+	  <view style='display:flex'>
+			<image class='cellNext' src="https://file.qosoo.cn/files/20191021/public/icon_cellNext@3x.png"></image>
+		</view>
+	</view> -->
+
+  <!-- 案例cell 1 -->
+  <!-- <view wx:if='{{InformationArray.length>0}}' class='productInfoCell_1'  wx:for="{{InformationArray}}" wx:if="{{index<4}}" data-id='{{item.id}}' data-type='3' bindtap='PushToCaseDetail' data-companyid = "{{item.companyId}}" wx:key="id"> -->
+  <!-- <view class='productInfoCell_1_left'>
+      <image class='productInfoCell_1_img' src='{{item.coverImg}}'></image>
+    </view>
+
+    <view class='productInfoCell_1_right'>
+      <view class='productInfoCell_1_title'>{{item.title}}</view>
+      <view class='productInfoCell_1_subTitle'>{{item.createTime}}</view>
+    </view> -->
+  <!-- <view class='clearfix'>
+        <view class='pull-left product-left'>
+          <image src='{{item.coverImg}}'></image>
+        </view>
+        <view class='pull-right schitem-right product-schitem-right'>
+          <view class='schitem-title'><view class='recommendSign' wx:if = '{{item.status == 1}}'>推荐</view>{{item.title}}</view>
+          <view class='schitem-info'>
+            <view>{{item.createTime}}</view>
+          </view>
+        </view>
+      </view>
+  </view> -->
+
+
+
+  <!-- 合作伙伴 -->
+  <view wx:if='{{companyData.partner&&companyData.partner.length>0}}' style="display: flex;margin-bottom:30rpx;align-items: center;">
+    <view class='section_title'>
+      <text></text>合作伙伴</view>
+    <view class='section_title_more'></view>
+  </view>
+  <!-- <view hidden='{{display_partner}}'>
+    <view style="text-align: center">
+			<image mode="widthFix" style='margin:32rpx auto;border-radius:12rpx;' src="{{companyData.partner}}"></image>
+		</view>
+
+	</view> -->
+  <view class='image-list' wx:if='{{companyData.partner&&companyData.partner.length>0}}'>
+    <image class='partner-item-iamge' mode="widthFix" wx:for='{{companyData.partner}}' wx:key='{{index}}' src='{{item}}'></image>
+
+  </view>
+  <!-- <view class='lineView' wx:if='{{companyData.partner&&companyData.partner.length>0}}'></view> -->
+
+  <!-- 荣誉证书 -->
+  <view style="display: flex;margin-bottom:30rpx;align-items: center;" wx:if='{{companyData.certificate&&companyData.certificate.length>0}}'>
+    <view class='section_title'>
+      <text></text>荣誉资质</view>
+    <view class='section_title_more'></view>
+
+  </view>
+  <view class='image-list' wx:if='{{companyData.certificate&&companyData.certificate.length>0}}'>
+    <image class='item-iamge' wx:for='{{companyData.certificate}}' wx:key='{{index}}' src='{{item}}'></image>
+
+  </view>
+  <!-- <view class='lineView' wx:if='{{companyData.certificate&&companyData.certificate.length>0}}'></view> -->
+
+
+
+  <!-- 联系方式 -->
+  <view style="display: flex;margin-bottom:30rpx;align-items: center;" wx:if='{{company_id>0 && !cardShows}}'>
+    <view class='section_title'>
+      <text></text>联系方式</view>
+  </view>
+
+  <!-- <view class='businessCardBG' bindtap='pushToCompanyDetail_share'>
+    <image class='businessCardBGImg' src='https://lg-6pshrvnq-1255620684.cos.ap-shanghai.myqcloud.com/img_userInfo_BG.png'></image>
+        <view class='businessCard_top'>
+          <view class='businessCard_top_left'>
+            <image class='businessCard_companyLogo' src='{{user_data.companyLogo}}'></image>
+          </view>
+          <view class='businessCard_top_right'>
+            <view class='businessCard_userName '>{{user_data.realName}}
+              <image class='businessCard_userTypeImg' src='https://file.qosoo.cn/files/20191021/userCenter/userAuthType_1@3x.png'></image>
+            </view>
+            <view class='businessCard_userSection '>{{user_data.dept}} {{user_data.job}}</view>
+            <view class='businessCard_companyName '>{{user_data.companyName}}</view>
+          </view> 
+        </view>
+        <view class='businessCard_bottom'>
+          <view class='businCard_bottomInfo_1'>
+            <view class='businCard_bottomInfo_1_phone'>
+              <image class='businCard_bottomInfo_1_phone_icon' src='https://file.qosoo.cn/files/20191021/userCenter/icon_mobilePhone@3x.png'></image>
+              <view class='businCard_bottomInfo_1_phone_title'>{{user_data.account}}</view>
+            </view>
+
+            <view class='businCard_bottomInfo_1_mail'>
+              <image class='businCard_bottomInfo_1_email_icon' src='https://file.qosoo.cn/files/20191021/userCenter/icon_E-mail@3x.png'></image>
+              <view class='businCard_bottomInfo_1_email_title'>{{user_data.email}}</view>
+            </view>
+          </view>
+          <view class='businCard_bottomInfo_2'>
+              <image class='businCard_bottomInfo_2_address_icon' src='https://file.qosoo.cn/files/20191021/userCenter/icon_addressPoint.png'></image>
+              <view class='businCard_bottomInfo_2_address_title'>{{user_data.companyProvince}} {{user_data.companyCity}} {{user_data.companyDistrict}} {{user_data.address}}</view>
+          </view>
+        </view>   
+  </view> -->
+
+  <view class='business-card' bindtap='pushCard' wx:if='{{!cardShows&&company_id>0 }}'>
+    <view class='card-top'>
+      <image src='{{cardInfo.headImg}}' class='card-portrait'></image>
+      <view class='card-top-middle'>
+        <view class='card-name'>
+          {{cardInfo.realName}}
+          <image src='https://file.qosoo.cn/files/20191021/secretary/renzheng2.png' wx:if='{{cardInfo.personCertified == 1}}'></image>
+          <image src='https://file.qosoo.cn/files/20191021/secretary/renzheng.png' wx:else></image>
+        </view>
+        <view class='card-position'>
+          {{cardInfo.dept}} {{cardInfo.job}}
+        </view>
+        <view class='card-phone'>
+          {{cardInfo.account}}
+        </view>
+      </view>
+    </view>
+
+    <view class='card-info-list'>
+      <view class='card-info-item'>
+        <view class="img-box">
+          <image src='https://file.qosoo.cn/files/20191021/secretary/home.png' mode="widthFix"></image>
+        </view>
+        <view>
+          <text>{{companyData.name}}</text>
+          <text class='renzheng {{companyData.certifiedStatus ==1?"renzheng-1":""}}'>{{certifiedStatus}}</text>
+        </view>
+
+      </view>
+      <view class='card-info-item' wx:if='{{cardInfo.email}}'>
+        <view class="img-box">
+          <image src='https://file.qosoo.cn/files/20191021/secretary/dizhi.png'></image>
+        </view>
+        <text>{{cardInfo.email}}</text>
+      </view>
+      <view class='card-info-item' wx:if="{{cardInfo.province}}">
+        <view class="img-box">
+          <image src='https://file.qosoo.cn/files/20191021/secretary/dingwei.png'></image>
+        </view>
+        <text>{{cardInfo.province}}{{cardInfo.city}}{{cardInfo.district}}{{cardInfo.address}}</text>
+      </view>
+
+    </view>
+
+
+  </view>
+
+
+
+  <!--
+<view class="main-wraper" bindtap='pushToCompanyDetail_share'>
+	<view class="business-card">
+		<view class="card">
+			<view class="left">
+				<view class="name">{{user_data.realName}}</view>
+				<view class="dept">{{user_data.dept}}</view>
+				<view class="dept">{{user_data.job}}</view>
+			</view>
+			<view class="right">
+				  <view class="companyName">{{user_data.companyName}}</view>
+					<view class="item">
+						<image class="account" src="https://file.qosoo.cn/files/20191021/home/phone@2x.png"></image>
+						<view>{{user_data.account}}</view>
+					</view>
+					<view class="item">
+						<image class="email" src="https://file.qosoo.cn/files/20191021/home/email@2x.png" ></image>
+						<view>{{user_data.email}}</view>
+					</view>
+					<view class="item">
+						<image class="address" src="https://file.qosoo.cn/files/20191021/home/address@2x.png"></image>
+						<view>{{user_data.address}}</view>
+					</view>
+			</view>
+		</view>
+		<view class="contact">
+			<view>座机：{{user_data.mobile}}</view>
+			<view>网址：{{user_data.website}}</view>
+		</view>
+		
+		<view class="radio left-r"></view>
+		<view class="radio right-r"></view>
+	</view>
+</view>
+-->
+  <!-- <view class='lineView'></view> -->
+  <!-- 官网地址  -->
+  <view class="pushToproductmore" wx:if="{{cardInfo.website}}">
+    <view class='section_title'>
+      <text></text>官网地址
+    </view>
+    <view class="website">{{cardInfo.website}}</view>
+  </view>
+
+  <!--广告 -->
+
+  <view class='articleCell_BG company_gg' wx:for="{{publicizewidely}}" wx:key='{{index}}' data-id='{{item.id}}' data-linktype='{{item.linkUrl}}' bindtap='tolist' data-xq='{{item.content}}' style="padding-bottom:{{contactShow?'0':'160rpx'}};">
+    <image class='articleCell_image ' src='{{item.url}}' mode="widthFix"></image>
+  </view>
+</view>
+<!-- 分享的遮罩层 -->
+<!-- 转发提示蒙版 -->
+<!-- <view class='coverView'  hidden="{{shareCoverViewStatus}}" bindtap='coverViewCloseAction'>
+
+  <view class='remindShare'>
+    <view class='remshare-left'>
+      <image src='https://lg-6pshrvnq-1255620684.cos.ap-shanghai.myqcloud.com/icon_share_katong.png'></image>
+    </view>
+    <view class='remshare-right'>
+      点击 <image src='https://file.qosoo.cn/files/20191021/public/icon_share_shareIcon.png'></image>选择“转发”即可发送给好友或群
+    </view>
+    <image class='share-topimg' src='https://file.qosoo.cn/files/20191021/public/icon_share_zhixiang.png'></image>
+  </view>
+
+</view> -->
+<view class="shade" hidden="{{isShowInfluence}}" bindtap="hideInfluence"></view>
+<view class="contact_detail_influence" style="" hidden="{{isShowInfluence}}">
+  <view class="contact_item" wx:if="{{isAssociation}}">
+    <text wx:if="{{association.level==0}}">{{society.name}}   会员单位</text>
+    <text wx:if="{{association.level==1}}">{{society.name}}   理事</text>
+    <text wx:if="{{association.level==2}}">{{society.name}}   常务理事</text>
+    <text wx:if="{{association.level==3}}">{{society.name}}   副秘书长</text>
+    <text wx:if="{{association.level==4}}">{{society.name}}   秘书长</text>
+    <text wx:if="{{association.level==5}}">{{society.name}}   副会长</text>
+    <text wx:if="{{association.level==6}}">{{society.name}}   常务副会长</text>
+  </view>
+  <view class="contact_item" wx:else bindtap="toAddFluence">
+    点此获取资源，扩大宣传影响力
+  </view>
+</view>
+
+<view class="shade" hidden="{{isShowContact}}" bindtap="hideContact"></view>
+<view class="contact_detail" hidden="{{isShowContact}}">
+  <view class="contact_item">
+    <text>立即联系</text>
+  </view>
+  <view class="contact_item">
+    <view class="item_first">
+      <image src="https://file.qosoo.cn/files/20191122/home/contact_call.png"></image>
+      {{cardInfo.account}}
+    </view>
+    <view class="item_last" bindtap="callMeAction" data-mobile="{{cardInfo.account}}" data-realname="{{cardInfo.realName}}">
+      <image src="https://file.qosoo.cn/files/20191122/home/contact_call2.png"></image>
+    </view>
+  </view>
+  <!-- mobile 座机 -->
+  <view class="contact_item" wx:if="{{cardInfo.mobile}}">
+    <view class="item_first">
+      <image src="https://file.qosoo.cn/files/20191122/home/contact_tel.png" style="width:42rpx;height:30rpx;"></image>
+      {{cardInfo.mobile}}
+    </view>
+    <view class="item_last" bindtap="callMeAction" data-mobile="{{cardInfo.mobile}}" data-realname="{{cardInfo.realName}}">
+      <image src="https://file.qosoo.cn/files/20191122/home/contact_call2.png"></image>
+    </view>
+  </view>
+
+  <view class="contact_item" wx:if="{{cardInfo.wechat}}">
+    <view class="item_first">
+      <image src="https://file.qosoo.cn/files/20191122/home/contact_wechat.png" style="width:40rpx;height:34rpx;"></image>
+      {{cardInfo.wechat}}
+    </view>
+    <view class="item_last" bindtap="clipboard" data-wechat="{{cardInfo.wechat || cardInfo.account}}">
+      <image src="https://file.qosoo.cn/files/20191122/home/contact_wechat2.png" style="width:40rpx;height:34rpx;"></image>
+    </view>
+  </view>
+
+  <view class="contact_item" wx:if="{{cardInfo.account}}">
+    <view class="item_first">
+      <image src="https://file.qosoo.cn/files/20191122/home/contact_sms.png" style="width:40rpx;height:30rpx;"></image>
+      {{cardInfo.account}}
+    </view>
+    <view class="item_last" bindtap="sendSms" data-sms="{{cardInfo.account}}">
+      <image src="https://file.qosoo.cn/files/20191122/home/contact_sms2.png"></image>
+    </view>
+  </view>
+
+  <view class="contact_item">
+    <view class="item_first">
+      <view class="star_content">
+        <image id="{{item.id}}" wx:for="{{imgArray}}" bindtap='focusStar' wx:key="{{index}}" src="{{item.imgurl2}}"></image>
+      </view>
+      关注
+
+    </view>
+    <!-- <view class="item_last">
+      商业合作意向值
+    </view> -->
+
+  </view>
+
+  <!-- <view class="contact_item" bindtap="hideContact">
+    <view class="contact_btn" >取消</view>
+  </view> -->
+
+</view>
+<view wx:if="{{qctype!=3}}">
+  <view class="footer" hidden="{{contactShow}}">
+    <view class="left">
+      <button open-type="share">
+        <image src="https://file.qosoo.cn/files/20191122/home/share.png"></image>
+        分享
+      </button>
+    </view>
+
+    <view class="right" bindtap="contactCompany">
+      联系方式
+    </view>
+  </view>
+</view>
+<view class="footer" wx:if="{{qctype==3}}">
+  <view class="left">
+    <button bindtap="applyFor">
+      申请加入
+    </button>
+  </view>
+
+  <view class="right" bindtap="contactCompany">
+    联系方式
+  </view>
+</view>
+
+<!-- 加入协会 -->
+<view class='shade3' hidden='{{em_popup}}' bindtap='hideEmPopup' catchtouchmove='true'></view>
+<view class='shade_box3 popup3' hidden='{{em_popup}}'>
+  <view class="form_item3">
+    <textarea name="bindTextAreaBlur" placeholder="{{minWord3}}" bindblur="getText" bindinput="getValueLength" show-confirm-bar='{{!em_popup}}' bindconfirm="getText" maxlength="{{max}}" minlength="{{min}}" auto-focus="{{!em_popup}}">
+
+    </textarea>
+    <view class="btn3">
+      <view class="left3" bindtap="toApply" data-click="cancle" data-str="employers">
+        取消
+      </view>
+      <view class="right3" bindtap="toApply" data-click="comfirm" data-str="employers">
+        提交
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 前台扫码 -->
+<view class='shade' hidden='{{popup}}' bindtap='hidePopup' catchtouchmove='true'></view>
+<view class='shade_box popup' hidden='{{popup}}'>
+  <view class="form_item">
+    <textarea name="bindTextAreaBlur" placeholder="{{minWord}}" bindblur="getText" bindinput="getValueLength" bindconfirm="getText" maxlength="{{max}}" minlength="{{min}}" auto-focus="{{!popup}}">
+    </textarea>
+    <view class="btn">
+      <view class="right" bindtap="toApply" data-click="comfirm">
+        电子登记
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 扫码报名 -->
+<view class='shade2' hidden='{{regi_popup}}' bindtap='hideRegiPopup'></view>
+<view class='shade_box2 popup2' hidden='{{regi_popup}}'>
+  <view class="form_item2">
+    <view class="form-title-text2">
+      {{regi_title}}
+    </view>
+    <view class="btn2">
+      <view class="left2" bindtap='RegiPopup' data-click="cancle">
+        取消
+      </view>
+      <view class="right2" bindtap="RegiPopup" data-click="comfirm">
+        提交
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 关注 -->
+<view class='star-view' hidden="{{starShow}}" bindtap='starHidden'>
+  <view class='star-number' hidden="{{follow}}">
+    <!-- <view class='before-star'></view> -->
+    <view class='star-box'>
+      <view class='star-title star-txt'>商业合作价值</view>
+      <view class='star-bottom star-txt'>
+        <view class='star-banner'>
+          <image id="{{item.id}}" wx:for="{{imgArray}}" wx:key="{{index}}" src="{{item.imgUrl}}" bindtap='focusStar'></image>
+          <view class='starb-left'>一般</view>
+          <view class='starb-right'>极高</view>
+        </view>
+      </view>
+      <view class='star-title star-txt cen' bindtap="unfollow">取消关注</view>
+    </view>
+  </view>
+</view>
+
+<view class='canvas-bg' wx:if='{{showCavas}}' bindtap='showCavasImg'>
+  <view class='title'>
+    长按保存图片，分享给好友开始赚钱吧
+  </view>
+  <image src='https://img.daliangju.com/upload/20180910/close.png'></image>
+</view>
+<canvas style="" canvas-id="myCanvas" class='my-canvas'></canvas>

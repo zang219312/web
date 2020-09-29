@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#ff6f05",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "修改微秘名片",
+  "usingComponents": {
+    "navigation-bar": "miniprogram-navigation-bar"
+  }
+}

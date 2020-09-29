@@ -1,0 +1,61 @@
+<!--pages/upImg/upImg.wxml-->
+<view class="top">
+
+  {{title}}
+  <text wx:if="{{quantity_p==0}}" class='top_left'>{{m}} 张已上传</text>
+  <text wx:elif="{{quantity_p>0}}" class='top_left'>{{m}} /{{quantity_p}}</text>
+  <view wx:if="{{btn}}">
+    <text class="choose" bindtap='choose'>选择</text>
+  </view>
+  <view wx:else>
+    <text class="choose" bindtap='choose'>返回</text>
+  </view>
+</view>
+
+
+<view class="weui-cells mar-bom">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader">
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__input-box">
+            <view wx:if="{{quantity_p>0}}">
+              <view wx:if="{{m<quantity_p}}" class="weui-uploader__input" bindtap="chooseImage"></view>
+              <view wx:elif="{{m==quantity_p}}" class="weui-uploader__input"></view>
+            </view>
+            <view wx:elif="{{quantity_p==0}}" bindtap="chooseImage" class="weui-uploader__input"></view>
+          </view>
+
+          <block wx:for="{{list}}" wx:key="imageList" wx:for-item="image">
+            <view class="weui-uploader__file" style='position:relative;'>
+              <image class="weui-uploader__img" src="{{image.img}}" data-ids='{{index}}' bindtap="previewImage"></image>
+              <view wx:if="{{icon_show}}">
+                <icon wx:if="{{image.checked}}" type='success' color="#1aad19" class='qr_yes' size="20" data-index='{{index}}' bindtap="selectList"></icon>
+                <icon wx:else type="circle" size="20" class='qr_yes' data-index='{{index}}' bindtap="selectList"></icon>
+              </view>
+
+            </view>
+          </block>
+
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{btn}}">
+  <view class="order-action tar clearfix">
+    <view bindtap="chooseImage" class="btn_l"> 继续上传</view>
+    <text class='text_l' style='font-size: 18rpx;color:red;'>不含运费</text>
+    <text class='text_r'>合计：￥{{price*m}} 元</text>
+
+    <view bindtap="xiayibu" class="btn_r" style='font-weight:normal; border-left: 1px solid #dbdbdb;'>下一步</view>
+  </view>
+</view>
+<view wx:else>
+  <view class="order-action tar clearfix">
+    <view bindtap="fanhui" class="btn_l"> 返 回</view>
+    <view wx:if="{{selectedLength>0}}" bindtap="delspan" class="btn_r">删 除</view>
+    <view wx:else class="btn_r">删 除</view>
+  </view>
+</view>

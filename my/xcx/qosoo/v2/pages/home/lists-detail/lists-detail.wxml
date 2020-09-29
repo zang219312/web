@@ -1,0 +1,81 @@
+<import src="../../../lib/wxParse/wxParse.wxml" />
+<!-- <view class='home_nav'>
+  <image class='scanicon' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/home/head.png"></image>
+  <view bindtap='handleGoBack'>{{title}}</view>
+</view> -->
+<navBar title='{{title}}' back="{{true}}" home="{{false}}" bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<view class="top_img">
+  <image src="{{info.titleImg}}"></image>
+</view>
+<view class='detail-top'>
+  <view class='detail-title'>
+    {{info.title}}
+  </view>
+  <view>时间：{{info.start}}至{{info.end}}</view>
+  <view>地点：{{info.address}}</view>
+</view>
+<view class="wxParse" style="margin:0  30rpx;">
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+<!-- <view class="regi" bindtap="registration" data-id="{{id}}" data-listType="{{listType}}">
+报名
+</view> -->
+<block wx:if='{{listType == 2}}'>
+  <view class="ercode" bindtap="seeImg" data-img="{{info.joinPersonQr}}">
+    <image src="{{info.joinPersonQr}}"></image>
+    <view>个人扫码报名</view>
+  </view>
+  <view class="ercode" bindtap="seeImg" style="margin-bottom:100rpx;" data-img="{{info.joinCompanyQr}}">
+    <image src="{{info.joinCompanyQr}}"></image>
+    <view>企业扫码报名</view>
+  </view>
+  <view class="regi">
+    <view class="left" bindtap="registration" data-id="{{id}}" data-qrcode="QR0004" data-listType="{{listType}}">
+      个人报名
+    </view>
+    <view class='right' bindtap="registration" data-id="{{id}}" data-qrcode="QR0002" data-listType="{{listType}}">
+      企业报名
+    </view>
+  </view>
+</block>
+<block wx:if='{{listType == 3}}'>
+  <view class="ercode" bindtap="seeImg" style="margin-bottom:100rpx;" data-img="{{info.joinPersonQr}}">
+    <image src="{{info.joinPersonQr}}"></image>
+    <view>请扫码报名</view>
+  </view>
+  <view class="summit" data-qrcode="QR0006" bindtap="registration" data-id="{{id}}" data-listType="{{listType}}">
+    <view class="summit_regi ">
+      峰会报名
+    </view>
+  </view>
+  <!-- <view class="ercode">
+    <image src="{{info.joinCompanyQr}}"></image>
+    <view>企业扫码报名</view>
+</view> -->
+</block>
+<view class='shade' hidden='{{popup}}' bindtap='hidePopup'></view>
+<view class='shade_box popup' hidden='{{popup}}'>
+  <view class="form_item">
+    <view class="form-title-text">
+      请再次确认报名
+    </view>
+    <view class="btn">
+      <view class="left" bindtap="toApply" data-click="cancle">
+        取消
+      </view>
+      <view class="right" bindtap="toApply" data-click="comfirm">
+        提交
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='shade' wx:if='{{popup && showNotify}}' bindtap='hideNotify'></view>
+<view class='shade_box popup2' wx:if='{{popup && showNotify}}'>
+  <image src="https://file.qosoo.cn/files/20191122/home/succ.png"></image>
+  <view class="apply_status2">{{notifyText1}}</view>
+  <view class="apply_notice2">{{notifyText2}}</view>
+  <view class="showPopBtn2">分享领红包</view>
+  <image class="close2" src="https://file.qosoo.cn/files/20191122/home/close.png" bindtap='hideNotify'></image>
+</view>

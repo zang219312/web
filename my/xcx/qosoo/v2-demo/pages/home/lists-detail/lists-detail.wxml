@@ -1,0 +1,35 @@
+<!--pages/home/lists-detail/lists-detail.wxml-->
+<import src="../../../lib/wxParse/wxParse.wxml"/>
+<view class='home_nav'>
+  <view  class='home_nav_title' bindtap="back"><image src="https://file.qosoo.cn/files/20191021/public/left.png"></image>{{title}}</view>
+</view>
+<view style='padding-top:150rpx;' class='detail-top'>
+  <view class='detail-title'>
+      {{info.title}}
+  </view>
+  <view>时间：{{info.start}}至{{info.end}}</view>
+  <view>地点：{{info.address}}</view>
+</view>
+<view class="wxParse">
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+<block wx:if='{{listType == 2}}'>
+<view class="ercode"  bindtap="seeImg" data-img="{{info.joinPersonQr}}">
+    <image src="{{info.joinPersonQr}}"></image>
+    <view>个人扫码报名</view>
+</view>
+<view class="ercode"  bindtap="seeImg" data-img="{{info.joinCompanyQr}}">
+    <image src="{{info.joinCompanyQr}}"></image>
+    <view>企业扫码报名</view>
+</view>
+</block>
+<block wx:if='{{listType == 3}}'>
+<view class="ercode"  bindtap="seeImg" data-img="{{info.joinPersonQr}}">
+    <image src="{{info.joinPersonQr}}" ></image>
+    <view>请扫码报名</view>
+</view>
+<!-- <view class="ercode">
+    <image src="{{info.joinCompanyQr}}"></image>
+    <view>企业扫码报名</view>
+</view> -->
+</block>

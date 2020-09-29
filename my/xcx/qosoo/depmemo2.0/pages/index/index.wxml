@@ -1,0 +1,78 @@
+<!--index.wxml-->
+
+<view class="page page--has-footer">
+  <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+    <block wx:for="{{banner}}" wx:key="banner">
+      <swiper-item>
+        <image src="{{item.img}}" class="slide-image banner-item" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- end .banner -->
+  <view style='height:20rpx;'></view>
+  <view class="clear"></view>
+
+
+  <view class='plate'>
+    <block wx:for="{{category}}" wx:key="category">
+      <view class="plate-item" bindtap="scrollToViewFn" data-id="{{item.id}}">
+        <view class="plate-img">
+          <image class="ad-item" src="{{item.img}}"></image>
+        </view>
+        <view class="plate-info">
+          <text wx:if="{{item.title=='pic'}}" class='text'>上传图片</text>
+          <text wx:if="{{item.title=='video'}}" class='text'>上传视频</text>
+          <text wx:if="{{item.title=='pav'}}" class='text'>图片视频</text>
+          <text wx:if="{{item.title=='jiesuan'}}" class='text'>结算</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- end .plate-->
+  <view style='height:20rpx;'></view>
+  <view class="clear"></view>
+
+  <!--100vh -->
+  <scroll-view class="content" style='height: 799rpx;' scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true">
+    <block wx:for="{{goods}}" wx:key="goods">
+      <view id="{{'inToView'+item.id}}">
+        <view class="app-title">{{item.title}}</view>
+        <block wx:for="{{item[0]}}" wx:for-item="aa" wx:key="{{aa}}">
+          <navigator url='../goodsDetail/goodsDetail?id={{aa.id}}' data-id="{{aa.id}}">
+            <view style="display: -webkit-flex;display:flex; -webkit-justify-content: space-around;justify-content: space-around;margin: 20rpx;">
+              <view style="margin: 20rpx  30rpx 10rpx 30rpx;">
+                <image style="width: 300rpx; height: 300rpx; " src="{{aa.tit_pic}}"></image>
+              </view>
+              <view class="" style=" margin: 20rpx;  margin: auto;">
+                <view class="">{{aa.name}}</view>
+                <view class="">￥{{aa.price}}</view>
+              </view>
+            </view>
+          </navigator>
+        </block>
+      </view>
+
+    </block>
+
+  </scroll-view>
+
+
+</view>
+
+
+<view class="tab-bar">
+  <navigator class="tab-item" url="../index/index" hover-class="none" open-type="redirect">
+    <view class="tab-icon icon-home active"></view>
+    <view class="tab-text">首页</view>
+  </navigator>
+
+  <navigator class="tab-item" url="../cart/cart" hover-class="none" open-type="redirect">
+    <view class="tab-icon icon-cart"></view>
+    <view class="tab-text">购物车</view>
+  </navigator>
+
+  <navigator class="tab-item" url="../my/my" hover-class="none" open-type="redirect">
+    <view class="tab-icon icon-user"></view>
+    <view class="tab-text">我的</view>
+  </navigator>
+</view>

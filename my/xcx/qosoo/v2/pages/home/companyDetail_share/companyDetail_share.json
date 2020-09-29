@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#ff6f05",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "公司详情",
+  "usingComponents": {
+    "navigation-bar": "miniprogram-navigation-bar",
+        "toast": "../lib/toast/toast"
+  },
+  "navigationStyle": "default"
+}

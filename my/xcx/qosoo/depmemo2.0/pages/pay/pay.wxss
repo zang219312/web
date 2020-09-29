@@ -1,0 +1,12 @@
+/* pages/pay/pay.wxss */
+
+.form .weui-cells {
+  font-size: 14px !important;
+  line-height: 40rpx;
+}
+
+.weui-cell {
+  height: 120rpx;
+  line-height: 120rpx;
+
+}

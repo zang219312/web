@@ -1,0 +1,148 @@
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="注册名片" bg-style="background-color: #fa6d21"></navigation-bar>
+<import src="../../../model/model.wxml"/>
+<view style='padding-top:160rpx'>
+    <view class="form_item">
+        <view class="form_leber"><text>*</text>账号/手机</view>
+        <input class="form_input" bindinput ="phoneNumberInput" data-str="mobile" type="text" placeholder="请输入手机号码"/>
+        <!-- <button class="form_code_btn" type="buttom" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" style='color:#FA6D21'>获取微信手机号</button> -->
+    </view>
+    <view class="form_item">
+        <view class="form_leber"><text>*</text>姓名</view>
+        <input class="form_input" bindinput ="phoneNumberInput" data-str="realName" type="text" placeholder="请输入真实姓名"/>
+    </view>
+     <view class="form_item">
+        <view class="form_leber"><text>*</text>行业</view>
+        <picker style="flex: 1;" bindchange="bindPickerChange" value="{{index}}" range="{{job_array}}" range-key="name">
+            <view class="picker"  style="color:{{formPickerColors}}">
+                {{val_job}}
+            </view>
+        </picker>
+    </view>
+
+    <view class="form_item no-border">
+        <view class="form_leber">验证码</view>
+        <input class="form_input" bindinput ="phoneNumberInput" type="text" data-str="smsCode" placeholder="请输入验证码"/>
+        <view class="form_code">
+            <button class="form_code_btn" type="buttom" disabled="{{disabled}}" bindtap='getCode' style='color:#FA6D21'>{{time}}</button>
+        </view>
+    </view>
+   
+
+
+    
+    <!-- <view class="form_item">
+        <view class="form_leber">注册类型</view>
+        <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{items}}" wx:key='{{index}}'>
+                <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+        </radio-group>
+    </view> -->
+    <block wx:if='{{companyClassStatus == ""}}'>
+    <view class="form_height"></view>
+    <view class="form_item company" >
+        <view class="form_leber"><text>*</text>公司</view>
+        <input class="form_input" bindinput ="phoneNumberInput" data-str="companyName" value="{{form.companyName}}" type="text" placeholder="请输入公司名称"/>
+        <view class="companybox" wx:if='{{companyList.length>0}}'>
+            <view class="companybox-item" wx:for='{{companyList}}' wx:key='{{index}}' bindtap="choose" data-id="{{item.id}}">{{item.name}}</view>
+        </view>
+    </view>
+    <!-- <view class="form_item">
+        <view class="form_leber"><text>*</text>行业</view>
+        <picker style="flex: 1;" bindchange="bindPickerChange" value="{{index}}" range="{{job_array}}" range-key="name">
+            <view class="picker"  style="color:{{formPickerColors}}">
+                {{val_job}}
+            </view>
+        </picker>
+    </view> -->
+    <view class="form_item" >
+        <view class="form_leber"><text>*</text>部门</view>
+        <input class="form_input" bindinput ="phoneNumberInput" data-str="dept" type="text" placeholder="请输入所在部门"/>
+    </view>
+    <view class="form_item" >
+        <view class="form_leber"><text>*</text>职务</view>
+        <input class="form_input" bindinput ="phoneNumberInput" data-str="job" type="text" placeholder="请输入职务"/>
+    </view>
+    <view class="form_item" >
+        <view class="form_leber"><text>*</text>省份</view>
+        <!-- <input class="form_input" bindinput ="phoneNumberInput" data-str="province" type="text" placeholder="请输入省份"/> -->
+        <view class="infoText" bindtap="translate" >{{province}} {{city}} {{district}}</view>
+        <template is="areaData" data="{{...item}}"/>
+    </view>
+
+    <view class="form_item">
+        <view class="form_leber">地址</view>
+        <input class="form_input" bindinput ="phoneNumberInput" value="{{form.address}}" data-str="address" type="text" placeholder="请输入详细地址"/>
+    </view>
+    <view class="form_height"></view>
+    <!-- <view class="form_item more-item " wx:if='{{!showMore}}' bindtap="showmoreitem">
+      <view class="more">
+       更多 <image src="/images/public/icon_cellNext@3x.png" class="down"></image>
+       </view>
+    </view>
+    <block wx:else> -->
+    <view class="form_item">
+        <view class="form_leber">邮箱</view>
+        <input class="form_input" bindinput ="phoneNumberInput" data-str="email" type="text" placeholder="请输入邮箱"/>
+    </view>
+    <view class="form_item">
+        <view class="form_leber">网址</view>
+        <input class="form_input" bindinput ="phoneNumberInput" data-str="website" type="text" placeholder="请输入官网网址"/>
+    </view>
+    <view class="form_item" wx:for="{{phoneList}}" wx:key="{{index}}">
+        <view class="form_leber">电话</view>
+        <input class="form_input" bindinput ="phoneInput" data-index="{{index}}" value="{{item}}" type="text" placeholder="请输入电话"/>
+        <view class="add" wx:if='{{index == 0}}' bindtap="addPhoneList">+</view>
+        <view class="add cut" wx:else bindtap='cutPhoneList' data-index="{{index}}" >-</view>
+    </view>
+    <view class="form_item " wx:for="{{faxList}}" wx:key="{{index}}">
+        <view class="form_leber">传真</view>
+        <input class="form_input" bindinput ="faxListInput" data-index="{{index}}" value="{{item}}" type="text" placeholder="请输入传真"/>
+         <view class="add" wx:if='{{index == 0}}' bindtap="addFaxList">+</view>
+        <view class="add cut" wx:else bindtap='cutFaxList' data-index="{{index}}" >-</view>
+    </view>
+
+    <view class="form_height"></view>
+    <view class="form_item">
+        <view class="form_leber">发票</view>
+        <input class="form_input" bindinput ="phoneNumberInput" data-str="taxno" type="text" placeholder="请输入发票"/>
+    </view>
+    <view class="form_item">
+        <view class="form_leber">微信</view>
+        <input class="form_input" bindinput ="phoneNumberInput" data-str="wechat" type="text" placeholder="请输入微信"/>
+    </view>
+    <view class="form_item" style="padding-bottom:40rpx;">
+        <view class="form_leber">Facebook</view>
+        <input class="form_input" bindinput ="phoneNumberInput" data-str="facebook" type="text" placeholder="请输入Facebook"/>
+    </view>
+    <!-- </block> -->
+
+    </block>
+    <block wx:else>
+    <!-- <view class="form_item">
+        <view class="form_leber"><text>*</text>行业</view>
+        <picker style="flex: 1;" bindchange="bindPickerChange" value="{{index}}" range="{{job_array}}" range-key="name">
+            <view class="picker"  style="color:{{formPickerColors}}">
+                {{val_job}}
+            </view>
+        </picker>
+    </view>
+    <view class="form_item">
+        <view class="form_leber">邮箱</view>
+        <input class="form_input" bindinput ="phoneNumberInput" data-str="email" type="text" placeholder="请输入邮箱"/>
+    </view>
+    <view class="form_item">
+        <view class="form_leber">微信</view>
+        <input class="form_input" bindinput ="phoneNumberInput" data-str="wechat" type="text" placeholder="请输入微信"/>
+    </view> -->
+    <view class="form_item upDate" bindtap="radioChange">升级为高级商务名片<view class="icon icon-down"></view></view>
+
+
+    </block>
+        <button class="fomr_post_btn {{form.type==0?'fix':''}}" type="buttom" bindtap='commitRegAction'>保存</button>
+    
+</view>
+
+<view class="fixed-bg" wx:if="{{isHidden}}"></view>
+
+

@@ -1,0 +1,7 @@
+
+<!-- 自定义导航组件引入 -->
+<navigation-bar title="默认开启双击返回顶部" dbclickBackTop="{{true}}" border="{{true}}"></navigation-bar>
+
+<view class="list-item" wx:for="{{list}}">{{item}}</view>
+
+

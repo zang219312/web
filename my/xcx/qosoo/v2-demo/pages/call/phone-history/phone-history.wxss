@@ -1,0 +1,43 @@
+/* pages/call/phone-history/phone-history.wxss */
+.history-lists{
+
+}
+.list-item{
+  margin: 32rpx 58rpx 32rpx 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family:PingFangSC-Medium,PingFangSC;
+}
+
+.item-name{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #888888;
+}
+
+.item-name .name{
+  color: #4C4C4C;
+  font-size: 36rpx;
+  font-weight: 500;
+}
+
+.item-name image{
+  width: 38rpx;
+  height: 38rpx;
+  margin-right: 20rpx;
+}
+.item-time image{
+  width: 38rpx;
+  height: 38rpx;
+  margin-left: 46rpx;
+}
+.item-time {
+  display: flex;
+  font-size: 28rpx;
+  color: #888888;
+}
+.item-time .time{
+  text-align: right;
+}

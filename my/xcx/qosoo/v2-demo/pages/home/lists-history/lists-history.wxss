@@ -1,0 +1,30 @@
+/* pages/home/lists-history/lists-history.wxss */
+@import '../lists/lists.wxss';
+page{
+  background: #fff;
+}
+.item-bottom-follow>view.map{
+  width:90rpx;
+  position: absolute;
+  right: 20rpx;
+  bottom: 0;
+  font-size: 24rpx;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+}
+.map image{
+  width: 26rpx;
+  height: 36rpx;
+  margin-right: 14rpx;
+}
+.home_nav{padding-top:40rpx; background-color:#fa6d21; position:fixed;top:0;left:0;width:100%;z-index: 999;} 
+.home_nav .home_nav_title{height:110rpx;line-height:110rpx;color:#ffffff;padding-left: 50rpx;}
+ .home_nav .home_nav_title image{
+  width: 24rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+  margin-top: -7rpx;
+
+}

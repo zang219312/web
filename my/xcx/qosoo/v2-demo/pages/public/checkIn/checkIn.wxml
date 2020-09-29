@@ -1,0 +1,4 @@
+<!--pages/public/checkin.wxml-->
+  <image  class='checkinImg' src="https://lg-6pshrvnq-1255620684.cos.ap-shanghai.myqcloud.com/img_checkIn@3x.png">
+    <button class='checkinBtn' bindtap="checkInAction">签到领红包</button>
+  </image>

@@ -1,0 +1,199 @@
+<!--pages/cart/cart.wxml-->
+
+<view class="page page--has-footer">
+  <view wx:if="{{hasList}}">
+    <view class="cart {{isEdit == true ? '' : 'cart--has-footer'}}">
+      <view class="cart-hd tar">
+        <view class="text-primary" bindtap="editCart" data-value="edit" hidden="{{isEdit}}">管理</view>
+        <view bindtap="editCart" hidden="{{!isEdit}}">完成</view>
+      </view>
+      <!-- end .cart-hd -->
+
+      <view class="cart-list">
+        <block wx:for="{{carts}}" wx:key="carts">
+          <view class="cart-item flex-v-c">
+
+            <!-- wx:if 是否选择显示不同图标 -->
+            <icon wx:if="{{item.checked}}" type="success" size="20" color="#111" bindtap="selectList" data-index="{{index}}" />
+            <icon wx:else type="circle" size="20" bindtap="selectList" data-index="{{index}}" />
+
+            <view class="flex flex1" wx:if="{{item.put==1}}" style='width:100%;' bindtap="tz" data-the_category="{{item.name}}" data-imgurl="{{item.imgurl}}" data-quantity_p="{{item.quantity_p}}" data-quantity_v="{{item.quantity_v}}" data-spid="{{item.sp_id}}" data-tit="{{item.title}}"
+              data-filename="{{item.filename}}" data-price="{{item.price}}" data-scid="{{item.scid}}" data-num="{{item.num}}" hover-class="none" hidden="{{isEdit}}">
+
+              <view class="item-bd flex1">
+                <view class="text-truncate"> {{item.title}}
+                  <text class="text-gray-light fr">x{{item.num}}</text>
+                </view>
+                <view wx:if="{{item.name=='pic'}}">
+                  <view wx:if="{{item.quantity_p==0}}">照片已上传{{item.zhang}}张</view>
+                  <view wx:elif="{{item.quantity_p>0}}">{{item.zhang}}/{{item.quantity_p}}张照片</view>
+                </view>
+                <view wx:elif="{{item.name=='video'}}">
+                  <view wx:if="{{item.quantity_v==0}}">视频已上传{{item.ge}}个</view>
+                  <view wx:elif="{{item.quantity_v>0}}">{{item.ge}}/{{item.quantity_v}}个视频</view>
+                </view>
+                <view wx:elif="{{item.name=='pav'}}">
+                  <view wx:if="{{item.quantity_v==0 && item.quantity_p==0}}">
+                    <view>照片已上传{{item.zhang}}张</view>
+                    <view>视频已上传{{ge}}个</view>
+                  </view>
+                  <view wx:elif="{{item.quantity_v>0 && item.quantity_p>0}}">
+                    <view>{{item.zhang}}/{{item.quantity_p}}张照片</view>
+                    <view>{{ge}}/{{item.quantity_v}}个视频</view>
+                  </view>
+                </view>
+                <view class="fw-700">{{item.price}}</view>
+              </view>
+              <image class="item-img fr" src='../../images/add.png'></image>
+
+            </view>
+
+            <view wx:else>
+              <!-- 下架的商品 -->
+              <view class="flex flex1" hover-class="none" hidden="{{isEdit}}">
+                <image class="item-img" src="{{item.img}}"></image>
+                <view class="item-bd flex1">
+                  <view class="text-truncate">
+                    <text class="text-gray-light fl">x{{item.num}}</text> {{item.title}}
+                  </view>
+                  <view>{{item.sku}}</view>
+                  <view class="fw-700">{{item.price}}</view>
+                </view>
+                <view style='margin-left:120rpx;margin-top:20px;'>商品已下架</view>
+              </view>
+
+            </view>
+            <!-- 完成状态 -->
+
+            <!-- 编辑状态 -->
+            <view class="flex flex1" hidden="{{!isEdit}}">
+
+              <view class="item-bd flex1">
+                <view class="text-truncate">
+                  <text class="text-gray-light fl">x{{item.num}}</text> {{item.title}}
+                </view>
+                <view wx:if="{{item.name=='pic'}}">
+                  <view wx:if="{{item.quantity_p==0}}">照片已上传{{item.zhang}}张</view>
+                  <view wx:else="{{item.quantity_p>0}}">{{item.zhang}}/{{item.quantity_p}}张照片</view>
+                </view>
+                <view wx:elif="{{item.name=='video'}}">
+                  <view>视频已上传{{item.ge}}个</view>
+                </view>
+
+                <view class="fw-700">{{item.price}}</view>
+
+                <!-- <view class="mt-xs fs-xs text-gray-light" data-pro_id="{{item.pro_id}}" data-gg="{{item.sku}}" bindtap="actionDrawer" data-statu="open">{{item.sku}}
+                                                                                  <i class="icon-v-bot fr"></i>
+                                                                                </view> -->
+              </view>
+              <view class="stepper">
+                <view class="stepper-action" bindtap="minusCount" data-index="{{index}}">-</view>
+                <view class='stepper-num'>{{item.num}}</view>
+                <view class="stepper-action" bindtap="addCount" data-index="{{index}}">+</view>
+              </view>
+            </view>
+          </view>
+          <!-- end .cart-item -->
+        </block>
+      </view>
+      <!-- end .cart-list -->
+    </view>
+    <!-- end .cart -->
+
+    <view class="cart-bottom {{isEdit == true ? '' : 'cart-bottom--has-footer'}}">
+      <view class="actions-bottom flex-s-b flex-v-c">
+        <view bindtap="selectAll">
+          <!-- wx:if 是否全选显示不同图标 -->
+          <icon wx:if="{{selectAllStatus}}" type="success" size="20" color="#111" />
+          <icon wx:else type="circle" size="20" />
+          <text class="ml-sm vam">全选</text>
+
+        </view>
+        <view hidden="{{isEdit}}" class="clearfix mt-sm">
+          <text>合计：￥{{count_m}}</text>
+          <text style='font-size:15rpx;color:red;'>不含运费</text>
+          <view class="btn btn-primary ml {{selectedLength == 0 ? 'disabled' : ''}}" bindtap="viewPay" data-url="pay">结算
+          </view>
+        </view>
+
+        <view class="btn btn-danger {{selectedLength == 0 ? 'disabled' : ''}}" hidden="{{!isEdit}}" bindtap="deleteList">删除
+        </view>
+      </view>
+    </view>
+    <!-- end .fixed-bottom -->
+  </view>
+
+  <!-- 购物车为空提示 -->
+  <view wx:else>
+    <view class="cart-no-data">
+      <view>购物车是空的哦~</view>
+      <view class="btn btn-primary mt-lg" bindtap="viewGoodsList" data-url="goodsList">去逛逛</view>
+    </view>
+  </view>
+  <view class="tab-bar" hidden="{{isEdit}}">
+  <navigator class="tab-item" url="../index/index" hover-class="none" open-type="redirect">
+    <view class="tab-icon icon-home"></view>
+    <view class="tab-text">首页</view>
+  </navigator>
+
+  <navigator class="tab-item" url="../cart/cart" hover-class="none" open-type="redirect">
+    <view class="tab-icon icon-cart active"></view>
+    <view class="tab-text">购物车</view>
+  </navigator>
+
+  <navigator class="tab-item" url="../my/my" hover-class="none" open-type="redirect">
+    <view class="tab-icon icon-user"></view>
+    <view class="tab-text">我的</view>
+  </navigator>
+</view>
+</view>
+
+<!-- 规格编辑弹窗 -->
+<view class="overlay" hidden="{{!showModalStatus}}" bindtap="actionDrawer" data-statu="close"></view>
+
+<view animation="{{animationData}}" class="action-modal" hidden="{{!showModalStatus}}">
+  <view class="modal-bd">
+    <view class="goods-info">
+      <view>{{edit_nam}}</view>
+      <text>￥{{edit_m}}</text>
+    </view>
+    <!-- end .modal-hd -->
+
+    <view class="goods-mod flex-s-b">
+      <view class="mod-label">gf颜色</view>
+      <view class="mod-con">
+        <view class="sku-list">
+          <block wx:for="{{skuColorList}}" wx:key="id" wx:for-index="id">
+            <view class="sku-item {{currentColorItem==item.id?'active' : ''}}" data-id="{{item.id}}" bindtap="tabChooseColor">{{item.txt}}
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <!-- end .goods-mod -->
+  </view>
+  <!-- end .modal-bd -->
+
+  <view class="modal-ft">
+    <view class="ft-btn text-primary" bindtap="endDrawer" data-statu="close">fsfs完成</view>
+  </view>
+</view>
+<!-- end .action-modal  -->
+
+
+<view class="tab-bar" hidden="{{isEdit}}">
+  <navigator class="tab-item" url="../index/index" hover-class="none" open-type="redirect">
+    <view class="tab-icon icon-home"></view>
+    <view class="tab-text">首页</view>
+  </navigator>
+
+  <navigator class="tab-item" url="../cart/cart" hover-class="none" open-type="redirect">
+    <view class="tab-icon icon-cart active"></view>
+    <view class="tab-text">购物车</view>
+  </navigator>
+
+  <navigator class="tab-item" url="../my/my" hover-class="none" open-type="redirect">
+    <view class="tab-icon icon-user"></view>
+    <view class="tab-text">我的</view>
+  </navigator>
+</view>

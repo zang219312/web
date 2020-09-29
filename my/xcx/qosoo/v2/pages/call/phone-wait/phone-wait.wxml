@@ -1,0 +1,13 @@
+<!--pages/call/phone-wait/phone-wait.wxml-->
+<navBar title='连线中' back="{{false}}" home="{{false}}" bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<view>
+  <image src="https://file.qosoo.cn/files/20191122/home/wait.png" mode="widthFix"></image>
+  <!-- <view style="text-align:center;color:#FEA55E;">
+    <view class=" ">
+      本系统已和公安联网，请勿拨打营销骚扰
+    </view>
+    <view>
+      诈骗等违法电话，仅供亲朋好友联系使用！
+    </view>
+  </view> -->
+</view>

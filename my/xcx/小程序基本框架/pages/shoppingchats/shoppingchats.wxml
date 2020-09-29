@@ -1,0 +1,95 @@
+<view class="box" style="top:{{hidden?'':'CustomBar'}}px;">
+  <view class="canui-kong" hidden='{{hidden}}'>
+    <view class="bg-gradual-orange padding radius text-center shadow-blur canui-kong-icon">
+      <text class="cuIcon-cart"></text>
+    </view>
+
+    <view class="text-lg padding text-center">
+      <text class="text-grey"> 购物车竟然是空的 </text>
+    </view>
+
+    <view class="padding flex flex-wrap justify-between align-center">
+      <button class='cu-btn bg-gradual-green shadow-blur round'>去逛逛</button>
+    </view>
+
+  </view>
+  <view hidden='{{!hidden}}'>
+    <!-- <view class="address bg-white">
+      <view>
+       <text class="cuIcon-locationfill text-orange"></text>广东省深圳市南山区中科大夏5栋704
+      </view>
+    </view> -->
+    
+    <view class="cu-list menu sm-border1"> 
+      <view class="cu-item arrow address">
+        <view class="content">
+          <view>
+           <text style='padding-left:4rpx;'>王小雨</text>
+           <text style='padding-left:20rpx;'>13673627673</text>
+          </view>
+          <view class='text-view'>
+            <text class="cuIcon-locationfill text-orange"></text>
+            <text class="text-grey text-address">广东省深圳市南山区中科大夏5栋704的撒还记得回家范德萨福建省地方</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='top-box'></view>
+    <view class="table-view listmagin">
+      <view class="teacher-kes" wx:for="{{data}}" wx:key="{{index}}" wx:for-index="groupIndex">
+        <view class="teacher-ke">
+          <checkbox-group bindchange="checkall" data-index="{{groupIndex}}">
+            <checkbox class="red" checked='{{item.checkeedAll}}'></checkbox>
+          </checkbox-group>
+          <text class="teacher-ke-name">{{item.name}}</text>
+        </view>
+        <checkbox-group class="hot-div hot-checked" data-groupIndex="{{groupIndex}}" wx:for="{{item.data}}" data-kc="{{item}}" wx:key="{{index}}" data-index="{{item.index}}" bindchange="Checks1">
+          <checkbox checked="{{item.checked}}"></checkbox>
+          <view class='content-view'>
+            <image src="{{item.url}}" class="Hot-div-img"></image>
+            <view class="Hot-div-shop ">
+              <view class="hot-price-title">
+                <view class="shoptitle">
+                  {{item.classtitle}}
+                </view>
+                <view class='text-red text-sm text-price'>
+                  {{item.price}}
+                </view>
+              </view>
+              <view class="shou-word text-gray">规格：255ml装的范德萨发生的发生的发生的发生范德萨发生</view>
+              <view class="order-red hot-price-title" style="margin-top: 8rpx;">
+
+                <view class='action-btn-sum'>
+                  <button class='cu-btn1' hover-class="none">-</button>
+                  <input class='ca-sum' name='input' value="1"></input>
+                  <button class='cu-btn1 text-red' hover-class="none">+</button>
+                </view>
+                <view class='delete-view'>
+                  <text class='cuIcon-delete' data-groupIndex="{{groupIndex}}" data-index="{{index}}" bindtap='shanchuTap'></text>
+                </view>
+              </view>
+              <view>
+              </view>
+            </view>
+          </view>
+        </checkbox-group>
+      </view>
+    </view>
+
+
+    <view class="cu-bar bg-white solid-bottom canui-foor-fixed">
+      <view class="action canui-checked" style="margin-left:10rpx;">
+        <checkbox class='red'  checked="{{data.checkedAll}}"></checkbox>
+
+      </view>
+      <view class="action canui-delete">
+        <!-- <button class='cu-btn icon-delete'></button> -->
+        <view class='' style='position:relative;'>全选(2)</view>
+      </view>
+      <view class='submit canui-price'>合计:
+        <text class="text-red text-price">149.80</text>
+      </view>
+      <view class='bg-red submit canui-submit'>结算</view>
+    </view>
+  </view>
+</view>

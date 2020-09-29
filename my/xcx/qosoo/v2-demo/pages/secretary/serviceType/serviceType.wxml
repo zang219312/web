@@ -1,0 +1,62 @@
+<!--pages/secretary/serviceType/serviceType.wxml-->
+<!-- <view class='lists'>
+    <navigator url="serviceType/serviceType" class='active'  hover-class="none">
+      <image class='cellNext' src="https://file.qosoo.cn/files/20191021/secretary/list-1.png"></image>
+      <view>软件开发</view>
+    </navigator >
+    <navigator url="serviceType/serviceType"  hover-class="none">
+      <image class='cellNext' src="https://file.qosoo.cn/files/20191021/secretary/list-2.png"></image>
+      <view>股权融资</view>
+    </navigator >
+    <navigator url="serviceType/serviceType"  hover-class="none">
+      <image class='cellNext' src="https://file.qosoo.cn/files/20191021/secretary/list-3.png"></image>
+      <view>法律财务</view>
+    </navigator >
+    <navigator url="serviceType/serviceType"  hover-class="none">
+      <image class='cellNext' src="https://file.qosoo.cn/files/20191021/secretary/list-4.png"></image>
+      <view>低息贷款</view>
+    </navigator >
+  </view>
+
+  <view class='info'>
+    <view class='info-content'>
+      <image src='https://file.qosoo.cn/files/20191021/secretary/bg.png'></image>
+    </view>
+    <view class='contacts'>
+      <text>联系人：李经理</text>
+      <image src='https://file.qosoo.cn/files/20191021/secretary/phone.png' class='phone'></image>
+      <image src='https://file.qosoo.cn/files/20191021/secretary/wx.png'></image>
+      
+    </view>
+  </view> -->
+  <view class='lists' >
+    
+    <view class="list-item {{activeType == 1?'active':''}}" bindtap="getService" data-type="1">
+      <image class='cellNext' src="https://file.qosoo.cn/files/20191021/secretary/list-1.png"></image>
+      <view>软件开发</view>
+    </view>
+    <view class="list-item {{activeType == 4?'active':''}}" bindtap="getService" data-type="4">
+      <image class='cellNext' src="https://file.qosoo.cn/files/20191021/secretary/list-2.png"></image>
+      <view>股权融资</view>
+    </view>
+    <view class="list-item {{activeType == 3?'active':''}}" bindtap="getService" data-type="3">
+      <image class='cellNext' src="https://file.qosoo.cn/files/20191021/secretary/list-3.png"></image>
+      <view>法律财务</view>
+    </view>
+    <view class="list-item {{activeType == 2?'active':''}}" bindtap="getService" data-type="2">
+      <image class='cellNext' src="https://file.qosoo.cn/files/20191021/secretary/list-4.png"></image>
+      <view>低息贷款</view>
+    </view>
+  </view>
+
+  <view class='info' >
+    <view class='info-content'>
+      <image src='{{serviceInfo.img}}'></image>
+    </view>
+    <view class='contacts'>
+      <text>联系人：{{serviceInfo.contactMan}}</text>
+      <image src='https://file.qosoo.cn/files/20191021/userCenter/phone.png' class='phone' bindtap='callMeAction' data-phone='{{serviceInfo.mobile}}'></image>
+      <image src='https://file.qosoo.cn/files/20191021/userCenter/wx.png' bindtap='clipboard' data-phone='{{serviceInfo.wechat}}'></image>
+      
+    </view>
+  </view>

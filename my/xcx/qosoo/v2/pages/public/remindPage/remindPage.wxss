@@ -1,0 +1,37 @@
+/* pages/public/authSucceRemind.wxss */
+.remindViewBG{
+  background-color: #fff;
+  text-align: center;
+}
+.remindSucceImg{
+  width: 180rpx;
+  height: 180rpx;
+  margin-top: 220rpx;
+}
+
+.remindTitle{
+  margin-top: 20repx;
+  /* text-align: center; */
+	width: 100%;
+  font-weight: normal;
+	font-size: 32rpx;
+  font-stretch: normal;
+	letter-spacing: 0rpx;
+	color: #666666;
+}
+.remindContent{
+  margin: 30rpx 124rpx 50rpx 124rpx;
+  
+  height: 80rpx;
+  font-size: 28rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 40rpx;
+  letter-spacing: 0rpx;
+  color: #999999;
+}
+.backBtn{
+  background-color: #ff6f05;
+  margin: 78rpx 225rpx 78rpx 225rpx;
+  color: white;
+}

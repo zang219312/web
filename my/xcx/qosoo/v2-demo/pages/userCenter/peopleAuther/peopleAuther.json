@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "上传名片认证",
+  "usingComponents": {
+    "navigation-bar": "miniprogram-navigation-bar"
+  }
+}

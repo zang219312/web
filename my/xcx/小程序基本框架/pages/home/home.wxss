@@ -1,0 +1,266 @@
+/* pages/home/home.wxss */
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+
+.search-icon {
+  margin-right: 20rpx;
+  height: 100%;
+  width: 60rpx;
+}
+
+.bg {
+  font-size: 54rpx;
+  margin: 0 auto;
+}
+
+page {
+  height: 100%;
+}
+
+.bg-white {
+  transition: all 0.5s;
+  background-color: #fff;
+}
+
+.bg-yellow {
+  transition: all 0.5s;
+  background-color: #fef2ce !important;
+}
+
+.messageNav {
+  height: 120rpx;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.06);
+  border-radius: 8rpx;
+  margin: -60rpx 20rpx 20rpx 20rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.messageList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: rows;
+  width: 100%;
+  padding: 0 20rpx;
+}
+
+.messageList image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.pd {
+  padding: 0 20rpx;
+  height: 40rpx;
+  font-size: 22rpx;
+}
+
+.cu-tag.pd::after {
+  border-top-right-radius: 200rpx;
+  border-top-left-radius: 200rpx;
+  border-bottom-right-radius: 200rpx;
+}
+
+.cu-bar1 {
+  display: flex;
+  position: relative;
+  align-items: center;
+  min-height: 100rpx;
+}
+
+.messageLine {
+  background: #eaeaea;
+  height: 56rpx;
+  width: 2rpx;
+}
+
+.cu-tag1.textcolor::after {
+  background-color: #39b54a !important;
+  color: #fff !important;
+}
+
+.cu-tag1 {
+  font-size: 22rpx;
+  vertical-align: middle;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0rpx 16rpx;
+  height: 38rpx;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  white-space: nowrap;
+}
+
+.text-green {
+  color: #fff;
+  background: #39b54a;
+  padding: 0 20rpx;
+  margin-left: 20rpx;
+}
+
+.mg {
+  margin-top: 20rpx;
+}
+
+.cu-list.card-menu {
+  overflow: hidden;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+  border-radius: 10rpx;
+}
+
+.topbar {
+  min-height: 80rpx;
+  padding: 0 30rpx;
+}
+
+.solidbottom {
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+
+.swiper_container {
+  height: 55rpx;
+  width: 300rpx;
+}
+
+.swiper_item {
+  font-size: 25rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 10rpx;
+}
+
+.swp {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  overflow: hidden;
+  width: 300rpx;
+  text-align: right;
+}
+
+.swp image {
+  display: flex;
+  text-align: right;
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.swpitm {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.gif {
+  position: absolute;
+  background-color: transparent;
+  border-radius: 200rpx;
+  top: -10rpx;
+  right: -10rpx;
+  font-size: 20rpx;
+  height: 30rpx;
+  color: var(--white);
+  padding: 0;
+  border: none;
+}
+
+.gif image {
+  width: 38rpx;
+  height: 30rpx;
+}
+
+.bgimage {
+  margin: 20rpx;
+  height: 140rpx;
+}
+
+.messageUnread {
+  width: 122rpx;
+  height: 122rpx;
+  position: fixed;
+  right: 20rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 180rpx;
+  z-index: 10;
+}
+
+.msgtxt {
+  font-size: 80rpx;
+  color: rgb(255, 165, 47);
+  line-height: 122rpx;
+}
+
+.messageUnreadImg {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.messageUnreadTxt {
+  position: fixed;
+  right: 30rpx;
+  border: 1px solid #f12c20;
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 22rpx;
+  border-radius: 50%;
+  background: #f12c20;
+  color: #fff;
+  font-weight: bold;
+}
+
+.recommend {
+  text-align: center;
+  height: 50rpx;
+  margin: 20rpx 0;
+}
+
+.recommend-title {
+  display: table;
+  width: 100%;
+  line-height: 50rpx;
+  white-space: nowrap;
+  border-spacing: 2rem 0;
+  font-size: 30rpx;
+  color: gray
+}
+
+.recommend-title::before, .recommend-title::after {
+  display: table-cell;
+  content: "";
+  width: 50%;
+  background: linear-gradient(#eee, #ccc) repeat-x center;
+  background-size: 0.1rem 0.1rem;
+}
+.nav .cu-item.cur1{
+ display: inline-block;
+ align-items: center;
+ justify-content: center;
+ justify-items:center;
+ position: relative;
+}
+.nav .cu-item.cur1::after {
+   border-bottom: 8rpx solid #e54d42;
+  content: "";
+  width:40rpx;
+  border-radius: 10rpx 10rpx 0rpx 0rpx;
+  position: absolute;
+  background-color: #e54d42;
+  left: 0rpx;
+  right: 0;
+  bottom: 0;
+  margin:0 auto;
+}

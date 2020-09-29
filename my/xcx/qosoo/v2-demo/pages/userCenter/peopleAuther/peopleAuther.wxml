@@ -1,0 +1,31 @@
+
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="上传名片认证" bg-style="background-color: #fa6d21"></navigation-bar>
+
+  <block wx:if="{{imageSrc}}">
+    <image src="{{imageSrc}}" class="image" mode="aspectFit"></image>
+  </block>
+
+  <block wx:else>
+    <!-- <view class="image-plus image-plus-nb" bindtap="chooseImage">
+      <view class="image-plus-horizontal"></view>
+      <view class="image-plus-vertical"></view>
+    </view>
+    <view class="image-plus-text">选择图片</view> -->
+    <view style='padding-top:160rpx'>
+      <view class='cameraBGView' bindtap="chooseImage">
+        <view wx:if='{{imgShow==false}}'>
+          <image class='cameraBGImg' src='{{imageUrl}}'></image>
+          <view class='remindTitle'>请添加个人名片</view>
+        </view>
+        <view wx:if='{{imgShow}}'>
+          <image class='user-card' src='{{imageUrl}}'></image>
+        </view>
+      </view>
+    </view>
+  </block>
+
+
+
+
+<view class='remindContent'>请上传个人名片进行身份认证，平台审核通过即 认证成功；如没有个人名片，请给贵司管理员发 送认证请求，通过即认证成功。</view>
+<view class='commitBtn' bindtap='commintAction'>提交</view>

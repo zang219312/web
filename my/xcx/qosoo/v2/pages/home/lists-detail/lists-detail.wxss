@@ -1,0 +1,368 @@
+/* 导航栏 */
+
+.home_nav {
+  height: 136rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.home_nav  .scanicon {
+  width: 22rpx;
+  height: 38rpx;
+  margin-top: 81rpx;
+  margin-left: 42rpx;
+  z-index: 9;
+}
+
+.home_nav  image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.home_nav view {
+  width: 180rpx;
+  font-size: 32rpx;
+  color: #fff;
+  margin: 76rpx;
+  position: absolute;
+}
+
+.home_nav  .head_bg_img {
+  width: 100%;
+  height: 137.7rpx;
+}
+
+/* 导航栏 */
+.top_img{
+  width:100%;
+  height:320rpx;
+}
+.top_img image{
+  width:100%;
+  height:320rpx;
+}
+.detail-top {
+  width: 662rpx;
+  margin: 38rpx auto;
+  font-size: 28rpx;
+  color: #353535;
+}
+
+.detail-top>view {
+  margin-bottom: 20rpx;
+}
+
+.detail-title {
+  font-size: 44rpx;
+  font-weight: 500;
+  margin-bottom: 30rpx;
+}
+
+.ercode {
+  width: 298rpx;
+  height: 336rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4rpx 8rpx 4rpx rgba(169, 169, 169, 0.4);
+  border-radius: 12rpx;
+  margin: 80rpx auto;
+  text-align: center;
+  padding-top: 1px;
+}
+
+.ercode image {
+  width: 178rpx;
+  height: 180rpx;
+  margin-top: 64rpx;
+}
+
+.ercode view {
+  color: #888;
+  font-size: 28rpx;
+}
+
+.regi {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 32rpx;
+  display: flex;
+  font-weight: bold;
+}
+
+.regi .left {
+  width: 50%;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: #fff;
+  box-shadow: 0px 2rpx 24rpx 3rpx rgba(0, 0, 0, 0.09);
+  color: rgba(252, 134, 58, 1);
+}
+
+.regi .right {
+  width: 50%;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: linear-gradient(180deg, rgba(253, 151, 78, 1), rgba(250, 115, 37, 1));
+  box-shadow: 0px 2rpx 24rpx 3rpx rgba(0, 0, 0, 0.09);
+  color: rgba(255, 255, 255, 1);
+}
+
+.summit {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.summit_regi {
+  height: 96rpx;
+  line-height: 96rpx;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(253, 151, 78, 1), rgba(250, 115, 37, 1));
+  box-shadow: 0px 2rpx 24rpx 3rpx rgba(0, 0, 0, 0.09);
+}
+
+/* 遮罩 */
+
+.shade {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.shade_box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  z-index: 11;
+  min-width: 200rpx;
+  min-height: 200rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  color: #333;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0;
+  word-wrap: break-word;
+  animation-name: popup;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(0.3, 0.3);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+/* 当前弹窗样式 */
+
+.popup {
+  width: 477rpx;
+  height: 226rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+
+.popup .title {
+  padding: 0 20rpx;
+  border-bottom: #e5e5e5 solid 1px;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 32rpx;
+  background-color: #f6f6f6;
+}
+
+.popup .content {
+  margin: 100rpx;
+  font-size: 40rpx;
+  text-align: center;
+  color: #09f;
+}
+
+.popup .copy {
+  color: #999;
+  text-align: center;
+}
+
+.popup .msg {
+  color: #f00;
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.form_item {
+  /* display: flex; */
+  font-size: 30rpx;
+  width: 477rpx;
+  height: 226rpx;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.form_leber {
+  width: 160rpx;
+  text-align: center;
+}
+
+.form_leber text {
+  color: #fa6d21;
+  font-size: 34rpx;
+  margin-left: -10rpx;
+}
+
+textarea {
+  min-height: 137rpx;
+  height: 137rpx;
+  /* padding: 10rpx 10rpx; */
+  font-size: 28rpx;
+  width: 94%;
+  margin: 22rpx 18rpx 15rpx 18rpx;
+  background: #f7f7f7;
+}
+
+.form-title-text {
+  height: 146rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding-left: 120rpx;
+  font-weight: bold;
+  color: rgba(250, 141, 54, 1);
+}
+
+.tips {
+  width: 96%;
+  margin-left: 2%;
+  height: 45px;
+  color: rgba(136, 136, 136, 1);
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+
+.minWord {
+  color: red;
+  font-size: 14px;
+  position: absolute;
+  top: 30px;
+}
+
+.currentWordNumber {
+  height: 35px;
+  line-height: 35px;
+  font-size: 14px;
+  float: right;
+  margin-right: 15px;
+  color: rgba(136, 136, 136, 1);
+  margin-bottom: 10px;
+}
+
+.popup .btn {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+}
+
+.btn .left {
+  background: rgba(239, 239, 239, 1);
+  border-radius: 0px 0px 0px 21rpx;
+  color: #353535;
+  height: 80rpx;
+  font-size: 32rpx;
+  line-height: 80rpx;
+  width: 50%;
+}
+
+.btn .right {
+  background: linear-gradient(180deg, rgba(253, 151, 78, 1), rgba(250, 115, 37, 1));
+  border-radius: 0px 0px 20rpx 0px;
+  color: #fff;
+  height: 80rpx;
+  font-size: 32rpx;
+  line-height: 80rpx;
+  width: 50%;
+}
+
+/* notify */
+/* 当前弹窗样式 */
+
+.popup2 {
+  width: 477rpx;
+  height: 511rpx;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 28rpx;
+  text-align: center;
+}
+
+.popup2  image {
+  width: 465rpx;
+  height: 465rpx;
+  margin-top: -200rpx;
+}
+
+/* .popup view {
+  text-align: center;
+  color: #888;
+  font-size: 28rpx;
+} */
+
+.apply_status2 {
+  font-size: 34rpx;
+  color: rgba(250, 141, 54, 1);
+  font-weight: bold;
+  margin-top: -58rpx;
+}
+
+.apply_notice2 {
+  margin-top: 10rpx;
+  color: rgba(170, 175, 181, 1);
+  font-size: 28rpx;
+  font-family: PingFang SC;
+}
+
+.popup2 .showPopBtn2 {
+  width: 376rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: rgba(230, 0, 18, 1);
+  margin: 65rpx auto 0;
+  color: #fff;
+  border-radius: 40rpx;
+  font-family: PingFang SC;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.popup2 .close2 {
+  width: 44rpx;
+  height: 44rpx;
+  margin-top: 57rpx;
+}

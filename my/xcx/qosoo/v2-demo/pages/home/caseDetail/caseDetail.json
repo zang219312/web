@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#ff6f05",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "合作案例",
+  "usingComponents": {
+    "navigation-bar": "miniprogram-navigation-bar"
+  },
+    "navigationStyle": "default"
+}

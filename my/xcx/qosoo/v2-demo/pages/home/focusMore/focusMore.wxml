@@ -1,0 +1,20 @@
+<!--<navigation-bar bindnavback="onnavback" enable="{{true}}" title="焦点快讯" bg-style="background-color: #fa6d21"></navigation-bar>
+-->
+<view class='BGView' style='padding-top:0rpx;'>  
+  <view class='articleCell_BG' wx:for='{{myFocusGroupArray_1}}' wx:key='id' >
+      <view class='articleCell_BG_left'>
+        <view class='articleCell_BG_left_top' bindtap='PushToCaseDetail' data-id='{{item.id}}' data-index='{{item.type}}' data-companyid='{{item.companyId}}' data-type='{{item.type}}' >
+        {{item.title}}
+        </view>
+        <view class='articleCell_BG_left_bottom'>
+          <view class='recommendSign'>{{item.recommend}}</view>
+          <view class='articleCell_companyName' bindtap='pushToCompanyDetail' data-id='{{item.companyId}}'>{{item.companyName}}</view>
+          <view class='articleCell_publicTime'>{{item.createTime}}</view>
+        </view>
+      </view>
+      <view class='articleCell_BG_right'>
+        <image  class='articleCell_image' src='{{item.coverImg}}'></image>
+      </view>
+  </view>
+  
+</view>

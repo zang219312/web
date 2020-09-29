@@ -1,0 +1,67 @@
+<navBar title='二维码' back="{{true}}" home="{{false}}" bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<view class='code_style' style="padding-top:136rpx;">
+  <view class="qrCode-top">
+      <view class="qrCode-headImg">
+        <image src="{{cardInfo.headImg}}"></image>
+      </view>
+      <view class="qrCode-info">
+        <view>
+          <text>{{cardInfo.realName}}</text>
+          {{cardInfo.dept}} {{cardInfo.job}}
+        </view>
+        <view>{{cardInfo.account}}</view>
+        <view class="qrCode-info-company">
+          <view class="qrCode-info-company-name">{{companyInfo.name}}</view>
+          <block wx:if='{{companyInfo}}'>
+            <view class='renzheng renzhenged' wx:if='{{companyInfo.certifiedStatus==1 ||companyInfo.certifiedStatus==2}}'>{{companyInfo.certified}}</view>
+                <view class='renzheng' wx:else bindtap="companyAuthAction">{{companyInfo.certified}}</view>
+                </block>
+          </view>
+          
+      </view>
+  </view>
+  <view class='qrCodeView'>
+    <image class='qrCodeImg' src='{{imagePath2}}' bindtap='previewImg'></image> 
+    <view class="code_title">请用微信扫一扫</view>
+  </view>
+
+  
+
+    <canvas  hidden="{{canvasHidden}}" style="width: 488rpx;height: 488rpx;background:#f1f1f1;position: fixed;bottom:-488rpx" canvas-id="mycanvas"/>
+</view>
+
+<!--
+
+<view class='userInfoBGView'>
+  <view class='headerView'>
+    <view class='userImageBGView'>
+      <image class='userImage' src='{{userInfoGlobeData.avatarUrl}}'></image>
+    </view>
+    <view class='userInfoView'>
+      <view class='userNameLabel'>
+      {{userInfoData.realName}}</view>
+      <view class='userProfessionLabel'>{{userInfoData.job}}</view>
+      <view class='userCompanyAuthStatus'>
+            <view class='userCompanyLabel'>{{userInfoData.companyName}}</view>
+            <view class='userAuthStatusLabel' style='{{userCompanyAuthStatusBGColor}}'>{{userAuthStatusLabel}}</view>
+
+      </view>
+
+    </view>
+  </view>
+
+  <view class='qrCodeView'>
+    <image class='qrCodeImg' src='{{imagePath2}}' bindtap='previewImg'></image> 
+  </view>
+  <view class='qrCodeRemindLabel'>扫一扫上面的二维码加我企搜</view>
+  
+
+</view>
+-->
+<view class='canvas-bg' wx:if='{{showCavas}}' bindtap='showCavasImg'>
+  <view class='title'>
+    长按保存图片，分享给好友开始赚钱吧
+  </view>
+  <image src='https://img.daliangju.com/upload/20180910/close.png'></image>
+ </view>
+ <canvas  style=""  canvas-id="myCanvas" class='my-canvas'></canvas> 

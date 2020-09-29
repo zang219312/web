@@ -1,0 +1,44 @@
+<home 
+swiperList="{{swiperList}}" 
+isaddbgcolor="{{isaddbgcolor}}" 
+iconList="{{iconList}}"
+gridCol="{{gridCol}}"
+msgList="{{msgList}}"
+tablist="{{tablist}}"
+wx:if="{{PageCur==1}}"
+>
+</home>
+<indextype list="{{list}}" VerticalNavTop="{{VerticalNavTop}}" MainCur="{{MainCur}}" TabCur="{{TabCur}}" wx:if="{{PageCur==2}}" bind:tabSelect="tabSelect"></indextype>
+<myinfo  wx:if="{{PageCur==5}}"
+myinfoiconList="{{myinfoiconList}}"
+myinfotwoList="{{myinfotwoList}}"
+gridCol="{{gridCol}}"
+>
+</myinfo>
+<shoppingchats wx:if="{{PageCur==4}}" data="{{data}}" bind:shanchuTap="shanchuTap"></shoppingchats>
+<view class="cu-bar tabbar  bg-white shadow foot">
+  <view class="action text-green" bindtap="NavChange" data-cur="1">
+    <view class="cuIcon-home{{PageCur==1?'fill text-green':' text-gray'}}"></view>
+    <view class="{{PageCur=='1'?'text-green':'text-gray'}}">首页</view>
+  </view>
+  <view class="action text-gray" bindtap="NavChange" data-cur="2">
+    <view class="cuIcon-circle{{PageCur==2?'fill text-green':' text-gray'}}"></view>
+    <view class="{{PageCur=='2'?'text-green':'text-gray'}}">分类</view>
+  </view>
+  <view class="action text-gray add-action" bindtap="NavChange" data-cur="3">
+    <button class="cu-btn cuIcon-add bg-green shadow"></button>
+    发布
+  </view>
+  <view class="action text-gray" bindtap="NavChange" data-cur="4">
+    <view class="cuIcon-cart{{PageCur==4?'fill text-green':' text-gray'}}">
+      <view class="cu-tag badge">2</view>
+    </view>
+    <view class="{{PageCur=='4'?'text-green':'text-gray'}}">购物车</view>
+  </view>
+  <view class="action text-gray" bindtap="NavChange" data-cur="5">
+    <view class="cuIcon-people{{PageCur==5?'fill text-green':' text-gray'}}">
+      <view class="cu-tag badge"></view>
+    </view>
+    <view class="{{PageCur=='5'?'text-green':'text-gray'}}">我的</view>
+  </view>
+</view>

@@ -1,0 +1,96 @@
+<!-- <view class='home_nav'>
+  <image class='scanicon' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/home/head.png"></image>
+  <view bindtap='handleGoBack'>{{nav_title}}</view>
+</view> -->
+<navBar title='{{nav_title}}' back="{{true}}" home="{{false}}" bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<import src="../../../model/model.wxml" />
+<view style='padding-top:0;background:#fff;padding-bottom: 35rpx;'>
+  <swiper class="swiper">
+    <swiper-item>
+      <image wx:if="{{source=='apply'}}" src="{{list.img}}" style="height: 273rpx;"></image>
+      <image wx:elif="{{source=='regi'}}" src="{{list.titleImg}}" style="height: 273rpx;"></image>
+      <image wx:else src="https://file.qosoo.cn/files/img/2019/11/26/0CC7CA3E3DDA41F9886CAB9AC1EDF719.jpg" style="height: 273rpx;"></image>
+    </swiper-item>
+  </swiper>
+  <view class="form_item">
+
+    <input class="form_input" bindinput="phoneNumberInput" data-str="realName" type="text" placeholder="请输入姓名" />
+  </view>
+  <view class="form_item">
+    <input class="form_input" bindinput="phoneNumberInput" data-str="mobile" type="text" placeholder="请输入手机号" />
+    <!-- <button class="form_code_btn " type="buttom " open-type="getPhoneNumber " bindgetphonenumber="getPhoneNumber " style='color:#FA6D21'>获取微信手机号</button> -->
+  </view>
+  <view class="form_item no-border">
+    <input class="form_input" bindinput="phoneNumberInput" type="text" data-str="smsCode" placeholder="请输入验证码" />
+    <view class="form_code">
+      <view class="form_code_btn" type="buttom" disabled="{{disabled}}" bindtap='getCode' style='color:#FA6D21'>
+        <view class="left-line"></view>{{time}}
+      </view>
+    </view>
+  </view>
+
+  <view class="form_item company">
+    <input class="form_input" bindblur="bindblur" bindinput="phoneNumberInput" data-str="companyName" value="{{form.companyName}}" type="text" placeholder="请输入公司名称" />
+    <view class="companybox" wx:if='{{companyList.length>0}}'>
+      <view class="companybox-item" wx:for='{{companyList}}' wx:key='{{index}}' bindtap="choose" data-id="{{item.id}}">{{item.name}}</view>
+    </view>
+  </view>
+  <view class="form_item">
+    <picker style="flex: 1;padding-left: 20rpx;" bindchange="bindPickerChange" value="{{index}}" range="{{job_array}}" range-key="name">
+      <view class="picker" style="color:{{formPickerColors}}">
+        {{val_job}}
+      </view>
+    </picker>
+    <view class="icon icon-down" style="border-color:#b2b2b2;margin-right:30rpx;"> </view>
+  </view>
+  <view class="form_item">
+    <input class="form_input" bindinput="phoneNumberInput" data-str="dept" type="text" placeholder="请输入部门" />
+  </view>
+  <view class="form_item">
+    <input class="form_input" bindinput="phoneNumberInput" data-str="job" type="text" placeholder="请输入职务" />
+  </view>
+
+
+  <view class="form_item">
+    <!-- <input class="form_input " bindinput ="phoneNumberInput " data-str="province " type="text " placeholder="请输入省份 "/> -->
+    <view class="infoText" bindtap="translate">{{province}} {{city}} {{district}}</view>
+    <template is="areaData" data="{{...item}}" />
+    <view class="icon icon-down" style="border-color:#b2b2b2;margin-right:30rpx;"> </view>
+  </view>
+
+  <view wx:if="{{source=='apply'}}">
+    <view class="form_item_textarea" wx:if="{{showArea}}">
+      <textarea name="bindTextAreaBlur" placeholder="{{minWord}}" animation="{{animation}}" bindblur="getText" bindinput="getValueLength" show-confirm-bar='{{!popup}}' value="{{editText}}" bindconfirm="getText" maxlength="{{max}}" minlength="{{min}}" auto-focus="{{!popup}}">
+        <!-- <text class="minWord" ></text> -->
+      </textarea>
+      <view class="currentWordNumber">{{len|0}}/{{max}}</view>
+      <!-- <input class="form_input" bindinput="phoneNumberInput" data-str="remark" type="text" placeholder="请添加备注，以方便后台的审核" /> -->
+    </view>
+    <view class="form_item_textarea" wx:else></view>
+  </view>
+
+
+  <view class="form_item" wx:if="{{source=='regi'}}" style="margin-top:150rpx;">
+    <button class="fomr_post_btn" type="buttom" bindtap='commitRegAction' data-qrcode="{{qrcode}}">立即报名</button>
+  </view>
+  <view class="form_item" wx:elif="{{source=='apply'}}">
+    <button class="fomr_post_btn" type="buttom" bindtap='commitRegAction' data-qrcode="{{qrcode}}">立即申请</button>
+  </view>
+  <view class="form_item" wx:elif="{{source=='scan'}}">
+    <button class="fomr_post_btn" type="buttom" bindtap='commitRegAction'>注册扫码 交换资料</button>
+  </view>
+</view>
+<view class='shade' hidden='{{popup}}' catchtouchmove="true" bindtap='hidePopup'></view>
+<view class='shade_box popup' hidden='{{popup}}'>
+  <image src="https://file.qosoo.cn/files/20191122/home/succ.png"></image>
+  <view class="apply_status">{{notifyText1}}</view>
+  <view class="apply_notice">{{notifyText2}}</view>
+  <view class="showPopBtn" bindtap="share">分享领红包</view>
+  <!-- <view class="close"> -->
+  <image class="close" src="https://file.qosoo.cn/files/20191122/home/close.png" bindtap='hidePopup'></image>
+  <!-- </view> -->
+</view>
+
+
+<view class="fixed-bg" wx:if="{{isHidden}}"></view>

@@ -1,0 +1,141 @@
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="修改名片" bg-style="background-color: #fa6d21"></navigation-bar>
+<!--modelTest.wxml-->
+<import src="../../../model/model.wxml"/>
+<!--
+<view class='userInfoHeaderBG wsxx_scmp' bindtap='wsxx_scmp' style='padding-top:160rpx;'>
+  上传名片
+</view>
+-->
+  <!-- LOGO、账号 
+  <view class="form_item">
+      <view class="form_leber">LOGO</view>
+      <view class="form_input" style='color:#999'  bindtap='upLoadImage' wx:if="{{logoImgShow==false}}">上传公司LOGO</view>
+      <view class="form_input" wx:if="{{logoImgShow}}" bindtap='upLoadImage'><image src='{{logoImg}}'  mode="aspectFit"></image></view>
+  </view>-->
+  <view class="form_item no-border" style='padding-top:160rpx;justify-content:space-between;border-bottom: 0'>
+      <view class="form_leber"><view style="color:#ff0000">*</view>账号/手机</view>
+      <view class="form_input" style='color:#999;display:flex'><view>{{userAccount.account}}</view><image  src="https://file.qosoo.cn/files/20191021/userCenter/refresh.png" mode="aspectFill" bindtap='modifyAccount'/></view>
+      
+  </view>
+
+  <view class="form_height"></view>
+  <block wx:if='{{userAccount.companyId>0||changeCard}}'>
+  <!-- 姓名 -->
+  <view class="form_item">
+    <view class="form_leber"><view style="color:#ff0000">*</view>姓名</view>
+    <!-- <view class="form_input" style='color:#999'>{{userAccount.realName}}</view> -->
+    
+    <input class="form_input" type="text" bindinput ="input_userNameValue" placeholder="请输入姓名" value='{{userAccount.realName}}'/>
+   
+  </view>
+  <view class="form_item company">
+      <view class="form_leber"><view style="color:#ff0000">*</view>公司名称</view>
+      <!-- <view class="form_input" style='color:#999;overflow:hidden' wx:if='{{!changeCard}}'>{{userAccount.companyInfo.name}}</view> -->
+      <input class="form_input" type="text" bindinput ="input_companyNameValue"  placeholder="请输入公司名称" value='{{input_companyName}}'/>
+      <view class="companybox" wx:if='{{companyList.length>0}}'>
+            <view class="companybox-item" wx:for='{{companyList}}' wx:key='{{index}}' bindtap="choose" data-id="{{item.id}}">{{item.name}}</view>
+        </view>
+
+  </view>
+  <view class="form_item">
+    <view class="form_leber"><view style="color:#ff0000">*</view>行业</view>
+    <picker class="form_input"  bindchange="bindPickerChange" value="{{index}}" range="{{job_array}}" range-key="name">
+        <view class="picker"  style="color:{{formPickerColors}}">
+            {{val_job}}
+        </view>
+    </picker>
+</view>
+  <view class="form_item">
+      <view class="form_leber"><view style="color:#ff0000">*</view>部门</view>
+      <input class="form_input" type="text" bindinput ="input_setionNameValue" placeholder="请输入部门" value='{{userAccount.dept}}'/>
+  </view>
+  <view class="form_item">
+      <view class="form_leber"><view style="color:#ff0000">*</view>职务</view>
+      <input class="form_input" type="text" bindinput ="input_userJobValue" placeholder="请输入职务" value='{{userAccount.job}}'/>
+  </view>
+  <view class="form_item faxItem_2 clear">
+      <view class="form_leber fl" style='width:230rpx'><view style="color:#ff0000">*</view>省份</view>
+    <view class="infoText" bindtap="translate" style="width:300rpx;">{{province}} {{city}} {{district}}</view>
+  <template is="areaData" data="{{...item}}"/>
+</view>
+<view class="form_item" style="overflow:hidden">
+      <view class="form_leber" style='float:left;'>地址</view>
+      <input class="form_input" type="text" bindinput ="input_addressValue" placeholder="请输入详细地址" value='{{input_address}}' style='flpat:left'/>
+  </view>
+  <view class="form_height"></view>
+  <!-- 公司 -->
+  <view class="form_item more-item " wx:if='{{!showMore}}' bindtap="showmoreitem">
+      <view class="more">
+       更多 <image src="https://file.qosoo.cn/files/20191021/public/icon_cellNext@3x.png" class="down"></image>
+       </view>
+    </view>
+    <block wx:else>
+  <view class="form_item">
+    <view class="form_leber">邮箱</view>
+    <input class="form_input" type="text" bindinput ="input_emailValue" placeholder="请输入邮箱" value='{{userAccount.email}}'/>
+  </view>
+  <view class="form_item">
+      <view class="form_leber">网址</view>
+      <input class="form_input" type="text" bindinput ="input_webValue" placeholder="请输入官网网址" value='{{userAccount.companyInfo.website}}'/>
+  </view>
+    
+  <view class="form_item" wx:for="{{phoneList}}" wx:key="{{index}}">
+        <view class="form_leber">电话</view>
+        <input class="form_input" bindinput ="phoneInput" data-index="{{index}}" value="{{item}}" type="text" placeholder="请输入电话"/>
+        <view class="add" wx:if='{{index == 0}}' bindtap="addPhoneList">+</view>
+        <view class="add cut" wx:else bindtap='cutPhoneList' data-index="{{index}}" >-</view>
+    </view>
+    <view class="form_item " wx:for="{{faxList}}" wx:key="{{index}}">
+        <view class="form_leber">传真</view>
+        <input class="form_input" bindinput ="faxListInput" data-index="{{index}}" value="{{item}}" type="text" placeholder="请输入传真"/>
+         <view class="add" wx:if='{{index == 0}}' bindtap="addFaxList">+</view>
+        <view class="add cut" wx:else bindtap='cutFaxList' data-index="{{index}}" >-</view>
+    </view>
+
+  
+
+  <view class="form_height"></view>
+  <!-- 联系 -->
+  <view class="form_item">
+      <view class="form_leber">发票</view>
+      <input class="form_input" type="text" bindinput ="input_taxnoValue" placeholder="请输入税号" value='{{userAccount.companyInfo.taxno}}'/>
+  </view>
+  <view class="form_item">
+      <view class="form_leber">微信</view>
+      <input class="form_input" type="text" bindinput ="input_wechatValue" placeholder="请输入微信" value='{{userAccount.wechat}}'/>
+  </view>
+  <view class="form_item">
+      <view class="form_leber">Facebook</view>
+      <input class="form_input" type="text" bindinput ="input_facebookValue" placeholder="请输入Facebook" value='{{userAccount.facebook}}'/>
+  </view>
+  </block>
+</block>
+<block wx:else>
+<view class="form_item">
+    <view class="form_leber"><view style="color:#ff0000">*</view>姓名</view>
+    <!-- <view class="form_input" style='color:#999'>{{userAccount.realName}}</view> -->
+    
+    <input class="form_input" type="text" bindinput ="input_userNameValue" placeholder="请输入姓名" value='{{userAccount.realName}}'/>
+   
+  </view>
+  <view class="form_item">
+    <view class="form_leber"><view style="color:#ff0000">*</view>行业</view>
+    <picker class="form_input"  bindchange="bindPickerChange" value="{{index}}" range="{{job_array}}" range-key="name">
+        <view class="picker"  style="color:{{formPickerColors}}">
+            {{val_job}}
+        </view>
+    </picker>
+</view>
+<view class="form_item">
+    <view class="form_leber">邮箱</view>
+    <input class="form_input" type="text" bindinput ="input_emailValue" placeholder="请输入邮箱" value='{{userAccount.email}}'/>
+  </view>
+  <view class="form_item">
+      <view class="form_leber">微信</view>
+      <input class="form_input" type="text" bindinput ="input_wechatValue" placeholder="请输入微信" value='{{userAccount.wechat}}'/>
+  </view>
+
+</block>
+
+ <button class="fomr_post_btn" type="buttom" bindtap='commitBtnAction'>保存</button>
+  <button class="fomr_post_btn" type="buttom" style="margin-top:32rpx;" bindtap='changeInfo' wx:if='{{userAccount.companyId<=0&&!changeCard}}'>升级名片信息</button>

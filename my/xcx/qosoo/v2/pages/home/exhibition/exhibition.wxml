@@ -1,0 +1,132 @@
+<!-- <view class='home_nav'>
+  <image class='scanicon' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/home/head.png"></image>
+  <view bindtap='handleGoBack'>展会商讯</view>
+</view> -->
+<navBar title='展会商讯' back="{{true}}" home="{{false}}" bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<view style='padding-top:0;'>
+  <view class='address'>
+    <view class='left' bindtap="goCity">
+      <image src='https://file.qosoo.cn/files/20191021/home/htmal5icon14.png'></image>
+      {{city}}
+    </view>
+    <view class='right' bindtap="goHistory">记录</view>
+  </view>
+
+  <view class='lists'>
+    <block wx:if='{{listType ==1}}}'>
+      <view class='lists-item' wx:for='{{exhibitionlist}}' wx:key='{{index}}' wx:for-index="bindex" bindtap="toDetail" data-id="{{item.id}}">
+        <view class='item-date'>{{item.create}}</view>
+        <view class='lists-item-info'>
+          <view class='item-image'>
+            <image src="{{item.titleImg}}"></image>
+          </view>
+          <view class='item-bottom'>
+            <view class='item-bottom-follow'>
+              <view>{{item.title}}</view>
+              <!-- <view wx:if='{{listType ==1}}'>{{item.start}}-{{item.end}}</view> -->
+              <!-- 会议-->
+              <!-- <block wx:if='{{listType ==2}}'> -->
+              <view class='meeting'>时间：{{item.start}}-{{item.end}}</view>
+              <view class='meeting'>地点：{{item.address}}</view>
+              <!-- </block>  -->
+
+              <view catchtap="goMap" class="map" data-id="{{item.id}}">
+                <image src='https://file.qosoo.cn/files/20191021/home/1.png'></image>
+                地图
+              </view>
+            </view>
+            <view class='item-bottom-info'>
+              <view wx:if='{{item.focus==0}}' catchtap="focusItem" data-id="{{item.id}}" data-bindex='{{bindex}}'>关注</view>
+              <view wx:else catchtap="focusItem" data-id="{{item.id}}" class="focused" data-bindex='{{bindex}}'>已关注</view>
+              <!-- <view catchtap="goMap" data-id="{{item.id}}">
+                <image src='/images/home/1.png'></image>
+                展馆地图
+              </view> -->
+              <view wx:if='{{item.join ==0}}' catchtap="registration" data-id="{{item.id}}" data-index='{{bindex}}'>
+                <!-- <image src='/images/home/2.png'></image> -->
+                报名
+              </view>
+              <view wx:if='{{item.join ==1}}' catchtap="preApprove" class="focused">
+                <!-- <image src='/images/home/4.png'></image> -->
+                已报名
+              </view>
+              <view wx:if='{{item.join ==2}}' catchtap="preApprove" >
+                <!-- <image src='/images/home/2.png'></image> -->
+                待审核
+              </view>
+              <view wx:if='{{item.join ==3}}' catchtap="preApprove">
+                <!-- <image src='/images/home/2.png'></image> -->
+                拒绝
+              </view>
+              <view wx:if='{{item.join ==4}}' catchtap="preApprove">
+                <!-- <image src='/images/home/2.png'></image> -->
+                黑名单
+              </view>
+              <view wx:if='{{item.sign ==0}}' catchtap="sign" data-str="sign">
+                <!-- <image src='/images/home/3.png'></image> -->
+                签到
+              </view>
+              <view wx:if='{{item.sign ==1}}' class="focused">
+                <!-- <image src='/images/home/5.png'></image> -->
+                已签到
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='shade' hidden='{{popup}}' bindtap='hidePopup'></view>
+  <!-- <view class='shade_box popup' hidden='{{popup}}'>
+      <image src="https://file.qosoo.cn/files/20191122/home/%E6%88%90%E5%8A%9F.svg"></image>
+      <view>已报名，请注意查看报名结果</view>
+      <view class="showPopBtn" bindtap='hidePopup'>好的</view>
+  </view> -->
+  <view class='shade_box popup' hidden='{{popup}}'>
+    <view class="form_item">
+      <view class="form-title-text">
+        {{popup_title}}
+      </view>
+      <view class="btn">
+        <view class="left" bindtap="toApply" data-click="cancle">
+          取消
+        </view>
+        <view class="right" bindtap="toApply" data-click="comfirm">
+          确定
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='shade' wx:if='{{popup && showNotify}}' bindtap='hideNotify'></view>
+  <view class='shade_box popup2' wx:if='{{popup && showNotify}}'>
+    <image src="https://file.qosoo.cn/files/20191122/home/succ.png"></image>
+    <view class="apply_status2">{{notifyText1}}</view>
+    <view class="apply_notice2">{{notifyText2}}</view>
+    <view class="showPopBtn2">分享领红包</view>
+    <image class="close2" src="https://file.qosoo.cn/files/20191122/home/close.png" bindtap='hideNotify'></image>
+  </view>
+
+
+
+  <!-- 
+  <view class="tab-bar" hidden="{{tabBarShow}}">
+    <view class="tab-item" data-id='{{companyId}}' bindtap="pushToCompanyDetail">
+      <view class="tab-icon icon-home "></view>
+      <view class="tab-text">{{title}}</view>
+    </view>
+
+    <view class="tab-item" bindtap='pushToFocusCompany'>
+      <view class=" my-customer">
+        <view class="tab-icon icon-my-customer-group"></view>
+      </view>
+      <view class="tab-text my_text">我的客户群</view>
+    </view>
+
+    <view class="tab-item" bindtap='toSecretary'>
+      <view class="tab-icon icon-bcard"></view>
+      <view class="tab-text">商务名片</view>
+    </view>
+  </view> -->
+</view>

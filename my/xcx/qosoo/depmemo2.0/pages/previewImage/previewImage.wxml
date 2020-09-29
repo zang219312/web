@@ -1,0 +1,22 @@
+<!--pages/previewImage/previewImage.wxml-->
+<view class='page'>
+  <view class='yulan'>
+    <image src="{{ylt}}"></image>
+  </view>
+  <!--  -->
+   <view class='foot'> <!-- -->
+    <swiper class='bg_head' display-multiple-items='{{multiple_item}}' circular='true' bindchange='change' previous-margin="20rpx" next-margin="20rpx" current="{{current}}">
+      <block wx:for="{{tplist}}" wx:key="swi">
+        <swiper-item>
+          <image class="ad-item {{current==item.id?'active' : ''}}" src="{{item.img}}" data-postId="{{item.id}}" data-ylt="{{item.img}}"  bindtap='getBg'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="order-action tar clearfix">
+    <view bindtap="choose" class="btn_l"> 返 回</view>
+    <view bindtap="delspan" class="btn_r">删 除</view>
+  </view>
+
+</view>

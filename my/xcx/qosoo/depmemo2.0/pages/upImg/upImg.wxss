@@ -1,0 +1,76 @@
+/* pages/upImg/upImg.wxss */
+
+.top {
+  text-align: center;
+  border-bottom: 1rpx solid black;
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 16px;
+  color: #111;
+  font-family: '黑体';
+}
+
+.top_left {
+  position: absolute;
+  left: 5%;
+  top: 10px;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 14px;
+}
+
+.choose {
+  width: 14%;
+  position: absolute;
+  right: 5%;
+  top: 10px;
+  background-color: #02ae00;
+  color: #fff;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.qr_yes {
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  top: 0;
+}
+
+.order-action {
+  border-top: 1px solid #dbdbdb;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mar-bom{
+  margin-bottom: 100rpx;
+}
+
+.btn_r {
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 40rpx;
+  font-size: 32rpx;
+  float: right;
+}
+
+.btn_l {
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 40rpx;
+  font-size: 32rpx;
+  float: left;
+}
+
+.text_r {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 10rpx;
+}

@@ -1,0 +1,110 @@
+<!--<navigation-bar bindnavback="onnavback" enable="{{true}}" title="我的小秘书" bg-style="background-color: #fa6d21"></navigation-bar>
+<!--pages/userCenter/userInfo.wxml-->
+<view class="user_style" style='padding-top:0rpx;'>
+    <view><image class='headerBGImg' src='{{userCenterInfo.callCard}}' mode="widthFix" wx:if="{{showCard}}"></image></view>
+    <view class="user_style_box">
+        <view class="user_avatar">
+            <image class='userImage' src="{{userAvatarUrl}}"></image>
+            <view class="user_nickname_text">{{userCenterInfo.realName}} <image class='userTypeImg' bindtap='peopleAuthAction' src='{{userAuthStatusImgPath}}' mode="widthFix"></image></view>
+            <p class="p1">{{userCenterInfo.dept}}</p>
+            <p class="p1">{{userCenterInfo.job}}</p>
+        </view>
+        <view class="user_text">
+            <view class="user_nickname">
+                <view class="user_nickname_box"><view>{{userCenterInfo.companyName}}</view><view class='userCompanyAuthStatus' bindtap='companyAuthAction' style='{{userCompanyAuthStatusBGColor}}'>{{userCompanyAuthStatus}}</view></view>
+                <view class="user_nickname_phone">
+                    <view class="user_nickname_phone_box" bindtap="pushToEdit">
+                        <view><image src="/images/userCenter/phone@3x.png"/>{{userCenterInfo.account}}</view>
+                        <view><image src="/images/userCenter/email@3x.png"/>{{userCenterInfo.email}}</view>
+                    </view>
+
+                    <view class='QRCodeImageView' bindtap='pushToQRCodePage'>
+                      <image class='QRCodeImage' src='/images/userCenter/code@3x.png' mode="aspectFill"></image>
+                    </view>
+                </view>
+                <view class="user_nickname_phone_box" bindtap="pushToEdit">
+                    <view><image src="/images/userCenter/address@3x.png"/>{{userCenterInfo.companyProvince}} {{userCenterInfo.companyCity}} {{userCenterInfo.companyDistrict}} {{userCenterInfo.address}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="user_text_other"  bindtap="pushToEdit">
+        <view hidden="{{display_mobile}}">座机：{{userCenterInfo.mobile}}</view>
+        <view hidden='{{display_wechat}}'>微信：{{userCenterInfo.wechat}}</view>
+        <view hidden="{{display_website}}">网址：{{userCenterInfo.website}}</view>
+        <view hidden="{{display_tax}}">发票：{{userCenterInfo.taxno}}</view>
+    </view>
+</view>
+
+<!--
+<view class='headerView' style='padding-top:160rpx;'>
+  <view class='userImageBGView' bindtap='gotoUserInfo'>
+    <image class='userImage' src='{{userAvatarUrl}}'></image>
+    <!-- <image class='userImage' open-type="getUserInfo" src='{{userInfo.avatarUrl}}' ></image> -->
+    <!--
+  </view>
+  <view class='userNameBGView'>
+    <view class='userNameInfo'>
+      <view class='userNameLabel'>
+          {{userCenterInfo.realName}} 
+          <image class='userTypeImg' bindtap='peopleAuthAction' src='{{userAuthStatusImgPath}}'></image>
+      </view>
+      <view class='userProfessionLabel'>{{userCenterInfo.job}}</view>
+      <view class='userCompanyView'>
+          <view class='userCompanyLabel' bindtap='pushToCompanyDetail'>{{userCenterInfo.companyName}}</view>
+          <view class='userCompanyAuthStatus' bindtap='companyAuthAction' style='{{userCompanyAuthStatusBGColor}}'>{{userCompanyAuthStatus}}          </view>
+      </view>
+    </view>
+  </view>
+  <view class='QRCodeImageView' bindtap='pushToQRCodePage'>
+    <image class='QRCodeImage' src='/images/userCenter/icon_qrCode@3x.png'></image>
+  </view>
+</view>
+-->
+<view class='spaceLineView'></view>
+  <!--
+	<navigator url="/pages/userCenter/userInfo/userInfo" class='cellBGView'>
+		<view class='cellTitle'>个人资料</view>
+		<view class='cellSubTitle'></view>
+	  <view>
+			<image class='cellNext' src="/images/public/icon_cellNext@3x.png"></image>
+		</view>
+	</navigator>
+  -->
+  <navigator url="/pages/userCenter/businessNegotiations/businessNegotiations" class='cellBGView'>
+		<view class='cellTitle'>企业智囊</view>
+		<view class='cellSubTitle'></view>
+	  <view>
+			<image class='cellNext' src="/images/public/icon_cellNext@3x.png"></image>
+		</view>
+	</navigator>
+  <!--
+  <navigator url="/pages/userCenter/modifiPhoneNumb/modifiPhoneNumb?userPhone={{userPhoneStr}}"  class='cellBGView'>
+		<view class='cellTitle'>修改手机号</view>
+		<view class='cellSubTitle'></view>
+	  <view>
+			<image class='cellNext' src="/images/public/icon_cellNext@3x.png"></image>
+		</view>
+	</navigator>
+  -->
+<!-- <view class='logoutBGView'>
+  <button class='logoutBtn'>退出当前账号</button>
+</view> -->
+<!-- 弹出遮罩层 -->
+<view class='coverView'  style="display:{{coverViewStatus}}">
+  <view class='remindBGView'>
+    <view class='remindTitle'>提示</view>
+    <view class='remindContent'>认证个人信息需要上传个人名片，如果您没有名片需要向管理员发送认证请求</view>
+    
+    <view class='lineView lineView_1'></view>
+    <view class='remindBtnTitle remindBtnTitle_1' bindtap='pushToPeopleAuth'>上传名片</view>
+    
+    <view class='lineView lineView_2'></view>
+    <view class='remindBtnTitle remindBtnTitle_2' bindtap='sendAuthRequest' >发送认证请求</view>
+    
+    <view class='lineView lineView_3'></view>
+    <view class='remindBtnTitle remindBtnTitle_3' bindtap='coverCancle' >取消</view>
+  
+  </view>
+
+</view>

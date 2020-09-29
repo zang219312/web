@@ -1,0 +1,73 @@
+<!-- <view class='home_nav'>
+  <image class='scanicon' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/home/head.png"></image>
+  <view bindtap='handleGoBack'>{{nav_title}}</view>
+</view> -->
+
+<navBar title='{{nav_title}}' back="{{true}}" home="{{false}}" bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<view style="padding-top:0;">
+  <block wx:for="{{serviceList}}" wx:key="{{item.id}}">
+    <view class="em_content">
+      <image src="{{item.img}}" class="em_img" mode="scaleToFill" bindtap="pushToCompanyDetail" data-id="{{item.companyId}}" data-qctype="3"></image>
+      <image src="https://file.qosoo.cn/files/20191122/cardInfo/novip.png" class="isVip" wx:if="{{item.type==1 && isNotExceedTheAllowTime}}"></image>
+      <image src="https://file.qosoo.cn/files/20191122/cardInfo/vip.png" class="isVip" wx:if="{{item.type==1 && member.status==1 && member.level}}"></image>
+      <view class="em_img_title">
+        <text>{{item.title}}</text>
+        <view class="apply" bindtap="applyForShowPopup" data-id="{{item.companyId}}" data-index="{{index}}" wx:if="{{item.type==1 && member.status!=1 && member.status!=0}}">
+          申请加入</view>
+        <view class="apply" bindtap="" data-index="{{index}}" wx:if="{{item.type==1 && member.status==0}}">待审核</view>
+        <view class="apply" bindtap="" data-index="{{index}}" wx:if="{{item.type==1 && member.status==1}}">
+          <text wx:if="{{member.level==0}}">会员单位</text>
+          <text wx:if="{{member.level==1}}">理事</text>
+          <text wx:if="{{member.level==2}}">常务理事</text>
+          <text wx:if="{{member.level==3}}">副秘书长</text>
+          <text wx:if="{{member.level==4}}">秘书长</text>
+          <text wx:if="{{member.level==5}}">副会长</text>
+          <text wx:if="{{member.level==6}}">常务副会长</text>
+        </view>
+        <view class="apply" bindtap="" data-index="{{index}}" wx:if="{{item.type==1 &&isNotExceedTheAllowTime }}">待续费</view>
+      </view>
+      <view class="em_foot">
+        <view class="em_foot_left">
+          <view class="em_foot_left_text">
+            {{item.contactMan}}
+            <text>{{item.jobTitle}}</text>
+          </view>
+          <view class="em_foot_left_bottom_text" bindtap="pushToCompanyDetail" data-id="{{item.companyId}}">
+            {{item.companyName}}
+          </view>
+        </view>
+        <view class="em_foot_right">
+          <view class="em_foot_icon">
+            <image data-mobile="{{item.mobile}}" data-realname="{{item.contactMan}}" catchtap="callMeAction" src="https://file.qosoo.cn/files/home/call.png" style="width: 34rpx; height: 32rpx;"></image>
+          </view>
+          <view class="em_foot_icon">
+            <image data-wechat="{{item.wechat || item.mobile}}" catchtap="clipboard" src="https://file.qosoo.cn/files/home/wechat.png" style="width:41rpx;heightr:34rpx;"></image>
+          </view>
+          <view class="em_foot_icon">
+            <image data-sms="{{item.mobile}}" catchtap="sendSms" src="https://file.qosoo.cn/files/home/sms.png" style="width: 34rpx;  height: 32rpx;"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <view class='shade' hidden='{{popup}}' bindtap='hidePopup' catchtouchmove='true'></view>
+  <view class='shade_box popup' hidden='{{popup}}'>
+    <view class="form_item">
+      <!-- <view class="currentWordNumber">{{len|0}}/{{max}}</view> -->
+      <textarea name="bindTextAreaBlur" placeholder="{{minWord}}" bindblur="getText" bindinput="getValueLength" show-confirm-bar='{{!popup}}' bindconfirm="getText" maxlength="{{max}}" minlength="{{min}}" auto-focus="{{!popup}}">
+        <!-- <text class="minWord">{{minWord}}</text> -->
+      </textarea>
+      <view class="btn">
+        <view class="left" bindtap="toApply" data-click="cancle">
+          取消
+        </view>
+        <view class="right" bindtap="toApply" data-click="comfirm">
+          提交
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

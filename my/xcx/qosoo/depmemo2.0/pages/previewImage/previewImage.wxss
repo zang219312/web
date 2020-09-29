@@ -1,0 +1,70 @@
+/* pages/previewImage/previewImage.wxss */
+
+page {
+  height: 100%;
+}
+
+.order-action {
+  border-top: 1px solid #dbdbdb;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.btn_r {
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 40rpx;
+  font-size: 32rpx;
+  float: right;
+}
+
+.btn_l {
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 40rpx;
+  font-size: 32rpx;
+  float: left;
+}
+
+.text_r {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 10rpx;
+}
+
+.bg_head {
+  width: 100%;
+  text-align: center;
+  padding-top: 10rpx;
+}
+
+.ad-item {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.active {
+  color: red;
+  border: 1px solid red;
+}
+
+.foot {
+  position: fixed;
+  bottom: -30rpx;
+  left: 0;
+  right: 0;
+}
+
+.yulan {
+  width: 100%;
+  margin: 55rpx;
+}
+
+.yulan img {
+  width: 100%;
+  background: red;
+}

@@ -1,0 +1,207 @@
+<navBar title='我的客户群' back="{{true}}" home="{{false}}" bindback="handleGoBack" bindhome="handlerGohomeClick">
+</navBar>
+
+
+<view class='my-customer-group' style='padding-top:0;margin-bottom:100rpx;'>
+  <view class='group-bg'>
+    <swiper circular="true">
+      <block wx:for="{{bannerUrlArray}}" wx:key='id'>
+        <swiper-item bindtap='out_banner' data-id='{{item.id}}' data-type='{{item.type}}' data-linkurl='{{item.linkUrl}}'>
+          <image src="{{item.url}}" style="width:100%;"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class='my-customer-data'>
+    <view class='search-box'>
+      <image class='pull-left' bindtap="search" src='https://file.qosoo.cn/files/20191021/home/icon_magnify@3x.png'></image>
+      <input class='pull-left' placeholder='查找回忆' confirm-type='search' bindconfirm='search'></input>
+    </view>
+    <view class='search-box-bottom'>
+      <view class='mcdata {{currentTab==index ? "active" : ""}}' data-idx="{{index}}" wx:for='{{navbar}}' wx:key='unique' bindtap="navbarTaps">
+        <view>{{item.acount}}</view>
+        <view>{{item.txt}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="bg">
+  </view>
+
+
+  <view hidden="{{currentTab!=0}}" class='mcgcp-lists'>
+    <view class='mcgcp-detail' wx:for='{{myFocusGroupArray}}' wx:key="id">
+      <view class='focus-box'>
+        <view class='focusCompanyCellBG'>
+          <!-- <view class='msg-blank'></view> -->
+          <view class='startLv'>{{item.level}}
+            <image src='https://file.qosoo.cn/files/20191021/home/star.png'></image>
+          </view>
+          <view class='mcg-company'>
+            <view>
+              <image class='focusCompanyCell_companyLOGO' src="{{item.logo}}"></image>
+            </view>
+            <view class='focusCompanyCell_companyName' bindtap='pushToCompanyDetail' data-id='{{item.id}}' wx:if='{{item.name.length>12}}'>{{item.name}}
+              <text class="read po-read" wx:if='{{item.read == 0 }}'></text>
+            </view>
+            <view class='focusCompanyCell_companyName' bindtap='pushToCompanyDetail' data-id='{{item.id}}' wx:else>{{item.name}}
+              <text class="read" wx:if='{{item.read == 0 }}'></text>
+            </view>
+            <view class='focus-btn' catchtap='boxShowFun' data-status='{{item.status}}' id="{{item.id}}">
+              <image class='focusCompanyCell_detailIcon' src="{{item.imgUrl}}" mode="widthFix"></image>
+            </view>
+            <!--展开-->
+            <view class='mcgitem-box' wx:if="{{item.status%2==0}}">
+              <view class='mcgcpd-item' wx:for="{{item.focusList}}" wx:for-item='listItem'  wx:for-index="idx"  wx:key='{{index}}'>
+                <!-- <view><image class='focusCompanyCell_companyLOGO' src=""></image></view> -->
+                <view class='mgp-name'>{{listItem.realName}}
+                  <view class='mgp-red' wx:if='{{listItem.read == 0 }}'></view>
+                </view>
+                <view class='mgp-position' bindtap="focusAction" data-index="{{index}}" data-companyid="{{item.id}}" data-id="{{listItem.id}}" data-level="{{item.level}}" data-idx="{{idx}}" data-isamity="{{listItem.isAmity}}">
+                  <text>{{listItem.dept}}{{listItem.job}}</text>
+
+                </view>
+                <!-- wx:if="{{item.isAmity == 1}}" -->
+                <view style="display:flex;">
+                  <view class="mgp-amity">
+                    <image wx:if="{{listItem.isAmity == 1}}" class='focusCompanyCell_focusIcon' src="https://file.qosoo.cn/files/20191021/home/isAmity.png"></image>
+                  </view>
+
+                  <view class='mgp-sms' catchtap='sendSms' data-phone='{{listItem.mobile}}'>
+                    <image src='https://file.qosoo.cn/files/home/sms.png'></image>
+                  </view>
+                  <view class='mgp-wx' catchtap='clipboard' data-phone='{{listItem.mobile}}'>
+                    <image src='https://file.qosoo.cn/files/20191021/userCenter/wx.png'></image>
+                  </view>
+
+                  <view class='mgp-phone' catchtap='callMeAction' data-phone='{{listItem.mobile}}' data-realname="{{listItem.realName}}">
+                    <image src='https://file.qosoo.cn/files/20191021/userCenter/phone.png'></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='mcg_bbg-small'></view>
+    </view>
+    <!--
+    <view class='loadMore' bindtap='getMyfocuskhmore'>加载更多</view>
+    -->
+    <!-- ********* 关注我的客户部分  *********** -->
+  </view>
+  <view hidden="{{currentTab!=1}}" class='mcgcp-lists'>
+    <view class='mcgcp-detail' wx:for='{{focusMeGroupArray}}' wx:key="id">
+      <view class='focus-box'>
+        <view class='focusCompanyCellBG'>
+          <view class='startLv'>{{item.level}}
+            <image src='https://file.qosoo.cn/files/20191021/home/star.png'></image>
+          </view>
+          <view class='mcg-company'>
+            <view>
+              <image class='focusCompanyCell_companyLOGO' src="{{item.logo}}"></image>
+            </view>
+            <view class='focusCompanyCell_companyName' bindtap='pushToCompanyDetail' data-id='{{item.id}}' wx:if='{{item.name.length>12}}'>{{item.name}}
+              <text class="read po-read" wx:if='{{item.read == 0 }}'></text>
+            </view>
+            <view class='focusCompanyCell_companyName' bindtap='pushToCompanyDetail' data-id='{{item.id}}' wx:else>{{item.name}}
+              <text class="read" wx:if='{{item.read == 0 }}'></text>
+            </view>
+            <view class='focus-btn' catchtap='boxShowFun2' data-status='{{item.status}}' id="{{item.id}}">
+              <image class='focusCompanyCell_detailIcon' src="{{item.imgUrl}}" mode="widthFix"></image>
+            </view>
+
+            <view class='mcgitem-box' wx:if="{{item.status%2==0}}">
+              <view class='mcgcpd-item' wx:for="{{item.focusList}}" wx:for-item='listItem' wx:for-index="idx"  wx:key='{{index}}'>
+                <!-- <view><image class='focusCompanyCell_companyLOGO' src=""></image></view> -->
+                <view class='mgp-name'>{{listItem.realName}}
+                  <view class='mgp-red'></view>
+                </view>
+                <view class='mgp-position' bindtap="focusMeFocusAction" data-idx="{{idx}}"  data-index="{{index}}" data-id="{{listItem.id}}" data-companyid="{{item.id}}" data-level="{{item.level}}" data-isamity="{{listItem.isAmity}}">
+                  <text>{{listItem.dept}}{{listItem.job}}</text>
+                </view>
+
+                <view style="display:flex;">
+                  <view class="mgp-amity">
+                    <image wx:if="{{listItem.isAmity == 1}}" class='focusCompanyCell_focusIcon' src="https://file.qosoo.cn/files/20191021/home/isAmity.png"></image>
+                  </view>
+
+                  <view class='mgp-sms' catchtap='sendSms' data-phone='{{listItem.mobile}}'>
+                    <image src='https://file.qosoo.cn/files/home/sms.png'></image>
+                  </view>
+                  <view class='mgp-wx' catchtap='clipboard' data-phone='{{listItem.mobile}}'>
+                    <image src='https://file.qosoo.cn/files/20191021/userCenter/wx.png'></image>
+                  </view>
+
+                  <view class='mgp-phone' catchtap='callMeAction' data-phone='{{listItem.mobile}}' data-realname="{{listItem.realName}}">
+                    <image src='https://file.qosoo.cn/files/20191021/userCenter/phone.png'></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='mcg_bbg-small'></view>
+    </view>
+    <!--
+    <view class='loadMore' bindtap='getfoucusMemore'>加载更多</view>
+    -->
+  </view>
+</view>
+<view class="call-bg">
+  <image src="https://file.qosoo.cn/files/20191021/home/call-phone.png" class='call' catchtap='callMeAction' data-phone=''></image>
+</view>
+
+<!-- 弹出遮罩层 -->
+<view class='coverView' style="display:{{coverViewStatus}}">
+  <view class='remindBGView'>
+    <view class='remindTitle'>提示</view>
+    <view class='remindContent'>认证个人信息需要上传个人名片，如果您没有名片需要向管理员发送认证请求</view>
+
+    <view class='lineView lineView_1'></view>
+    <view class='remindBtnTitle remindBtnTitle_1' bindtap='pushToPeopleAuth'>上传名片</view>
+
+    <view class='lineView lineView_2'></view>
+    <view class='remindBtnTitle remindBtnTitle_2' bindtap='sendAuthRequest'>发送认证请求</view>
+
+    <view class='lineView lineView_3'></view>
+    <view class='remindBtnTitle remindBtnTitle_3' bindtap='coverCancle'>取消</view>
+  </view>
+</view>
+
+<!-- 我关注的 -->
+<view class='star-view' hidden="{{starShow}}" bindtap='starHidden'>
+  <view class='star-number' hidden="{{follow}}">
+    <!-- <view class='before-star'></view> -->
+    <view class='star-box'>
+      <view class='star-title star-txt'>商业合作价值</view>
+      <view class='star-bottom star-txt'>
+        <view class='star-banner'>
+          <image id="{{item.id}}" wx:for="{{imgArray}}" wx:key="id" src="{{item.imgUrl}}" bindtap='focusStar'></image>
+          <view class='starb-left'>一般</view>
+          <view class='starb-right'>极高</view>
+        </view>
+      </view>
+      <view class='star-title star-txt cen' bindtap="unfollow">取消关注</view>
+    </view>
+  </view>
+</view>
+
+<!-- 关注我的 -->
+<view class='star-view' hidden="{{focusMeStarShow}}" bindtap='focusMeStarHidden'>
+  <view class='star-number' hidden="{{follow2}}">
+    <!-- <view class='before-star'></view> -->
+    <view class='star-box'>
+      <view class='star-title star-txt'>商业合作价值</view>
+      <view class='star-bottom star-txt'>
+        <view class='star-banner'>
+          <image id="{{item.id}}" wx:for="{{imgArray}}" wx:key="id" src="{{item.imgUrl}}" bindtap='focusMeStar'></image>
+          <view class='starb-left'>一般</view>
+          <view class='starb-right'>极高</view>
+        </view>
+      </view>
+      <view class='star-title star-txt cen' bindtap="starHidden">取消</view>
+    </view>
+  </view>
+</view>

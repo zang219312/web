@@ -1,0 +1,44 @@
+
+<navBar title='会员中心' back="{{true}}" home="{{false}}" bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<view style="padding-top: 0;position:relative;">
+  <view class="lo_bg">
+    <image  src="https://file.qosoo.cn/files/20191122/redPacket/red_packet_bg.png"></image>
+  </view>
+  <view class="rp_conent">
+    <view class="cate1">
+      <image src="https://file.qosoo.cn/files/20191122/redPacket/cate1.png"></image>
+      <view class="cate1_title">
+        单个用户每次最高可获得200元
+      </view>
+      <view class="coupon">
+        <block wx:for="{{couponList}}" wx:key="index">
+          <view class="coupon-item" bindtap="getTheDiscount">
+            <image src="{{item.imgurl}}" mode="widhFix"></image>
+          </view>
+        </block>
+
+      </view>
+    </view>
+    <!-- <view class="cate_share">
+        <image src="../../../images/redPacket/share.png" mode="widthFix"></image>
+    </view> -->
+    <view class="cate2">
+      <image src="https://file.qosoo.cn/files/20191122/redPacket/cate2.png" mode="widthFix"></image>
+      <view class="phone_card">
+        <block wx:for="{{phoneCradList}}" wx:key="index">
+          <view class="cate2-item">
+            <image src="{{item.imgurl}}" mode="widthFix"></image>
+            <view bindtap="exchange">
+              {{item.text}}
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class='shade' hidden='{{popup}}' bindtap='hidePopup'></view>
+  <view class='shade_box popup' hidden='{{popup}}'>
+    <image src="https://file.qosoo.cn/files/20191122/redPacket/coupon_eighty.png" mode="widthFix"></image>
+  </view>
+</view>

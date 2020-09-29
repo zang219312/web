@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "洽谈业务",
+  "usingComponents": {
+    "navigation-bar": "miniprogram-navigation-bar"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "weui-msg": "/miniprogram_npm/weui-miniprogram/msg/msg",
+    "weui-toptips": "/miniprogram_npm/weui-miniprogram/toptips/toptips"
+  }
+}

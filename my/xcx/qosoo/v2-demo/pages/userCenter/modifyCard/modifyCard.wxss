@@ -1,0 +1,328 @@
+@import '../registration/registration.wxss';
+.userInfoHeaderBG{
+  width: 100%;
+  position: relative;
+}
+.headerBGImg{
+  width: 690rpx;
+  height: 400rpx;
+  margin: 0rpx 30rpx;
+
+}
+.company{
+  position: relative;
+}
+.companybox{
+  position: absolute;
+  width: 100%;
+  background: rgba(246,246,246,1);
+  left: 0;
+  top: 100rpx;
+  z-index: 99;
+  text-align: center;
+  padding: 12rpx 0;
+}
+.companybox-item{
+  height: 78rpx;
+  width: 624rpx;
+  line-height: 78rpx;
+  margin: 0 auto;
+  border-bottom: 2rpx solid rgba(216,216,216,0.3);
+}
+.companybox-item:last-child{
+  border-bottom:0;
+}
+.more-item{
+  justify-content: center;
+  border-bottom: 0;
+}
+.more{
+  text-align: center;
+  
+}
+/* 上部分 */
+.headerTop{
+  display: flex;
+  width: 100%;
+  height: 194rpx;
+  position: absolute;
+  left: 0rpx;
+  top: 0;
+}
+/* 企业LOGO */
+.logoBGView{
+  width: 143rpx;
+  height: 108rpx;
+  background-color: #989898;
+  margin-top: 30rpx;
+  margin-left: 84rpx;
+  text-align: center;
+  position: relative;
+}
+.logoImgView{
+  width: 42rpx;
+  height: 33rpx;
+  margin-top: 20rpx;
+  position: absolute;
+  top: 0;
+  left: 50rpx;
+}
+.logo-change{
+  width: 100%;
+  height: 108rpx;
+}
+.logoTitleView{
+  width: 100%;
+  color: #fff;
+  font-size: 24rpx;
+   position: absolute;
+  top: 64rpx;
+  left: 0rpx;
+}
+/* 用户信息部分 */
+.infoBGView{
+  /* background-color: #f8f8f8; */
+  width: 320rpx;
+  height: 194rpx;
+  margin-left: 50rpx;
+}
+.userName{
+  margin-top: 20rpx;
+  font-size:30rpx;
+  color: #fff;
+}
+.userSection{
+  font-size:28rpx;
+  margin-top: 10rpx;
+  color: #fff;
+}
+.userDuty{
+  display: inline-block;
+  color: #fff;
+  /* font-size:30rpx; */
+}
+.companyName{
+  font-size:30rpx;
+  margin-top: 10rpx;
+  color: #fff;  
+}
+.userTypeImg{
+  width: 30rpx;
+  height: 30rpx;
+}
+/* 联系方式部分 */
+.headerBottom{
+  width: 100%;
+  height: 206rpx;
+  background-color: #f2f2f2;
+  position: absolute;
+  top: 194rpx;
+  left: 0;
+}
+.contactInfo_1{
+  display: flex;
+}
+
+.contactInfo_phone{
+  display: flex;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+
+}
+.contactInfoIcon_phone{
+  width: 24rpx;
+  height: 34rpx;
+}
+.contactInfoTitle_phone{
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  margin-top: -8rpx;
+}
+
+.contactInfo_mail{
+  display: flex;
+  margin-top: 30rpx;
+}
+.contactInfoIcon_email{
+  width:  40rpx;
+  height: 26rpx;
+}
+.contactInfoTitle_email{
+ margin-left: 20rpx;
+ font-size: 30rpx;
+  margin-top: -10rpx;
+}
+
+.contactInfo_2{
+  display: flex;
+}
+.contactInfoIcon_address{
+  width: 26rpx;
+  height: 38rpx;
+  margin-left: 28rpx;
+  margin-top: 20rpx;
+
+}
+.contactInfoTitle_address{
+  width: 600rpx;
+  /* height: 80rpx; */
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+}
+.clear{overflow: hidden}
+.fl{float: left}
+.input_mobile{width: 371rpx;}
+/* ******* */
+.form_item{
+    display: flex;height: 90rpx;border-bottom:1rpx solid rgba(216,216,216,0.3);line-height: 90rpx;font-size: 28rpx;
+}
+.form_leber{
+    display: flex;
+    width:166rpx;
+    /* padding-left: 30rpx; */
+}
+.form_input{
+    flex:1;height: 90rpx;line-height: 90rpx;padding-left: 100rpx;
+}
+.form_input image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 30rpx;
+  margin-left: 110rpx;
+}
+.form_height{
+    height: 20rpx;background-color: rgba(216,216,216,0.3);width: 100%;
+}
+.form_code{
+    width: 165rpx;height: 90rpx;padding-top: 23rpx;
+}
+.form_code_btn{
+    border: 1rpx solid #ff6f05;color: #ff6f05;font-size: 24rpx;border-radius:6rpx;width: 136rpx;height: 44rpx;line-height: 44rpx;
+}
+
+.fomr_post_btn{
+    /* margin-top:115rpx; */
+    width: 100%;
+    line-height: 100rpx;
+    background-color: #FA6D21;
+    color: white;
+    font-size: 30rpx;
+    border-radius: 0;
+}
+.wsxx_scmp{text-align:center;
+line-height:205rpx;
+font-size:32rpx;
+color:#999999;}
+
+.addPhoneNumb_input{
+
+}
+/*添加电话号码*/
+.addPhoneNumb_icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin: 30rpx 30rpx;
+}
+
+.minusPhoneNumb_icon{
+    width: 30rpx;
+  height: 30rpx;
+  margin: 30rpx 30rpx;
+}
+
+.infoText{
+    padding-left:30rpx;
+    height:90rpx;
+    /* border-bottom:1rpx solid #d2d2d2; */
+    line-height:90rpx;
+    font-size:28rpx;
+    width: 100%;
+}
+
+.centerText{
+  margin-top: 100rpx;
+  width: 100%;
+  text-align: center;
+}
+
+/* --------------分割线------------- */
+
+picker-view{
+  background-color: white;
+  padding: 0;
+  width: 100%; 
+  height: 380rpx;
+  bottom: 0;
+  position: fixed;
+  
+}
+
+picker-view-column view{
+  vertical-align:middle; 
+  font-size: 28rpx;
+  line-height: 28rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animation-element-wrapper {
+  display: flex;  
+  position: fixed;
+  left: 0;
+  top:0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index:9999;
+}
+.animation-element {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 470rpx;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 9999;
+}
+
+.animation-button {
+  margin-top: 20rpx;
+  top:20rpx;
+  width: 400rpx;
+  height: 100rpx; 
+  line-height: 100rpx; 
+  align-items:center;
+}
+
+
+.animation-element text{
+  color: #999999;
+  display: inline-flex;  
+  position: fixed;
+  margin-top: 20rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 34rpx;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.left-bt{
+  left: 30rpx;
+}
+.right-bt {
+  right: 30rpx;
+}
+
+.line{
+  display: block;
+  position: fixed;
+  height: 1rpx;
+  width: 100%;
+  margin-top: 89rpx; 
+  background-color: #eeeeee;
+}
+

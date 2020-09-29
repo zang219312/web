@@ -1,0 +1,134 @@
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="注册" bg-style="background-color: #fa6d21"></navigation-bar>
+<!--modelTest.wxml-->  
+<import src="../../../model/model.wxml"/>这种你
+ 
+<view class='userInfoHeaderBG wsxx_scmp' bindtap='wsxx_scmp' style='padding-top:160rpx;'>
+</view>
+  <!-- 账号 -->
+  <view class="form_item">
+      <view class="form_leber"><view style="color:#ff0000">*</view>账号/手机</view>
+      <!--<view class="form_input" style='color:#999'>{{userAccount.account}}</view>-->
+      <input class="form_input" type="text" bindinput ="input_accountValue" placeholder="请输入账号/手机" value='{{userAccount.account}}'/>
+  </view>
+  <!-- 姓名 -->
+  <view class="form_item">
+    <view class="form_leber"><view style="color:#ff0000">*</view>姓名</view>
+    <input class="form_input" type="text" bindinput ="input_userNameValue" placeholder="请输入姓名" value='{{userAccount.realName}}'/>
+  </view>
+    <view class="form_height"></view>
+    <view class="form_item">
+        <view class="form_leber">注册类型</view>
+        <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{items}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+        </radio-group>
+    </view>  
+  <view class="form_item" wx:if="{{isCompany}}">
+      <view class="form_leber"><view style="color:#ff0000">*</view>公司名称</view>
+      <input class="form_input" type="text" bindinput ="input_companyNameValue" placeholder="请输入公司名称" value='{{userAccount.companyName}}'/>
+  </view>
+  <view class="form_item" wx:if="{{isCompany}}">
+      <view class="form_leber"><view style="color:#ff0000">*</view>部门</view>
+      <input class="form_input" type="text" bindinput ="input_setionNameValue" placeholder="请输入部门" value='{{userAccount.dept}}'/>
+  </view>
+  <view class="form_item" wx:if="{{isCompany}}">
+      <view class="form_leber"><view style="color:#ff0000">*</view>职务</view>
+      <input class="form_input" type="text" bindinput ="input_userJobValue" placeholder="请输入职务" value='{{userAccount.job}}'/>
+  </view>
+  <view class="form_item faxItem_2 clear" wx:if="{{isCompany}}">
+      <view class="form_leber fl" style='width:230rpx'><view style="color:#ff0000">*</view>省份</view>
+    <view class="infoText" bindtap="translate" style="width:300rpx;">{{province}} {{city}} {{district}}</view>
+  <template is="areaData" data="{{...item}}"/>
+</view>
+<view class="form_item" style="overflow:hidden" wx:if="{{isCompany}}">
+      <view class="form_leber" style='float:left;'><view style="color:#ff0000">*</view>地址</view>
+      <input class="form_input" type="text" bindinput ="input_addressValue" placeholder="请输入详细地址" value='{{userAccount.address}}' style='flpat:left'/>
+  </view>
+  <view class="form_height" wx:if="{{isCompany}}"></view>
+  <!-- 公司 -->
+    <view class="form_item" wx:if="{{isCompany}}">
+      <view class="form_leber">发票</view>
+      <input class="form_input" type="text" bindinput ="input_taxnoValue" placeholder="请输入税号" value='{{userAccount.taxno}}'/>
+  </view>
+  <view class="form_item phoneItem_1" wx:if="{{isCompany}}">
+    <view class="form_leber">电话</view>
+    <input class="form_input input_mobile" type="text" bindinput ="input_phoneNumbValue" placeholder="请输入电话" value='{{userAccount.mobile[0]}}'/>
+  <!--    <image class='addPhoneNumb_icon' bindtap='addPhoneItemsAction' src='/images/public/icon_add@3x.png'></image>-->
+  </view>
+    <!--
+   <view class="form_item phoneItem_2 clear"  style="display:{{phoneItem_2display}}">
+    <view class="form_leber fl">电话</view>
+    <input class="form_input fl input_mobile" type="text" placeholder="请输入电话" bindinput ="input_phoneNumbValue2" value='{{userAccount.mobile[1]}}'/>
+    <image class='minusPhoneNumb_icon'bindtap='minusPhoneItemsAction' src='/images/public/icon_ minus@3x.png'></image>
+  </view>
+  <view class="form_item phoneItem_3 clear"  style="display:{{phoneItem_3display}}">
+    <view class="form_leber fl">电话</view>
+    <input class="form_input fl input_mobile" type="text" placeholder="请输入电话" bindinput ="input_phoneNumbValue3" value='{{userAccount.mobile[2]}}'/>
+    <image class='minusPhoneNumb_icon'bindtap='minusPhoneItemsAction3' src='/images/public/icon_ minus@3x.png'></image>
+  </view>
+  -->
+  <view class="form_item faxItem_1" wx:if="{{isCompany}}">
+      <view class="form_leber">传真</view>
+      <input class="form_input" type="text" bindinput ="input_faxNumbValue" placeholder="请输入传真" value='{{userAccount.fax[0]}}'/>
+  <!--      <image class='addPhoneNumb_icon' bindtap='addFaxItemsAction' src='/images/public/icon_add@3x.png'></image>-->
+  </view>
+  <!--
+  <view class="form_item faxItem_2 clear" style="display:{{faxItem_2display}}" >
+      <view class="form_leber fl">传真</view>
+      <input class="form_input input_mobile fl" type="text" bindinput ="input_faxNumbValue2" placeholder="请输入传真" value='{{userAccount.fax[1]}}'/>
+      <image class='minusPhoneNumb_icon'bindtap='minusFaxItemsAction2' src='/images/public/icon_ minus@3x.png'></image>
+  </view>
+  <view class="form_item faxItem_2 clear" style="display:{{faxItem_3display}}" >
+      <view class="form_leber fl">传真</view>
+      <input class="form_input input_mobile fl" type="text" bindinput ="input_faxNumbValue3" placeholder="请输入传真" value='{{userAccount.fax[2]}}'/>
+      <image class='minusPhoneNumb_icon'bindtap='minusFaxItemsAction3' src='/images/public/icon_ minus@3x.png'></image>
+  </view>
+-->
+  
+
+  <view class="form_height" wx:if="{{isCompany}}"></view>
+  <!-- 联系 -->
+  <view class="form_item" wx:if="{{isCompany}}">
+    <view class="form_leber">E-mail</view>
+    <input class="form_input" type="text" bindinput ="input_emailValue" placeholder="请输入E-mail" value='{{userAccount.email}}'/>
+  </view>
+  <view class="form_item" wx:if="{{isCompany}}">
+      <view class="form_leber">Web</view>
+      <input class="form_input" type="text" bindinput ="input_webValue" placeholder="请输入网站地址" value='{{userAccount.website}}'/>
+  </view>
+  <view class="form_item" wx:if="{{isCompany}}">
+      <view class="form_leber">Wechat</view>
+      <input class="form_input" type="text" bindinput ="input_wechatValue" placeholder="请输入微信" value='{{userAccount.wechat}}'/>
+  </view>
+  <view class="form_item" wx:if="{{isCompany}}">
+      <view class="form_leber">Facebook</view>
+      <input class="form_input" type="text" bindinput ="input_facebookValue" placeholder="请输入Facebook" value='{{userAccount.facebook}}'/>
+  </view>
+
+    <view class="form_item">
+        <view class="form_leber">所属行业</view>
+        <picker style="flex: 1;" bindchange="bindPickerChange" value="{{index}}" range="{{job_array}}" range-key="name">
+            <view class="picker"  style="color:{{formPickerColors}}">
+                {{val_job}}
+            </view>
+        </picker>
+    </view>
+
+    <view class="form_item">
+        <view class="form_leber">验证码</view>
+        <input class="form_input" bindinput ="autherCodeInput" type="text" placeholder="请输入验证码"/>
+        <view class="form_code">
+            <button class="form_code_btn" type="buttom" disabled="{{disabled}}" bindtap='getCode' style='color:#000000'>{{time}}</button>
+        </view>
+    </view>
+
+ <button class="fomr_post_btn" type="buttom" bindtap='commitRegAction'>保存</button>
+<view class='industry_zgc' bindtap='industry_zgc_yc' wx:if="{{srk_job}}"></view>
+<view class='industry_tck' wx:if="{{srk_job}}">
+   <view class="form_item">
+        <view class="form_leber">所属行业</view>
+        <input class="form_input" bindinput ="srkjobInput" type="text" placeholder="请输入所属行业"/>
+    </view>
+    <button class="industry_yan" type="buttom" bindtap='industry_qdan'>确定</button>
+</view>

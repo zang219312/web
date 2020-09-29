@@ -1,0 +1,152 @@
+<!--pages/home/lists/lists.wxml-->
+
+<!-- <view class='home_nav'>
+  <view class='home_nav_title' bindtap="back">
+    <image src="https://file.qosoo.cn/files/20191021/public/left.png"></image>{{title}}</view>
+</view> -->
+<view class='home_nav' data-id='{{companyId}}'>
+  <image class='scanicon' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/home/head.png"></image>
+  <view bindtap='handleGoBack'>{{title}}</view>
+</view>
+<view style='padding-top:136rpx;' class='list-nav'>
+  <view bindtap="changType" data-type="1">
+    <text class="{{listType==1?'active':''}}">展会活动</text>
+  </view>
+  |
+  <view bindtap="changType" data-type="2">
+    <text class="{{listType==2?'active':''}}">峰会论坛</text>
+  </view>
+</view>
+
+
+<view class='address'>
+  <view class='left' bindtap="goCity">
+    <image src='https://file.qosoo.cn/files/20191021/home/htmal5icon14.png'></image>
+    {{city}}
+  </view>
+  <view class='right' bindtap="goHistory">记录</view>
+</view>
+
+<view class='lists'>
+  <block wx:if='{{listType ==1}}}'>
+    <view class='lists-item' wx:for='{{exhibitionlist}}' wx:key='{{index}}' wx:for-index="bindex" bindtap="toDetail" data-id="{{item.id}}">
+      <view class='item-date'>{{item.create}}</view>
+      <view class='lists-item-info'>
+        <view class='item-image'>
+          <image src="{{item.titleImg}}"></image>
+        </view>
+        <view class='item-bottom'>
+          <view class='item-bottom-follow'>
+            <view wx:if='{{item.focus==0}}' class="focused" catchtap="focusItem" data-id="{{item.id}}" data-bindex='{{bindex}}'>关注</view>
+            <view wx:else catchtap="focusItem" data-id="{{item.id}}" data-bindex='{{bindex}}'>已关注</view>
+            <view>
+              <view>{{item.title}}</view>
+              <view wx:if='{{listType ==1}}'>{{item.start}}-{{item.end}}</view>
+              <!-- 会议-->
+              <block wx:if='{{listType ==2}}'>
+                <view class='meeting'>时间：{{item.start}}-{{item.end}}</view>
+                <view class='meeting'>地点:{{item.address}}</view>
+              </block>
+
+            </view>
+          </view>
+          <view class='item-bottom-info'>
+            <view catchtap="goMap" data-id="{{item.id}}">
+              <image src='https://file.qosoo.cn/files/20191021/home/1.png'></image>
+              展馆地图
+            </view>
+            <view wx:if='{{item.join ==0}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/2.png'></image>
+              未报名
+            </view>
+            <view wx:if='{{item.join ==1}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/4.png'></image>
+              已报名
+            </view>
+            <view wx:if='{{item.join ==2}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/2.png'></image>
+              待审核
+            </view>
+            <view wx:if='{{item.join ==3}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/2.png'></image>
+              拒绝
+            </view>
+            <view wx:if='{{item.join ==4}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/2.png'></image>
+              黑名单
+            </view>
+            <view wx:if='{{item.sign ==0}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/3.png'></image>
+              未签到
+            </view>
+            <view wx:if='{{item.sign ==1}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/5.png'></image>
+              已签到
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:if='{{listType ==2}}}'>
+    <view class='lists-item' wx:for='{{meetlist}}' wx:key='{{index}}' wx:for-index="bindex" bindtap="toDetail" data-id="{{item.id}}">
+      <view class='item-date'>{{item.create}}</view>
+      <view class='lists-item-info'>
+        <view class='item-image'>
+          <image src="{{item.titleImg}}"></image>
+        </view>
+        <view class='item-bottom'>
+          <view class='item-bottom-follow'>
+            <view wx:if='{{item.focus==0}}' class="focused" catchtap="focusItem" data-id="{{item.id}}" data-bindex='{{bindex}}'>关注</view>
+            <view wx:else catchtap="focusItem" data-id="{{item.id}}" data-bindex='{{bindex}}'>关注</view>
+            <view>
+              <view>{{item.title}}</view>
+              <view wx:if='{{listType ==1}}'>{{item.start}}-{{item.end}}</view>
+              <!-- 会议-->
+              <block wx:if='{{listType ==2}}'>
+                <view class='meeting'>时间：{{item.start}}-{{item.end}}</view>
+                <view class='meeting'>地点:{{item.address}}</view>
+              </block>
+
+            </view>
+          </view>
+          <view class='item-bottom-info'>
+            <!-- <view catchtap="goMap" data-id="{{item.id}}">
+              <image src='https://file.qosoo.cn/files/20191021/home/1.png'></image>
+              展馆地图
+            </view> -->
+            <view wx:if='{{item.join ==0}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/2.png'></image>
+              未报名
+            </view>
+            <view wx:if='{{item.join ==1}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/4.png'></image>
+              已报名
+            </view>
+            <view wx:if='{{item.join ==2}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/2.png'></image>
+              待审核
+            </view>
+            <view wx:if='{{item.join ==3}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/2.png'></image>
+              拒绝
+            </view>
+            <view wx:if='{{item.join ==4}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/2.png'></image>
+              黑名单
+            </view>
+            <view wx:if='{{item.sign ==0}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/3.png'></image>
+              未签到
+            </view>
+            <view wx:if='{{item.sign ==1}}'>
+              <image src='https://file.qosoo.cn/files/20191021/home/5.png'></image>
+              已签到
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

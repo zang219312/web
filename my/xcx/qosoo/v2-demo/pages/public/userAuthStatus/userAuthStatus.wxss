@@ -1,0 +1,52 @@
+/* pages/public/userAuthStatus/userAuthStatus.wxss */
+.home_nav{padding-top:40rpx; background-color:#fa6d21; background-color: #fa6d21;position:fixed;top:0;left:0;width:100%;z-index: 999;}
+.home_nav .home_nav_title{height:110rpx;line-height:110rpx;color:#ffffff;padding-left:30rpx;}
+.home_nav .home_nav_title image{
+  width: 24rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+  margin-top: -7rpx;
+
+}
+.remindTitle{
+  color: #333;
+  font-size: 40rpx;
+  width: 100%;
+  line-height:60rpx;
+ 
+  text-align: center;
+}
+.remindTitle_2{
+    margin-top: 20rpx; 
+}
+.remindContent{
+  color: #666;
+  font-size: 34rpx;
+  /* width: 100%; */
+  line-height:60rpx;
+  margin: 60rpx 50rpx; 
+  text-align: center;
+}
+.btn{
+  width: 40%;
+  background-color: #ff6f05;
+  border-radius: 0rpx;
+  margin-top: 50rpx;
+  color: #fff;
+}
+.ok_btn{
+  margin-top: 100rpx;
+  z-index: 999;
+}
+
+.cancle_btn{
+
+
+}
+.phone-btn{
+  background: #fff;
+}
+.phone-btn::after{
+  border: 0;
+}

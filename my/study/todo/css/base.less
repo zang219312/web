@@ -1,0 +1,195 @@
+.pdbr {
+  padding: 10px;
+  border-radius: 3px;
+}
+
+html,
+body,
+div,
+span,
+p,
+img,
+fieldset,
+footer,
+textarea,
+video,
+input,
+form {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  background: #00484b;
+  color: #ffffff;
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+
+    h1 {
+      text-align: center;
+    }
+
+    .add-task {
+
+      input[type='text'],
+      button[type='submit'] {
+        .pdbr();
+      }
+
+      input[type='text'] {
+        display: block;
+        width: 84%;
+        border: 0;
+        margin-right: 1%;
+        float: left;
+        background: #eee;
+        transition: background 0.2s linear;
+        box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.3);
+
+        &:hover,
+        &:focus {
+          background: #fff;
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      button[type='submit'] {
+        display: inline-block;
+        border: 0;
+        width: 15%;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+        background: #77ddee;
+        transition: background 0.2s linear;
+
+        &:hover {
+          background: #00dcff;
+          cursor: pointer;
+          color: #333;
+        }
+      }
+    }
+
+    .task-list {
+      margin: 5px 0;
+
+      .task-item {
+        .pdbr();
+        background: #fff;
+        color: #333;
+        margin-bottom: 2px;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+        transition: background 0.2s linear;
+
+        &:hover {
+          background: #ddd;
+          cursor: pointer;
+        }
+
+        .task-content {
+          margin-left: 10px;
+        }
+
+        .fr {
+          float: right;
+
+          .action {
+            color: #888;
+            font-size: 90%;
+
+            &:hover {
+              color: #999;
+            }
+          }
+        }
+
+
+      }
+    }
+
+    .task-detail-mask {
+      .pdbr();
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      visibility: hidden;
+    }
+
+    .task-detail {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: #fff;
+      color: #333;
+      padding: 10px;
+      visibility: hidden;
+
+      .content {
+        padding: 10px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .desc {
+        .description {
+          textarea {
+            border: 0;
+            min-height: 100px;
+            width: 100%;
+            display: block;
+            box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.3);
+            background: #ddd;
+            transition: background 0.2s linear;
+            margin-bottom: 10px;
+            border-radius: 3px;
+
+            &:hover,
+            &:focus {
+              background: #fff;
+              box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            }
+          }
+        }
+      }
+
+      .remind {
+
+        input[type='date'],
+        button[type='submit'] {
+          .pdbr();
+        }
+
+        input[type='date'] {
+          display: block;
+          width: 100%;
+          border: 0;
+          background: #eee;
+          transition: background 0.2s linear;
+          box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.3);
+
+          &:hover,
+          &:focus {
+            background: #fff;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+          }
+        }
+
+        button[type='submit'] {
+          display: inline-block;
+          border: 0;
+          width: 30%;
+          box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+  }
+}

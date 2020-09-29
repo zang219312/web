@@ -1,0 +1,72 @@
+<!--pages/home/selectionOfPrivate/selectionOfPrivate.wxml-->
+<!-- <view class='home_nav'>
+  <view class='home_nav_title' data-id='{{companyId}}'>
+    <image class='scanicon' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+    <view>精选私讯</view>
+  </view>
+</view> -->
+<view class='home_nav'>
+  <image class='scanicon' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/20191122/home/head.png"></image>
+  <view bindtap='handleGoBack'>精选私讯</view>
+</view>
+<view style="padding-top:136rpx;">
+  <view class='articleCell_list'>
+    <block wx:for='{{newLists}}' wx:key="">
+      <view class='articleCell_BG' wx:for='{{item.list}}' wx:key="">
+        <view class='articleCell_BG_left'>
+          <view class='articleCell_BG_left_top' bindtap='PushToCaseDetail' data-id='{{item.id}}' data-type='{{item.type}}' data-companyid='{{item.companyId}}'>{{item.title}}</view>
+          <view class='articleCell_BG_left_bottom'>
+            <view class='recommendSign' wx:if='{{item.recommend}}'>{{item.recommend}}</view>
+            <view class='articleCell_companyName' bindtap='pushToCompanyDetail' data-id='{{item.companyId}}'>{{item.companyName}}</view>
+            <view class='articleCell_publicTime'>{{item.createTimes}}</view>
+          </view>
+        </view>
+        <view class='articleCell_BG_right'>
+          <image class='articleCell_image' src='{{item.coverImg}}'></image>
+        </view>
+      </view>
+      <view class="position-bg" wx:if='{{item.image}}'>
+        <swiper autoplay="true" interval="5000" circular="true">
+          <swiper-item bindtap='tolist' data-id='{{item.image.id}}' data-type='{{item.image.type}}' data-linkurl='{{item.image.linkUrl}}'>
+            <image src="{{item.image.url}}" style="width:100%;"></image>
+          </swiper-item>
+        </swiper>
+      </view>
+    </block>
+  </view>
+
+  <!-- <view class='home-bar' hidden="{{tabBarShow}}">
+    <view class='home-bar-item ' data-id='{{companyId}}' bindtap="pushToCompanyDetail">
+      <image src='https://file.qosoo.cn/files/20191021/home/bar-1.png'></image>
+      <view>{{title}}</view>
+    </view>
+    <view class='home-bar-item' bindtap='pushToFocusCompany'>
+      <image src='https://file.qosoo.cn/files/20191021/home/bar-2.png'></image>
+      <view>我的客户群</view>
+    </view>
+    <view class='home-bar-item' bindtap='toSecretary'>
+      <image src='https://file.qosoo.cn/files/20191021/home/bar-3.png'></image>
+      <view>智慧名片</view>
+    </view>
+  </view> -->
+
+    <!-- <view class="tab-bar" hidden="{{tabBarShow}}">
+    <view class="tab-item" data-id='{{companyId}}' bindtap="pushToCompanyDetail">
+      <view class="tab-icon icon-home "></view>
+      <view class="tab-text">{{title}}</view>
+    </view>
+
+    <view class="tab-item" bindtap='pushToFocusCompany'>
+      <view class=" my-customer">
+        <view class="tab-icon icon-my-customer-group"></view>
+      </view>
+      <view class="tab-text my_text">我的客户群</view>
+    </view>
+
+    <view class="tab-item" bindtap='toSecretary'>
+      <view class="tab-icon icon-bcard"></view>
+      <view class="tab-text">商务名片</view>
+    </view>
+  </view> -->
+</view>

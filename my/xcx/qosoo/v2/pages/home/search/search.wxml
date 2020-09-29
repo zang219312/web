@@ -1,0 +1,160 @@
+<view class='home_nav' wx:if="{{!showX}}">
+  <view class='scanicon'>
+    <image bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  </view>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/20191122/home/148.png"></image>
+</view>
+<view class='home_nav_X' wx:else>
+  <view class='scanicon_X'>
+    <image bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  </view>
+  <image class='head_bg_img_X' src="https://file.qosoo.cn/files/20191122/home/184.png"></image>
+</view>
+
+
+
+<view style='padding-top:{{paddingTop}}rpx;'>
+  <view class="" style="position:relative;height:196rpx;">
+    <image src="https://file.qosoo.cn/files/20191122/home/search_b_x.png" class="search_x"></image>
+
+    <view class="navbar">
+      <view wx:for="{{navbar}}" data-idx="{{item.type}}" data-tab="{{index}}" class="item {{tabType==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTaps">
+        <view class="item-title">{{item.company}}</view>
+        <view class="item-bottom"></view>
+      </view>
+    </view>
+
+    <view class="search-sea">
+      <view class="search-new">
+        <view class='pull-left schb-int'>
+          <image src="https://file.qosoo.cn/files/home/search.png" class='search-info'> </image>
+          <input class='pull-left' placeholder='{{placeholder}}' placeholder-style='color:#888888' bindinput="bindKeyInput" value="{{searchValue}}" bindtap='xsgjz'></input>
+        </view>
+      </view>
+      <text class='search-more' bindtap='searchActions'>精准搜</text>
+    </view>
+
+  </view>
+
+
+  <!-- 搜索 -->
+  <!-- <view class="search-new">
+    <view class='pull-left schb-int'>
+      <image class='pull-left' src='https://file.qosoo.cn/files/20191021/home/icon_magnify@3x.png'></image>
+      <input class='pull-left' placeholder='公司 产品 联系人 资讯 商誉' placeholder-style='color:#888888' bindinput="bindKeyInput" value="{{searchValue}}" bindtap='xsgjz'></input>
+    </view>
+    <view class='search-more' bindtap='searchActions'>搜搜看</view>
+  </view> -->
+
+
+
+
+  <!-- 搜索 -->
+  <view hidden="{{currentTab!=0}}" style="margin-top: 50rpx;">
+    <view class='search-item ' wx:for="{{companyArray}}" data-id='{{item.id}}' wx:key="id" bindtap='pushToCompanyDetail'>
+      <!-- <view class='clearfix'> -->
+      <view class='pull-left company-left'>
+        <view wx:if="{{item.logo}}">
+          <image src='{{item.logo}}' mode="widthFix"></image>
+        </view>
+        <view class="nologo" style="position:relative;" wx:else>
+          <image src="https://file.qosoo.cn/files/20191122/home/sbg_squ.png"></image>
+          <!-- simple可能为空 -->
+          <!-- <view wx:if="{{item.simpleName.length>2}}">
+            <view class="com_chang">{{item.simpleName}}</view>
+          </view>
+          <view wx:else>
+            <view class="com">{{item.simpleName}}</view>
+          </view> -->
+          <view class="com">
+            {{item.firstName}}
+          </view>
+        </view>
+
+      </view>
+      <view class='pull-right schitem-right'>
+        <view class='schitem-title'>{{item.name}}</view>
+        <view class='schitem-txt'>{{item.content}}</view>
+      </view>
+      <!-- </view> -->
+    </view>
+
+    <view class='search-item product-search' wx:for="{{searchArray}}" wx:if="{{item.type == 2}}" data-id='{{item.id}}' wx:key="id" bindtap='productDetail'>
+      <!-- <view class='clearfix'> -->
+      <view class='pull-left product-left'>
+        <image src='{{item.coverImg}}'></image>
+      </view>
+      <view class='pull-right schitem-right product-schitem-right'>
+        <view class='schitem-title product-title'>
+          <view class='recommendSign' wx:if='{{item.status == 1}}'>推荐</view>{{item.title}}</view>
+        <view class='schitem-info'>
+          <view>{{item.companyName}}</view>
+          <view>{{item.time}}</view>
+        </view>
+      </view>
+      <!-- </view > -->
+    </view>
+
+    <!--找人 -->
+    <view class="person-item" wx:for="{{searchPerson}}" data-id='{{item.companyId}}' data-userId='{{item.id}}' wx:key="id" bindtap='pushToCompanyDetails'>
+      <view class="item-img" wx:if="{{item.headImg}}">
+        <image src="{{item.headImg}}"></image>
+      </view>
+      <view class="item-img" wx:else>
+        <image src="https://file.qosoo.cn/files/20191122/home/sbg_circle_dark.png"></image>
+        <view>{{firstname}}</view>
+      </view>
+
+      <view class="item-info">
+        <view class="item-top">
+          <view class="info-name">{{item.realname}}</view>
+          <view class="info-job">{{item.dept}} {{item.job}}</view>
+        </view>
+        <view class="info-company">{{item.companyName}}</view>
+        <view class="item-bottom">
+          <block wx:if='{{item.companyKey}}'>
+            <!-- {{item.companyKey}} -->
+            <view wx:for='{{item.companyKeys}}' wx:key='id' wx:if='{{item != "[]"}}'>
+              {{item}}
+            </view>
+          </block>
+        </view>
+
+        <view class="item-phone">
+          <view class='mgp-wx' catchtap='sendSms' data-phone='{{item.mobile}}' data-realname="{{item.realname}}">
+            <image src='https://file.qosoo.cn/files/home/sms.png'></image>
+          </view>
+          <view class='mgp-wx' catchtap='clipboard' data-phone='{{item.wechat||item.mobile}}' data-realname="{{item.realname}}">
+            <image src='https://file.qosoo.cn/files/20191021/userCenter/wx.png'></image>
+          </view>
+          <view class='mgp-phone' catchtap='callMeAction' data-phone='{{item.mobile}}' data-realname="{{item.realname}}">
+            <image src='https://file.qosoo.cn/files/20191021/userCenter/phone.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view hidden="{{currentTab!=1}}" style="margin-top: 50rpx;">
+    <!-- 第一种cell -->
+    <view class='articleCell_BG' wx:for="{{companyArray}}" data-id='{{item.id}}' wx:key="id" bindtap='PushToProductDetail'>
+      <view class='articleCell_BG_left'>
+        <view class='articleCell_BG_left_top'>
+          {{item.title}}
+        </view>
+        <view class='articleCell_BG_left_bottom'>
+          <view class='recommendSign'>推荐</view>
+          <view class='articleCell_companyName'>{{item.company}}</view>
+          <view class='articleCell_publicTime'>{{item.createTimestamp}}</view>
+        </view>
+      </view>
+      <view class='articleCell_BG_right'>
+        <image class='articleCell_image' src='{{baseImageUrl}}{{item.imagesUrl[0]}}'></image>
+      </view>
+    </view>
+
+  </view>
+
+</view>
+<!--  -->
+<!-- <canvas canvas-id="myCanvas" class="my-canvas" style="width:116px;height:116px;background:red;"></canvas> -->

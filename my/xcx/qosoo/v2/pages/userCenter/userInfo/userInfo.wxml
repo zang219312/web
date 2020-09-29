@@ -1,0 +1,126 @@
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="个人信息" bg-style="background-color: #fa6d21"></navigation-bar>
+<view class='userInfoHeaderBG' style='padding-top:160rpx;'>
+  <image class='headerBGImg' src='{{userInfoDataDic.callCard}}' mode="aspectFill"> 
+      <!-- <view class='headerTop'>
+        logo 部分  
+          <view class='logoBGView'>
+            <image class='logoImgView' src='https://lg-6pshrvnq-1255620684.cos.ap-shanghai.myqcloud.com/icon_companyLogo@3x.png'></image>
+            <view class='logoTitleView'>企业logo</view>
+          </view>
+              用户信息部分
+          <view class='infoBGView'>
+            <view class='userName '>{{userInfoDataDic.realName}}
+              <image class='userTypeImg' src='/images/userCenter/userAuthType_1@3x.png'></image>  
+            </view>
+            <view class='userSection '>{{userInfoDataDic.dept}}  {{userInfoDataDic.job}} </view>
+            <view class='companyName '>{{userInfoDataDic.company}}</view>
+          </view>
+      </view> -->
+
+       <!-- 联系方式部分 -->
+      <!-- <view class='headerBottom'>
+        <view class='contactInfo_1'>
+          <view class='contactInfo_phone'>
+            <image class='contactInfoIcon_phone' src='/images/userCenter/icon_mobilePhone@3x.png'></image>
+            <view class='contactInfoTitle_phone'>{{userInfoDataDic.mobilePhone}}</view>
+          </view>
+
+          <view class='contactInfo_mail'>
+            <image class='contactInfoIcon_email' src='/images/userCenter/icon_E-mail@3x.png'></image>
+            <view class='contactInfoTitle_email'>{{userInfoDataDic.email}}</view>
+          </view>
+        </view>
+        <view class='contactInfo_2'>
+            <image class='contactInfoIcon_address' src='/images/userCenter/icon_addressPoint@3x.png'></image>
+            <view class='contactInfoTitle_address'>{{userInfoDataDic.address}}</view>
+        </view>
+      </view> -->
+  </image>
+</view>
+
+  <!-- LOGO、账号 -->
+  <view class="form_item" style='height:auto'>
+      <view class="form_leber">LOGO</view>
+      <!-- <input class="form_input" type="text" placeholder="请输入手机号码"/> -->
+      <image class='companyLogo' src='{{userInfoDataDic.companyLogo}}' mode="aspectFit"></image>
+  </view>
+  <view class="form_item">
+      <view class="form_leber"><view style="color:#ff0000">*</view>账号/手机</view>
+      <view class="form_label_content">{{userInfoDataDic.account}}</view>
+
+  </view>
+
+  <view class="form_height"></view>
+  <!-- 姓名 -->
+  <view class="form_item">
+    <view class="form_leber"><view style="color:#ff0000">*</view>姓名</view>
+      <view class="form_label_content">{{userInfoDataDic.realName}}</view>
+  </view>
+  <view class="form_item">
+      <view class="form_leber"><view style="color:#ff0000">*</view>公司名称</view>
+      <view class="form_label_content">{{userInfoDataDic.companyName}}</view>
+  </view>
+  <view class="form_item">
+      <view class="form_leber"><view style="color:#ff0000">*</view>部门</view>
+      <view class="form_label_content">{{userInfoDataDic.dept}}</view>
+  </view>
+  <view class="form_item">
+      <view class="form_leber"><view style="color:#ff0000">*</view>职务</view>
+      <view class="form_label_content">{{userInfoDataDic.job}}</view>
+  </view>
+<view class="form_item form_item_address">
+      <view class="form_leber"><view style="color:#ff0000">*</view>地址</view>
+      <view class="form_label_content_address">{{userInfoDataDic.companyProvince}}{{userInfoDataDic.companyCity}}{{userInfoDataDic.companyDistrict}}{{userInfoDataDic.address}}</view>
+  </view>
+
+  <view class="form_height"></view>
+    <view class="form_item">
+      <view class="form_leber">发票</view>
+      <view class="form_label_content">{{userInfoDataDic.taxno}}</view>
+      </view>
+  <!-- 公司 -->
+  <view class="form_item">
+    <view class="form_leber">电话</view>
+      <view class="form_label_content">{{userInfoDataDic.mobile[0]}}</view>
+  </view>
+  <view class="form_item" wx:if="{{userInfoDataDic.mobile[1]}}">
+    <view class="form_leber">电话</view>
+      <view class="form_label_content">{{userInfoDataDic.mobile[1]}}</view>
+  </view>
+  <view class="form_item" wx:if="{{userInfoDataDic.mobile[2]}}">
+    <view class="form_leber">电话</view>
+      <view class="form_label_content">{{userInfoDataDic.mobile[2]}}</view>
+  </view>
+  <view class="form_item">
+      <view class="form_leber">传真</view>
+      <view class="form_label_content">{{userInfoDataDic.fax[0]}}</view>
+  </view>
+  <view class="form_item" wx:if="{{userInfoDataDic.fax[1]}}">
+      <view class="form_leber">传真</view>
+      <view class="form_label_content">{{userInfoDataDic.fax[1]}}</view>
+  </view>
+  <view class="form_item" wx:if="{{userInfoDataDic.fax[2]}}">
+      <view class="form_leber">传真</view>
+      <view class="form_label_content">{{userInfoDataDic.fax[2]}}</view>
+  </view>
+  
+  <view class="form_height"></view>
+  <!-- 联系 -->
+  <view class="form_item">
+    <view class="form_leber">E-mail</view>
+      <view class="form_label_content">{{userInfoDataDic.email}}</view>
+  </view>
+  <view class="form_item">
+      <view class="form_leber">Web</view>
+      <view class="form_label_content">{{userInfoDataDic.website}}</view>
+  </view>
+  <view class="form_item">
+      <view class="form_leber">Wechat</view>
+      <view class="form_label_content">{{userInfoDataDic.wechat}}</view>
+  </view>
+  <view class="form_item">
+      <view class="form_leber">Facebook</view>
+      <view class="form_label_content">{{userInfoDataDic.facebook}}</view>
+  </view>
+
+ <button class="fomr_post_btn" type="buttom" bindtap='pushToEdit'>修改</button>

@@ -1,0 +1,109 @@
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="搜索" bg-style="background-color: #fa6d21"></navigation-bar>
+<view class="search" style='height:100%;padding-top:160rpx;'>
+  <!-- <view class='search-box' >
+    <view class='clearfix search-pos'>
+      <view class='pull-right schb-btn' bindtap='searchAction'>搜索</view>
+      <view class='pull-left schb-int'>
+        <image class='pull-left' src='https://file.qosoo.cn/files/20191021/home/icon_magnify@3x.png'></image>
+        <input class='pull-left' placeholder='' bindinput="bindKeyInput" value="{{searchValue}}" bindtap='xsgjz'></input>
+      </view>
+      
+     
+    </view>
+  </view> -->
+  <view class="search-new">
+        
+
+          <!-- <image src="https://file.qosoo.cn/files/20191021/home/search-info.png" class='search-info'></image> -->
+          <view class='pull-left schb-int'>
+            <image class='pull-left' src='https://file.qosoo.cn/files/20191021/home/icon_magnify@3x.png'></image>
+            <input class='pull-left' placeholder='公司 产品 联系人 资讯 商誉' placeholder-style='color:#888888' bindinput="bindKeyInput" value="{{searchValue}}" bindtap='xsgjz'></input>
+          </view>
+          <!-- <image src="https://file.qosoo.cn/files/20191021/home/search-more.png" class='search-more' bindtap='searchAction'></image> -->
+          <view class='search-more' bindtap='searchActions'>搜搜看</view>
+  </view>
+  <view class="navbar">
+    <view wx:for="{{navbar}}" data-idx="{{item.type}}" data-tab = "{{index}}" class="item {{tabType==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTaps">
+        <view class="item-title">{{item.company}}</view>
+        <view class="item-bottom"></view>
+    </view>
+  </view>
+
+  <view hidden="{{currentTab!=0}}">
+    <view class='search-item ' wx:for="{{companyArray}}" data-id='{{item.id}}' wx:key="{{index}}" bindtap='pushToCompanyDetail'>
+      <!-- <view class='clearfix'> -->
+        <view class='pull-left company-left'>
+          <image src='{{item.logo}}' mode="widthFix"></image>
+        </view>
+        <view class='pull-right schitem-right'>
+          <view class='schitem-title'>{{item.name}}</view>
+          <view class='schitem-txt'>{{item.content}}</view>
+        </view>
+      <!-- </view> -->
+    </view>
+
+    <view class='search-item product-search' wx:for="{{searchArray}}" wx:if="{{item.type == 2}}" data-id='{{item.id}}' wx:key="{{index}}" bindtap='productDetail'>
+      <!-- <view class='clearfix'> -->
+        <view class='pull-left product-left'>
+          <image src='{{item.coverImg}}'></image>
+        </view>
+        <view class='pull-right schitem-right product-schitem-right'>
+          <view class='schitem-title product-title'><view class='recommendSign' wx:if='{{item.status == 1}}'>推荐</view>{{item.title}}</view>
+          <view class='schitem-info'>
+            <view>{{item.companyName}}</view>
+            <view>{{item.time}}</view>
+          </view>
+        </view>
+      <!-- </view > -->
+    </view>
+
+  <!--找人 -->
+  <view class="person-item"  wx:for="{{searchPerson}}"  data-id='{{item.companyId}}' data-userId='{{item.id}}' wx:key="{{index}}" bindtap='pushToCompanyDetails'>
+    <view class="item-img">
+      <image src="{{item.headImg}}"></image>
+    </view>
+    <view class="item-info">
+      <view class="item-top">
+        <view class="info-name">{{item.realname}}</view>
+        <view class="info-job">{{item.dept}} {{item.job}}</view>
+      </view>
+      <view class="info-company">{{item.companyName}}</view>
+      <view class="item-bottom">
+        <block wx:if='{{item.companyKey}}'>
+        <!-- {{item.companyKey}} -->
+          <view wx:for='{{item.companyKeys}}' wx:key='' wx:if='{{item != "[]"}}'>
+            {{item}}
+          </view>
+        </block>
+      </view>
+
+      <view class="item-phone">
+         
+                    <view class='mgp-wx' catchtap='clipboard' data-phone='{{item.wechat||item.mobile}}'><image src='https://file.qosoo.cn/files/20191021/userCenter/wx.png'></image></view>
+                    <view class='mgp-phone' catchtap='callMeAction' data-phone='{{item.mobile}}'><image src='https://file.qosoo.cn/files/20191021/userCenter/phone.png'></image></view>
+      </view>
+    </view>
+  </view>
+  
+
+  </view>
+  <view hidden="{{currentTab!=1}}">
+    <!-- 第一种cell -->
+    <view class='articleCell_BG' wx:for="{{companyArray}}" data-id='{{item.id}}' wx:key="{{index}}" bindtap='PushToProductDetail' >
+      <view class='articleCell_BG_left'>
+        <view class='articleCell_BG_left_top'>
+          {{item.title}}
+        </view>
+        <view class='articleCell_BG_left_bottom'>
+          <view class='recommendSign'>推荐</view>
+          <view class='articleCell_companyName'>{{item.company}}</view>
+          <view class='articleCell_publicTime'>{{item.createTimestamp}}</view>
+        </view>
+      </view>
+      <view class='articleCell_BG_right'>
+        <image class='articleCell_image' src='{{baseImageUrl}}{{item.imagesUrl[0]}}'></image>
+      </view>
+    </view>
+   
+  </view>
+</view>

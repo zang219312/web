@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "发布商品",
+  "usingComponents": {
+    "wux-fab-button": "/compent/fab-button/index"
+  }
+}

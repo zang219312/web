@@ -1,0 +1,261 @@
+/* pages/home/lists/lists.wxss */
+
+page {
+  background: rgba(245, 245, 245, 1);
+}
+
+.home_nav {
+  height: 136rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.home_nav  .scanicon {
+  width: 22rpx;
+  height: 38rpx;
+  margin-top: 81rpx;
+  margin-left: 42rpx;
+  z-index: 9;
+}
+
+.home_nav  image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.home_nav view {
+  width: 180rpx;
+  font-size: 32rpx;
+  color: #fff;
+  margin: 76rpx;
+  position: absolute;
+}
+
+.home_nav  .head_bg_img {
+  width: 100%;
+  height: 136rpx; /* 64px*/
+}
+
+/* 导航栏 */
+
+.list-nav {
+  width: 692rpx;
+  margin: 40rpx auto;
+  display: flex;
+  font-size: 32rpx;
+  color: #d8d8d8;
+  text-align: center;
+}
+
+.list-nav view {
+  flex: 1;
+  /* height: 32rpx; */
+  color: #353535;
+}
+
+.list-nav view text {
+  display: inline-block;
+  height: 65rpx;
+}
+
+.active {
+  color: #fa6d21;
+  border-bottom: 6rpx solid #fa6d21;
+}
+
+.address {
+  margin-top: 48rpx;
+  width: 100%;
+  height: 50rpx;
+}
+
+.address .left {
+  float: left;
+  margin-left: 30rpx;
+  color: #fa6d21;
+  font-size: 30rpx;
+}
+
+.address .left image {
+  width: 48rpx;
+  height: 48rpx;
+  vertical-align: middle;
+}
+
+.address .right {
+  float: right;
+  margin-right: 46rpx;
+  width: 96rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  color: #fff;
+  background: #fa6d21;
+  text-align: center;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+}
+
+.lists {
+  width: 100%;
+}
+
+.lists-item {
+  width: 690rpx;
+  margin: 30rpx auto;
+}
+
+.item-date {
+  text-align: center;
+  font-size: 26rpx;
+  color: #4e4e4e;
+  margin: 80rpx auto 30rpx;
+}
+
+.lists-item-info {
+  width: 690rpx;
+  /* height: 540rpx; */
+  background: #fff;
+  border-radius: 8rpx;
+  padding-bottom: 1rpx;
+  box-shadow: 0px 0px 8px 0px rgba(192, 192, 192, 0.5);
+}
+
+.item-image {
+  width: 100%;
+  height: 320rpx;
+  box-shadow: 0px 0px 4rpx 0px rgba(0, 0, 0, 0.5);
+  border-radius: 8rpx;
+}
+
+.item-image image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+
+.item-bottom {
+  width: 100%;
+  margin: 12rpx 0 20rpx;
+}
+
+.item-bottom-follow {
+  position: relative;
+}
+
+.item-bottom-follow>view {
+  /* display: inline-block;
+  vertical-align: top; */
+  font-size: 28rpx;
+  color: #353535;
+  margin-left: 14rpx;
+  margin-right: 14rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 500rpx;
+}
+
+.item-bottom-follow>view:first-child {
+  font-weight: 700;
+}
+
+.item-bottom-follow>view.map {
+  width: 90rpx;
+  position: absolute;
+  right: 20rpx;
+  bottom: 0;
+  font-size: 24rpx;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+}
+
+.map image {
+  width: 26rpx;
+  height: 36rpx;
+  margin-right: 14rpx;
+}
+
+.item-bottom-follow>view view {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 530rpx;
+  margin-bottom: 16rpx;
+}
+
+/* .item-bottom-follow>view:first-child{
+  width: 96rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  color: #fff;
+  text-align: center;
+  background: #FA6D21;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  margin-right: 20rpx;
+  margin-left: 14rpx;
+  border: 2rpx solid #FA6D21;
+} */
+
+.item-bottom-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #353535;
+  margin: 20rpx 14rpx;
+}
+
+.item-bottom-info>view {
+  width: 100rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  border: 2rpx solid rgba(250, 109, 33, 1);
+  color: #fa6d21;
+}
+
+.item-bottom-info>view.focused {
+  color: #fff;
+  background: #fa6d21;
+}
+
+.item-bottom-info image {
+  width: 30rpx;
+  height: 40rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10rpx;
+  margin-top: -10rpx;
+}
+
+/* .item-bottom-info view:nth-child(1){
+  margin-left: 24rpx;
+}
+.item-bottom-info view:nth-child(2){
+  margin: 0 80rpx 0 120rpx;
+}
+.item-bottom-info view:nth-child(2) image{
+  width: 48rpx;
+  height: 48rpx;
+}
+.item-bottom-info view:nth-child(3) image{
+  width: 38rpx;
+  height: 34rpx;
+} */
+
+.meeting {
+  /* font-size: 22rpx; */
+}
+
+.focused {
+  /* background: #fff !important;
+  color: #353535 !important; */
+  
+}

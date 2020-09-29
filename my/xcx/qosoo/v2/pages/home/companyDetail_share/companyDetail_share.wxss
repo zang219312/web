@@ -1,0 +1,733 @@
+
+/* 页面背景 */
+.pageBGView{
+
+}
+
+
+/* 遮罩层 */
+.coverView{
+  width:100%;
+  height:100%;
+  position:fixed;
+  background-color:rgba(0,0,0,0.8);
+  z-index:9999;
+  top:0;
+  left:0;
+  text-align: center;
+}
+.remindShare{
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding: 150rpx 0 0 0;
+}
+.remindShare>view{
+  float: left;
+  color: #999;
+  font-size: 24rpx;
+}
+.remshare-left image{
+  width: 150rpx;
+  height: 180rpx;
+}
+.remshare-right{
+  width: 310rpx;
+  text-align: left;
+  margin:50rpx 0 0 20rpx;
+}
+.remshare-right image{
+  width: 90rpx;
+  height: 80rpx;
+  vertical-align:middle;
+}
+.share-topimg{
+  position: absolute;
+  right: 40rpx;
+  top: 70rpx;
+  width: 140rpx;
+  height: 150rpx;
+}
+
+
+/* 头部背景 */
+.headerInfoBG{
+  width: 100%;
+  height: 540rpx;
+  /* background-color: snow; */
+}
+.headerTitleBG{
+  display: flex;
+  height: 100rpx;
+  /* background-color: #F3F3F3; */
+}
+.companyTitle{  
+  width: 100rpx;
+  margin-top: 10rpx;
+  color: #333;
+  font-size: 36rpx;
+  margin-left: 20rpx;
+}
+/* 分享、关注 */
+.signBGView{
+  /* background-color: #f5f5f5; */
+  width: 150rpx;
+  height: 100rpx;
+  position: absolute;
+  right: 10rpx;
+  margin-top: 10rpx;
+  overflow: visible;
+}
+.signItemBG{
+  display: inline-block;
+  margin-left: 20rpx;
+  position: relative;
+  overflow: visible;
+  background-color: transparent;
+}
+.star-view{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0,0,0,0.6);
+}
+.star-banner{
+  background-color: #d8d6d6;
+  margin:0 40rpx;
+  position: relative;
+  border-radius: 8rpx;
+  padding: 10rpx 0 10rpx 0;
+}
+.star-number{
+  width: 100%;
+  z-index:1000;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -100rpx;
+}
+.star-box{
+  height:305rpx;
+  margin:0rpx 60rpx;
+  /* background-color:rgba(0,0,0,0.3); */
+  background-color:#e7e5e6;
+  border-radius:8rpx;
+  text-align:center;
+}
+.star-txt{
+  color: #ff6f05;
+  font-size: 24rpx;
+  text-align: left;
+}
+.star-title{
+  padding:30rpx 40rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+.star-bottom{
+  text-align: center;
+}
+.starb-left{
+  position: absolute;
+  left: 20rpx;
+  top: 0;
+  line-height: 90rpx;
+}
+.starb-right{
+  position: absolute;
+  right: 20rpx;
+  top: 0;
+  line-height: 90rpx;
+  font-size: 24rpx;
+}
+.star-number .before-star{
+  position: absolute;
+  right: 20rpx;
+  top:-12rpx;
+  width: 0;
+  height: 0;
+  border-left: 16rpx solid transparent;
+  border-right: 16rpx solid transparent;
+  border-bottom: 16rpx solid #f7f7f7;
+}
+.star-number image{
+  width: 64rpx;
+  height: 64rpx;
+  margin: 0 10rpx 0 0;
+}
+.star-number image:nth-child(1){
+  margin: 0 10rpx 0 10rpx;
+}
+.signImg{
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 10rpx; 
+}
+.signTitle{
+  width: 50rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.signTitle.active{
+  color: #ff6f05;
+}
+
+/* 公司信息部分 */
+.headerInfoBottomBG{
+  width: 100%;
+  height: 368rpx;
+  /* background-color: lavender; */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.companyLogoImg{
+  width: 150rpx;
+  height: 140rpx;
+
+}
+.companyNameTitle{
+  text-align: center;
+  width: 410rpx;
+	line-height: 40rpx;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #333333;
+      margin: 0 170rpx;
+
+}
+.companyIntroduce{
+  margin-top: 10rpx;
+  width: 670rpx;
+	height: 150rpx;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 36rpx;
+	letter-spacing: 0rpx;
+	color: #999999;
+    margin: 0 40rpx;
+  /* display:  */
+}
+.contentMore{
+  width: 670rpx;
+  line-height: 36rpx;
+  font-size: 26rpx;
+	font-weight: normal;
+	color: #ff6f05;
+  padding-bottom:15rpx;
+  text-align: right;
+  margin: 40rpx 40rpx 0 40rpx;
+}
+/* 分割线 */
+.lineView{
+  width: 100%;
+  height: 20rpx;
+  background-color: #F5F5F5;
+}
+
+/* 公司介绍 */
+.companyIntroduceBG{
+  width: 100%;
+  /* height: 300rpx; */
+}
+
+.companyIntroduceContent{
+  text-align: left;
+  width: 670rpx;
+	height: auto;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 36rpx;
+	color: #999999;
+  margin: 20rpx 40rpx;
+}
+.companyIntroduceContent.hidden{
+  height: 145rpx;
+  overflow: hidden
+}
+.contentMore{
+  color: #ff6f05;
+  display: inline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* 产品资料 */
+.section_title{
+  width: 149rpx;
+  padding-left: 31rpx;
+  font-size: 31rpx;
+  color: #666666;
+}
+.section_title_more{
+  flex: 1;
+  font-size:26rpx ;
+  text-align: right;
+  color: #666666;
+}
+.cellNext{
+  width: 14rpx;
+  height: 22rpx;
+  margin: 37rpx 31rpx;
+}
+/* 产品资料 */
+/* 第一种cell */
+.productInfoCell_1{
+  width: 100%;
+  height: 214rpx;
+  /* background-color: whitesmoke; */
+  display: flex;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+.productInfoCell_1_left{
+  width: 290rpx;
+height:214rpx;
+  padding:30rpx;
+box-sizing:border-box;
+}
+.productInfoCell_1_img{
+  width: 230rpx;
+  height: 130rpx;
+}
+.productInfoCell_1_right{
+  width: 460rpx;
+  height: 100%;
+}
+.productInfoCell_1_title{
+  padding: 15rpx 0;
+  width: 410rpx;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50rpx;
+	letter-spacing: 0px;
+	color: #333333;
+}
+.productInfoCell_1_subTitle{
+  width: 410rpx;
+	height: 80rpx;
+	font-size: 26rpx;
+	font-weight: normal;
+	font-stretch: normal;
+  line-height: 40rpx;
+
+	color: #999999;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+/* 产品资料-3 */
+.productInfoCell_3{
+  display: flex;
+  width: 100%;
+  height: 200rpx;
+  border-bottom: 1rpx solid #F5F5F5;
+
+}
+.productInfoCell_3_img{
+  width: 220rpx;
+  height: 140rpx;
+  margin: 30rpx 15rpx;
+}
+/* 合作案例 */
+/* 合作案例1 */
+.caseCell_1{
+  padding-top: 30rpx;
+  width: 100%;
+  height: 222rpx;
+  display: flex;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+.caseCell_1_left{
+  width: 466rpx;
+  height: 100%;
+
+}
+.caseCell_1_left_title{
+  font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 60rpx;
+	letter-spacing: 0rpx;
+	color: #333333;
+  margin:0 10rpx 30rpx 10rpx;
+}
+.caseCell_1_left_subTitle{
+  height: 60rpx;
+  width: 100%;
+  font-size: 26rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50rpx;
+	letter-spacing: 0px;
+	color: #999;
+   
+}
+.caseCell_1_right{
+  width: 284rpx;
+  height: 100%;
+
+}
+.caseCell_1_img{
+  width: 254rpx;
+  height: 158rpx;
+  margin: 0rpx 10rpx;
+}
+/* 合作案例cell——2 */
+.caseCell_2{
+  width: 100%;
+  height: 188rpx;
+  /* background-color: floralwhite; */
+    border-bottom: 1rpx solid #F5F5F5;
+
+}
+.caseCell_2_title{
+  width: 690rpx;
+  height: 120rpx;
+  font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 60rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  margin: 0rpx 30rpx;
+}
+.caseCell_2_publicTime{
+   width: 690rpx;
+  height: 68rpx;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 68rpx;
+	letter-spacing: 0px;
+	color: #999999;
+  margin: 0rpx 30rpx;
+}
+/* 合作案例cell-3 */
+.caseCell_3{
+  width: 100%;
+  height: 320rpx;
+  border-bottom: 1rpx solid #F5F5F5;
+
+}
+.caseCell_3_title{
+  width: 690rpx;
+  height: 120rpx;
+  font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 60rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  margin: 0rpx 30rpx;
+}
+.caseCell_3_imgBG{
+  width: 100%;
+  height: 150rpx;
+}
+.caseCell_3_img{
+  width: 220rpx;
+  height: 140rpx;
+  margin: 5rpx 15rpx;
+}
+.caseCell_3_publicTime{
+  width: 100%;
+  height: 50rpx;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50rpx;
+	letter-spacing: 0px;
+	color: #999999;
+  margin-left: 30rpx;
+}
+/* 联系方式 */
+.businessCardBG{
+  width: 100%;
+  height: 420rpx;
+  background-color: ghostwhite;
+  position: relative;
+  margin-top: 20rpx;
+  overflow: hidden;
+  
+}
+.businessCardBGImg{
+  width: 690rpx;
+  height: 420rpx;
+  margin: 0 30rpx;
+}
+
+.businessCard_top{
+  display: flex;
+  width: 690rpx;
+  height: 220rpx;
+  /* background-color: khaki; */
+  position: absolute;
+  top: 0;
+  left: 0rpx;
+  margin: 0 30rpx;
+}
+.businessCard_top_left{
+  width: 260rpx;
+  height: 192rpx;
+  text-align: center;
+  /* background-color: forestgreen; */
+  /* position: relative; */
+} 
+.businessCard_companyLogo{
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 30rpx;
+  /* top: 30rpx;
+  left: 70rpx; */
+  padding-left: 22rpx;
+}
+
+.businessCard_top_right{
+  width: 430rpx;
+  height:  200rpx;
+  
+}
+/* 右侧名片信息 */
+.businessCard_userName{
+  width: 260rpx;
+  line-height: 44rpx;
+  margin-top: 20rpx;
+  font-size:30rpx;
+  color: #fff;
+}
+.businessCard_userSection{
+  width: 300rpx;
+  line-height: 44rpx;
+  font-size:28rpx;
+  margin-top: 10rpx;
+  color: #fff;
+}
+.businessCard_userDuty{
+  display: inline-block;
+  line-height: 44rpx;
+  font-size:28rpx;
+  color: #fff;
+  /* font-size:30rpx; */
+}
+.businessCard_companyName{
+  width: 400rpx;
+  line-height: 64rpx;
+  font-size:26rpx;
+  /* margin-top: 10rpx; */
+  color: #fff;  
+}
+.businessCard_userTypeImg{
+  width: 30rpx;
+  height: 30rpx;
+  /* padding-top: 10rpx; */
+}
+
+.businessCard_top_right{
+  width: 430rpx;
+  height: 100%;
+  
+}
+.businessCard_bottom{
+  width: 690rpx;
+  height: 220rpx;
+  position: absolute;
+  top: 192rpx;
+  left: 0rpx;
+  margin: 0 30rpx;
+}
+/* 名片下半区 上部分 */
+.businCard_bottomInfo_1{
+  display: flex;
+  width: 100%;
+  height: 80rpx;
+ margin-top: 10rpx;
+}
+.businCard_bottomInfo_1_phone{
+  width: 45%;
+  height: 80rpx;
+  display: flex;
+
+}
+.businCard_bottomInfo_1_phone_icon{
+  width: 24rpx;
+  height: 34rpx;
+  margin-top: 25rpx;
+  margin-left: 20rpx;
+}
+.businCard_bottomInfo_1_phone_title{
+  margin-left: 10rpx;
+  font-size: 30rpx;
+    line-height: 80rpx;
+}
+/* 邮箱部分 */
+.businCard_bottomInfo_1_mail{
+  width: 55%;
+  display: flex;
+  height: 80rpx;
+}
+.businCard_bottomInfo_1_email_icon{
+  width:  40rpx;
+  height: 26rpx;
+  margin-top: 25rpx;
+  /* margin-left: 20rpx; */
+}
+.businCard_bottomInfo_1_email_title{
+  height: 80rpx;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+
+.businCard_bottomInfo_2{
+  display: flex;
+  width: 100%;
+  height: 128rpx;
+}
+.businCard_bottomInfo_2_address_icon{
+  width: 26rpx;
+  height: 38rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+.businCard_bottomInfo_2_address_title{
+  width: 600rpx;
+  height: 128rpx;
+  margin-left: 10rpx;
+  /* margin-top: 10rpx; */
+  font-size: 30rpx;
+  line-height: 60rpx;
+}
+
+
+.main-wraper{
+  padding: 5px;
+}
+.business-card {
+  width: 100%;
+  height: 180px;
+  border: 1px solid #cfccc7;
+  border-radius: 7px;
+  background: #fef9f5;
+  position: relative;
+}
+.business-card .card{
+  height: 140px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-bottom: 1px dashed #cfcac6;
+}
+.business-card .card .left{
+  width: 22%;
+  background: #fa822b;
+  height: 100%;
+  float: left;
+}
+.business-card .card .left{
+  color: #fff;
+  text-align: center;
+}
+.business-card .card .left .name{
+  font-size: 18px;
+  padding: 35px 0 10px;
+  font-weight: normal;
+}
+.business-card .card .left .dept{
+  font-size: 14px;
+}
+.business-card .card .right{
+  margin-left: 22%;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column
+}
+.business-card .card .right .companyName{
+  font-size: 16px;
+  padding: 18px 0 15px;
+  font-weight: normal;
+  color: #373634;
+  height: 21px;
+}
+.business-card .card .right .item{
+  padding-bottom: 1px;
+  height: 21px;
+}
+
+.business-card .card .right .item image{
+  width: 12px;
+  height: 14px;
+  margin-right: 12px;
+}
+
+.business-card .card .right .item text{
+  font-size: 14px;
+  color: #353432;
+  vertical-align: 2px;
+}
+
+.business-card .contact{
+  overflow: hidden;
+  display: flex;
+  flex-direction: column
+  
+}
+.business-card .contact view{
+  text-align: left;
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  color: #656565;
+  margin-left: 10px;
+}
+.business-card .radio{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 132px;
+  left: -7px;
+  background: #fff;
+  transform: rotate(45deg);
+  
+}
+.business-card .radio.left-r{
+  border-top: 1px solid #cfccc7;
+  border-right: 1px solid #cfccc7;
+}
+.business-card .radio.right-r{
+  border-left: 1px solid #cfccc7;
+  border-bottom: 1px solid #cfccc7;
+  left: auto;
+  right: -7px;
+}
+.business-card .back{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+}
+
+.home_nav{padding-top:40rpx; background-color:#fa6d21; background-color: #fa6d21;position:fixed;top:0;left:0;width:100%;z-index: 999;}
+.home_nav .home_nav_title{height:110rpx;line-height:110rpx;color:#ffffff;padding-left: 50rpx;}
+
+
+

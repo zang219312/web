@@ -1,0 +1,14 @@
+<view>
+  <!-- status-bar -->
+  <view class="status-bar" style="{{ statusBarStyle }}"/>
+  <!-- navigation-bar -->
+  <view class="navigation-bar" style="{{ navigationBarStyle }}">
+    <image class='head_bg_img' src="https://file.qosoo.cn/files/home/head.png" style=""></image>
+    <!-- title -->
+    <view class="navigation" style="{{ navigationStyle }}">
+      这是最佳可操作区域
+    </view>
+  </view>
+  <!-- menu -->
+  <view class="menu" style="{{ menuStyle }}"/>
+</view>

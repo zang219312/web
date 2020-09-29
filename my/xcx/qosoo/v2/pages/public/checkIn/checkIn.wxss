@@ -1,0 +1,16 @@
+/* pages/public/checkin.wxss */
+
+.checkinImg{
+  width: 690rpx;
+  height: 1064rpx;
+  margin:30rpx;
+  text-align: center
+}
+.checkinBtn{
+  background-color: #0fa1d6;
+  color: #fff;
+  font-size: 30rpx;
+  width: 320rpx;
+  height: 80rpx;
+  bottom: 120rpx;
+}

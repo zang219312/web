@@ -1,0 +1,243 @@
+<!--<navigation-bar bindnavback="onnavback" enable="{{true}}" title="公司详情" bg-style="background-color: #fa6d21"></navigation-bar>
+-->
+<view class='pageBGView' style='padding-top:0rpx;'>
+  <view class='headerInfoBG'>
+    <view class='headerTitleBG'>
+        <view class='companyTitle'>
+        <view>{{company_dj}}</view>
+        <view class='signTitle'>商誉</view>
+        </view>
+        <!-- 分享关注 -->
+          <view class='signBGView'>
+            <view class='signItemBG signItem_1' bindtap='shareBtnAction'>
+              <image class='signImg' src='/images/home/icon_share_0@3x.png'></image>
+              <view class='signTitle'>分享</view>
+            </view>
+            <!-- <view class='signItemBG signItem_2' bindtap='focusAction'>
+              <image class='signImg' src='{{followImg}}'></image>
+              <view class='signTitle {{followActive==true ? "active" : ""}}'>{{followTxt}}</view>
+              <view class='star-number' hidden="{{follow}}">
+                <view class='before-star'></view>
+                <image id="{{item.id}}" wx:for="{{imgArray}}" wx:key="{{index}}" src="{{item.imgUrl}}" bindtap='focusStar'></image>
+              </view>
+            </view> -->
+            <view class='signItemBG signItem_2' bindtap='focusAction'>
+              <image class='signImg' src='{{followImg}}'></image>
+              <view class='signTitle {{followActive==true ? "active" : ""}}'>{{followTxt}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class='businessCardBG'>
+      <image class='businessCardBGImg' src='https://lg-6pshrvnq-1255620684.cos.ap-shanghai.myqcloud.com/img_userInfo_BG.png'>
+          <view class='businessCard_top'>
+            <view class='businessCard_top_left'>
+              <image class='businessCard_companyLogo' src='{{user_data.companyLogo}}'></image>
+            </view>
+            <view class='businessCard_top_right'>
+              <view class='businessCard_userName '>{{user_data.realName}}
+                <image class='businessCard_userTypeImg' src='/images/userCenter/userAuthType_1@3x.png'></image>
+              </view>
+              <view class='businessCard_userSection '>{{user_data.dept}} {{user_data.job}}</view>
+              <view class='businessCard_companyName '>{{user_data.companyName}}</view>
+            </view>
+          </view>
+          <view class='businessCard_bottom'>
+            <view class='businCard_bottomInfo_1'>
+              <view class='businCard_bottomInfo_1_phone'>
+                <image class='businCard_bottomInfo_1_phone_icon' src='/images/userCenter/icon_mobilePhone@3x.png'></image>
+                <view class='businCard_bottomInfo_1_phone_title'>{{user_data.account}}</view>
+              </view>
+              <view class='businCard_bottomInfo_1_mail'>
+                <image class='businCard_bottomInfo_1_email_icon' src='/images/userCenter/icon_E-mail@3x.png'></image>
+                <view class='businCard_bottomInfo_1_email_title'>{{user_data.email}}</view>
+              </view>
+            </view>
+            <view class='businCard_bottomInfo_2'>
+                <image class='businCard_bottomInfo_2_address_icon' src='/images/userCenter/icon_addressPoint@3x.png'></image>
+                <view class='businCard_bottomInfo_2_address_title'>{{user_data.companyProvince}} {{user_data.companyCity}} {{user_data.companyDistrict}} {{user_data.address}}</view>
+            </view>
+          </view>
+        </image>
+
+    </view>
+<!--
+    <view class="main-wraper">
+      <view class="business-card">
+        <view class="card">
+          <view class="left">
+            <view class="name">{{user_data.realName}}</view>
+            <view class="dept">{{user_data.dept}}</view>
+            <view class="dept">{{user_data.job}}</view>
+          </view>
+          <view class="right">
+              <view class="companyName">{{user_data.companyName}}</view>
+              <view class="item">
+                <image src="/images/home/phone@2x.png"></image>
+                <text>{{user_data.account}}</text>
+              </view>
+              <view class="item">
+                <image class="email" src="/images/home/email@2x.png" ></image>
+                <text>{{user_data.email}}</text>
+              </view>
+              <view class="item">
+                <image class="address" src="/images/home/address@2x.png"></image>
+                <text>{{user_data.address}}</text>
+              </view>
+          </view>
+        </view>
+        <view class="contact">
+          <view>座机：{{user_data.mobile}}</view>
+          <view>网址：{{user_data.website}}</view>
+        </view>
+        
+        <view class="radio left-r"></view>
+        <view class="radio right-r"></view>
+      </view>
+    </view>
+-->
+  </view>
+
+  <view class='lineView'></view>
+
+<view class='companyIntroduceBG'>
+   <!-- 公司简介 -->
+  <view style="display: flex;height: 90rpx;line-height: 90rpx;border-bottom: 1rpx solid #d2d2d2;">
+    <view class='section_title'>公司简介</view>
+  </view>
+  <view class='companyIntroduceContent {{content_height ? "" : "hidden"}}' id='mjltest'>
+  <text>{{companyData.content}}</text>
+  <!-- <view class='contentMore' bindtap='viewMoreAction'>查看更多</view> -->
+  </view>
+  <view class='contentMore' style='display:{{content_dis}}' bindtap='content_showmore'>{{content_text}}</view>
+</view>
+
+  <view class='lineView'></view>
+  <!-- 产品资料 -->
+	<view wx:if='{{display_product}}' style="display: flex;height: 90rpx;line-height: 90rpx;border-bottom: 1rpx solid #d2d2d2;" bindtap='pushToproductmore'>
+		<view class='section_title'>产品资料</view>
+		<view class='section_title_more'>更多</view>
+	  <view>
+			<image class='cellNext' src="/images/public/icon_cellNext@3x.png"></image>
+		</view>
+	</view>
+
+  <!-- 产品资料_1 -->
+  <view wx:if='{{display_product}}' class='productInfoCell_1'  wx:for="{{productInfoArray}}" wx:key='{{item.id}}' bindtap='PushToProductDetail' data-id='{{item.id}}'>
+    <view class='productInfoCell_1_left'>
+      <image class='productInfoCell_1_img' src='{{item.coverImg}}'></image>
+    </view>
+
+    <view class='productInfoCell_1_right'>
+      <view class='productInfoCell_1_title'>{{item.title}}</view>
+      <view class='productInfoCell_1_subTitle'>{{item.info}}</view>
+    </view>
+  </view>
+
+  <view class='lineView'></view>
+  <!-- 合作案例  -->
+	<view wx:if='{{display_case}}' style="display: flex;height: 90rpx;line-height: 90rpx;border-bottom: 1rpx solid #d2d2d2;" bindtap='pushTocasesmore'>
+		<view class='section_title'>合作案例</view>
+		<view class='section_title_more'>更多</view>
+	  <view>
+			<image class='cellNext' src="/images/public/icon_cellNext@3x.png"></image>
+		</view>
+	</view>
+  <!-- 案例cell 1 -->
+  <view wx:if='{{display_case}}' class='caseCell_1' bindtap='PushToCaseDetail' data-id='{{item.id}}' wx:for="{{companyCaseArray}}" wx:key='{{item.id}}'>
+    <view class='caseCell_1_right'>
+      <image class='caseCell_1_img' src='{{item.coverImg}}'></image>
+    </view>
+    <view class='caseCell_1_left'>
+      <view class='caseCell_1_left_title'>{{item.title}}</view>
+      <view class='caseCell_1_left_subTitle'>{{item.createTime}}</view>
+    </view>
+    
+  </view>
+
+  
+  <view class='lineView'></view>
+
+   <!-- 公司资讯 -->
+	<view wx:if='{{display_news}}' style="display: flex;height: 90rpx;line-height: 90rpx;border-bottom: 1rpx solid #d2d2d2;" bindtap='pushTonewsmore'>
+		<view class='section_title'>公司资讯</view>
+    <view class='section_title_more'>更多</view>
+	  <view>
+			<image class='cellNext' src="/images/public/icon_cellNext@3x.png"></image>
+		</view>
+	</view>
+  <!-- 案例cell 1 -->
+  <view wx:if='{{display_news}}' class='caseCell_1' bindtap='PushToNewsDetail' wx:for="{{InformationArray}}" wx:key='{{item.id}}' data-id='{{item.id}}'>
+    <view class='caseCell_1_right'>
+      <image class='caseCell_1_img' src='{{item.coverImg}}'></image>
+    </view>
+    <view class='caseCell_1_left'>
+      <view class='caseCell_1_left_title'>{{item.title}}</view>
+      <view class='caseCell_1_left_subTitle'>{{item.createTime}}</view>
+    </view>
+    
+  </view>
+
+  <view class='lineView'></view>
+
+  <!-- 合作伙伴 -->
+	<view hidden='{{display_partner}}' style="height: 90rpx;line-height: 90rpx;border-bottom: 1rpx solid #d2d2d2;">
+		<view class='section_title'>合作伙伴</view>
+		<view class='section_title_more'></view>
+
+	</view>
+  <view hidden='{{display_partner}}'>
+    <view style="text-align: center">
+			<image mode="widthFix" src="{{companyData.partner}}"></image>
+		</view>
+
+	</view>
+  <view class='lineView'></view>
+<!--广告 -->
+  <view class='articleCell_BG company_gg' wx:for="{{publicizewidely}}" data-id='{{item.id}}'  style='height:auto' data-linktype='{{item.linkType}}' bindtap='out' data-xq='{{item.content}}'>
+    <image class='articleCell_image' src='{{item.coverImg}}' style='width:100%;padding:0 20rpx;box-sizing:border-box;' mode="widthFix"></image>
+  </view>
+</view>
+
+<!-- 分享的遮罩层 -->
+<view class='coverView'  hidden="{{shareCoverViewStatus}}" bindtap='coverViewCloseAction'>
+
+  <view class='remindShare'>
+    <view class='remshare-left'>
+      <image src='https://lg-6pshrvnq-1255620684.cos.ap-shanghai.myqcloud.com/icon_share_katong.png'></image>
+    </view>
+    <view class='remshare-right'>
+      点击 <image src='../../../images/public/icon_share_shareIcon.png'></image>选择“转发”即可发送给好友或群
+    </view>
+    <image class='share-topimg' src='../../../images/public/icon_share_zhixiang.png'></image>
+  </view>
+
+</view>
+
+
+<!-- 弹出遮罩层 -->
+<!-- <view class='coverView' bindtap='coverCancleAction' style="display:{{coverViewStatus}}">
+
+
+</view> -->
+<view class='star-view' hidden="{{starShow}}" bindtap='starHidden'>
+    <view class='star-number' hidden="{{follow}}">
+      <!-- <view class='before-star'></view> -->
+      <view class='star-box'>
+        <view class='star-title star-txt'>客户合作价值</view> 
+        <view class='star-bottom star-txt'>          
+          <view class='star-banner'>
+            <image id="{{item.id}}" wx:for="{{imgArray}}" wx:key="{{index}}" src="{{item.imgUrl}}" bindtap='focusStar'></image>
+            <view class='starb-left'>一般</view>
+             <view class='starb-right'>极高</view>
+          </view>    
+        </view>
+        <view class='star-title star-txt cen' bindtap="unfollow" style='text-align:center;'>取消关注</view> 
+      </view>
+    </view>
+</view>
+
+<view>
+  <toast id='toast'>
+  </toast>
+</view>

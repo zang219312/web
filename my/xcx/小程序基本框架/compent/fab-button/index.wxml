@@ -1,0 +1,19 @@
+<view class="wux-fab-button  wux-fab-button--bottomRight  wux-fab-button--balanced  wux-fab-button--vertical" catchtap="onToggle">
+  <view class="wux-fab-button__action {{buttonVisible?'bg-color':''}}" hover-class="wux-fab-button--hover">
+    <image class="wux-fab-button__text {{buttonVisible?'wux-fab-button__text--rotate':''}}" src="{{ action }}" wx:if="{{ buttonVisible }}" />
+    <view wx:else>
+      <view class='text-project'>快捷</view>
+      <view class='text-project'>导航</view>
+    </view>
+  </view>
+  <block wx:for="{{ buttons }}" wx:for-item="button" wx:key="index">
+    <button class="wux-fab-button__button" data-index="{{ index }}" data-value="{{ button }}" data-label="{{ button.label }}" disabled="{{ button.disabled }}" open-type="{{ button.openType }}" hover-class="wux-fab-button__button--hover"
+      hover-stop-propagation="{{ button.hoverStopPropagation }}" hover-start-time="{{ button.hoverStartTime }}" hover-stay-time="{{ button.hoverStayTime }}" lang="{{ button.lang }}" bindgetuserinfo="bindgetuserinfo" session-from="{{ button.sessionFrom }}"
+      send-message-title="{{ button.sendMessageTitle }}" send-message-path="{{ button.sendMessagePath }}" send-message-img="{{ button.sendMessageImg }}" show-message-card="{{ button.showMessageCard }}" bindcontact="bindcontact" bindgetphonenumber="bindgetphonenumber"
+      app-parameter="{{ button.appParameter }}" binderror="onError" bindopensetting="bindopensetting" catchtap="onTap" style="{{ buttonStyle[index] }}">
+      <!-- <image class="wux-fab-button__icon" src="{{ button.icon }}" /> -->
+      <text class='wux-fab-button__icon {{button.icon}}'></text>
+      <view class="wux-fab-button__label" wx:if="{{ button.label }}">{{ button.label }}</view>
+    </button>
+  </block>
+</view>

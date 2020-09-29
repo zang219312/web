@@ -1,0 +1,7 @@
+<!--pages/call/sms/sms.wxml-->
+<view class='home_nav'>
+  <image class='scanicon' bindtap='handleGoBack' src="https://file.qosoo.cn/files/20191021/public/left.png"></image>
+  <image class='head_bg_img' src="https://file.qosoo.cn/files/home/head.png"></image>
+  <view>Sms</view>
+</view>
+<web-view src="{{src}}"></web-view>

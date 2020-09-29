@@ -1,0 +1,17 @@
+<!--pages/userCenter/businessNegotiations.wxml-->
+<!-- <view class='headerImgView'>
+  <image class='headerImg' src='{{baseImgUrl}}/{{businessTalkInfo.url}}'></image>
+</view> -->
+
+<!-- <view class='link_man link_info'> 联系人:{{businessTalkInfo.linkman}}</view>
+<view class='link_phone link_info'> 联系电话:{{businessTalkInfo.phoneNumber}}</view> -->
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="洽谈业务" bg-style="background-color: #fa6d21"></navigation-bar>
+<import src="../../../lib/wxParse/wxParse.wxml"/>
+<view class="wxParse" style='padding-top:160rpx;'>
+    <template is="wxParse" data="{{wxParseData:businessTalkInfo.nodes}}"/>
+</view>
+<view class='contactUs' bindtap='callMe'>
+ <image class='contactUsIcon' src='/images/userCenter/mobile.png'></image>
+
+ <view class='contactUsTitle' >联系我们</view> 
+</view>

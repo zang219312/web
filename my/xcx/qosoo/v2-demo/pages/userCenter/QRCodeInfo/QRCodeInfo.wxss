@@ -1,0 +1,196 @@
+page{
+  background-color: #f5f5f5;
+}
+.my-canvas{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -10000px;
+  left: -10000px;
+  /* top: 0;
+  left: 0; */
+}
+.images{
+  width: 688rpx;
+  height: 600rpx;
+}
+.userInfoBGView{
+  width: 558rpx;
+  height: 736rpx;
+  margin: 200rpx 96rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 12rpx;
+  background-color: #fff;
+  margin-top: 0;
+  position:absolute;
+top:290rpx;
+
+}
+.headerView{
+  display: flex;
+  background-color: fff;
+  width: 100%;
+  height: 190rpx;
+}
+
+.userImageBGView{
+  width: 134rpx;
+  height: 100%;
+}
+
+.userImage{
+  margin-top: 48rpx;
+  margin-left: 30rpx;
+  width: 104rpx;
+  height: 104rpx;
+  border: 0 solid #ff0000;
+  border-radius: 52rpx;
+  background-color: #f10b2e;
+}
+
+.userInfoView{
+  width: 400rpx;
+  margin-left: 30rpx;
+}
+
+.userNameLabel{
+  width: 100%;
+  margin-top: 15px;
+  color: #666;
+  font-size: 28rpx;
+  height: 36rpx;
+
+}
+.userProfessionLabel{
+  color: #999;
+  font-size: 24rpx;
+    height: 36rpx;
+
+}
+
+.userCompanyLabel{
+  display: inline-block;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  width: 250rpx;
+  height: 36rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.userCompanyAuthStatus{
+  width: 100%;
+}
+.userAuthStatusLabel{
+  display: inline-block;
+  text-align: center;
+  background-color: #ff6f05;
+  border-radius: 6rpx;
+  margin-left: 10rpx;
+  color: white;
+  font-size: 24rpx;
+  width: 86rpx;
+  vertical-align: top;
+}
+.qrCodeView{
+  text-align:center;
+/*width:558rpx;
+height:480rpx;
+*/
+}
+.qrCodeImg{
+  width:284rpx;
+ height:284rpx;
+
+}
+.qrCodeRemindLabel{
+  margin: -10rpx auto;
+  color: #999;
+  width: 340rpx;
+	font-size: 26rpx;
+}
+
+.code_style {
+    width:690rpx;
+    height: 776rpx;
+    margin: 0 auto;
+    margin-top: 68rpx;
+    background-color: #FFF;
+    border-radius: 12rpx;
+    box-shadow:0px 4px 8px 4px rgba(169,169,169,0.4);
+    padding-top: 1px;
+}
+
+.code_title{
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.code_detailed{
+    width: 240px;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 0px;
+    align-items: center;
+}
+
+.code_detailed_img{
+    width: 52px;
+    height: 52px;
+    border-radius: 500px;
+    overflow: hidden;
+}
+
+.code_detailed_img image{
+    width: 100%;
+    height: 100%;
+}
+
+.code_detailed_text{
+    width: 188px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.qrCode-top{
+  margin: 72rpx;
+  display: flex;
+  font-size: 26rpx;
+  color: #4E4E4E
+}
+
+.qrCode-top .qrCode-headImg image{
+  width: 114rpx;
+  height: 114rpx;
+  border-radius: 50%;
+  margin-right: 48rpx;
+}
+.qrCode-info text{
+  font-size: 36rpx;
+  color: #000000;
+}
+.qrCode-info-company{
+  display: flex;
+}
+.qrCode-info-company-name{
+  width: 286rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.renzheng{
+  font-size: 20rpx;
+  color: #FFFFFF;
+  width: 68rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  background: #CBCBCB;
+  text-align: center;
+  margin-left: 30rpx;
+}
+.renzhenged{
+  background: #FA6D21;
+}

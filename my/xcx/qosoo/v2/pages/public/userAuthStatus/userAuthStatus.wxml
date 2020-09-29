@@ -1,0 +1,10 @@
+<navBar title='授权登录' back="{{true}}" home="{{false}}"  bindback="handleGoBack" bindhome="handlerGohomeClick"></navBar>
+<view class='remindTitle remindTitle_1' style='padding-top:260rpx'>请点击"确定"按钮</view>
+<view class='remindTitle remindTitle_2'>授予小程序登录权限</view>
+
+<view class='remindContent'>详细内容在获取微信登录授权和补充用户注册信息之后才可查看</view>
+
+<!-- <button class="phone-btn" open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber"> -->
+<button class='ok_btn btn' open-type="getUserInfo" bindgetuserinfo='bindGetUserInfo'>确定</button>
+<!-- </button> -->
+<!-- <button class='cancle_btn btn'  bindtap='cancleAction'>返回</button> -->

@@ -1,0 +1,137 @@
+<import src="../../../lib/wxParse/wxParse.wxml"/>
+<!--
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="产品详情" bg-style="background-color: #fa6d21"></navigation-bar>
+-->
+<view class='home_nav'>
+  <view  class='home_nav_title' bindtap="back"><image src="https://file.qosoo.cn/files/20191021/public/left.png"></image>{{title}}</view>
+</view>
+<view class='BGView' style='padding-top:130rpx;' wx:if='{{detail.carousel.length>0}}'>
+  <swiper  >
+      <swiper-item wx:for='{{detail.carousel}}' wx:key='{{index}}'>
+        <image src="{{item}}" class="slide-image"  style="width:100%;height:100%" />
+      </swiper-item>
+  </swiper>
+  
+</view>
+<view wx:else  style='padding-top:130rpx;'></view>
+  <view class='titleView'>
+    <view class='articleTitle'>{{detail.title}}</view>
+    <!-- <view class='signBGView'>
+      <button open-type="share">
+      <view class='signItemBG signItem_1' >
+        <image class='signImg signImgShare' src='/images/home/icon_share_0@3x.png'></image>
+        <view class='signTitle share-btn'>分享</view>
+      </view>
+      </button>
+      <button  bindtap='focusAction'>
+      <view class='signItemBG signItem_2' >
+         <image class='signImg {{followActive==true ? "" : "star-img"}}' src='{{followImg}}'></image>
+          <view class='signTitle {{followActive==true ? "active" : ""}}'>{{followTxt}}</view>
+      </view>
+      </button>
+    </view> -->
+  </view>
+  <view class="companyinfo">
+    <view class='publishTime' catchtap='pushToCompanyDetail' data-id='{{companyId}}'>
+      <image src="{{companyData.logo}}"></image>
+      <view class="company">
+        <view>{{detail.companyName}}</view>
+        <view>{{detail.createTime}}</view>
+      </view>
+    </view>
+
+    <view class='signBGView'>
+      <button open-type="share">
+      <view class='signItemBG signItem_1' >
+        <image class='signImg signImgShare' src='https://file.qosoo.cn/files/20191021/home/icon_share_0@3x.png'></image>
+        <view class='signTitle share-btn'>分享</view>
+      </view>
+      </button>
+      <button  bindtap='focusAction'>
+      <view class='signItemBG signItem_2' >
+         <image class='signImg {{followActive==true ? "" : "star-img"}}' src='{{followImg}}'></image>
+          <view class='signTitle {{followActive==true ? "active" : ""}}'>{{followTxt}}</view>
+      </view>
+      </button>
+    </view>
+  </view>
+  
+
+  <view class='subTitle'>
+    {{detail.info}}
+  </view>
+  <view class='spaceView' wx:if='{{detail.info}}'></view>
+  <!-- <view class='contentView'>
+    
+  </view> -->
+  <view style=''>
+    <view class="wxParse">
+      <!-- <image src='{{detail.coverImg}}' class='coverImg'></image> -->
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+  </view>
+  
+  <view class="bottom-content">
+    <view>· 版权归作者所有</view>
+    <button open-type="share" class="shares-btn">
+      <view class="share-txt">
+        <image src="https://file.qosoo.cn/files/20191021/home/wx-2.png"></image>
+        分享文章
+      </view>
+    </button>
+  </view>
+
+  <!-- <view wx:if="{{form == '0'}}" class="product-foot" bindtap='PushToProductDetail' data-id='{{jProducts.id}}'  data-type='2' >
+    <image  src="{{jProducts.coverImg}}"></image>
+  </view> -->
+   <swiper class="swiper" wx:if='{{productInfoArray.length>0}}'  autoplay="true" interval="5000"  circular="true">
+				<swiper-item wx:for="{{productInfoArray}}" wx:key='{{index}}' bindtap='PushToProductDetail' data-id='{{item.id}}' data-companyid = "{{item.companyId}}" data-type='2' wx:key="id">
+          <view class="image">
+					  <image src="{{item.coverImg}}" style="width:100%;"></image>
+          </view>
+          <view class="newTitle" wx:if='{{currentIndex == index}}'>{{item.title}}</view>
+				</swiper-item>
+		</swiper>
+    <block wx:if='{{publicizewidely.length>0}}' >
+    <view class='articleCell_BG bottom-banner' wx:for="{{publicizewidely}}" data-id='{{item.id}}' data-linktype='{{item.linkType}}'  bindtap='tolist' data-xq='{{item.content}}' data-linkurl='{{item.linkUrl}}' wx:key="id">
+    <image class='articleCell_image' src='{{item.url}}' style='width:100%;height:100%;box-sizing:border-box;' ></image>
+  </view>
+  </block>
+
+
+
+<!-- 分享的遮罩层 -->
+<!-- <view class='coverView'  hidden="{{shareCoverViewStatus}}" bindtap='coverViewCloseAction'>
+
+  <view class='remindShare'>
+    <view class='remshare-left'>
+      <image src='https://lg-6pshrvnq-1255620684.cos.ap-shanghai.myqcloud.com/icon_share_katong.png'></image>
+    </view>
+    <view class='remshare-right'>
+      点击 <image src='https://file.qosoo.cn/files/20191021/public/icon_share_shareIcon.png'></image>选择“转发”即可发送给好友或群
+    </view>
+    <image class='share-topimg' src='https://file.qosoo.cn/files/20191021/public/icon_share_zhixiang.png'></image>
+  </view>
+
+</view> -->
+
+
+
+
+
+<view class='star-view' hidden="{{starShow}}" bindtap='starHidden'>
+    <view class='star-number' hidden="{{follow}}">
+      <!-- <view class='before-star'></view> -->
+      <view class='star-box'>
+        <view class='star-title star-txt'>客户合作价值</view> 
+        <view class='star-bottom star-txt'>          
+          <view class='star-banner'>
+            <image id="{{item.id}}" wx:for="{{imgArray}}" wx:key="" src="{{item.imgUrl}}" bindtap='focusStar'></image>
+            <view class='starb-left'>一般</view>
+             <view class='starb-right'>极高</view>
+          </view>    
+        </view>
+        <view class='star-title star-txt ctn' bindtap='unfollow'>取消关注</view> 
+      </view>
+    </view>
+</view>

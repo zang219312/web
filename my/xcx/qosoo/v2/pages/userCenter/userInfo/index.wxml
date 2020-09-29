@@ -1,0 +1,23 @@
+<navigation-bar bindnavback="onnavback" enable="{{true}}" title="个人中心" bg-style="background-color: #fa6d21"></navigation-bar>
+<!--pages/userCenter/userInfo.wxml-->
+<view class='headerView' style='padding-top:10rpx;'>
+  </view>
+  <view class='spaceLineView'></view>
+	<navigator url="/pages/userCenter/userInfo/userInfo" class='cellBGView'>
+		<view class='cellTitle'>个人资料</view>
+		<view class='cellSubTitle'></view>
+	  <view>
+			<image class='cellNext' src="/images/public/icon_cellNext@3x.png"></image>
+		</view>
+	</navigator>
+  <navigator url="/pages/userCenter/modifiPhoneNumb/modifiPhoneNumb?userPhone={{userPhoneStr}}"  class='cellBGView'>
+		<view class='cellTitle'>修改手机号</view>
+		<view class='cellSubTitle'></view>
+	  <view>
+			<image class='cellNext' src="/images/public/icon_cellNext@3x.png"></image>
+		</view>
+	</navigator>
+
+<!-- <view class='logoutBGView'>
+  <button class='logoutBtn'>退出当前账号</button>
+</view> -->
