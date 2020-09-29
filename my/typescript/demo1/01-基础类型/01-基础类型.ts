@@ -88,9 +88,7 @@ function getNumber({ num }: { num: number }): number {
 
 console.log(getNumber({ num: 12 }));
 
-/**
- * 数组类型的定义
- */
+//* 数组类型的定义
 let arr: number[] = [1, 2, 3];
 let arr2: string[] = ['a', 'b', 'c'];
 let arr3: undefined[] = [undefined, undefined, undefined];
@@ -98,7 +96,7 @@ let arr3: undefined[] = [undefined, undefined, undefined];
 let arr4: (number | string | boolean)[] = [1, null, 'ccc'];
 console.log(arr4);
 
-// 数组中对象类型的定义
+//* 数组中对象类型的定义
 let females: { name: string; age: number | string }[] = [
   { name: 'lyf', age: 38 },
   { name: '谢大脚', age: '48' },
@@ -129,7 +127,55 @@ console.log(females3);
 let t_xjj: [string, string, number] = ['lyf', 'star', 23];
 
 //* 接口 interface
-let resume = (name: string, age: number, bust: number): void => {
+//* 1.年龄小于 25 岁，胸围大于 90 公分的，可以进入面试环节
+/* let resume = (name: string, age: number, bust: number): void => {
   age <= 24 && bust >= 90 && console.log(name + '进入面试');
   age > 24 || (bust < 90 && console.log(name + '被淘汰'));
 };
+resume('lyf', 24, 94);
+resume('大脚', 18, 66);
+
+//* 2.新增查看简历
+let getResume = (name: string, age: number, bust: number): void => {
+  console.log(name + ' 年龄：' + age);
+  console.log(name + ' 胸围：' + bust);
+};
+getResume('lyf', 24, 94); */
+
+/*interface Girl {
+  name: string;
+  age: number;
+  bust: number;
+}
+
+let resume = (girl: Girl): void => {
+  girl.age <= 24 && girl.bust >= 90 && console.log(girl.name + '进入面试');
+  girl.age > 24 || (girl.bust < 90 && console.log(girl.name + '被淘汰'));
+};
+let girl = { name: 'lyf', age: 24, bust: 94 };
+
+let getResume = (girl: Girl): void => {
+  console.log(girl.name + ' 年龄：' + girl.age);
+  console.log(girl.name + ' 胸围：' + girl.bust);
+};
+
+resume(girl);
+getResume(girl); */
+
+//* 接口和类型别名的区别
+//* 类型别名可以直接给类型，比如 string，而接口必须代表对象。
+type girl1 = string;
+
+// 接口必须是一个对象
+interface girl2 {
+  name: string;
+  age: number;
+}
+
+// 3.新增查看腰围，但不是必须
+interface girl3 {
+  name: string;
+  age: number;
+  bust: number;
+  Waistline: number;
+}
