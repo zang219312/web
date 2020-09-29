@@ -172,10 +172,18 @@ interface girl2 {
   age: number;
 }
 
-// 3.新增查看腰围，但不是必须
-interface girl3 {
+//* 3.新增查看腰围，但不是必须 ?:
+interface Girl3 {
   name: string;
   age: number;
   bust: number;
-  Waistline: number;
+  Waistline?: number;
 }
+
+let getResume = (girl: Girl3) => {
+  console.log(girl.name + ' 年龄：' + girl.age);
+  console.log(girl.name + ' 胸围：' + girl.bust);
+  girl.Waistline && console.log(girl.name + ' 腰围：' + girl.Waistline);
+};
+
+getResume({ name: 'lyf', age: 24, bust: 94, Waistline: 66 });
