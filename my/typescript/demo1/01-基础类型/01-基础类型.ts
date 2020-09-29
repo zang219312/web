@@ -173,7 +173,7 @@ interface girl2 {
 }
 
 //* 3.新增查看腰围，但不是必须 ?:
-interface Girl3 {
+/* interface Girl3 {
   name: string;
   age: number;
   bust: number;
@@ -186,4 +186,61 @@ let getResume = (girl: Girl3) => {
   girl.Waistline && console.log(girl.name + ' 腰围：' + girl.Waistline);
 };
 
-getResume({ name: 'lyf', age: 24, bust: 94, Waistline: 66 });
+getResume({ name: 'lyf', age: 24, bust: 94, Waistline: 66 }); */
+// 允许加入任意值
+interface Girl4 {
+  name: string;
+  age: number;
+  bust: number;
+  Waistline?: number;
+  [propName: string]: any; //去掉报错
+}
+//*属性的名字是字符串类型，属性的值可以是任何类型。
+
+let getResume = (girl: Girl4) => {
+  console.log(girl.name + ' 年龄：' + girl.age);
+  console.log(girl.name + ' 胸围：' + girl.bust);
+  girl.Waistline && console.log(girl.name + ' 腰围：' + girl.Waistline);
+  girl.sex && console.log(girl.name + ' 性别：' + girl.sex);
+};
+
+let girl = {
+  name: 'asd',
+  age: 24,
+  bust: 98,
+  sex: '女',
+};
+
+getResume(girl);
+
+//* 接口里的方法
+interface Girl5 {
+  name: string;
+  age: number;
+  bust: number;
+  waistline?: number;
+  [propName: string]: any;
+  say(): string;
+}
+
+let getResume2 = (girl: Girl5) => {
+  console.log(girl.name + ' 年龄：' + girl.age);
+  console.log(girl.name + ' 胸围：' + girl.bust);
+  girl.Waistline && console.log(girl.name + ' 腰围：' + girl.Waistline);
+  girl.sex && console.log(girl.name + ' 性别：' + girl.sex);
+  girl.say && console.log(girl.name + '说：' + girl.say());
+};
+
+let newGirl = {
+  name: '铁扇',
+  age: 204,
+  bust: 98,
+  sex: '女',
+  say() {
+    return 'hello';
+  },
+};
+
+getResume2(newGirl);
+
+//* 接口和类的约束
