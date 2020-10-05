@@ -65,15 +65,15 @@ function sayHi(): void {
 //* 如果一个函数是永远也执行不完的，就可以定义返回值为 never
 
 // 执行的时候，抛出了异常
-// function err(): never {
-//   throw new Error('死循环');
-// }
+/* function err(): never {
+  throw new Error('死循环');
+}
 
-// // 死循环
-// function forNever(): never {
-//   while (true) { }
-//   console.log("Hello JSPang");
-// }
+// 死循环
+function forNever(): never {
+  while (true) { }
+  console.log("Hello JSPang");
+} */
 
 //* 函数参数为对象（解构）时
 function sum({ one, two }: { one: number; two: number }): number {
@@ -211,7 +211,7 @@ let girl = {
   sex: '女',
 };
 
-getResume(girl);
+// getResume(girl);
 
 //* 接口里的方法
 interface Girl5 {
@@ -241,6 +241,133 @@ let newGirl = {
   },
 };
 
-getResume2(newGirl);
+// getResume2(newGirl);
 
 //* 接口和类的约束
+class XJieJie implements Girl5 {
+  name: '';
+  age: 22;
+  bust: 99;
+  say() {
+    return '';
+  }
+}
+
+//* 接口间的继承
+interface Teacher extends Girl5 {
+  teach(): string;
+}
+// 4.只看Teacher的简历
+let getTeacherResume = (girl: Teacher): void => {
+  console.log(girl.name + ' 年龄：' + girl.age);
+  console.log(girl.name + ' 胸围：' + girl.bust);
+  girl.Waistline && console.log(girl.name + ' 腰围：' + girl.Waistline);
+  girl.sex && console.log(girl.name + ' 性别：' + girl.sex);
+  console.log(girl.name + '是 ' + girl.teach() + ' 老师');
+};
+let tea = {
+  name: '玉兔',
+  age: 24,
+  bust: 98,
+  sex: '女',
+  say() {
+    return 'hello';
+  },
+  teach() {
+    return 'English';
+  },
+};
+
+// getTeacherResume(tea);
+
+//* 类的基本使用
+class Lady {
+  msg = 'hello,world';
+  getMsg() {
+    return this.msg;
+  }
+}
+let goddess: Lady = new Lady();
+
+// console.log(goddess.getMsg()); //hello,world
+
+// 继承
+class XJieJie2 extends Lady {
+  sayLove() {
+    return 'love love love!!!';
+  }
+}
+
+// let nv1 = new XJieJie2();
+// console.log(nv1.getMsg()); //hello,world
+// console.log(nv1.sayLove()); //love love love!!!
+
+// 重写
+class XJieJie3 extends XJieJie2 {
+  sayLove() {
+    return 'i love you';
+  }
+  getMsg() {
+    return '这是重写后的方法';
+  }
+}
+
+// console.log(new XJieJie3().sayLove());
+// console.log(new XJieJie3().getMsg());
+
+//* super
+class XJieJie4 extends Lady {
+  constructor() {
+    super();
+  }
+  sayHello() {
+    return super.getMsg() + '  !!!';
+  }
+}
+
+//* 类的访问类型 public protected private
+class Male {
+  public name: string;
+  public sayHello() {
+    console.log(this.name + "说：'你好'");
+  }
+}
+
+let male = new Male();
+male.name = 'zd';
+male.sayHello();
+console.log(male.name);
+
+// private
+class Male2 {
+  private name: string;
+  public sayHello() {
+    console.log(this.name + "说：'你好'");
+  }
+}
+
+let male2 = new Male2();
+// male2.name = 'zd';  // 报错
+male2.sayHello();
+// console.log(male2.name); // 报错
+
+console.log('--------------');
+
+// protected
+class Male3 {
+  protected name: string;
+  public introduce(): void {
+    console.log('我是' + this.name);
+  }
+}
+
+class Teachers extends Person {
+  constructor() {
+    super();
+  }
+  public say(): void {
+    console.log(this);
+  }
+}
+
+new Teachers().say();
