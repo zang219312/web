@@ -342,12 +342,13 @@ console.log(male.name);
 class Male2 {
   private name: string;
   public sayHello() {
-    console.log(this.name + "说：'你好'");
+    this.name = 'male2';
+    console.log(this.name + " 说：'你好'");
   }
 }
 
 let male2 = new Male2();
-// male2.name = 'zd';  // 报错
+// male2.name = 'zd'; // 报错
 male2.sayHello();
 // console.log(male2.name); // 报错
 
