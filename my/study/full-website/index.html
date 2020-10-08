@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script
+    <!-- <script
       src="https://kit.fontawesome.com/f898db3c7d.js"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <link
       href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.11.2/css/all.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="libs/glide/glide.core.min.css" />
+    <link rel="stylesheet" href="libs/glide/glide.theme.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -32,7 +34,47 @@
         <div class="burger-line3"></div>
       </div>
     </header>
-    <div class="glide"></div>
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <div class="glide__slides">
+          <div class="glide__slide">
+            <div class="slide-caption">
+              <h1>用创新点缀人生，热昂科技融入理想</h1>
+              <h3>
+                科技创新大平台，创新生活新引擎。依靠科技进步推进经济跨越式发展。用创新点缀人生，热昂科技融入理想
+              </h3>
+              <button class="explore-btn">搜索更多</button>
+            </div>
+            <div class="backdrop"></div>
+            <img src="images/people-in-couch-1024248.jpg" alt="" />
+          </div>
+          <div class="glide__slide">
+            <div class="slide-caption left">
+              <h1>科技改变世界</h1>
+              <h3>
+                立足科学发展，着力自主创新。加速科技进步，为全市经济社会发展提供有力支撑。凝聚科技创意，成就创新梦想。
+              </h3>
+              <button class="explore-btn">搜索更多</button>
+            </div>
+            <div class="backdrop"></div>
+            <video src="videos/working-man.mp4" muted autoplay loop></video>
+          </div>
+        </div>
+      </div>
+      <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+          <
+        </button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+          >
+        </button>
+      </div>
+      <div class="glide__bullets" data-glide-el="controls[nav]">
+        <button class="glide__bullet" data-glide-dir="=0"></button>
+        <button class="glide__bullet" data-glide-dir="=1"></button>
+      </div>
+    </div>
+    <script src="libs/glide/glide.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
