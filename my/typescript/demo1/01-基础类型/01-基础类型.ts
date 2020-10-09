@@ -372,3 +372,90 @@ class Teachers extends Person {
 }
 
 new Teachers().say();
+
+// * 12 类的构造函数
+
+class Person2 {
+  public name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+let p = new Person2('zd');
+console.log(p.name);
+
+// 类继承中的构造器写法
+class Person3 {
+  constructor(public name: string) {}
+}
+
+class Teacher3 extends Person3 {
+  constructor(public age: number) {
+    super('zdd');
+  }
+}
+let t1 = new Teacher3(24);
+console.log(t1);
+
+//* 13 类的 Getter、Setter 和 static 使用
+//
+class XJieJie5 {
+  constructor(private _age: number) {}
+  get age() {
+    return this._age - 10;
+  }
+  set age(age: number) {
+    this._age = age + 3;
+  }
+}
+let daJibe = new XJieJie5(24);
+daJibe.age = 28;
+console.log(daJibe.age);
+
+class Girl {
+  static sayLove() {
+    return 'love!';
+  }
+}
+/* let g1 = new Girl();
+console.log(g1.sayLove()); */
+console.log(Girl.sayLove());
+
+// * 14 类的只读属性和抽象类
+// readonly
+class Person4 {
+  public readonly _name: string;
+  constructor(name: string) {
+    this._name = name;
+  }
+}
+let p1 = new Person4('zd');
+// p1._name = 'aa'; // 报错 _name 是只读属性
+console.log(p1._name);
+
+// 抽象类的使用
+abstract class Girl2 {
+  abstract skill();
+}
+
+class Waiter extends Girl2 {
+  skill() {
+    console.log('喝水');
+  }
+}
+class BaseTeacher extends Girl2 {
+  skill() {
+    console.log('泰式按摩');
+  }
+}
+class seniorTeacher extends Girl2 {
+  skill() {
+    console.log('SPA');
+  }
+}
+
+// * 15  配置文件
+
+// tsc --init  生成tsconfig.json;
