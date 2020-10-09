@@ -362,13 +362,15 @@ class Male3 {
   }
 }
 
-class Teachers extends Person {
+class Teachers extends Male3 {
   constructor() {
     super();
   }
   public say(): void {
-    console.log(this);
+    this.name; // 没报错
   }
 }
 
 new Teachers().say();
+
+// * 构造函数
