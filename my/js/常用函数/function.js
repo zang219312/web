@@ -271,6 +271,7 @@ const arrayRange = (array, index, distance = '+') => {
 console.log(arrayRange(['a', 'b', 'c'], 2)); // ["a", "b"]
 console.log(arrayRange(['a', 'b', 'c'], 2, '-')); // ["a"]
 
+// 回调函数测试
 invoice()
 
 function invoice() {
