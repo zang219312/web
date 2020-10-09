@@ -284,3 +284,35 @@ function checkLogin(callback, showDialog) {
   console.log(callback);
   callback(true)
 }
+
+let userInfo = {
+  "openid": "o2UMu5colPb9FreiSgSvmkDO9PHM",
+  "userId": "U20200921150207387713",
+  "userName": "新用户",
+  "nickname": null,
+  "userIdCard": null,
+  "userPhone": "13647129407",
+  "userType": 0,
+  "sex": null,
+  "age": null,
+  "userRemark": "",
+  "token": "FD1547595AA560666ABA413B9FFEAC35"
+}
+
+
+Object.prototype.setAge = function () {
+  this.age = 22;
+};
+
+console.log(Object.keys(userInfo).length); // 11
+
+for (const key in userInfo) {
+  // console.log(key); //12 原型链的属性也被遍历出来了
+
+  if (userInfo.hasOwnProperty(key)) {
+    console.log(key);
+  }
+}
+
+userInfo.setAge();
+console.log(userInfo);
