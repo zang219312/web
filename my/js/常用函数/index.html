@@ -3,6 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <title>常用函数</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --scrollbar: 0px;
+      }
+      header {
+        width: 100vw;
+        height: 80px;
+        background-color: rebeccapurple;
+        width: calc(100vw - var(--scrollbar));
+      }
+    </style>
   </head>
   <body>
     <div
@@ -10,7 +26,9 @@
       class="box"
       style="border: 1px solid; width: 100px; height: 100px"
     ></div>
+    <header></header>
     <output id="output" name="output"></output>
+    <script src="./getScrollbarWidth.js"></script>
+    <script src="./function.js" type="text/javascript" charset="utf-8"></script>
   </body>
-  <script src="function.js" type="text/javascript" charset="utf-8"></script>
 </html>

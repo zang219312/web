@@ -316,3 +316,6 @@ for (const key in userInfo) {
 
 userInfo.setAge();
 console.log(userInfo);
+
+const scrollbarWidth = getScrollbarWidth();
+document.documentElement.style.setProperty('--scrollbar', `${scrollbarWidth}px`);
