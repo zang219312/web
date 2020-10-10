@@ -1,3 +1,10 @@
 {
-  "cSpell.words": ["lightbulb"]
+  "cSpell.words": [
+    "ESNEXT",
+    "downlevel",
+    "lightbulb",
+    "sourcemap",
+    "tslib",
+    "typechecking"
+  ]
 }
