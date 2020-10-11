@@ -85,3 +85,4 @@ var checkID = function (val) {
 }
 
 console.log(checkID("422202199603196116"));
+console.log(checkID("52030219891209794X"));

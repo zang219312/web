@@ -3,6 +3,7 @@
     "ESNEXT",
     "downlevel",
     "lightbulb",
+    "provs",
     "sourcemap",
     "tslib",
     "typechecking"
