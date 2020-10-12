@@ -31,14 +31,18 @@ Page({
     },
     // 获取滚动广告
     getBanner() {
-        return infoServer.getHomeBanner().then(data => {
-            this.setData({ imgUrls: data });
+         infoServer.getHomeBanner().then(data => {
+            this.setData({
+                imgUrls: data
+            });
         });
     },
     // 获取正在热映电影列表
     getPlayingFilm() {
         filmServer.getNowPlaying(1, 5).then(data => {
-            this.setData({ playingFilms: data.films });
+            this.setData({
+                playingFilms: data.films
+            });
         });
     },
     // 获取即将上映电影列表
@@ -49,7 +53,9 @@ Page({
                     1}月${new Date(film.premiereAt).getDate()}日`;
                 film.displayDate = displayDate;
             });
-            this.setData({ comingFilms: data.films });
+            this.setData({
+                comingFilms: data.films
+            });
         });
     },
     toBannerDetail() {

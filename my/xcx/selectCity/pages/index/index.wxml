@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="input">
+  <input bindinput="bindKeyInput" bindblur="bindBlur" placeholder="输入城市名或拼音查询" placeholder-style="font-size: 30rpx"
+    value="{{inputName}}"></input>
+</view>
+
+<view class="container-inner">
+  <view class="serachLetter touchClass">
+    <view class="thisHot" bindtap="hotCity">
+      <view>当前热门</view>
+    </view>
+    <view class="letter" wx:for="{{searchLetter}}" wx:key="index" catchtouchend="clickLetter" data-letter="{{item.name}}">
+      {{item.name}}
+    </view>
+  </view>
+  
+  <view class="container">
+    <!-- <block wx:if="{{isShowLetter}}"> -->
+      <view class="showSlectedLetter {{anime ? 'show' : 'hide'}}">
+        {{toastShowLetter}}
+      </view>
+    <!-- </block> -->
+
+  </view>
+</view>

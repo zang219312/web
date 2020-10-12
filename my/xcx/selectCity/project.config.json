@@ -1,13 +1,16 @@
 {
-  "description": "项目配置文件。",
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
   "setting": {
-    "urlCheck": false,
+    "urlCheck": true,
     "es6": true,
     "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
-    "newFeature": true,
+    "newFeature": false,
     "coverView": true,
     "nodeModules": false,
     "autoAudits": false,
@@ -32,10 +35,40 @@
     "packNpmRelationList": []
   },
   "compileType": "miniprogram",
-  "libVersion": "2.2.0",
+  "libVersion": "2.13.1",
   "appid": "wxbea057cf549bdc77",
-  "projectname": "maizuo",
+  "projectname": "selectCity",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "isGameTourist": false,
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "condition": {}
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "plugin": {
+      "current": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": []
+    }
+  }
 }
