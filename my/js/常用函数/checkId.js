@@ -21,6 +21,7 @@ var checkDate = function (val) {
     var month = val.substring(4, 6);
     var date = val.substring(6, 8);
     var date2 = new Date(year + "-" + month + "-" + date);
+    console.log(year + "-" + month + "-" + date);
     if (date2 && date2.getMonth() == (parseInt(month) - 1)) {
       return true;
     }
