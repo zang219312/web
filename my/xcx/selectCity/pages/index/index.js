@@ -4,55 +4,67 @@ const app = getApp()
 const citys = require('../../libs/city')
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     searchLetter: [],
-    isShowLetter:false,
+    isShowLetter: false,
+    scrollTop:0,
     timer:null,
-    anime:false
+    anime: false,
+    city:'杭州市',
+    cityList:[]
   },
   onLoad: function () {
-    console.log(citys);
+    // console.log(citys);
     let searchletter = citys.searchLetter;
     let cityList = citys.cityList();
     let sysInfo = wx.getSystemInfoSync();
+    console.log(sysInfo);
+    
     // 每一个 A 的高度
-    let letterHigh = sysInfo.windowHeight / searchletter.length;
+    let letterHigh = (sysInfo.windowHeight - 80) / searchletter.length;
     let tmpArr = [];
 
     searchletter.map((val, key) => {
       let tmp = {};
       tmp.name = val;
-      tmp.tHeight = key * letterHigh;
-      tmp.bHeight = (key+1) * letterHigh;
+      // tmp.tHeight = key * letterHigh;
+      // tmp.bHeight = (key + 1) * letterHigh;
       tmpArr.push(tmp)
     })
 
 
     this.setData({
-      searchLetter: tmpArr
+      searchLetter: tmpArr,
+      cityList:cityList,
+      winHeight:sysInfo.windowHeight,
     })
   },
 
-  clickLetter(e){
+  clickLetter(e) {
     let showLetter = e.currentTarget.dataset.letter;
 
     this.setData({
-      toastShowLetter:showLetter,
-      isShowLetter:true
+      toastShowLetter: showLetter,
+      scrollTopId:showLetter,
+      isShowLetter: true,
+      anime:true
     })
 
-    /* this.data.timer = setTimeout(()=>{
+     
+
+    this.data.timer = setTimeout(() => {
       this.setData({
-        isShowLetter:false
+        isShowLetter: false,
+        // anime:false,
       })
-    },500) */
+    }, 1000)
 
   },
-  onHide(){
-    // clearTimeout(this.data.timer)
+
+
+
+
+  onHide() {
+    clearInterval(interval);
   }
 
 })
