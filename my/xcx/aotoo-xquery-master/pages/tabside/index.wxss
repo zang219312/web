@@ -1,0 +1,11 @@
+@import "../common/source.wxss";
+@import "../../components/modules/tabside.wxss";
+
+.container {
+  display: flex;
+  margin-top: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}

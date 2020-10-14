@@ -1,0 +1,32 @@
+@import "../../css/calendar.wxss";
+@import "../common/source.wxss";
+
+.container {
+  display: flex;
+  margin-top: 10px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
