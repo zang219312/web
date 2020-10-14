@@ -13,11 +13,9 @@ Page({
     cityList:[]
   },
   onLoad: function () {
-    // console.log(citys);
     let searchletter = citys.searchLetter;
     let cityList = citys.cityList();
     let sysInfo = wx.getSystemInfoSync();
-    console.log(sysInfo);
     
     // 每一个 A 的高度
     let letterHigh = (sysInfo.windowHeight - 80) / searchletter.length;
@@ -26,8 +24,8 @@ Page({
     searchletter.map((val, key) => {
       let tmp = {};
       tmp.name = val;
-      // tmp.tHeight = key * letterHigh;
-      // tmp.bHeight = (key + 1) * letterHigh;
+      tmp.tHeight = key * letterHigh;
+      tmp.bHeight = (key + 1) * letterHigh;
       tmpArr.push(tmp)
     })
 
