@@ -271,19 +271,6 @@ const arrayRange = (array, index, distance = '+') => {
 console.log(arrayRange(['a', 'b', 'c'], 2)); // ["a", "b"]
 console.log(arrayRange(['a', 'b', 'c'], 2, '-')); // ["a"]
 
-// 回调函数测试
-invoice()
-
-function invoice() {
-  checkLogin(res => {
-    console.log(res);
-  }, true)
-}
-
-function checkLogin(callback, showDialog) {
-  console.log(callback);
-  callback(true)
-}
 
 let userInfo = {
   "openid": "o2UMu5colPb9FreiSgSvmkDO9PHM",
