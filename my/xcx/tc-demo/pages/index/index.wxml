@@ -8,3 +8,8 @@
 <view bindtap="go" data-id="2">
   三级联动
 </view>
+
+<view bindtap="go" data-id="3">
+二维码
+
+</view>

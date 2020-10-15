@@ -1,5 +1,4 @@
-// pages/demo/picker/picker.js
-const city = require('../../../libs/citys');
+// pages/demo/qrcode/qrcode.js
 Page({
 
   /**
@@ -13,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(city);
+    console.log(decodeURIComponent(options.scene));
     
   },
 

@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/demo/picker/picker",
     "pages/demo/fly/fly",
-    "pages/demo/city/city"
+    "pages/demo/city/city",
+    "pages/demo/qrcode/qrcode"
   ],
   "window":{
     "backgroundTextStyle":"light",
