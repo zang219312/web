@@ -1,5 +1,3 @@
-
-
 // 贝塞尔算法
 function bezier(pots, amount) {
 	var pot;
