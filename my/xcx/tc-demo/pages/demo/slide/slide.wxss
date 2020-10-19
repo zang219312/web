@@ -1,0 +1,152 @@
+.arrow{
+  display:inline-block;
+  border:6px solid transparent;
+  border-top-color:#000;
+  margin-left:8px;
+  position:relative;
+  top:6rpx;
+}
+/* ---------------------------- */
+/*模态框*/
+.modal{position:fixed; top:0; right:0; bottom:0; left:0; z-index:1000;}
+.modal-cancel{position:absolute; z-index:2000; top:0; right:0; bottom: 0; left:0; background:rgba(0,0,0,0.3);}
+.bottom-dialog-body{width:100%; position:absolute; z-index:3000; bottom:0; left:0;background:#dfdede;}
+/*动画前初始位置*/
+.bottom-positon{-webkit-transform:translateY(100%);transform:translateY(100%);}
+ 
+ 
+/* 底部弹出框 */
+.bottom-positon{
+  text-align: center;
+}
+
+.bindBarcode{
+  background: #fff;
+  height:472rpx ;
+}
+.bb-content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  font-weight: 400;
+}
+
+.margin-bottom{
+  margin-bottom:20rpx;
+}
+
+.head-icon{
+  width: 100%;
+  height: 42rpx;
+  display: flex;
+  justify-content: space-between;
+  margin: 8rpx 0;
+}
+.right{
+  justify-content: flex-end;
+}
+
+.close,.revo{
+  margin: 0 8rpx;
+}
+
+.head-icon image{
+  width: 42rpx;
+}
+
+.bb-icon{
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: -20rpx;
+}
+.bb-icon image{
+  width: 100%;
+  height: 100%;
+}
+.bb-text{color: #555555;}
+
+.bb-title{
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.bb-input{
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  border: 1px solid #aaaaaa;
+  text-align: left;
+  height: 74rpx;
+}
+
+.bb-input image{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.bb-input input{
+  width: 90%;
+  height: 74rpx;
+  line-height: 74rpx;
+  padding-left: 10rpx;
+  color: #aaaaaa;
+  font-size: 28rpx;
+}
+
+.placeholder-input{
+  color: #aaaaaa;
+}
+
+.bb-btn{
+  background-color: rgba(24, 176, 159, 1);
+  width: 90%;
+  height: 66rpx;
+  line-height: 66rpx;
+  border-radius: 56rpx;
+  color: #fff;
+}
+
+/* 已绑定 */
+.bb-main{
+  margin-top: 60rpx;
+}
+.bb-main image{
+  width: 122rpx;
+  height: 122rpx;
+}
+.bb-main view{
+  margin-top: 16rpx ;
+}
+.bb-foot{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 40rpx;
+  color: #d7d7d7;
+}
+.bb-foot image{
+  width: 48rpx;
+  height: 48rpx;
+}
+
+/* 已绑定  */
+
+
+
+/* .Mselect{
+  margin-bottom: 20rpx;
+}
+.Mselect view{
+  padding: 26rpx 0;
+  background: #fff;
+}
+.Mselect view:not(:last-of-type){
+  border-bottom: 1px solid #dfdede;
+} 
+.Mcancel{
+  background: #fff;
+  padding: 26rpx 0;
+}*/

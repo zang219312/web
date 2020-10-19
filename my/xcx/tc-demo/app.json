@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/demo/slide/slide",
+
     "pages/index/index",
     "pages/demo/picker/picker",
     "pages/demo/fly/fly",

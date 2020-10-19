@@ -44,30 +44,23 @@ Page({
     }
     let str = JSON.stringify(obj)
 
-    console.log(obj);
+    //  encodeURIComponent(str)
+    console.log(obj); 
+    let id = e.currentTarget.dataset.id;
+    const actions = new Map([
+      ["1",['城市选择','../demo/city/city']],
+      ["2",['购物车动画','../demo/fly/fly']],
+      ["3",['三级联动','../demo/picker/picker']],
+      ["4",['参数','../demo/qrcode/qrcode']],
+      ["5",['抽屉栏','../demo/slide/slide']],
+      ["default", ['other','index']]
+    ])
+    let action = actions.get(id) || actions.get('default')
 
-    if (e.currentTarget.dataset.id == 3) {
-      wx.navigateTo({
-        url: '../demo/qrcode/qrcode?scene=' + encodeURIComponent(str),
-      })
-      console.log('../demo/qrcode/qrcode?scene=' + encodeURIComponent(str));
-      
-
-    } else if (e.currentTarget.dataset.id == 2) {
-      wx.navigateTo({
-        url: '../demo/picker/picker',
-      })
-    } else if (e.currentTarget.dataset.id == 1) {
-      wx.navigateTo({
-        url: '../demo/fly/fly',
-      })
-    } else {
-      wx.navigateTo({
-        url: '../demo/city/city',
-
-      })
-    }
-
+    wx.navigateTo({
+      url:action[1],
+    })
+  
   },
 
   /**
@@ -75,7 +68,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-    
+
   },
 
   /**
@@ -124,8 +117,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    return{
-      
+    return {
+
     }
   }
 })

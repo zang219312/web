@@ -1,0 +1,52 @@
+<view>
+  <view bindtap="showModal">
+    {{state ?'绑定':'未绑定'}}
+  </view>
+
+  <switch checked="{{switchChecked}}" bindchange="switchChange"></switch>
+
+  <!-- modal  -->
+  <view class="modal" hidden="{{hideFlag}}">
+    <view class="modal-cancel" bindtap="hideModal"></view>
+    <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+      <!-- 自定义内容  -->
+      <view class="bindBarcode">
+        <view class="bb-content" >
+          <!-- 隐藏撤回 1.已绑定，2.未绑定且showRevoIcon为false -->
+          <view class="head-icon{{state || !showRevoIcon ? ' right':' '}}">
+            <view class="revo" bindtap="revocation" wx:if="{{!state && showRevoIcon}}" >
+              <image src="../../../images/revocation.png" mode='widthFix'></image>
+            </view>
+            <view class="close" bindtap="mCancel" >
+              <image src="../../../images/close.png" mode="widthFix"></image>
+            </view>
+          </view>
+          <block wx:if="{{state==0}}">
+            <view class="bb-icon margin-bottom">
+              <image src="{{icon}}" mode="widthFix"></image>
+            </view>
+            <view class="bb-text margin-bottom">{{msg}}</view>
+            <view class="bb-title margin-bottom">{{title}}</view>
+            <view class="bb-input margin-bottom">
+              <input type="text" cursor-spacing="10" bindconfirm='bindconfirm' placeholder="请输入条码；或点击右侧扫码" maxlength="18"  placeholder-class="placeholder-input" disabled="{{isdisabled}}"/>
+              <image src="../../../images/scan.png" mode="widthFix" bindtap="scan"></image>
+            </view>
+            <view class="bb-btn" wx:if="{{identify}}" bindtap="queding">确认</view>
+            <view class="bb-btn" wx:if="{{remind}}" bindtap="binding">确认绑定</view>
+          </block>
+          <block wx:else>
+            <view class="bb-title margin-bottom">{{title}}</view>
+            <view class="bb-main">
+              <image src="../../../images/bind-success.png" mode="widthFix"></image>
+              <view class="bb-text">已绑定条码{{barcode}}</view>
+            </view>
+            <view class="bb-foot" bindtap="call"> 
+              <text>如有疑问，请联系客服 </text> 
+              <image src="../../../images/service.png" mode="widthFix"></image>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
