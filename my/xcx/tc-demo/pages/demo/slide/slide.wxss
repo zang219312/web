@@ -160,7 +160,7 @@
 
 /* shake 动画 */
 .shake {
-  animation: shake 1s linear  ;
+  animation: 1s linear shake ;
 }
 
 @keyframes shake {

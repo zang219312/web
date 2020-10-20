@@ -69,7 +69,7 @@ Page({
       clearTimeout(time1);
       time1 = null;
     }, 220) //先执行下滑动画，再隐藏模块
-
+    that.resetAll()
   },
   //动画 -- 滑入
   slideIn: function () {
@@ -149,16 +149,17 @@ Page({
       icon: action[1]
     })
   },
+  // 重置所有状态
   resetAll() {
     this.setData({
       isdisabled: false, // 是否禁用
-      switchChecked: false,
       identify: false, //true 识别成功 false 识别失败
       remind: false, // 确认绑定
       title: 'ABO血型',
       msg: '您可以自助录入条码，减少等待时间',
       icon: '../../../images/icon-start.png',
       barcode: '',
+      extraClasses:'',
       showRevoIcon: false,
     })
   },
@@ -265,7 +266,7 @@ Page({
       })
     })
   },
-
+  // 添加动画
   addAnime(){
     this.setData({
       extraClasses: 'shake'
@@ -279,17 +280,13 @@ Page({
   animationstart(e){
     console.log('动画开始',e);
   },
-  animationiteration(e){
-    console.log('动画一个阶段结束',e);
-  },
 
   // 监听动画结束
   animationend(e){
     console.log('动画结束',e);
-  },
-  transitionend(e){
-    console.log('过度结束',e);
-    
+    this.setData({
+      extraClasses:''
+    })
   },
 
   /**

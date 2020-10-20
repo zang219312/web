@@ -8,16 +8,17 @@
   <!-- modal  -->
   <view class="modal" hidden="{{hideFlag}}">
     <view class="modal-cancel" bindtap="hideModal"></view>
-    <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}" bindtransitionend="modaltransitionend">
+    <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}"
+      bindtransitionend="modaltransitionend">
       <!-- 自定义内容  -->
       <view class="bindBarcode">
-        <view class="bb-content" >
+        <view class="bb-content">
           <!-- 隐藏撤回 1.已绑定，2.未绑定且showRevoIcon为false -->
           <view class="head-icon{{state || !showRevoIcon ? ' right':' '}}">
-            <view class="revo" bindtap="revocation" wx:if="{{!state && showRevoIcon}}" >
+            <view class="revo" bindtap="revocation" wx:if="{{!state && showRevoIcon}}">
               <image src="../../../images/revocation.png" mode='widthFix'></image>
             </view>
-            <view class="close" bindtap="mCancel" >
+            <view class="close" bindtap="mCancel">
               <image src="../../../images/close.png" mode="widthFix"></image>
             </view>
           </view>
@@ -25,20 +26,23 @@
             <view class="bb-icon margin-bottom">
               <image src="{{icon}}" mode="widthFix"></image>
             </view>
-            <view class="bb-text margin-bottom {{extraClasses}}" bindanimationstart="animationstart"  bindanimationiteration="animationiteration" bindanimationend="animationend" bindtransitionend="transitionend">
+            <view class="bb-text margin-bottom {{extraClasses}}" bindanimationstart="animationstart"
+              bindanimationend="animationend">
               {{msg}}
             </view>
             <view class="bb-title margin-bottom">{{title}}</view>
-            <view class="bb-input margin-bottom{{showRevoIcon?' scan-succ':' '}}" >
+            <view class="bb-input margin-bottom{{showRevoIcon?' scan-succ':' '}}">
               <!-- 当处于确认绑定时， -->
-            <block wx:if="{{showRevoIcon}}">
-              <view class="scan-succ-text">{{barcode}}</view>
-            </block>
-            <block wx:else>
-              <input type="text" value="{{barcode}}" cursor-spacing="10" bindconfirm='bindconfirm' placeholder="请输入条码；或点击右侧扫码" maxlength="18"  placeholder-class="placeholder-input" disabled="{{isdisabled}}" />
-              <image src="../../../images/scan.png" mode="widthFix" bindtap="scan"></image>
-            </block>
-             
+              <block wx:if="{{showRevoIcon}}">
+                <view class="scan-succ-text">{{barcode}}</view>
+              </block>
+              <block wx:else>
+                <input type="text" value="{{barcode}}" cursor-spacing="10" bindconfirm='bindconfirm'
+                  placeholder="请输入条码；或点击右侧扫码" maxlength="18" placeholder-class="placeholder-input"
+                  disabled="{{isdisabled}}" />
+                <image src="../../../images/scan.png" mode="widthFix" bindtap="scan"></image>
+              </block>
+
             </view>
             <view class="bb-btn" wx:if="{{identify}}" bindtap="queding">确认</view>
             <view class="bb-btn" wx:if="{{remind}}" bindtap="binding">确认绑定</view>
@@ -49,8 +53,8 @@
               <image src="../../../images/bind-success.png" mode="widthFix"></image>
               <view class="bb-text">已绑定条码{{barcode}}</view>
             </view>
-            <view class="bb-foot" bindtap="call"> 
-              <text>如有疑问，请联系客服 </text> 
+            <view class="bb-foot" bindtap="call">
+              <text>如有疑问，请联系客服 </text>
               <image src="../../../images/service.png" mode="widthFix"></image>
             </view>
           </block>
