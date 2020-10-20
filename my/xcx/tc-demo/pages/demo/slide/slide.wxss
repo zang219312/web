@@ -23,6 +23,9 @@
 .bindBarcode{
   background: #fff;
   height:472rpx ;
+  /* 兼容 iphoneX */
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .bb-content{
   width: 100%;
@@ -80,6 +83,7 @@
   border: 1px solid #aaaaaa;
   text-align: left;
   height: 74rpx;
+  line-height: 74rpx;
 }
 
 .bb-input image{
@@ -98,6 +102,14 @@
 
 .placeholder-input{
   color: #aaaaaa;
+}
+
+.scan-succ{
+  border: 0;
+}
+
+.scan-succ-text{
+  margin: 0 auto;
 }
 
 .bb-btn{

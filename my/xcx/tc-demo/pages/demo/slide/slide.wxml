@@ -27,9 +27,16 @@
             </view>
             <view class="bb-text margin-bottom">{{msg}}</view>
             <view class="bb-title margin-bottom">{{title}}</view>
-            <view class="bb-input margin-bottom">
-              <input type="text" cursor-spacing="10" bindconfirm='bindconfirm' placeholder="请输入条码；或点击右侧扫码" maxlength="18"  placeholder-class="placeholder-input" disabled="{{isdisabled}}"/>
+            <view class="bb-input margin-bottom{{showRevoIcon?' scan-succ':' '}}" >
+              <!-- 当处于确认绑定时， -->
+            <block wx:if="{{showRevoIcon}}">
+              <view class="scan-succ-text">{{barcode}}</view>
+            </block>
+            <block wx:else>
+              <input type="text" value="{{barcode}}" cursor-spacing="10" bindconfirm='bindconfirm' placeholder="请输入条码；或点击右侧扫码" maxlength="18"  placeholder-class="placeholder-input" disabled="{{isdisabled}}"/>
               <image src="../../../images/scan.png" mode="widthFix" bindtap="scan"></image>
+            </block>
+             
             </view>
             <view class="bb-btn" wx:if="{{identify}}" bindtap="queding">确认</view>
             <view class="bb-btn" wx:if="{{remind}}" bindtap="binding">确认绑定</view>
