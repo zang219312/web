@@ -1,11 +1,12 @@
-.arrow{
-  display:inline-block;
-  border:6px solid transparent;
-  border-top-color:#000;
-  margin-left:8px;
-  position:relative;
-  top:6rpx;
+.arrow {
+  display: inline-block;
+  border: 6px solid transparent;
+  border-top-color: #000;
+  margin-left: 8px;
+  position: relative;
+  top: 6rpx;
 }
+
 /* ---------------------------- */
 /*模态框*/
 .modal{position:fixed; top:0; right:0; bottom:0; left:0; z-index:1000;}
@@ -13,21 +14,22 @@
 .bottom-dialog-body{width:100%; position:absolute; z-index:3000; bottom:0; left:0;background:#dfdede;}
 /*动画前初始位置*/
 .bottom-positon{-webkit-transform:translateY(100%);transform:translateY(100%);}
- 
- 
+
+
 /* 底部弹出框 */
-.bottom-positon{
+.bottom-positon {
   text-align: center;
 }
 
-.bindBarcode{
+.bindBarcode {
   background: #fff;
-  height:472rpx ;
+  height: 472rpx;
   /* 兼容 iphoneX */
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
 }
-.bb-content{
+
+.bb-content {
   width: 100%;
   height: 100%;
   display: flex;
@@ -37,46 +39,52 @@
   font-weight: 400;
 }
 
-.margin-bottom{
-  margin-bottom:20rpx;
+.margin-bottom {
+  margin-bottom: 20rpx;
 }
 
-.head-icon{
+.head-icon {
   width: 100%;
   height: 42rpx;
   display: flex;
   justify-content: space-between;
   margin: 8rpx 0;
 }
-.right{
+
+.right {
   justify-content: flex-end;
 }
 
-.close,.revo{
+.close,
+.revo {
   margin: 0 8rpx;
 }
 
-.head-icon image{
+.head-icon image {
   width: 42rpx;
 }
 
-.bb-icon{
+.bb-icon {
   width: 120rpx;
   height: 120rpx;
   margin-top: -20rpx;
 }
-.bb-icon image{
+
+.bb-icon image {
   width: 100%;
   height: 100%;
 }
-.bb-text{color: #555555;}
 
-.bb-title{
+.bb-text {
+  color: #555555;
+}
+
+.bb-title {
   font-size: 30rpx;
   font-weight: 700;
 }
 
-.bb-input{
+.bb-input {
   display: flex;
   width: 90%;
   justify-content: space-between;
@@ -86,12 +94,12 @@
   line-height: 74rpx;
 }
 
-.bb-input image{
+.bb-input image {
   width: 80rpx;
   height: 80rpx;
 }
 
-.bb-input input{
+.bb-input input {
   width: 90%;
   height: 74rpx;
   line-height: 74rpx;
@@ -100,19 +108,19 @@
   font-size: 28rpx;
 }
 
-.placeholder-input{
+.placeholder-input {
   color: #aaaaaa;
 }
 
-.scan-succ{
+.scan-succ {
   border: 0;
 }
 
-.scan-succ-text{
+.scan-succ-text {
   margin: 0 auto;
 }
 
-.bb-btn{
+.bb-btn {
   background-color: rgba(24, 176, 159, 1);
   width: 90%;
   height: 66rpx;
@@ -122,43 +130,63 @@
 }
 
 /* 已绑定 */
-.bb-main{
+.bb-main {
   margin-top: 60rpx;
 }
-.bb-main image{
+
+.bb-main image {
   width: 122rpx;
   height: 122rpx;
 }
-.bb-main view{
-  margin-top: 16rpx ;
+
+.bb-main view {
+  margin-top: 16rpx;
 }
-.bb-foot{
+
+.bb-foot {
   display: flex;
   justify-content: center;
   align-content: center;
   margin-top: 40rpx;
   color: #d7d7d7;
 }
-.bb-foot image{
+
+.bb-foot image {
   width: 48rpx;
   height: 48rpx;
 }
 
 /* 已绑定  */
 
-
-
-/* .Mselect{
-  margin-bottom: 20rpx;
+/* shake 动画 */
+.shake {
+  animation: shake 1s linear  ;
 }
-.Mselect view{
-  padding: 26rpx 0;
-  background: #fff;
+
+@keyframes shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0)
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    transform: translateX(-10px)
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px)
+  }
 }
-.Mselect view:not(:last-of-type){
-  border-bottom: 1px solid #dfdede;
-} 
-.Mcancel{
-  background: #fff;
-  padding: 26rpx 0;
-}*/

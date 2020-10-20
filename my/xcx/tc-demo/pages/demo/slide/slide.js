@@ -17,6 +17,7 @@ Page({
     icon: '../../../images/icon-start.png',
     barcode: '',
     showRevoIcon: false, //false 隐藏  true 显示  
+    extraClasses:'',  //动画样式 
     moni: 0
   },
   switchChange(e) {
@@ -125,6 +126,7 @@ Page({
       this.formatSucc(e.detail.value);
     }else{
       this.formatErr();
+      this.addAnime();
     }
   },
   // 通过
@@ -264,6 +266,32 @@ Page({
     })
   },
 
+  addAnime(){
+    this.setData({
+      extraClasses: 'shake'
+    })
+  },
+
+  // 监听过度结束
+  modaltransitionend(e){
+    // console.log(e);
+  },
+  animationstart(e){
+    console.log('动画开始',e);
+  },
+  animationiteration(e){
+    console.log('动画一个阶段结束',e);
+  },
+
+  // 监听动画结束
+  animationend(e){
+    console.log('动画结束',e);
+  },
+  transitionend(e){
+    console.log('过度结束',e);
+    
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -275,7 +303,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
