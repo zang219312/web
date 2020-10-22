@@ -1,13 +1,13 @@
 <view>
-  <view bindtap="showModal">
+  <view bindtap="showMask">
     {{state ?'绑定':'未绑定'}}
   </view>
 
-  <switch checked="{{switchChecked}}" bindchange="switchChange"></switch>
+  <switch checked="{{switchChecked}}" bindchange="switchChange" style="margin-top:60rpx;"></switch>
 
   <!-- modal  -->
   <view class="modal" hidden="{{hideFlag}}">
-    <view class="modal-cancel" bindtap="hideModal"></view>
+    <view class="modal-cancel" bindtap="hideMask" catchtouchmove="catchtouchmove"></view>
     <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}"
       bindtransitionend="modaltransitionend">
       <!-- 自定义内容  -->

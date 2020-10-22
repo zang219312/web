@@ -24,18 +24,17 @@ Page({
     this.setData({
       state: e.detail.value ? 1 : 0
     })
-
   },
 
   //取消
   mCancel: function () {
     var that = this;
-    that.hideModal();
+    that.hideMask();
     that.resetAll();
   },
 
   // 显示遮罩层
-  showModal: function () {
+  showMask: function () {
     var that = this;
     that.setData({
       hideFlag: false
@@ -54,7 +53,7 @@ Page({
   },
 
   // 隐藏遮罩层
-  hideModal: function () {
+  hideMask: function () {
     var that = this;
     var animation = wx.createAnimation({
       duration: 400, //动画的持续时间 默认400ms
@@ -101,6 +100,7 @@ Page({
     ])
     //  条形码识别成功 才出现底部按钮
     // 文本不能修改
+
   },
   // 去除空格
   trim(char) {
@@ -137,16 +137,17 @@ Page({
       icon: action[1],
       identify: true,
       isdisabled: true,
-      barcode: val,
+      barcode: val || '',
       showRevoIcon: false
     })
   },
   // 格式没有通过验证
-  formatErr(){
+  formatErr(str){
     let action = this.actions.get(2);
     this.setData({
       msg: action[0],
-      icon: action[1]
+      icon: action[1],
+      barcode:str || " "
     })
   },
   // 重置所有状态
@@ -227,6 +228,8 @@ Page({
       onlyFromCamera: true,
       scanType:['barCode'],
       success: (res) => {
+        console.log(res);
+        
         wx.showLoading({
           title: '识别中...',
         })
@@ -236,7 +239,11 @@ Page({
         if(that.validate(res.result)){
           that.formatSucc(res.result)
         }else{
-          that.formatErr();
+
+          console.log('识别错误');
+          
+          that.formatErr(res.result);
+          that.addAnime();
         }
       },
       fail(e){
@@ -277,6 +284,7 @@ Page({
   modaltransitionend(e){
     // console.log(e);
   },
+
   animationstart(e){
     console.log('动画开始',e);
   },
@@ -288,6 +296,8 @@ Page({
       extraClasses:''
     })
   },
+
+  catchtouchmove(){},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
