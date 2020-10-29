@@ -20,6 +20,7 @@ Page({
     extraClasses:'',  //动画样式 
     moni: 0
   },
+
   switchChange(e) {
     this.setData({
       state: e.detail.value ? 1 : 0
@@ -100,7 +101,7 @@ Page({
     ])
     //  条形码识别成功 才出现底部按钮
     // 文本不能修改
-
+   
   },
   // 去除空格
   trim(char) {
@@ -190,13 +191,14 @@ Page({
       if (res) {
         this.setData({
           state: 1,
-          msg: this.actions.get(1)[0],
-          icon: this.actions.get(1)[1],
-          isdisabled: false,
-          remind: false,
+          // msg: this.actions.get(1)[0],
+          // icon: this.actions.get(1)[1],
+          // isdisabled: false,
+          // remind: false,
+          // showRevoIcon: false,
           switchChecked: true,
-          showRevoIcon: false
         })
+        this.resetAll()
       }
     }).catch(err => {
       console.log(err);

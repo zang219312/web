@@ -4,6 +4,7 @@
   </view>
 
   <switch checked="{{switchChecked}}" bindchange="switchChange" style="margin-top:60rpx;"></switch>
+ 
 
   <!-- modal  -->
   <view class="modal" hidden="{{hideFlag}}">
