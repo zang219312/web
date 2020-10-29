@@ -1,7 +1,7 @@
 "use strict";
 var Home;
 (function (Home) {
-    /* class Header {
+  /* class Header {
       constructor() {
         const el = document.createElement('div');
         el.innerText = 'this is Header';
@@ -24,13 +24,13 @@ var Home;
         document.body.appendChild(elem);
       }
     } */
-    var Page = /** @class */ (function () {
-        function Page() {
-            new Components.Header();
-            new Components.Content();
-            new Components.Footer();
-        }
-        return Page;
-    }());
-    Home.Page = Page;
+  var Page = /** @class */ (function () {
+    function Page() {
+      new Components.Header();
+      new Components.Content();
+      new Components.Footer();
+    }
+    return Page;
+  }());
+  Home.Page = Page;
 })(Home || (Home = {}));
