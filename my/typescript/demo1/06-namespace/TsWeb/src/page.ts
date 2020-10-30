@@ -25,6 +25,8 @@ namespace Home {
 
   export class Page {
     constructor() {
+      console.log(Components);
+
       new Components.Header();
       new Components.Content();
       new Components.Footer();
