@@ -24,6 +24,13 @@
         background: lightgray;
         float: left;
       }
+      .inner {
+        height: 300px;
+        border: 1px solid crimson;
+
+        margin-left: 200px;
+        margin-right: 300px;
+      }
       .left {
         width: 200px;
         height: 500px;
@@ -50,7 +57,9 @@
       <input ref="range" type="range" value="100" />
     </div>
     <div class="main clear-fix">
-      <div class="center">中间自适应</div>
+      <div class="center">
+        <div class="inner">中间自适应</div>
+      </div>
       <!-- 因为相对来说，center中为主要内容，所以写前边，这样也有利于SEO -->
       <div class="left">左列定宽</div>
       <div class="right">右列定宽</div>
@@ -59,11 +68,10 @@
 
     <script>
       let input = document.querySelector('input');
-      let sec = document.querySelector('section');
-      console.log(input);
+      let sec = document.querySelector('.center');
       input.addEventListener('input', (e) => {
-        console.log(e.target.value);
         return;
+        console.log(e.target.value);
         sec.style.width = 60 + e.target.value * 0.4 + '%';
       });
     </script>
