@@ -6,9 +6,13 @@
     <title>Document</title>
   </head>
   <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js"></script>
     <script src="./build/page.js"></script>
+
     <script>
-      new Home.Page();
+      require(['page'], function (page) {
+        new page.default();
+      });
     </script>
   </body>
 </html>

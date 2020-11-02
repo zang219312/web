@@ -1,15 +1,7 @@
-"use strict";
-var Components;
-(function (Components) {
-    var SubCom;
-    (function (SubCom) {
-        var Test = /** @class */ (function () {
-            function Test() {
-            }
-            return Test;
-        }());
-        SubCom.Test = Test;
-    })(SubCom = Components.SubCom || (Components.SubCom = {}));
+define("components", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Footer = exports.Content = exports.Header = void 0;
     var Header = /** @class */ (function () {
         function Header() {
             var el = document.createElement('div');
@@ -18,7 +10,7 @@ var Components;
         }
         return Header;
     }());
-    Components.Header = Header;
+    exports.Header = Header;
     var Content = /** @class */ (function () {
         function Content() {
             var elem = document.createElement('div');
@@ -27,7 +19,7 @@ var Components;
         }
         return Content;
     }());
-    Components.Content = Content;
+    exports.Content = Content;
     var Footer = /** @class */ (function () {
         function Footer() {
             var elem = document.createElement('div');
@@ -36,41 +28,18 @@ var Components;
         }
         return Footer;
     }());
-    Components.Footer = Footer;
-})(Components || (Components = {}));
-var Home;
-(function (Home) {
-    /* class Header {
-      constructor() {
-        const el = document.createElement('div');
-        el.innerText = 'this is Header';
-        document.body.appendChild(el);
-      }
-    }
-  
-    class Content {
-      constructor() {
-        const elem = document.createElement('div');
-        elem.innerText = 'This is Content';
-        document.body.appendChild(elem);
-      }
-    }
-  
-    class Footer {
-      constructor() {
-        const elem = document.createElement('div');
-        elem.innerText = 'This is Footer';
-        document.body.appendChild(elem);
-      }
-    } */
+    exports.Footer = Footer;
+});
+define("page", ["require", "exports", "components"], function (require, exports, components_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     var Page = /** @class */ (function () {
         function Page() {
-            console.log(Components);
-            new Components.Header();
-            new Components.Content();
-            new Components.Footer();
+            new components_1.Content();
+            new components_1.Footer();
+            new components_1.Header();
         }
         return Page;
     }());
-    Home.Page = Page;
-})(Home || (Home = {}));
+    exports.default = Page;
+});
