@@ -1,4 +1,7 @@
 namespace Components {
+  export namespace SubCom {
+    export class Test {}
+  }
   export class Header {
     constructor() {
       const el = document.createElement('div');
