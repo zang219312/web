@@ -45,22 +45,25 @@ Page({
     let str = JSON.stringify(obj)
 
     //  encodeURIComponent(str)
-    console.log(obj); 
+
     let id = e.currentTarget.dataset.id;
+
     const actions = new Map([
-      ["1",['城市选择','../demo/city/city']],
-      ["2",['购物车动画','../demo/fly/fly']],
-      ["3",['三级联动','../demo/picker/picker']],
-      ["4",['参数','../demo/qrcode/qrcode']],
-      ["5",['抽屉栏','../demo/slide/slide']],
-      ["default", ['other','index']]
+      ["1", ['城市选择', '../demo/city/city']],
+      ["2", ['购物车动画', '../demo/fly/fly']],
+      ["3", ['三级联动', '../demo/picker/picker']],
+      ["4", ['参数', '../demo/qrcode/qrcode']],
+      ["5", ['抽屉栏', '../demo/slide/slide']],
+      ["6", ["海报", "../demo/poster/poster"]],
+      ["default", ['other', 'index']]
     ])
+
     let action = actions.get(id) || actions.get('default')
 
     wx.navigateTo({
-      url:action[1],
+      url: action[1],
     })
-  
+
   },
 
   /**

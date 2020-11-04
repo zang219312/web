@@ -14,5 +14,9 @@
 </view>
 
 <view bindtap="go" data-id="5">
-slideUp&Down
+自绑
+</view>
+
+<view bindtap="go" data-id="6">
+  生成图片
 </view>
