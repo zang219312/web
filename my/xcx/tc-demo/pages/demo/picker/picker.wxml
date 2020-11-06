@@ -12,13 +12,13 @@
       <picker-view class="pick-view__group" bindchange="cityChange" bindpickstart="chooseStart" bindpickend="chooseEnd"
         value="{{value}}">
         <picker-view-column indicator-class="item_active">
-          <view wx:for="{{provinces}}" class="picker-item" wx:key="index">{{item.name}}</view>
+          <view wx:for="{{provinces}}" class="picker-item" wx:key="index">{{item.text}}</view>
         </picker-view-column>
         <picker-view-column>
-          <view wx:for="{{citys}}" class="picker-item" wx:key="index">{{item.name}}</view>
+          <view wx:for="{{citys}}" class="picker-item" wx:key="index">{{item.text}}</view>
         </picker-view-column>
         <picker-view-column>
-          <view wx:for="{{areas}}" class="picker-item" wx:key="index">{{item.name}}</view>
+          <view wx:for="{{areas}}" class="picker-item" wx:key="index">{{item.text}}</view>
         </picker-view-column>
       </picker-view>
     </view>

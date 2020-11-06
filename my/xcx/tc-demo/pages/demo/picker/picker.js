@@ -1,7 +1,5 @@
 var app = getApp()
-var address = require('./city.js')
-
-var app = getApp()
+var address = require('../../../libs/citys.min.js')
 Page({
   data: {
     address: '', //详细收货地址（四级）
@@ -24,6 +22,8 @@ Page({
     })
 
     // 有些市下面没有数据，需要更新city源
+    
+    
   },
   closePopUp() {
     this.setData({
@@ -38,6 +38,8 @@ Page({
   },
   // 处理省市县联动逻辑 并保存 value
   cityChange(e) {
+    console.log('city-changed');
+    
     var value = e.detail.value
     let {
       provinces,
@@ -117,14 +119,14 @@ Page({
       })
       // 将选择的城市信息显示到输入框
       try {
-        var region = (this.data.provinces[value[0]].name || '') + (this.data.citys[value[1]].name || '')
+        var region = (this.data.provinces[value[0]].text || '') + (this.data.citys[value[1]].text || '')
         if (this.data.areas.length > 0) {
-          region = region + this.data.areas[value[2]].name || ''
+          region = region + this.data.areas[value[2]].text || ''
         } else {
           this.data.value[2] = 0
         }
       } catch (error) {
-        console.log('adress select something error')
+        console.log('address select something error')
       }
 
       this.setData({

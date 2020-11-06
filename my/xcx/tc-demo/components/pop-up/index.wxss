@@ -1,4 +1,4 @@
-.q-pp {
+.pop {
   position: fixed;
   width: 100%;
   box-sizing: border-box;
@@ -13,12 +13,12 @@
   visibility: hidden;
 }
 
-.q-pp-show {
+.pop-show {
   transform: translate3d(0, 0, 0);
   visibility: visible;
 }
 
-.q-pp-mask {
+.pop-mask {
   position: fixed;
   top: 0;
   left: 0;
@@ -31,7 +31,7 @@
   visibility: hidden;
 }
 
-.q-pp-mask-show {
+.pop-mask-show {
   opacity: 1;
   visibility: visible;
 }

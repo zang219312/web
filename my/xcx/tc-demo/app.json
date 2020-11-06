@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/demo/picker/picker",
     "pages/demo/fly/fly",
     "pages/demo/city/city",
     "pages/demo/qrcode/qrcode",
     "pages/demo/slide/slide",
-    "pages/demo/poster/poster"
+    "pages/demo/poster/poster",
+    "pages/demo/picker/picker"
   ],
   "window": {
     "backgroundTextStyle": "light",
