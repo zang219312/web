@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    cityData: {}
   },
 
   go(e) {
@@ -43,7 +43,6 @@ Page({
       "devicePixelRatio": 3
     }
     let str = JSON.stringify(obj)
-
     //  encodeURIComponent(str)
 
     let id = e.currentTarget.dataset.id;
@@ -55,6 +54,7 @@ Page({
       ["4", ['参数', '../demo/qrcode/qrcode']],
       ["5", ['抽屉栏', '../demo/slide/slide']],
       ["6", ["海报", "../demo/poster/poster"]],
+      ["7",["日历",'../demo/calendar/calendar']],
       ["default", ['other', 'index']]
     ])
 

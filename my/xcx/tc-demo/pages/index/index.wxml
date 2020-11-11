@@ -1,6 +1,6 @@
 <!--pages/index/index.wxml-->
 <view bindtap="go" data-id="1">
-  城市选择
+  城市选择 {{cityData.CityName ? cityData.CityName : '   ---   '}}
 </view>
 
 <view bindtap="go" data-id="2">fly-in-cart</view>
@@ -14,9 +14,13 @@
 </view>
 
 <view bindtap="go" data-id="5">
-自绑
+  自绑
 </view>
 
 <view bindtap="go" data-id="6">
   生成图片
+</view>
+
+<view bindtap="go" data-id="7">
+  日历
 </view>

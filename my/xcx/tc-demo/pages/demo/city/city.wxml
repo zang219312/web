@@ -1,2 +1,3 @@
-<!--pages/demo/city/city.wxml-->
-<text>pages/demo/city/city.wxml</text>
+<view class="full-page">
+  <city-selector bindselect="bindCitySelector" />
+</view>
