@@ -1,1 +1,0 @@
-<ui-list wx:if="{{checkListConfig}}" class="{{checkListConfig.containerClass}}" list="{{checkListConfig}}" />

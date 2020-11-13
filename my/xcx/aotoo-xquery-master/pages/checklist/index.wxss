@@ -1,3 +1,0 @@
-@import "../../css/iconfont.wxss";
-@import "../../components/modules/checklist.wxss";
-@import "../common/source.wxss";
