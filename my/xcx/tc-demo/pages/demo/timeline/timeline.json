@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "time-line":"../../../components/timeline/timeline",
+    "cus-img":"../../../components/cus-img/cus-img"
+  }
+}

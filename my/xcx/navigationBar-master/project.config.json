@@ -37,21 +37,18 @@
   "compileType": "miniprogram",
   "libVersion": "2.2.4",
   "appid": "wxbea057cf549bdc77",
-  "projectname": "%E5%8D%8E%E7%BE%8E%E6%95%B4%E5%91%97",
+  "projectname": "navigationBar",
   "isGameTourist": false,
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
     "search": {
-      "current": -1,
       "list": []
     },
     "conversation": {
-      "current": -1,
       "list": []
     },
     "plugin": {
-      "current": -1,
       "list": []
     },
     "game": {
@@ -59,7 +56,6 @@
       "list": []
     },
     "miniprogram": {
-      "current": 2,
       "list": [
         {
           "id": 0,

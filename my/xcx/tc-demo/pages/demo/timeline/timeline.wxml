@@ -1,0 +1,111 @@
+<navigator url="../timeline/timeline2">时间轴2</navigator>
+<!-- 大容器 -->
+<view class="r-wrap">
+  <!-- 每一条数据 -->
+  <view class="r-wrap-item">
+    <!-- 左子项 -->
+    <view class="r-item-left">
+      <!-- 左子项上块 -->
+      <view class="r-item-left-crd first "></view>
+      <!-- 点 -->
+      <view class="r-point-wrap">
+        <view class="r-point-item done-bg-color">
+          <view class="iconfont icon-duigou done-icon"></view>
+
+        </view>
+      </view>
+      <!-- 左子项下块 -->
+      <view class="done-bd-color "></view>
+    </view>
+    <!-- 右子项 -->
+    <view class="r-item-right">
+      <!-- 内容 -->
+      <view class="r-item-right-content">
+        <view class="content-title">检验项目</view>
+      </view>
+      <!-- 时间 -->
+      <!--  <view class="r-item-right-time">
+        2019-11-20 22:05:48
+      </view> -->
+    </view>
+
+  </view>
+  <!-- 每一条数据 -->
+  <view class="r-wrap-item">
+    <view class="r-item-left">
+      <view class="done-bd-color">
+        <!-- r-item-left-crd-->
+      </view>
+      <view class="r-point-wrap">
+        <view class="r-point-item done-bg-color">
+          <view class="current-dot"></view>
+        </view>
+      </view>
+      <view class="r-item-left-crd "></view>
+    </view>
+    <view class="r-item-right">
+      <!-- 内容 -->
+      <view class="r-item-right-content">
+        您的订单在京东【长沙分拨中心】分拣完成
+        您的订单在京东【长沙分拨中心】分拣完成
+      </view>
+      <!-- 时间 -->
+      <view class="r-item-right-time">
+        2019-11-20 19:23:44
+      </view>
+    </view>
+  </view>
+
+  <!-- 每一条数据 -->
+  <view class="r-wrap-item">
+    <!-- 左子项 -->
+    <view class="r-item-left">
+      <!-- 左子项上块 -->
+      <view class="r-item-left-crd"></view>
+      <!-- 点 -->
+      <view class="r-point-wrap">
+        <view class="r-point-item default-bg-color"></view>
+      </view>
+      <!-- 左子项下块 -->
+      <view class="r-item-left-crd"></view>
+    </view>
+    <!-- 右子项 -->
+    <view class="r-item-right">
+      <!-- 内容 -->
+      <view class="r-item-right-content">
+        您的订单由京东【武汉亚一分拣中心】送往【长沙分拨中心】
+      </view>
+      <!-- 时间 -->
+      <view class="r-item-right-time">
+        2019-11-20 11:33:28
+      </view>
+    </view>
+  </view>
+
+  <!-- 每一条数据 -->
+  <view class="r-wrap-item">
+    <!-- 左子项 -->
+    <view class="r-item-left">
+      <!-- 左子项上块 -->
+      <view class="r-item-left-crd"></view>
+      <!-- 点 -->
+      <view class="r-point-wrap">
+        <view class="r-point-item default-bg-color"></view>
+      </view>
+      <!-- 左子项下块 -->
+      <view class="r-item-left-crd last"></view>
+    </view>
+    <!-- 右子项 -->
+    <view class="r-item-right">
+      <!-- 内容 -->
+      <view class="r-item-right-content">
+        您的订单在京东【武汉亚一分拣中心】分拣完成
+        <cus-img src="/images/cart.png" bind:onImageError="onImageError" bind:onImageLoad="onImageLoad"></cus-img>
+      </view>
+      <!-- 时间 -->
+      <view class="r-item-right-time">
+        2019-11-20 11:28:15
+      </view>
+    </view>
+  </view>
+</view>

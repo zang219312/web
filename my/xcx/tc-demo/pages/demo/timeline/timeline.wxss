@@ -1,0 +1,102 @@
+@import '../../../font/iconfont2.wxss';
+
+page {
+  background-color: #f1eae2;
+  /* 已完成的背景颜色 */
+  --done-bg-color: #54985e;
+  --done-border-color: #54985e;
+
+  /* 默认的颜色 */
+  --default-bg-color: #ccc;
+  --default-bd-color: #D5D5D5;
+
+}
+
+/* 每一行数据容器 */
+.r-wrap-item {
+  display: flex;
+}
+
+/* 左边容器 */
+.r-item-left {
+  display: flex;
+  flex-direction: column;
+  width: 64rpx;
+  margin-right: 30rpx;
+}
+
+/* 左边容器子项 */
+.r-item-left .r-item-left-crd {
+  flex: 1;
+  border-right: 8rpx solid var(--default-bd-color);
+}
+
+/* 点容器 */
+.r-item-left .r-point-wrap {
+  position: relative;
+}
+
+.done-bg-color {
+  flex: 1;
+  background-color: var(--done-bg-color);
+}
+
+.done-icon {
+  text-align: center;
+  line-height: 60rpx;
+  color: #ffffff;
+}
+
+.done-bd-color {
+  border-right: 8rpx solid var(--done-border-color);
+  flex: 1;
+}
+
+.current-dot {
+  border-radius: 50%;
+  width: 24rpx;
+  height: 24rpx;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+
+/* 点容器子项 */
+.r-item-left .r-point-wrap .r-point-item {
+  position: absolute;
+  top: -24rpx;
+  left: 32rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.default-bg-color {
+  background-color: var(--default-bg-color);
+}
+
+/* 左子项不要边框块 */
+.r-item-left .r-item-left-crd.first,
+.r-item-left-crd.last {
+  flex: 1;
+  border: none;
+}
+
+/* 右容器 */
+.r-item-right {
+  flex: 10;
+  font-size: 30rpx;
+  margin: 30rpx;
+  padding: 30rpx;
+  background-color: #ffffff;
+}
+
+.r-item-right .r-item-right-time {
+  font-size: 26rpx;
+  color: #B4B4B4;
+}

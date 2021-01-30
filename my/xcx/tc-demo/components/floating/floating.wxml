@@ -1,0 +1,18 @@
+<!--components/floating.wxml-->
+<block wx:if="{{controlled}}">
+  <view class="xuanfu" catchtap="clickMe" bind:touchstart="start" catchtouchmove="move" bind:touchend="end"
+    bind:touchcancel="cancel"
+    style="{{transition}};transform:translateX({{left}}px) translateY({{top}}px);opacity:{{opacity}};padding:{{padding}}rpx">
+    <slot></slot>
+  </view>
+</block>
+<block wx:else>
+  <view class="xuanfu" catchtap="clickMe"
+    style="transform:translateX({{left}}px) translateY({{top}}px);padding:{{padding}}rpx">
+    <slot></slot>
+  </view>
+</block>
+
+<view wx:if="{{showDragableArea}}"
+  style="position:absolute;top:{{moveable.top}}rpx;left:{{moveable.left}}rpx;right:{{moveable.right}}rpx;bottom:{{moveable.bottom}}rpx;background:rgba(255,0,0,.3)">
+</view>

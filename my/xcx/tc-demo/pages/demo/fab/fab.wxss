@@ -1,0 +1,23 @@
+/* pages/demo/fab/fab.wxss */
+.cart {
+  width: 80rpx;
+  height: 80rpx;
+  background: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 50%;
+  color: #fff;
+  /* border: 2rpx solid #c2c2c2; */
+  position: relative;
+}
+
+.cart image {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}

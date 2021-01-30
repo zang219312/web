@@ -1,13 +1,20 @@
 {
   "pages": [
+
     "pages/index/index",
+    "pages/demo/timeline/timeline",
+    "pages/demo/timeline/timeline2",
+
     "pages/demo/fly/fly",
     "pages/demo/city/city",
     "pages/demo/qrcode/qrcode",
     "pages/demo/slide/slide",
     "pages/demo/poster/poster",
     "pages/demo/picker/picker",
-    "pages/demo/calendar/calendar"
+    "pages/demo/calendar/calendar",
+    "pages/demo/tubiao/tubiao",
+    "pages/demo/fab/fab",
+    "pages/demo/signature/signature"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,6 +22,36 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#44A0FF",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "iconPath": "images/cart.png",
+        "selectedIconPath": "images/cart.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/demo/fab/fab",
+        "iconPath": "images/close.png",
+        "selectedIconPath": "images/close.png",
+        "text": "报告"
+      },
+      {
+        "pagePath": "pages/demo/tubiao/tubiao",
+        "iconPath": "images/scan.png",
+        "selectedIconPath": "images/scan.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/demo/tubiao/tubiao",
+        "iconPath": "images/warn.png",
+        "selectedIconPath": "images/warn.png",
+        "text": "我的"
+      }
+    ]
+  },
+
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "permission": {

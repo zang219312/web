@@ -1,26 +1,49 @@
 <!--pages/index/index.wxml-->
-<view bindtap="go" data-id="1">
-  城市选择 {{cityData.CityName ? cityData.CityName : '   ---   '}}
-</view>
+<view bindtap="go" data-id="1">城市选择 {{cityData.CityName ? cityData.CityName : '   ---   '}}</view>
 
 <view bindtap="go" data-id="2">fly-in-cart</view>
 
-<view bindtap="go" data-id="3">
-  三级联动
+<view bindtap="go" data-id="3">三级联动</view>
+
+<view bindtap="go" data-id="4"> 二维码参数过长</view>
+
+<view bindtap="go" data-id="5">自绑</view>
+
+<view bindtap="go" data-id="6"> 生成图片</view>
+
+<view bindtap="go" data-id="7"> 日历</view>
+
+<view bindtap="go" data-id="8"> 悬浮小球</view>
+
+<view bindtap="go" data-id="9">图表</view>
+
+<view bindtap="go" data-id="10">时间线</view>
+
+<view bindtap="go" data-id="11">手写板</view>
+
+
+<button bindlongtap="recorder" hover-class="longtap" hover-start-time="300">
+  <image src="../../images/bind-success.png" class="{{animeName}}"></image>
+</button>
+
+
+
+<view class='myi'>
+  <!--; -->
+  <view wx:for="{{radomheight}}" style=' height:{{item}}rpx;transform:translateY:-({{item/2}}rpx);'></view>
+  <view style='clear:both;width:0;height:0;'></view>
+
+
 </view>
 
-<view bindtap="go" data-id="4">
-  二维码参数过长
+<view class='myi'>
+  <view wx:for="{{radomheight}}" style=' height:{{item}}rpx;margin-top:-{{item/2}}rpx;'></view>
+
 </view>
 
-<view bindtap="go" data-id="5">
-  自绑
-</view>
-
-<view bindtap="go" data-id="6">
-  生成图片
-</view>
-
-<view bindtap="go" data-id="7">
-  日历
-</view>
+<fab showDragableArea="{{showDragableArea}}" dragableArea="{{dragableArea}}" dragAttr="{{dragAttr}}" offset="{{offset}}"
+  padding="{{padding}}" controlled="{{controlled}}" bind:click='click'>
+  <view class="cart">
+    <image src="../../images/cart.png" mode="widthFix"></image>
+  </view>
+</fab>

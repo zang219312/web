@@ -1,0 +1,7 @@
+<!--pages/demo/fab/fab.wxml-->
+<fab showDragableArea="{{showDragableArea}}" dragableArea="{{dragableArea}}" dragAttr="{{dragAttr}}">
+  <view class="cart">
+    <image src="../../../images/cart.png" mode="widthFix"></image>
+  </view>
+</fab>
+<view>按钮宽:{{dragAttr.width/2}}px--高:{{dragAttr.height/2}}px</view>
