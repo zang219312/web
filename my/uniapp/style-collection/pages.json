@@ -1,0 +1,261 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/scene/index",
+			"style": {
+				"navigationBarTitleText": "场景",
+				"navigationBarBackgroundColor": "#a9c6b6"
+			}
+		}, {
+			"path": "pages/single/list",
+			"style": {
+				"navigationBarTitleText": "单一",
+				"navigationBarBackgroundColor": "#a9c6b6"
+			}
+		}, {
+			"path": "pages/user/index",
+			"style": {
+				"navigationBarTitleText": "个人",
+				"navigationBarBackgroundColor": "#a9c6b6"
+			}
+		}, {
+			"path": "pages/user/explain",
+			"style": {
+				"navigationBarTitleText": "使用说明"
+			}
+		}, {
+			"path": "pages/user/about",
+			"style": {
+				"navigationBarTitleText": "关于我们"
+			}
+		}, {
+			"path": "pages/user/contact",
+			"style": {
+				"navigationBarTitleText": "联系作者"
+			}
+		}, {
+			"path": "pages/user/sign-in",
+			"style": {
+				"navigationBarTitleText": "签到福利"
+			}
+		}, {
+			"path": "pages/user/project",
+			"style": {
+				"navigationBarTitleText": "项目"
+			}
+		}, {
+			"path": "pages/user/source-code",
+			"style": {
+				"navigationBarTitleText": "获取源码"
+			}
+		}, {
+			"path": "pages/user/edition",
+			"style": {
+				"navigationBarTitleText": "版本记录"
+			}
+		}, {
+			"path": "pages/scene/list"
+		}, {
+			"path": "pages/scene/test"
+		}, {
+			"path": "pages/scene/wulianwang/menci"
+		}, {
+			"path": "pages/scene/wulianwang/sousuo"
+		}, {
+			"path": "pages/scene/wulianwang/sousuo2"
+		}, {
+			"path": "pages/scene/wulianwang/changankuosan"
+		}, {
+			"path": "pages/scene/wulianwang/leida"
+		}, {
+			"path": "pages/scene/wulianwang/leida2"
+		}, {
+			"path": "pages/scene/wulianwang/wenkong"
+		}, {
+			"path": "pages/scene/wulianwang/wenduji"
+		}, {
+			"path": "pages/scene/wulianwang/anniushanshuo"
+		}, {
+			"path": "pages/scene/wulianwang/fengche"
+		}, {
+			"path": "pages/scene/wulianwang/kongtiaowaiji"
+		}, {
+			"path": "pages/scene/wulianwang/taishan"
+		}, {
+			"path": "pages/scene/wulianwang/chongdian"
+		}, {
+			"path": "pages/scene/wulianwang/chongdian2"
+		}, {
+			"path": "pages/scene/gerenzhongxin/bolang1"
+		}, {
+			"path": "pages/scene/gerenzhongxin/bolang2"
+		}, {
+			"path": "pages/scene/gerenzhongxin/wode"
+		}, {
+			"path": "pages/scene/gerenzhongxin/wode2"
+		}, {
+			"path": "pages/scene/gerenzhongxin/wode3"
+		}, {
+			"path": "pages/scene/gerenzhongxin/wode4"
+		}, {
+			"path": "pages/scene/gerenzhongxin/wode5"
+		}, {
+			"path": "pages/scene/gerenzhongxin/wode6"
+		}, {
+			"path": "pages/scene/gerenzhongxin/wode7"
+		}, {
+			"path": "pages/scene/gerenzhongxin/wode8"
+		}, {
+			"path": "pages/scene/gerenzhongxin/wode9"
+		}, {
+			"path": "pages/scene/gerenzhongxin/wode10"
+		}, {
+			"path": "pages/scene/shangcheng/gouwuche"
+		}, {
+			"path": "pages/scene/shangcheng/goumai"
+		}, {
+			"path": "pages/scene/shangcheng/youhuiquan"
+		}, {
+			"path": "pages/scene/shangcheng/youhuiquan2"
+		}, {
+			"path": "pages/scene/shangcheng/fangjingdong"
+		}, {
+			"path": "pages/scene/denglu/denglu1"
+		}, {
+			"path": "pages/scene/denglu/denglu2"
+		}, {
+			"path": "pages/scene/denglu/denglu3"
+		}, {
+			"path": "pages/scene/denglu/denglu4"
+		}, {
+			"path": "pages/scene/denglu/denglu5",
+			"style": {
+				"navigationBarBackgroundColor": "#5064eb"
+			}
+		}, {
+			"path": "pages/single/xinnitaitubiao/index"
+		}, {
+			"path": "pages/scene/fanzhuan/fanshu"
+		}, {
+			"path": "pages/scene/fanzhuan/fanshudonghua"
+		}, {
+			"path": "pages/scene/fanzhuan/zhengfan"
+		}, {
+			"path": "pages/scene/fanzhuan/3d"
+		}, {
+			"path": "pages/single/fengexian/index"
+		}, {
+			"path": "pages/scene/qipao/jiangliduihuan"
+		}, {
+			"path": "pages/scene/qipao/dianzan"
+		}, {
+			"path": "pages/scene/qipao/dianzan2"
+		}, {
+			"path": "pages/scene/qipao/dianzan3"
+		}, {
+			"path": "pages/scene/qipao/zhibodianzan"
+		}, {
+			"path": "pages/scene/qipao/quanpingdianzan"
+		}, {
+			"path": "pages/scene/qipao/liebiaodianzan"
+		}, {
+			"path": "pages/scene/qipao/shuiqiu"
+		}, {
+			"path": "pages/scene/qipao/shuiqiu2"
+		}, {
+			"path": "pages/scene/qipao/shuiqiu3"
+		}, {
+			"path": "pages/scene/qipao/shuiqiu4"
+		}, {
+			"path": "pages/scene/qipao/shangsheng"
+		}, {
+			"path": "pages/scene/qipao/shuidi"
+		}, {
+			"path": "pages/scene/yibiao/index"
+		}, {
+			"path": "pages/scene/yibiao/index2"
+		}, {
+			"path": "pages/scene/yibiao/index3"
+		}, {
+			"path": "pages/scene/hongbao/kaihongbao"
+		}, {
+			"path": "pages/scene/choujiang/paomadeng"
+		}, {
+			"path": "pages/scene/choujiang/zhuanpan"
+		}, {
+			"path": "pages/scene/choujiang/shoumaiji"
+		}, {
+			"path": "pages/scene/choujiang/guayigua"
+		}, {
+			"path": "pages/scene/choujiang/fanpai"
+		}, {
+			"path": "pages/scene/jiazai/yanse"
+		}, {
+			"path": "pages/scene/jiazai/chunse"
+		}, {
+			"path": "pages/scene/jiazai/xiaotaiyang"
+		},{
+			"path": "pages/scene/tianqi/qingyinyuxue"
+		}, {
+			"path": "pages/scene/tianqi/xiayu"
+		}, {
+			"path": "pages/scene/tianqi/liuxing"
+		}, {
+			"path": "pages/scene/tianqi/liuxing2"
+		}, {
+			"path": "pages/scene/tianqi/liuxing3"
+		}, {
+			"path": "pages/scene/tianqi/liuxing4"
+		},{
+			"path": "pages/single/sidai/index"
+		}, {
+			"path": "pages/single/kaiguan/index"
+		}, {
+			"path": "pages/single/dianliang/index"
+		}, {
+			"path": "pages/single/dongtaibeijing/index"
+		}, {
+			"path": "pages/single/huxi/index"
+		}, {
+			"path": "pages/single/wenzi/index"
+		}, {
+			"path": "pages/single/lianyi/index"
+		}
+	],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#ffaa00",
+		"borderStyle": "black",
+		"backgroundColor": "#FFFFFF",
+		"list": [{
+			"pagePath": "pages/scene/index",
+			"iconPath": "static/tabbar/scene.png",
+			"selectedIconPath": "static/tabbar/scene.png",
+			"text": "场景"
+		}, {
+			"pagePath": "pages/single/list",
+			"iconPath": "static/tabbar/single.png",
+			"selectedIconPath": "static/tabbar/single.png",
+			"text": "单一"
+		}, {
+			"pagePath": "pages/user/index",
+			"iconPath": "static/tabbar/user.png",
+			"selectedIconPath": "static/tabbar/user.png",
+			"text": "个人"
+		}]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"condition": { //模式配置，仅开发期间生效
+		"current": 4, //当前激活的模式（list 的索引项）
+		"list": [{
+			"name": "测试", //模式名称
+			"path": "pages/scene/test", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到。
+		}]
+	}
+}
